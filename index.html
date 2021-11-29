@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - PixelEdition</title>
+
+    <meta name="title" content="PixelEdition" />
+    <meta name="description" content="I make timetables." />
+
+    <meta property="og:title" content="PixelEdition" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.pixelpxed.xyz/" />
+    <meta property="og:description" content="I make timetables." />
+    <meta name="theme-color" content="#FFFFFF">
+
+    <link rel="stylesheet" href="./assets/css/preset.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+<body>
+    <div id="sidebar" class="sidebar">
+        <a class="sidebar-items text-ellipsis close" href="javascript:void(0)" onclick="closeSidebar()">ปิดเมนู<br><span style="font-size: 0.8em; opacity: 0.5;">Close Menu</span></a>
+        <div class="line"></div>
+        <a href="./index.html" class="sidebar-items text-ellipsis active">
+            หน้าหลัก<br>
+            <span style="font-size: 0.8em; opacity: 0.5;">
+                Home
+            </span>
+        </a>
+        <a href="./timetable/" class="sidebar-items text-ellipsis">
+            ตารางเรียน<br>
+            <span style="font-size: 0.8em; opacity: 0.5;">
+                Timetable
+            </span>
+        </a>
+        <a href="./timetable/m/" class="sidebar-items text-ellipsis">
+            ตารางเรียนมือถือ<br>
+            <span style="font-size: 0.8em; opacity: 0.5;">
+                Timetable M
+            </span>
+        </a>
+    </div>
+
+    <div class="navbar-wrapper">
+        <a class="sidebar-btn text-ellipsis open" href="javascript:void(0)" onclick="openSidebar()">เปิดเมนู<br><span style="font-size: 0.8em; opacity: 0.5;">Open Menu</span></a>
+    </div>
+    <h1 class="title">I Make<br>Tools.</h1>
+
+    <p class="projects">Projects</p>
+    <div class="project-item-wrapper">
+        <div class="project-item">
+            <p class="project-title">Timetable PC</p>
+            <p class="project-description">Join a class with a click.<br>Interactive, subject names, not subject codes.</p>
+            <img class="project-img" src="./assets/img/timetablepc-img.png">
+            <a class="project-link" href="./timetable/">Go ›</a>
+        </div>
+        <div class="project-item">
+            <p class="project-title">Timetable&nbspM</p>
+            <p class="project-description">Instant class joining.<br>Easier timetable now on at your finger tips.</p>
+            <img class="project-img" src="./assets/img/timetablem-img.png">
+            <a class="project-link" href="./timetable/m/">Go ›</a>
+        </div>
+    </div>
+
+    <p style="text-align: center; padding: 1em; font-size: 0.8em; opacity: 0.5;">© 2021 PixelEdition. All rights reserved</p>
+</body>
+<script src="./assets/js/main.js"></script>
+</html>

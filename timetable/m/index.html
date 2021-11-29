@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Timetable M - M205</title>
+    <link rel="icon" href="./assets/favicon.ico">
+    <link rel="stylesheet" href="./assets/index.css">
+
+    <meta name="title" content="Timetable M - PixelEdition" />
+    <meta name="description" content="Interactive timetable for M205. Now on mobile." />
+
+    <meta property="og:title" content="Timetable M - PixelEdition" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.pixelpxed.xyz/timetable/m/" />
+    <meta property="og:description" content="Interactive timetable for M205. Now on mobile." />
+    <meta name="theme-color" content="#FFFFFF">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="sidebar" class="sidebar">
+        <a class="sidebar-items text-ellipsis close" href="javascript:void(0)" onclick="closeSidebar()">ปิดเมนู<br><span style="font-size: 0.8em; opacity: 0.5;">Close Menu</span></a>
+        <div class="line"></div>
+        <a href="../../index.html" class="sidebar-items text-ellipsis">
+            หน้าหลัก<br>
+            <span style="font-size: 0.8em; opacity: 0.5;">
+                Home
+            </span>
+        </a>
+        <a href="../" class="sidebar-items text-ellipsis">
+            ตารางเรียน<br>
+            <span style="font-size: 0.8em; opacity: 0.5;">
+                Timetable
+            </span>
+        </a>
+        <a href="./" class="sidebar-items text-ellipsis active">
+            ตารางเรียนมือถือ<br>
+            <span style="font-size: 0.8em; opacity: 0.5;">
+                Timetable M
+            </span>
+        </a>
+    </div>
+    <a class="sidebar-btn text-ellipsis open" href="javascript:void(0)" onclick="openSidebar()">เปิดเมนู<br><span style="font-size: 0.8em; opacity: 0.5;">Open Menu</span></a>
+
+    <div id="title-wrapper">
+        <h1 id="title">Timetable M</h1>
+        <p id="time">--:--:----</p>
+        <p id="date">------, -- ----- -----</p>
+    </div>
+    <div class="days">
+        <a style="background: var(--yellow); color: rgba(0, 0, 0, 0.5);" href="days/monday.html">Monday</a>
+        <a style="background: var(--pink); color: rgba(0, 0, 0, 0.5);" href="days/tuesday.html">Tuesday</a>
+        <a style="background: var(--green); color: rgba(0, 0, 0, 0.5);" href="days/wednesday.html">Wednesday</a>
+        <a style="background: var(--orange); color: rgba(0, 0, 0, 0.5);" href="days/thursday.html">Thursday</a>
+        <a style="background: var(--blue); color: rgba(0, 0, 0, 0.5);" href="days/friday.html">Friday</a>
+    </div>
+
+    <div>
+        <div>
+            <h2 class="quicklinks-title">Quicklinks</h2>
+            <p class="quicklinks-content">Google Classroom<br><a href="https://classroom.google.com/u/2/h" style="color: var(--blue);" target="_blank">Go ›</a></p>
+            <p class="quicklinks-content">Google Classroom - To Do<br><a href="https://classroom.google.com/u/2/a/not-turned-in/all" style="color: var(--blue);" target="_blank">Go ›</a></p>
+            <p class="quicklinks-content">Google Meet<br><a href="https://meet.google.com/landing?authuser=2" style="color: var(--blue);" target="_blank">Go ›</a></p>
+            <p class="quicklinks-content">Google Docs<br><a href="https://docs.google.com/document/u/2/" style="color: var(--blue);" target="_blank">Go ›</a></p>
+        </div>
+        <div style="padding-bottom: 1em;">
+            <h2 class="quicklinks-title">After School</h2>
+            <p class="quicklinks-content">YouTube<br><a href="https://www.youtube.com/" style="color: var(--blue);" target="_blank">Go ›</a></p>
+            <p class="quicklinks-content">Facebook<br><a href="https://www.facebook.com/" style="color: var(--blue);" target="_blank">Go ›</a></p>
+            <p class="quicklinks-content">Instagram<br><a href="https://www.instagram.com/" style="color: var(--blue);" target="_blank">Go ›</a></p>
+            <p class="quicklinks-content">Twitter<br><a href="https://www.twitter.com/" style="color: var(--blue);" target="_blank">Go ›</a></p>
+        </div>
+    </div>
+    
+    <div id="footer">
+        <a class="footer-days" href="days/monday.html">Monday</a>
+        <a class="footer-days" href="days/tuesday.html">Tuesday</a>
+        <a class="footer-days" href="days/wednesday.html">Wednesday</a>
+        <a class="footer-days" href="days/thursday.html">Thursday</a>
+        <a class="footer-days" href="days/friday.html">Friday</a>
+        <p class="footer-info">Timetable M v.<span id="version">x.y.z</span><br>© 2021 PixelEdition. All rights reserved</p>
+    </div>
+</body>
+<script src="./assets/main.js"></script>    
+</html>

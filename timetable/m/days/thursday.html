@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Timetable M - Thursday</title>
+    <link rel="icon" href="../assets/favicon.ico">
+    <link rel="stylesheet" href="../assets/style.css">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="sidebar" class="sidebar">
+        <a class="sidebar-items text-ellipsis close" href="javascript:void(0)" onclick="closeSidebar()">ปิดเมนู<br><span style="font-size: 0.8em; opacity: 0.5;">Close Menu</span></a>
+        <div class="line"></div>
+        <a href="../../../" class="sidebar-items text-ellipsis">
+            หน้าหลัก<br>
+            <span style="font-size: 0.8em; opacity: 0.5;">
+                Home
+            </span>
+        </a>
+        <a href="../../" class="sidebar-items text-ellipsis">
+            ตารางเรียน<br>
+            <span style="font-size: 0.8em; opacity: 0.5;">
+                Timetable
+            </span>
+        </a>
+        <a href="../" class="sidebar-items text-ellipsis">
+            ตารางเรียนมือถือ<br>
+            <span style="font-size: 0.8em; opacity: 0.5;">
+                Timetable M
+            </span>
+        </a>
+    </div>
+    <a class="sidebar-btn text-ellipsis open" href="javascript:void(0)" onclick="openSidebar()">เปิดเมนู<br><span style="font-size: 0.8em; opacity: 0.5;">Open Menu</span></a>
+    <div id="title-wrapper">
+        <h1 id="title">Timetable M</h1>
+        <p id="time">--:--:----</p>
+        <p id="date">------, -- ----- -----</p>
+    </div>
+    <a class="backbtn" href="../index.html">Back</a>
+    <div id="timetable-wrapper">
+        <div class="timetable-grid">
+            <p class="timetable-top textalign-center">Time</p>
+            <p class="timetable-top" style="background: var(--orange); color: rgba(0, 0, 0, 0.5);">Thursday</p>
+            
+            <p class="timetable textalign-center" style="padding: 2em 0;">08:00 - 08:20</p>
+            <div class="timetable">
+                <p>Homeroom</p>
+                <div id="buttons">
+                    <a href="https://meet.google.com/gwp-bfzx-ags?authuser=2" target="_blank">Meet</a>
+                    <a href="https://classroom.google.com/u/2/c/MzQ3OTY2NzAwNjQz" target="_blank">Classroom</a>
+                </div>
+            </div>
+
+            <p class="timetable textalign-center" style="padding: 2em 0;">12:40 - 13:20</p>
+            <div class="timetable">
+                <p>Core Maths</p>
+                <div id="buttons">
+                    <a href="https://meet.google.com/anb-bgwt-jqb?authuser=2" target="_blank">Meet</a>
+                    <a href="https://classroom.google.com/u/2/c/NDE5NzQ3NjIwNjkx" target="_blank">Classroom</a>
+                </div>
+            </div>
+
+            <p class="timetable textalign-center" style="padding: 2em 0;">09:20 - 10:00</p>
+            <div class="timetable">
+                <p>Buddhism</p>
+                <div id="buttons">
+                    <a href="https://meet.google.com/gmp-qpyi-xan?authuser=2" target="_blank">Meet</a>
+                    <a href="https://classroom.google.com/u/2/c/MzQzNjI3Mjg2NDU1" target="_blank">Classroom</a>
+                </div>
+            </div>
+
+            <p class="timetable textalign-center" style="padding: 2em 0;">10:20 - 11:00</p>
+            <div class="timetable">
+                <p>Guidance</p>
+                <div id="buttons">
+                    <a href="https://meet.google.com/lookup/g4rxzwmq6a?authuser=2" target="_blank">Meet</a>
+                    <a href="https://classroom.google.com/u/2/c/MzQzOTgxNjMzNjkw" target="_blank">Classroom</a>
+                </div>
+            </div>
+
+            <p class="timetable textalign-center" style="padding: 2em 0;">13:40 - 14:20</p>
+            <div class="timetable">
+                <p>Thai</p>
+                <div id="buttons">
+                    <a href="https://meet.google.com/wko-ywfc-rcu?authuser=2" target="_blank">Meet</a>
+                    <a href="https://classroom.google.com/u/2/c/MzQ3OTU5NTAzOTcw" target="_blank">Classroom</a>
+                </div>
+            </div>
+
+            <p class="timetable-lunch textalign-center" style="padding: 2em 0;">12:00 - 12:40</p>
+            <div class="timetable-lunch">
+                <p class="">Lunch</p>
+            </div>
+
+            <p class="timetable textalign-center" style="padding: 2em 0;">12:40 - 13:20</p>
+            <div class="timetable">
+                <p>Music</p>
+                <div id="buttons">
+                    <a href="https://meet.google.com/xnm-kdan-hoc?authuser=2" target="_blank">Meet</a>
+                    <a href="https://classroom.google.com/u/2/c/MzQ0MDIwOTk5MjU5" target="_blank">Classroom</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <a class="footer-days" href="./monday.html">Monday</a>
+        <a class="footer-days" href="./tuesday.html">Tuesday</a>
+        <a class="footer-days" href="./wednesday.html">Wednesday</a>
+        <a class="footer-days" href="./thursday.html">Thursday</a>
+        <a class="footer-days" href="./friday.html">Friday</a>
+        <p class="footer-info">Timetable M v.<span id="version">x.y.z</span><br>© 2021 PixelEdition. All rights reserved</p>
+    </div>
+</body>
+<script src="../assets/main.js"></script>    
+</html>
