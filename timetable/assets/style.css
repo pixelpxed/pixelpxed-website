@@ -42,6 +42,8 @@
 
     --normaltext: 400;
     --boldtext: 700;
+
+    color-scheme: dark;
 }
 
 * {
@@ -57,26 +59,6 @@ body {
     font-weight: var(--normaltext);
 
     overflow-x: hidden;
-}
-
-::-webkit-scrollbar {
-    background: var(--transparentdark-two);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--transparentdark-two);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--transparentdark-four);;
-}
-
-::-webkit-scrollbar-corner {
-    background: var(--transparentdark-five);
-}
-
-::selection {
-    background: rgba(255, 255, 255, 0.1);
 }
 
 .sidebar {
@@ -427,6 +409,14 @@ body {
         animation-duration: 4s;
         transition-timing-function: ease-out;
     }
+}
+
+.footer {
+    text-align: center;
+    font-size: 0.8em;
+    opacity: 0.5;
+    text-decoration: none;
+    color: var(--white);
 }
 
 @keyframes lightmodebar {
