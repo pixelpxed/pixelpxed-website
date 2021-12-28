@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work List</title>
+</head>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    th, td {
+        width: 10em;
+    }
+
+    #worklist {
+        width: 30em;
+    }
+</style>
+<body style="font-family: 'Sarabun', sans-serif; top: 0;">
+    <p style="color: red;">This thing is not finish yet, sometimes it even breaks when you use it idk</p>
+
+    <form style="margin: auto; padding: 1em;">
+        <label for="worktitle">Work:</label>
+        <input style="width: 200px; font-family: 'Sarabun', sans-serif; display: block;" id="worktitle" type="text" placeholder="Activity 69"><br>
+        <label for="workteacher">Teacher (Optional):</label>
+        <input style="width: 200px; font-family: 'Sarabun', sans-serif; display: block;" id="workteacher" type="text" placeholder="Jay-ar Awashi"><br>
+        <label for="workdue">Due:</label>
+        <input style="width: 200px; font-family: 'Sarabun', sans-serif; display: block;" id="workdue" type="text" placeholder="25 Dec 2021"><br>
+        <a href="javascript:void(0)" onclick="addToList()">Add it in!</a>
+    </form>
+
+    <table id="tablelist">
+        <tr>
+            <th id="worklist">Work</th>
+            <th>By</th>
+            <th>Due</th>
+        </tr>
+    </table>
+</body>
+
+<script>
+    function addToList() {
+        if (document.getElementById("worktitle").value == "") {
+            alert("Do that again, but actually give me a title to put on the work.")
+            return
+        }
+        var table = document.getElementById("tablelist")
+
+        var row = table.insertRow(1);
+
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+
+        cell1.innerHTML = document.getElementById("worktitle").value;
+        cell2.innerHTML = document.getElementById("workteacher").value;
+        cell3.innerHTML = document.getElementById("workdue").value;
+
+        document.getElementById("worktitle").value = "";
+        document.getElementById("workteacher").value = "";
+        document.getElementById("workdue").value = "";
+    }
+</script>
+</html>
