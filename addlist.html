@@ -7,38 +7,115 @@
     <title>Work List</title>
 </head>
 <style>
-    table, th, td {
+    @import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    * {
+        color: white;
+    }
+
+    body {
+        font-family: 'Urbanist', 'Sarabun', sans-serif;
+        padding: 0;
+        margin: 0;
+        background: #303134;
+    }
+
+    th {
+        color: black;
+        padding: 0.5em;
+        background: white;
         border: 1px solid black;
     }
 
-    th, td {
-        width: 10em;
+    td {
+        padding: 0 0.5em;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid black;
+        transition: 0.3s;
     }
 
-    #worklist {
-        width: 30em;
+    #addbtn {
+        background: white;
+        padding: 0.3em 0.5em;
+        border-radius: 0.3em;
+
+        text-decoration: none;
+        color: black;
+    }
+
+    label {
+        margin-top: 1em;
+        display: block;
+    }
+
+    #worktitle, #workteacher, #workdue {
+        font-family: 'Urbanist', 'Sarabun', sans-serif;
+        display: block;
+        width: 100%;
+        
+        padding: 0.5em 0em;
+
+        background: transparent;
+        border: none;
+        outline: none;
+
+        border-bottom: 1px solid white;
+    }
+
+    #sidebar {
+        width: 14em;
+        height: 100vh;
+        display: block;
+        position: fixed;
+        padding: 0 0.5em;
+        background: #202124;
+    }
+
+    #sidebar h2 {
+        text-align: center;
+    }
+
+    #listtable {
+        margin-left: 15em;
+        height: 100vh;
+        overflow: auto;
+    }
+
+    #tablelist {
+        margin: 2em auto;
+        width: 90%;
+        max-width: 60em;
+        border-collapse: collapse;
+        border: 1px solid black;
     }
 </style>
-<body style="font-family: 'Sarabun', sans-serif; top: 0;">
-    <p style="color: red;">This thing is not finish yet, sometimes it even breaks when you use it idk</p>
-
-    <form style="margin: auto; padding: 1em;">
-        <label for="worktitle">Work:</label>
-        <input style="width: 200px; font-family: 'Sarabun', sans-serif; display: block;" id="worktitle" type="text" placeholder="Activity 69"><br>
-        <label for="workteacher">Teacher (Optional):</label>
-        <input style="width: 200px; font-family: 'Sarabun', sans-serif; display: block;" id="workteacher" type="text" placeholder="Jay-ar Awashi"><br>
-        <label for="workdue">Due:</label>
-        <input style="width: 200px; font-family: 'Sarabun', sans-serif; display: block;" id="workdue" type="text" placeholder="25 Dec 2021"><br>
-        <a href="javascript:void(0)" onclick="addToList()">Add it in!</a>
-    </form>
-
-    <table id="tablelist">
-        <tr>
-            <th id="worklist">Work</th>
-            <th>By</th>
-            <th>Due</th>
-        </tr>
-    </table>
+<body>
+    <div id="sidebar">
+        <h2>Add a reminder</h2>
+        <div>
+            <label for="worktitle">Work:</label>
+            <input id="worktitle" type="text" placeholder="Never gonna give you up">
+        </div>
+        <div>
+            <label for="workteacher">Teacher (Optional):</label>
+            <input id="workteacher" type="text" placeholder="Rick Astley">
+        </div>
+        <div>
+            <label for="workdue">Due (Optional):</label>
+            <input id="workdue" type="text" placeholder="--/--/----"><br>
+        </div>
+        <p style="text-align: center; width: 100%;"><a id="addbtn" href="javascript:void(0)" onclick="addToList()">Add</a></p>
+    </div>
+    <div id="listtable">
+        <table id="tablelist">
+            <tr>
+                <th width="60%">Work</th>
+                <th width="20%">Teacher</th>
+                <th width="20%">Due</th>
+            </tr>
+        </table>
+    </div>
+    
 </body>
 
 <script>
@@ -51,13 +128,17 @@
 
         var row = table.insertRow(1);
 
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
+        var worktitle = row.insertCell(0);
+        var workteacher = row.insertCell(1);
+        var workdue = row.insertCell(2);
 
-        cell1.innerHTML = document.getElementById("worktitle").value;
-        cell2.innerHTML = document.getElementById("workteacher").value;
-        cell3.innerHTML = document.getElementById("workdue").value;
+        worktitle.innerHTML = document.getElementById("worktitle").value;
+        workteacher.innerHTML = document.getElementById("workteacher").value;
+        workdue.innerHTML = document.getElementById("workdue").value;
+
+        localStorage.setItem("worktitle", document.getElementById("worktitle").value)
+        localStorage.setItem("workteacher", document.getElementById("workteacher").value)
+        localStorage.setItem("workdue", document.getElementById("workdue").value)
 
         document.getElementById("worktitle").value = "";
         document.getElementById("workteacher").value = "";
