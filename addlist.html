@@ -89,7 +89,7 @@
         border: 1px solid black;
     }
 </style>
-<body>
+<body onload="restoreList()">
     <div id="sidebar">
         <h2>Add a reminder</h2>
         <div>
@@ -119,11 +119,34 @@
 </body>
 
 <script>
+    function setCookie(cname, cvalue) {
+    document.cookie = cname + "=" + cvalue + ";path=/";
+    }
+
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
     function addToList() {
         if (document.getElementById("worktitle").value == "") {
             alert("Do that again, but actually give me a title to put on the work.")
             return
         }
+
+        var listnumber = 0
+
         var table = document.getElementById("tablelist")
 
         var row = table.insertRow(1);
@@ -136,13 +159,39 @@
         workteacher.innerHTML = document.getElementById("workteacher").value;
         workdue.innerHTML = document.getElementById("workdue").value;
 
-        localStorage.setItem("worktitle", document.getElementById("worktitle").value)
-        localStorage.setItem("workteacher", document.getElementById("workteacher").value)
-        localStorage.setItem("workdue", document.getElementById("workdue").value)
+        var worktitle = document.getElementById("worktitle").value;
+        var workteacher = document.getElementById("workteacher").value;
+        var workdue = document.getElementById("workdue").value;
+
+        var cookieTitle = "worktitle" + listnumber
+        var cookieTeacher = "workteacher" + listnumber
+        var cookieDue = "workdue" + listnumber
+
+        setCookie(cookieTitle, worktitle)
+        setCookie(cookieTeacher, workteacher)
+        setCookie(cookieDue, workdue)
+
+        setCookie(cookleNumber, listnumber)
+
+        var listnumber = listnumber + 1
 
         document.getElementById("worktitle").value = "";
         document.getElementById("workteacher").value = "";
         document.getElementById("workdue").value = "";
+    }
+
+    function restoreList() {
+        var table = document.getElementById("tablelist")
+
+        var row = table.insertRow(1);
+
+        var worktitle = row.insertCell(0);
+        var workteacher = row.insertCell(1);
+        var workdue = row.insertCell(2);
+
+        worktitle.innerHTML = getCookie("worktitle0");
+        workteacher.innerHTML = getCookie("workteacher0");
+        workdue.innerHTML = getCookie("workdue0");
     }
 </script>
 </html>
