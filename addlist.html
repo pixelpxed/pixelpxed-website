@@ -21,9 +21,8 @@
     }
 
     th {
-        color: black;
         padding: 0.5em;
-        background: white;
+        background: rgba(255, 255, 255, 0.1);
         border: 1px solid black;
     }
 
@@ -89,36 +88,9 @@
         border: 1px solid black;
     }
 </style>
-<body onload="restoreList()">
-    <div id="sidebar">
-        <h2>Add a reminder</h2>
-        <div>
-            <label for="worktitle">Work:</label>
-            <input id="worktitle" type="text" placeholder="Never gonna give you up">
-        </div>
-        <div>
-            <label for="workteacher">Teacher (Optional):</label>
-            <input id="workteacher" type="text" placeholder="Rick Astley">
-        </div>
-        <div>
-            <label for="workdue">Due (Optional):</label>
-            <input id="workdue" type="text" placeholder="--/--/----"><br>
-        </div>
-        <p style="text-align: center; width: 100%;"><a id="addbtn" href="javascript:void(0)" onclick="addToList()">Add</a></p>
-    </div>
-    <div id="listtable">
-        <table id="tablelist">
-            <tr>
-                <th width="60%">Work</th>
-                <th width="20%">Teacher</th>
-                <th width="20%">Due</th>
-            </tr>
-        </table>
-    </div>
-    
-</body>
-
 <script>
+    var listnumber = 0
+
     function setCookie(cname, cvalue) {
     document.cookie = cname + "=" + cvalue + ";path=/";
     }
@@ -145,8 +117,6 @@
             return
         }
 
-        var listnumber = 0
-
         var table = document.getElementById("tablelist")
 
         var row = table.insertRow(1);
@@ -167,17 +137,20 @@
         var cookieTeacher = "workteacher" + listnumber
         var cookieDue = "workdue" + listnumber
 
-        setCookie(cookieTitle, worktitle)
-        setCookie(cookieTeacher, workteacher)
-        setCookie(cookieDue, workdue)
+        setCookie(cookieTitle, worktitle);  
+        setCookie(cookieTeacher, workteacher);
+        setCookie(cookieDue, workdue);
 
-        setCookie(cookleNumber, listnumber)
+        setCookie("cookleNumber", listnumber);
 
-        var listnumber = listnumber + 1
+        console.log(listnumber)
+        listnumber++;
 
         document.getElementById("worktitle").value = "";
         document.getElementById("workteacher").value = "";
         document.getElementById("workdue").value = "";
+        
+        return listnumber;
     }
 
     function restoreList() {
@@ -189,9 +162,40 @@
         var workteacher = row.insertCell(1);
         var workdue = row.insertCell(2);
 
+        var listnumber = getCookie("cookieNumber")
+        parseInt(listnumber)
+        console.log(listnumber)
+
         worktitle.innerHTML = getCookie("worktitle0");
         workteacher.innerHTML = getCookie("workteacher0");
         workdue.innerHTML = getCookie("workdue0");
     }
 </script>
+<body onload="restoreList()">
+    <div id="sidebar">
+        <h2>Add a reminder</h2>
+        <div>
+            <label for="worktitle">Work:</label>
+            <input id="worktitle" type="text" placeholder="Never gonna give you up">
+        </div>
+        <div>
+            <label for="workteacher">Teacher (Optional):</label>
+            <input id="workteacher" type="text" placeholder="Rick Astley">
+        </div>
+        <div>
+            <label for="workdue">Due (Optional):</label>
+            <input id="workdue" type="text" placeholder="--/--/----"><br>
+        </div>
+        <p style="text-align: center; width: 100%;"><a id="addbtn" href="javascript:void(0)" onclick="addToList()">Add</a></p>
+    </div>
+    <div id="listtable">
+        <table id="tablelist">
+            <tr>
+                <th width="60%">Work</th>
+                <th width="20%">Teacher</th>
+                <th width="20%">Due</th>
+            </tr>
+        </table>
+    </div>
+</body>
 </html>

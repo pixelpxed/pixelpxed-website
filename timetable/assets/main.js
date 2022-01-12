@@ -61,16 +61,12 @@ document.getElementById("searchbar").addEventListener("keyup", function(event) {
     }
 });
 
-function displaypain() {
-    document.getElementById("painimg").style.display = "block"
+function addsci() {
+    console.log("Have you ever wondered why this class sucks? Well I don't know but this class sounds like 'Additional Pain' for me.")
 }
 
-function closepain() {
-    document.getElementById("painimg").style.display = "none"
-}
-
-function howtolightmode() {
-    alert("Turning on dark mode helps reducing eye strain,\nhere's how you can turn on light mode. 😉\n\nWindows:\nSettings > Personalization > Colors > Choose your color > Dark\n\nMacOS:\nApple Menu > System Preferences > General > Appearance > Dark")
+function tutor() {
+    console.log("More like a whole 100 minutes of pure torture, good luck. Have fun in that class I guess?")
 }
 
 function closeUseDark() {
