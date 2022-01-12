@@ -5,3 +5,5 @@ function openSidebar() {
 function closeSidebar() {
     document.getElementById("sidebar").style.marginLeft = "-16em"
 }
+
+document.getElementById("year").textContent = "2022"

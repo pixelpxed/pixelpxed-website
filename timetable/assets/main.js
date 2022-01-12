@@ -61,6 +61,8 @@ document.getElementById("searchbar").addEventListener("keyup", function(event) {
     }
 });
 
+document.getElementById("year").textContent = "2022"
+
 function addsci() {
     console.log("Have you ever wondered why this class sucks? Well I don't know but this class sounds like 'Additional Pain' for me.")
 }

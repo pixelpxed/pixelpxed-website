@@ -14,6 +14,7 @@ setInterval(() => {
 }, 1000);
 
 document.getElementById("version").textContent = "1.1.3"
+document.getElementById("year").textContent = "2022"
 
 function changeSubjName() {
     document.getElementById("addsci").textContent = "Additional Pain"
