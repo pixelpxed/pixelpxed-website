@@ -13,7 +13,7 @@ setInterval(() => {
     document.getElementById("date").textContent = `${day}, ${date > 9 ? date : "0" + date} ${month} ${year}`;
 }, 1000);
 
-document.getElementById("version").textContent = "1.1.3"
+document.getElementById("version").textContent = "1.1.4"
 document.getElementById("year").textContent = "2022"
 
 function changeSubjName() {
