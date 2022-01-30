@@ -198,22 +198,6 @@ body {
     margin-bottom: -0.2em;
 }
 
-#painimg {
-    width: 20em;
-    margin: 0 auto;
-    border-radius: 0.5em;
-    padding: 1em;
-    background: var(--transparentdark-one);
-    display: none;
-    text-align: center;
-}
-
-#painimg img {
-    width: 50px;
-    margin: 0.5em auto;
-    aspect-ratio: auto;
-}
-
 .root {
     overflow-x: auto;
     display: flex;
