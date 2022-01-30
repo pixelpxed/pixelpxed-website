@@ -1,0 +1,68 @@
+.timetable-title {
+    padding: 1em;
+    text-align: center;
+}
+
+.clock-wrapper {
+    text-align: center;
+}
+
+#clock {
+    font-size: 2em;
+    font-weight: var(--boldtext);
+}
+
+.table {
+    gap: 0.5em;
+    
+    width: 100%;
+
+    grid-template-columns: repeat(12, 1fr);
+    
+    display: grid;
+}
+
+.table-wrapper {
+    width: 90vw;
+    background: var(--tablebg);
+    padding: 0.5em;
+    border-radius: 0.5em;
+    overflow-x: auto;
+    margin: 1em auto;
+}
+
+.subjectgrid {
+    background: var(--subjbg);
+    display: flex;
+    padding: 1em 0.5em;
+    text-align: center;
+    border-radius: 0.2em;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.subjectgrid:hover {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.subjectgrid-darker {
+    background: var(--subjbg-darker);
+}
+
+.subjectgrid-time {
+    background: var(--subjbg-darker);
+    text-align: center;
+    padding: 0.5em;
+    border: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--boldtext);
+}
+
+.dclass {
+    grid-column: span 2;
+}
