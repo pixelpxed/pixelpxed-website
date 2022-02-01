@@ -1,5 +1,5 @@
 // General variables
-var versionnumber = "2.0.0"
+var versionnumber = "2.0.1"
 var copyrightyear = "2022"
 
 // If you want a switch for Japanese and Chinese class
@@ -86,7 +86,7 @@ const subj = {
         "classroom": "https://classroom.google.com/u/2/c/MTE1ODAxNTg5MDk0"
     },
     "Art": {
-        "videocall": "https://meet.google.com/lookup/e27kcllzvs?authuser=2",
+        "videocall": "https://meet.google.com/lookup/ddlxbpb3gt?authuser=2",
         "classroom": "https://classroom.google.com/u/2/c/MzQzOTYwMTQ5ODUz"
     },
     "History": {
