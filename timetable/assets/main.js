@@ -1,3 +1,17 @@
+window.onload = function() {
+    document.getElementById("version").innerHTML = versionnumber
+    document.getElementById("year").innerHTML = copyrightyear
+
+    if (japanesechinese == true) {
+        document.getElementById("navbar-right").style.display = "block"
+    }
+
+    var choosesubjid = null
+
+    onstartsetup()
+    joiningsystem()
+}
+
 setInterval(() => {
     var today = new Date();
     var day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
@@ -11,68 +25,101 @@ setInterval(() => {
 
     document.getElementById("clock").innerHTML = `${h > 9 ? h : "0" + h}:${m >= 10 ? m : "0" + m}:${s >= 10 ? s : "0" + s}`
     document.getElementById("day").innerHTML = `${day}, ${date > 9 ? date : "0" + date} ${month} ${year}`;
-}, 1000);
+}, 1);
 
-document.querySelectorAll("a.class").forEach(h => {
-    document.addEventListener('contextmenu', event => event.preventDefault()); // Prevent menu from showing up
+function onstartsetup() {
+    var classFilled = 0;
+    var timeFilled = 0;
+    var bookmarkFilled = 0;
 
-    h.addEventListener("click", () => {
-        console.log(`[GoogleMeet] Opened ${h.innerHTML} class Google Meet`);
-        var o = h.getAttribute("meet");
-        if (null !== o) return window.open(o);
-            alert(`Either "${h.innerHTML}" doesn't have Google Meet link,\nor you haven't set this class up properly yet.\n\nPlease try again later. 🙏`)
-            console.error(`[GoogleMeet] Failed to open ${h.innerHTML} Google Meet. Reason: No link to open`)
-    }), 
-    h.addEventListener("auxclick", () => {
-        console.log(`[GoogleClassroom] Opened ${h.innerHTML} class Google Classroom`);
-        var o = h.getAttribute("classroom");
-        if (null !== o) return window.open(o);
-            alert(`Either "${h.innerHTML}" doesn't have Google Classroom link,\nor you haven't set this class up properly yet.\n\nPlease try again later. 🙏`)
-            console.error(`[GoogleMeet] Failed to open ${h.innerHTML} Google Classroom. Reason: No link to open`)
-    })
-})
-
-document.querySelectorAll("a.lunch, a.blankclass").forEach(h => {
-    document.addEventListener('contextmenu', event => event.preventDefault()); // Prevent menu from showing up
-
-    h.addEventListener("click", () => {
-        console.log("[Trigger-Alert] Triggered alert box by left click.")   
-        if (confirm("There's no class here for you to attend... 😶\n\nWatch YouTube?")) {
-            window.open("https://www.youtube.com/", "_blank")
-            console.log("[Trigger-Choice] Choosed to open YouTube in new tab.")
-        } else {
-            console.log("[Trigger-Choice] Choosed not to open YouTube.")
-        }
-    }), h.addEventListener("auxclick", () => {
-        console.log("[Lunch-Alert] Triggered alert box by other buttons.")
-        if (confirm("There's no class here for you to attend... 😶\n\nWatch YouTube?")) {
-            window.open("https://www.youtube.com/", "_blank")
-            console.log("[Lunch-Choice] Choosed to open YouTube in new tab.")
-        } else {
-            console.log("[Lunch-Choice] Choosed not to open YouTube.")
-        }
-    })
-})
-
-document.getElementById("searchbar").addEventListener("keyup", function(event) {
-    if (event.key === "enter") {
-        event.preventDefault();
-        document.getElementById("searchsubmit").click();
+    while (timeFilled != 11) {
+        document.getElementById("time" + timeFilled).innerHTML = time[timeFilled];
+        timeFilled = timeFilled + 1;
     }
-});
 
-document.getElementById("year").textContent = "2022"
+    while (classFilled != 50) {
+        document.getElementById(classFilled).innerHTML = classes[classFilled];
 
-function addsci() {
-    console.log("Have you ever wondered why this class sucks? Well I don't know but this class sounds like 'Additional Pain' for me.")
+        if (document.getElementById(classFilled).innerHTML == "Chinese") {
+            choosesubjid = classFilled
+        }
+
+        if (document.getElementById(classFilled).innerHTML == "Lunch" || "") {
+            document.getElementById(classFilled).classList.add("subjectgrid-darker");
+            document.getElementById(classFilled).classList.remove("joinable");
+        } if (document.getElementById(classFilled).innerHTML == "") {
+            document.getElementById(classFilled).classList.add("subjectgrid-darker");
+            document.getElementById(classFilled).classList.remove("joinable");
+        } if (document.getElementById(classFilled).innerHTML == "DClass") {
+            document.getElementById(classFilled).remove();
+            document.getElementById(classFilled - 1).classList.add("dclass");
+        }
+
+        classFilled = classFilled + 1;
+    }
+
+    while (bookmarkFilled != 8) {
+        bookmarkName = "bookmark" + bookmarkFilled
+        document.getElementById(bookmarkName).innerHTML = `${bookmarks[bookmarkName].name}<br><a style="color: var(--blue);" href="${bookmarks[bookmarkName].url}" target="_blank">Go ›</a>`;
+        bookmarkFilled = bookmarkFilled + 1;
+    }
 }
 
-function tutor() {
-    console.log("More like a whole 100 minutes of pure torture, good luck. Have fun in that class I guess?")
+function japanese() {
+    document.getElementById(choosesubjid).textContent = "Japanese"
+    document.getElementById("jp").style.opacity = "1"
+    document.getElementById("ch").style.opacity = "0.5"
+    popup(`CNE-01`, `Changed "Chinese" class to "Japanese"`, `white`)
+} function chinese() {
+    document.getElementById(choosesubjid).textContent = "Chinese"
+    document.getElementById("jp").style.opacity = "0.5"
+    document.getElementById("ch").style.opacity = "1"
+    popup(`CNE-02`, `Changed "Japanese" class to "Chinese"`, `white`)
 }
 
-function closeUseDark() {
-    document.getElementById("usedark").style.transform = 'translateY(-4em)';
+function joiningsystem() {
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    document.querySelectorAll("a.joinable").forEach(c => {
+        c.addEventListener("click", () => {
+            var subjecttext = c.innerHTML;
+            var o = subj[subjecttext].videocall;
+
+            if (subjecttext == "Japanese") {
+                popup(`JAP-01`, `Your teacher should send you a link, please check there!`, `white`)
+                return
+            }
+            
+            if (o !== "") {
+                console.log(`[SUC-01] Open "${c.innerHTML}" subject video call.`)
+                return window.open(o);
+            } if (o == "" || o == null) {
+                popup(`NON-02`, `"${c.innerHTML}" subject doesn't have a classroom link.`); 
+                return
+            }
+        }), 
+        c.addEventListener("auxclick", () => {
+            var classroomtext = c.innerHTML;
+            var o = subj[classroomtext].classroom;
+    
+            if (o !== "") {
+                console.log(`[SUC-02] Open "${c.innerHTML}" subject classroom.`)
+                return window.open(o);
+            } if (o == "" || o == null) {
+                popup(`NON-02`, `"${c.innerHTML}" subject doesn't have a classroom link.`);
+                return
+            }
+        })
+    })
+
+    document.querySelectorAll("a.subjectgrid-darker").forEach(c => {
+        c.addEventListener("click", () => {
+            popup(`BLK-01`, `There's no class here, so there's no video call for you to attend!`, `white`);
+        }), 
+        c.addEventListener("auxclick", () => {
+            popup(`BLK-02`, `There's no class here, so there's no classroom for you to check!`, `white`);
+        })
+    })
 }
 
 function clearSearch() {
@@ -81,10 +128,43 @@ function clearSearch() {
     document.getElementById("searchbar").value = ''
 }
 
-function openSidebar() {
-    document.getElementById("sidebar").style.marginLeft = "0"
+function popup(code, msg, status) {
+    document.querySelector(".popup").className = "popup";
+    window.requestAnimationFrame(function(time) {
+        window.requestAnimationFrame(function(time) {
+            // If undefined error message
+            if (!code) {
+                code = "UKN-00";
+            } if (!msg) {
+                msg = "An unknown error occured.";
+            }
+
+            // Popup box color
+            if (status == "white") {
+                document.getElementById("popup").style.background = "var(--textcolor)";
+
+                document.getElementById("codewrap").style.color = "var(--alt-textcolor)";
+                document.getElementById("code").style.color = "var(--alt-textcolor)";
+                document.getElementById("msg").style.color = "var(--alt-textcolor)";
+            } if (!status || status != "white") {
+                document.getElementById("popup").style.background = "var(--red)";
+
+                document.getElementById("codewrap").style.color = "var(--textcolor)";
+                document.getElementById("code").style.color = "var(--textcolor)";
+                document.getElementById("msg").style.color = "var(--textcolor)";
+
+                console.error(`[${code}] ${msg}`)
+            }
+
+            document.getElementById("code").innerHTML = code;
+            document.getElementById("msg").innerHTML = msg;
+            document.querySelector(".popup").className = "popup popup-ani";
+        });
+    });
 }
 
-function closeSidebar() {
-    document.getElementById("sidebar").style.marginLeft = "-16em"
+function clearSearch() {
+    var searchvalue = document.getElementById("searchbar").value
+    window.open(`https://www.google.com/search?q=${searchvalue}`).focus
+    document.getElementById("searchbar").value = ''
 }

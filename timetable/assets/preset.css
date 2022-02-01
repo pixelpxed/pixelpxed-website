@@ -36,6 +36,8 @@
     padding: 0;
     margin: 0;
 
+    -webkit-appearance: none;
+
     font-weight: var(--normaltext);
 
     text-decoration: none;

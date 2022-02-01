@@ -1,243 +1,169 @@
-<!-- 
-    
-    You should just need to change only href's link here.
-
-    If you want to customize the page,
-    please head to style.css file
-
--->
-
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
-    <title>Timetable - PixelEdition</title>
-    <link rel="stylesheet" href="./assets/style.css">
-    <link rel="icon" href="./assets/favicon.ico">
-
-    <meta name="title" content="Timetable - PixelEdition" />
-    <meta name="description" content="Interactive timetable for M205." />
-
-    <meta property="og:title" content="Timetable - PixelEdition" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://www.pixelpxed.xyz/timetable/" />
-    <meta property="og:description" content="Interactive timetable for M205." />
-    <meta name="theme-color" content="#FFFFFF">
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/preset.css">
+    <link rel="stylesheet" href="./assets/timetable.css">
+    <link rel="icon" href="./assets/favicon.ico">
+    <title>Timetable - PixelEdition</title>
 </head>
-
-<body>
-    <div id="sidebar" class="sidebar">
-        <a class="sidebar-items text-ellipsis close" href="javascript:void(0)" onclick="closeSidebar()">ปิดเมนู<br><span style="font-size: 0.8em; opacity: 0.5;">Close Menu</span></a>
-        <div class="line"></div>
-        <a href="../index.html" class="sidebar-items text-ellipsis">
-            หน้าหลัก<br>
-            <span style="font-size: 0.8em; opacity: 0.5;">
-                Home
-            </span>
-        </a>
-        <a href="./" class="sidebar-items text-ellipsis active">
-            ตารางเรียน<br>
-            <span style="font-size: 0.8em; opacity: 0.5;">
-                Timetable
-            </span>
-        </a>
-        <a href="./m/" class="sidebar-items text-ellipsis">
-            ตารางเรียนมือถือ<br>
-            <span style="font-size: 0.8em; opacity: 0.5;">
-                Timetable M
-            </span>
-        </a>
-    </div>
-    <a class="sidebar-btn text-ellipsis open" href="javascript:void(0)" onclick="openSidebar()">เปิดเมนู<br><span style="font-size: 0.8em; opacity: 0.5;">Open Menu</span></a>
-    <!-- Clock -->
-    <div class="clockwrapper">
-        <h1>Timetable</h1>
-        <p class="description">Left click to join Google Meet,<br>Right click to join Google Classroom</p>
-        <p class="date clock" id="clock">--:--:--</p>
-        <p class="date" id="day">------, -- ----- ----</p>
-    </div>
-    <!-- Timetable -->
-    <div class="root">
-        <div class="grid-container">
-            <!-- Time -->
-            <div class="timegrid">Time</div>
-            <div class="timegrid">08:00 - 08:40</div>
-            <div class="timegrid">08:40 - 09:20</div>
-            <div class="timegrid">09:20 - 10:00</div>
-            <div class="timegrid">10:20 - 11:00</div>
-            <div class="timegrid">11:00 - 11:40</div>
-            <div class="timegrid">12:00 - 12:40</div>
-            <div class="timegrid">12:40 - 13:20</div>
-            <div class="timegrid">13:40 - 14:20</div>
-            <div class="timegrid">14:20 - 15:00</div>
-            <div class="timegrid">15:20 - 16:00</div>
-            <div class="timegrid">16:00 - 16:40</div>
-
-            <!-- Monday -->
-            <a class="subjectgrid bold" style="background-color: var(--yellow); color: var(--blacktransparent); font-weight: var(--boldtext);">
-                Monday
-            </a>
-            
-            <a class="subjectgrid class bold"       meet="https://meet.google.com/cug-fqam-xoy?authuser=2" classroom="https://classroom.google.com/u/2/c/MzQ3OTY2NzAwNjQz">Homeroom</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/jne-tpyd-hjy?authuser=2" classroom="https://classroom.google.com/u/2/c/MzMwNjA0MTM1NjY2">Social</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/ubp-evqe-pag?authuser=2" classroom="https://classroom.google.com/u/2/c/MzM1MTcyNDc5ODQ0">Core English</a>
-            <a class="subjectgrid class dclass"     meet="https://meet.google.com/ksm-qsei-mid?authuser=2" classroom="https://classroom.google.com/u/2/c/NDE5Nzk2NDM1MTU1">Core Science</a>
-            <a class="subjectgrid lunch darkergrid">Lunch</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/anb-bgwt-jqb?authuser=2" classroom="https://classroom.google.com/u/2/c/NDE5NzQ3NjIwNjkx">Core Maths</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/wko-ywfc-rcu?authuser=2" classroom="https://classroom.google.com/u/2/c/MzQ3OTU5NTAzOTcw">Thai</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/cog-zwyi-jwt?authuser=2" classroom="https://classroom.google.com/u/2/c/MzEyNTIyNzg4MDQ4">R+W</a>
-            <a class="subjectgrid class dclass"     meet="https://meet.google.com/kvr-hrmx-jjo?authuser=2" classroom="https://classroom.google.com/u/2/c/MzU4ODk4MzgxMjMz" onclick="tutor()">Tutor</a>
-
-            <!-- Tuesday -->
-            <a class="subjectgrid bold" style="background-color: var(--pink); color: var(--blacktransparent); font-weight: var(--boldtext);">
-                Tuesday
-            </a>
-            <a class="subjectgrid class bold"       meet="https://meet.google.com/cug-fqam-xoy?authuser=2" classroom="https://classroom.google.com/u/2/c/MzQ3OTY2NzAwNjQz">Homeroom</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/wko-ywfc-rcu?authuser=2" classroom="https://classroom.google.com/u/2/c/MzQ3OTU5NTAzOTcw">Thai</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/buo-obyb-iih?authuser=2" classroom="https://classroom.google.com/u/2/c/MzMwNjA0MTQ4NTM1">P.E.</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/lookup/e27kcllzvs?authuser=2" classroom="https://classroom.google.com/u/2/c/MzQzNDgxNTc5MTI0">History</a>
-            <a class="subjectgrid lunch darkergrid">Lunch</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/cxe-ntdr-put?authuser=2" classroom="https://classroom.google.com/u/2/c/NDE5NzUwMjAwNTg5">Add Math</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/lookup/ddlxbpb3gt?authuser=2" classroom="https://classroom.google.com/u/2/c/MzQzOTYwMTQ5ODUz">Art</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/wcq-gqpv-kst?authuser=2" classroom="https://classroom.google.com/u/2/c/NDE4MTM4ODY2MzI1">Mech. Work</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/ubp-evqe-pag?authuser=2" classroom="https://classroom.google.com/u/2/c/MzM1MTcyNDc5ODQ0">Core English</a>
-            <a class="subjectgrid class dclass"     meet="https://meet.google.com/kvr-hrmx-jjo?authuser=2" classroom="https://classroom.google.com/u/2/c/MzU4ODk4MzgxMjMz" onclick="tutor()">Tutor</a>
-
-            <!-- Wednesday -->
-            <a class="subjectgrid bold" style="background-color: var(--green); color: var(--blacktransparent); font-weight: var(--boldtext);">
-                Wednesday
-            </a>
-            <a class="subjectgrid class bold"       meet="https://meet.google.com/cug-fqam-xoy?authuser=2" classroom="https://classroom.google.com/u/2/c/MzQ3OTY2NzAwNjQz">Homeroom</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/bmn-mozj-uig?authuser=2" classroom="https://classroom.google.com/u/2/c/MzMwNjA0MTM1NzE3">Health</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/ksm-qsei-mid?authuser=2" classroom="https://classroom.google.com/u/2/c/NDE5Nzk2NDM1MTU1">Core Science</a>
-            <a class="subjectgrid class dclass"     meet="https://meet.google.com/yyu-pujm-tus?authuser=2" classroom="https://classroom.google.com/u/2/c/NDE5MzQwMjAxNjQ4">Film Making</a>
-            <a class="subjectgrid lunch darkergrid">Lunch</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/cog-zwyi-jwt?authuser=2" classroom="https://classroom.google.com/u/2/c/MzEyNTIyNzg4MDQ4">R+W</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/cxe-ntdr-put?authuser=2" classroom="https://classroom.google.com/u/2/c/NDE5NzUwMjAwNTg5">Add Math</a>
-            <a class="subjectgrid class dclass"     meet="https://meet.google.com/qkc-qmcj-ukt?authuser=2" classroom="https://classroom.google.com/u/2/c/MzQ3ODM2MzI4Njk2">Chinese</a>
-            <a class="subjectgrid blankclass darkergrid"></a>
-
-            <!-- Thursday -->
-            <a class="subjectgrid bold" style="background-color: var(--orange); color: var(--blacktransparent); font-weight: var(--boldtext);">
-                Thursday
-            </a>
-            <a class="subjectgrid class bold"       meet="https://meet.google.com/cug-fqam-xoy?authuser=2" classroom="https://classroom.google.com/u/2/c/MzQ3OTY2NzAwNjQz">Homeroom</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/anb-bgwt-jqb?authuser=2" classroom="https://classroom.google.com/u/2/c/NDE5NzQ3NjIwNjkx">Core Maths</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/gmp-qpyi-xan?authuser=2" classroom="https://classroom.google.com/u/2/c/MzQzNjI3Mjg2NDU1">Buddhism</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/fgy-kcye-fzx?authuser=2" classroom="https://classroom.google.com/u/2/c/MzQzOTgxNjMzNjkw">Guidance</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/wko-ywfc-rcu?authuser=2" classroom="https://classroom.google.com/u/2/c/MzQ3OTU5NTAzOTcw">Thai</a>
-            <a class="subjectgrid lunch darkergrid">Lunch</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/xnm-kdan-hoc?authuser=2" classroom="https://classroom.google.com/u/2/c/MzQ0MDIwOTk5MjU5">Music</a>
-            <a class="subjectgrid blankclass darkergrid"></a>
-            <a class="subjectgrid blankclass darkergrid"></a>
-            <a class="subjectgrid blankclass darkergrid"></a>
-            <a class="subjectgrid blankclass darkergrid"></a>
-
-            <!-- Friday -->
-            <a class="subjectgrid bold" style="background-color: var(--blue); color: var(--blacktransparent); font-weight: var(--boldtext);">
-                Friday
-            </a>
-            <a class="subjectgrid class bold"       meet="https://meet.google.com/cug-fqam-xoy?authuser=2" classroom="https://classroom.google.com/u/2/c/MzQ3OTY2NzAwNjQz">Homeroom</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/gzv-wipn-vse?authuser=2" classroom="https://classroom.google.com/u/2/c/NDE4OTcwMDQ2ODky">Career</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/anb-bgwt-jqb?authuser=2" classroom="https://classroom.google.com/u/2/c/NDE5NzQ3NjIwNjkx">Core Maths</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/cog-zwyi-jwt?authuser=2" classroom="https://classroom.google.com/u/2/c/MzEyNTIyNzg4MDQ4">R+W</a>
-            <a class="subjectgrid lunch darkergrid">Lunch</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/jne-tpyd-hjy?authuser=2" classroom="https://classroom.google.com/u/2/c/MzMwNjA0MTM1NjY2">Social</a>
-            <a class="subjectgrid class"            meet="https://meet.google.com/ubp-evqe-pag?authuser=2" classroom="https://classroom.google.com/u/2/c/MzM1MTcyNDc5ODQ0">Core English</a>
-            <a class="subjectgrid class dclass"     meet="https://meet.google.com/lookup/d2lq6fo5a2?authuser=2" classroom="https://classroom.google.com/u/2/c/MzQzOTkyNjMxMDQ4" id="addsci" onclick="addsci()">Additional Science</a>
-            <a class="subjectgrid blankclass darkergrid"></a>
-            <a class="subjectgrid blankclass darkergrid"></a>   
-        </div>
-    </div>
-
-        <!-- Quick Links -->
-        <div class="vercenter">
-            <div class="grid-quicklinks">
-                <div>
-                    <h2 class="sectiontitle">Quick Links</h2>
-                    <div class="vercenter">
-                        <div>
-                            <a class="quicklinks-link" href="https://classroom.google.com/u/2/h" target="_blank">
-                                <div class="quicklink-bg">
-                                    <p class="quicklink-name">Google Classroom</p>
-                                    <p class="button">Go ›</p>
-                                </div>
-                            </a>
-                            <a class="quicklinks-link" href="https://classroom.google.com/u/2/a/not-turned-in/all" target="_blank">
-                                <div class="quicklink-bg">
-                                    <p class="quicklink-name">Google Classroom - To Do</p>
-                                    <p class="button">Go ›</p>
-                                </div>
-                            </a>
-                            <a class="quicklinks-link" href="https://meet.google.com/landing?authuser=2" target="_blank">
-                                <div class="quicklink-bg">
-                                    <p class="quicklink-name">Google Meet</p>
-                                    <p class="button">Go ›</p>
-                                </div>
-                            </a>
-                            <a class="quicklinks-link" href="https://drive.google.com/drive/u/2/" target="_blank">
-                                <div class="quicklink-bg">
-                                    <p class="quicklink-name">Google Drive</p>
-                                    <p class="button">Go ›</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="sectiontitle">After School</h2>
-                    <div class="vercenter">
-                        <div>
-                            <a class="quicklinks-link" href="https://www.youtube.com" target="_blank">
-                                <div class="quicklink-bg">
-                                    <p class="quicklink-name">YouTube</p>
-                                    <p class="button">Go ›</p>
-                                </div>
-                            </a>
-                            <a class="quicklinks-link" href="https://www.facebook.com/" target="_blank">
-                                <div class="quicklink-bg">
-                                    <p class="quicklink-name">Facebook</p>
-                                    <p class="button">Go ›</p>
-                                </div>
-                            </a>
-                            <a class="quicklinks-link" href="https://www.instagram.com/" target="_blank">
-                                <div class="quicklink-bg">
-                                    <p class="quicklink-name">Instagram</p>
-                                    <p class="button">Go ›</p>
-                                </div>
-                            </a>
-                            <a class="quicklinks-link" href="https://www.twitter.com/" target="_blank">
-                                <div class="quicklink-bg">
-                                    <p class="quicklink-name">Twitter</p>
-                                    <p class="button">Go ›</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="google">
-                    <h2>Can't find what you need?</h2>
-                    <p>Maybe try searching Google could help</p>
-                    <div class="search-wrapper">
-                        <div id="searchgoogle">
-                            <input name="q" id="searchbar" type="text" spellcheck="false" placeholder="Search with Google">
-                            <input onclick="clearSearch()" id="searchsubmit" type="submit" value="Search">
-                        </div>
-                    </div>
-                </div>
-            </div> 
-        </div>
-    </div>
-</div>
-
-<div>
-    <p class="footer">© <span id="year">----</span> PixelEdition. All rights reserved, v.1.5.8</p>
-    <p class="footer"><a href="./changelog.html">Changelog</a></p>
-</div>
-
+<script src="./assets/config.js" defer></script>
 <script src="./assets/main.js" defer></script>
 
+<body id="body">
+    <noscript>
+        <p class="errorbox" style="bottom: 0.5em;">
+            <span style="font-weight: bold;">Important:</span>
+            You need JavaScript enabled to run this timetable properly. Go to your browser settings to edit your JavaScript preferences.<br>
+        </p>
+    </noscript>
+    <div class="navbar">
+        <a href="https://www.pixelpxed.xyz/">Home (Temporary)</a>
+        <a href="./" style="opacity: 1;">Timetable</a>
+        <a href="./m/">Timetable-M (Temporary)</a>
+        <div style="display: none;" id="navbar-right" class="navbar-right">
+            <a style="cursor: pointer; opacity: 1;" id="ch" onclick="chinese()">CH</a>
+            <a style="cursor: pointer;" id="jp" onclick="japanese()">JP</a>
+        </div>
+    </div>
+    <div>
+        <div class="timetable-title">
+            <h1 style="font-weight: var(--boldtext);">Timetable</h1>
+            <p>Left Click - Google Meet<br>Right Click - Google Classroom</p>
+        </div>
+        <div class="clock-wrapper">
+            <p id="clock">--:--:--</p>
+            <p id="day">---------, -- --------- ----</p>
+        </div>
+        <div class="table-wrapper">
+            <div id="table" class="table">
+                <a class="subjectgrid-time">Time</a>
+                <a class="subjectgrid-time" id="time0"></a>
+                <a class="subjectgrid-time" id="time1"></a>
+                <a class="subjectgrid-time" id="time2"></a>
+                <a class="subjectgrid-time" id="time3"></a>
+                <a class="subjectgrid-time" id="time4"></a>
+                <a class="subjectgrid-time" id="time5"></a>
+                <a class="subjectgrid-time" id="time6"></a>
+                <a class="subjectgrid-time" id="time7"></a>
+                <a class="subjectgrid-time" id="time8"></a>
+                <a class="subjectgrid-time" id="time9"></a>
+                <a class="subjectgrid-time" id="time10"></a>
+
+                <a class="subjectgrid" style="color: var(--daystextcolor); background: var(--yellow); font-weight: 500;">Monday</a>
+                <a class="subjectgrid joinable">Homeroom</a>
+                <a class="subjectgrid joinable" classroom="https://example.com/" id="0"></a>
+                <a class="subjectgrid joinable" id="1"></a>
+                <a class="subjectgrid joinable" id="2"></a>
+                <a class="subjectgrid joinable" id="3"></a>
+                <a class="subjectgrid joinable" id="4"></a>
+                <a class="subjectgrid joinable" id="5"></a>
+                <a class="subjectgrid joinable" id="6"></a>
+                <a class="subjectgrid joinable" id="7"></a>
+                <a class="subjectgrid joinable" id="8"></a>
+                <a class="subjectgrid joinable" id="9"></a>
+
+                <a class="subjectgrid" style="color: var(--daystextcolor); background: var(--pink); font-weight: 500;">Tuesday</a>
+                <a class="subjectgrid joinable">Homeroom</a>
+                <a class="subjectgrid joinable" id="10"></a>
+                <a class="subjectgrid joinable" id="11"></a>
+                <a class="subjectgrid joinable" id="12"></a>
+                <a class="subjectgrid joinable" id="13"></a>
+                <a class="subjectgrid joinable" id="14"></a>
+                <a class="subjectgrid joinable" id="15"></a>
+                <a class="subjectgrid joinable" id="16"></a>
+                <a class="subjectgrid joinable" id="17"></a>
+                <a class="subjectgrid joinable" id="18"></a>
+                <a class="subjectgrid joinable" id="19"></a>
+
+                <a class="subjectgrid" style="color: var(--daystextcolor); background: var(--green); font-weight: 500;">Wednesday</a>
+                <a class="subjectgrid joinable">Homeroom</a>
+                <a class="subjectgrid joinable" id="20"></a>
+                <a class="subjectgrid joinable" id="21"></a>
+                <a class="subjectgrid joinable" id="22"></a>
+                <a class="subjectgrid joinable" id="23"></a>
+                <a class="subjectgrid joinable" id="24"></a>
+                <a class="subjectgrid joinable" id="25"></a>
+                <a class="subjectgrid joinable" id="26"></a>
+                <a class="subjectgrid joinable" id="27"></a>
+                <a class="subjectgrid joinable" id="28"></a>
+                <a class="subjectgrid joinable" id="29"></a>
+
+                <a class="subjectgrid"  style="color: var(--daystextcolor); background: var(--orange); font-weight: 500;">Thursday</a>
+                <a class="subjectgrid joinable">Homeroom</a>
+                <a class="subjectgrid joinable" id="30"></a>
+                <a class="subjectgrid joinable" id="31"></a>
+                <a class="subjectgrid joinable" id="32"></a>
+                <a class="subjectgrid joinable" id="33"></a>
+                <a class="subjectgrid joinable" id="34"></a>
+                <a class="subjectgrid joinable" id="35"></a>
+                <a class="subjectgrid joinable" id="36"></a>
+                <a class="subjectgrid joinable" id="37"></a>
+                <a class="subjectgrid joinable" id="38"></a>
+                <a class="subjectgrid joinable" id="39"></a>
+
+                <a class="subjectgrid" style="color: var(--daystextcolor); background: var(--blue); font-weight: 500;">Friday</a>
+                <a class="subjectgrid joinable">Homeroom</a>
+                <a class="subjectgrid joinable" id="40"></a>
+                <a class="subjectgrid joinable" id="41"></a>
+                <a class="subjectgrid joinable" id="42"></a>
+                <a class="subjectgrid joinable" id="43"></a>
+                <a class="subjectgrid joinable" id="44"></a>
+                <a class="subjectgrid joinable" id="45"></a>
+                <a class="subjectgrid joinable" id="46"></a>
+                <a class="subjectgrid joinable" id="47"></a>
+                <a class="subjectgrid joinable" id="48"></a>
+                <a class="subjectgrid joinable" id="49"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="links-wrapper">
+        <div>
+            <h2 style="font-weight: var(--boldtext);">QuickLinks</h2>
+            <p id="bookmark0">Example Bookmark<br><a style="color: var(--blue);" href="https://example.com/" target="_blank">Go ›</a></p>
+            <p id="bookmark1">Example Bookmark<br><a style="color: var(--blue);" href="https://example.com/" target="_blank">Go ›</a></p>
+            <p id="bookmark2">Example Bookmark<br><a style="color: var(--blue);" href="https://example.com/" target="_blank">Go ›</a></p>
+            <p id="bookmark3">Example Bookmark<br><a style="color: var(--blue);" href="https://example.com/" target="_blank">Go ›</a></p>
+        </div>
+        <div>
+            <h2 style="font-weight: var(--boldtext);">After School</h2>
+            <p id="bookmark4">Example Bookmark<br><a style="color: var(--blue);" href="https://example.com/" target="_blank">Go ›</a></p>
+            <p id="bookmark5">Example Bookmark<br><a style="color: var(--blue);" href="https://example.com/" target="_blank">Go ›</a></p>
+            <p id="bookmark6">Example Bookmark<br><a style="color: var(--blue);" href="https://example.com/" target="_blank">Go ›</a></p>
+            <p id="bookmark7">Example Bookmark<br><a style="color: var(--blue);" href="https://example.com/" target="_blank">Go ›</a></p>
+        </div>
+        <div class="google-wrapper">
+            <h2 style="font-weight: var(--boldtext);">Search with Google</h2>
+            <div>
+                <div class="searchgoogle">
+                    <input name="q" id="searchbar" type="text" spellcheck="false" placeholder="Search with Google">
+                    <input onclick="clearSearch()" id="searchsubmit" type="submit" value="Search">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>© <span id="year">----</span> PixelEdition. All rights reserved
+            <br>Timetable v<span id="version">-.-.-</span> | 
+            <a style="text-decoration: underline; cursor: pointer;" onclick="document.getElementById('changelogframe-bg').style.display = 'block'">Changelog</a> | 
+            <a style="text-decoration: underline;" href="./timetable-v2-download.zip" download>Download Timetable</a></p>
+    </div>
+
+    <div id="changelogframe-bg" class="changelogframe-bg" onclick="document.getElementById('changelogframe-bg').style.display = 'none'">
+        <div class="changelogframe-wrapper">
+            <h2 style="font-weight: var(--boldtext);">Timetable Changelog</h2>
+            <iframe class="changelogframe" src="./changelog.html"></iframe>
+            <p><a style="cursor: pointer; color: var(--blue);" onclick="document.getElementById('changelogframe-bg').style.display = 'none'">Close</a></p>
+        </div>
+    </div>
+
+    <div id="popup" class="popup">
+        <span id="codewrap" style="font-weight: var(--boldtext);">[<span id="code" style="font-weight: var(--boldtext);">UKN-00</span>]</span>
+        <span id="msg">An unknown error occured.</span>
+    </div>
 </body>
-<html>
+</html>
