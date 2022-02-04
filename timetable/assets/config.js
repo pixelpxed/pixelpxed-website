@@ -1,5 +1,5 @@
 // General variables
-var versionnumber = "2.0.2"
+var versionnumber = "2.0.3"
 var copyrightyear = "2022"
 
 // If you want a switch for Japanese and Chinese class
@@ -114,7 +114,7 @@ const subj = {
         "classroom": "https://classroom.google.com/u/2/c/MzQ0MDIwOTk5MjU5"
     },
     "Career": {
-        "videocall": "https://meet.google.com/gzv-wipn-vse?authuser=",
+        "videocall": "https://meet.google.com/gzv-wipn-vse?authuser=2",
         "classroom": "https://classroom.google.com/u/2/c/NDE4OTcwMDQ2ODky"
     }
 }
