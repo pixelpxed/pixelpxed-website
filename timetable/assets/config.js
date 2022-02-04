@@ -1,5 +1,5 @@
 // General variables
-var versionnumber = "2.0.3"
+var versionnumber = "2.1.0"
 var copyrightyear = "2022"
 
 // If you want a switch for Japanese and Chinese class
@@ -122,47 +122,57 @@ const subj = {
 // Bookmarks
 //
 // "[! DO NOT EDIT !]": {
-//     "name": "[Bookmark Name]"
-//     "link": "[Bookmark Link]" 
+//     "rowname": "[Row Name]"
+//     "[! DO NOT EDIT !]" {
+//         "name": "[Bookmark Name]"
+//         "url": "[Bookmark URL]"
+//     },
+//     "[! DO NOT EDIT !]" {
+//         "name": "[Bookmark Name]"
+//         "url": "[Bookmark URL]"
+//     }
 // }
 //
-// Fixed amount of bookmarks (4 links, 2 unchangeable types)
-//  -- Future update(s) might feature customizable types --
+// Fixed amount of bookmarks (4 links, 2 changeable name types)
+//    Future update(s) might feature more customizable types
 
-const bookmarks = {
-    // QuickLinks
-    "bookmark0": {
-        "name": "Google Classroom",
-        "url": "https://classroom.google.com/u/2/h"
+var bookmarks = {
+    "row0": {
+        "rowname": "QuickLinks",
+        "content0": {
+            "name": "Google Classroom",
+            "url": "https://classroom.google.com/u/2/h"
+        },
+        "content1": {
+            "name": "Google Classroom - To Do",
+            "url": "https://classroom.google.com/u/2/a/not-turned-in/all"
+        },
+        "content2": {
+            "name": "Google Meet",
+            "url": "https://meet.google.com/landing?authuser=2"
+        },
+        "content3": {
+            "name": "Google Drive",
+            "url": "https://drive.google.com/drive/u/2/"
+        }
     },
-    "bookmark1": {
-        "name": "Google Classroom - To Do",
-        "url": "https://classroom.google.com/u/2/a/not-turned-in/all"
-    },
-    "bookmark2": {
-        "name": "Google Meet",
-        "url": "https://meet.google.com/landing?authuser=2"
-    },
-    "bookmark3": {
-        "name": "Google Drive",
-        "url": "https://drive.google.com/drive/u/2/"
-    },
-
-    // After School Links
-    "bookmark4": {
-        "name": "YouTube",
-        "url": "https://www.youtube.com/"
-    },
-    "bookmark5": {
-        "name": "Facebook",
-        "url": "https://www.facebook.com/"
-    },
-    "bookmark6": {
-        "name": "Instagram",
-        "url": "https://www.instagram.com/"
-    },
-    "bookmark7": {
-        "name": "Twitter",
-        "url": "https://twitter.com/"
+    "row1": {
+        "rowname": "After School",
+        "content0": {
+            "name": "YouTube",
+            "url": "https://www.youtube.com/"
+        },
+        "content1": {
+            "name": "Facebook",
+            "url": "https://www.facebook.com/"
+        },
+        "content2": {
+            "name": "Instagram",
+            "url": "https://www.instagram.com/"
+        },
+        "content3": {
+            "name": "Twitter",
+            "url": "https://twitter.com/"
+        }
     }
 }

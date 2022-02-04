@@ -104,13 +104,14 @@
 
 #searchbar {
     background: var(--tablebg);
-    color: var(--alt-textcolor);
+    color: var(--textcolor);
 }
 
 #searchsubmit {
     background: var(--textcolor);
     color: var(--alt-textcolor);
     font-weight: var(--boldtext);
+    cursor: pointer;
 }
 
 .changelogframe-bg {

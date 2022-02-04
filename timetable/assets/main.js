@@ -30,7 +30,8 @@ setInterval(() => {
 function onstartsetup() {
     var classFilled = 0;
     var timeFilled = 0;
-    var bookmarkFilled = 0;
+    var rowFilled = 0;
+    var bookmarkNumber = 0;
 
     while (timeFilled != 11) {
         document.getElementById("time" + timeFilled).innerHTML = time[timeFilled];
@@ -58,10 +59,17 @@ function onstartsetup() {
         classFilled = classFilled + 1;
     }
 
-    while (bookmarkFilled != 8) {
-        bookmarkName = "bookmark" + bookmarkFilled
-        document.getElementById(bookmarkName).innerHTML = `${bookmarks[bookmarkName].name}<br><a style="color: var(--blue);" href="${bookmarks[bookmarkName].url}" target="_blank">Go ›</a>`;
-        bookmarkFilled = bookmarkFilled + 1;
+    while (rowFilled != 2) {
+        row = "row" + rowFilled;
+        while (bookmarkNumber != 4) {
+            content = "content" + bookmarkNumber;
+            bookmarkName = "bookmark" + bookmarkNumber + "-" + rowFilled;
+            document.getElementById(bookmarkName).innerHTML = `${bookmarks[row][content].name}<br><a style="color: var(--blue);" href="${bookmarks[row][content].url}" target="_blank">Go ›</a>`;
+            console.log(bookmarkName);
+            bookmarkNumber = bookmarkNumber + 1;
+        } bookmarkNumber = 0;
+        document.getElementById(row).innerHTML = `${bookmarks[row].rowname}`;
+        rowFilled = rowFilled + 1;
     }
 }
 
