@@ -2,6 +2,7 @@
     width: 90vw;
     max-width: 50em;
     margin: auto;
+    padding: 0.5em;
 }
 
 .title a {
@@ -21,7 +22,7 @@
 
 .pixeledition {
     text-align: center;
-    padding-top: 1em;
+    padding-top: 0.5em;
     font-weight: var(--boldtext);
 }
 
@@ -34,5 +35,5 @@
     width: 95vw;
     max-width: 55em;
     background: var(--textcolor);
-    margin: 1em auto;
+    margin: 0.5em auto;
 }
