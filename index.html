@@ -1,75 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="./assets/img/favicon-01.ico">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/preset.css">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="icon" href="./assets/favicon.ico">
     <title>Home - PixelEdition</title>
 
-    <meta name="title" content="PixelEdition" />
-    <meta name="description" content="I make timetables." />
+    <meta name="title" content="Home - PixelEdition" />
+    <meta property="og:title" content="Home - PixelEdition" />
+    <meta name="twitter:title" content="Home - PixelEdition">
 
-    <meta property="og:title" content="PixelEdition" />
+    <meta name="description" content="Everything created by PixelEdition." />
+    <meta property="og:description" content="Everything created by PixelEdition." />
+    <meta name="twitter:description" content="Everything created by PixelEdition.">
+
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://www.pixelpxed.xyz/" />
-    <meta property="og:description" content="I make timetables." />
+
     <meta name="theme-color" content="#FFFFFF">
 
-    <link rel="stylesheet" href="./assets/css/preset.css">
-    <link rel="stylesheet" href="./assets/css/index.css">
+    <script src="./assets/main.js" defer></script>
 </head>
 <body>
-    <div id="sidebar" class="sidebar">
-        <a class="sidebar-items text-ellipsis close" href="javascript:void(0)" onclick="closeSidebar()">ปิดเมนู<br><span style="font-size: 0.8em; opacity: 0.5;">Close Menu</span></a>
-        <div class="line"></div>
-        <a href="./index.html" class="sidebar-items text-ellipsis active">
-            หน้าหลัก<br>
-            <span style="font-size: 0.8em; opacity: 0.5;">
-                Home
-            </span>
-        </a>
-        <a href="./timetable/" class="sidebar-items text-ellipsis">
-            ตารางเรียน<br>
-            <span style="font-size: 0.8em; opacity: 0.5;">
-                Timetable
-            </span>
-        </a>
-        <a href="./timetable/m/" class="sidebar-items text-ellipsis">
-            ตารางเรียนมือถือ<br>
-            <span style="font-size: 0.8em; opacity: 0.5;">
-                Timetable M
-            </span>
-        </a>
-    </div>
-
-    <div class="navbar-wrapper">
-        <a class="sidebar-btn text-ellipsis open" href="javascript:void(0)" onclick="openSidebar()">เปิดเมนู<br><span style="font-size: 0.8em; opacity: 0.5;">Open Menu</span></a>
-    </div>
-
-    <div class="aboutme">
-        <h1 class="aboutme-title">Hi and welcome!</h1>
-        <p class="aboutme-description"><strong>I'm PixelEdition, or just call me Pixel.</strong> Here you can find things I currently make, I make this page to make it act like a central portal to everything I make. I self studied python and frontend developing, I've started coding in mid-July 2020. Because I wanted to make a Discord Bot (PixelBot). And after that, I feel interested in website development, so I start learning HTML, CSS & JS. For now, I can create this web, without spaghetti codes. I count this as my progress in web development. And I think I can improve my skills later on!</p>
-        <p class="aboutme-description" style="font-size: 0.8em;"><i>Side note: I find this page to be lacking something I currently don't know...</i></p>
-    </div>
-
-    <p class="projects">Projects</p>
-    <div class="project-item-wrapper">
-        <div class="project-item">
-            <p class="project-title">Timetable PC</p>
-            <p class="project-description">Join a class with a click.<br>Interactive, subject names, not subject codes.</p>
-            <img class="project-img" src="./assets/img/timetablepc-img.png">
-            <a class="project-link" href="./timetable/">Go ›</a>
-        </div>
-        <div class="project-item">
-            <p class="project-title">Timetable&nbspM</p>
-            <p class="project-description">Instant class joining.<br>Easier timetable now at your finger tips.</p>
-            <img class="project-img" src="./assets/img/timetablem-img.png">
-            <a class="project-link" href="./timetable/m/">Go ›</a>
+    <div class="navbar">
+        <a href="./" style="opacity: 1;">Home</a>
+        <a href="./timetable/">Timetable</a>
+        <a href="./timetable/m/">Timetable-M</a>
+        <div id="navbar-right" class="navbar-right">
+            <a style="cursor: default; opacity: 1;" onclick="popup(`Fact`, `You can type anything here! It is not saved for next time though...`, `white`)" contenteditable="true"></a>
         </div>
     </div>
 
-    <p style="text-align: center; padding: 1em; font-size: 0.8em; opacity: 0.5;">© <span id="year">----</span> PixelEdition. All rights reserved</p>
+    <h1 class="pixeledition">PixelEdition</h1>
+
+    <div class="line"></div>
+
+    <div class="title">
+        <h1 class="title-header">About Me</h1>
+        <p>
+            Online Name: PixelEdition<br>
+            Country: Thailand<br>
+            Gender: Male<br>
+            Things I like: Gaming, coding, technology related stuffs, and some fried chicken<br><br>
+        </p>
+        <p>Hi, I'm PixelEdition. And I make tools for myself and others people that makes doing a process easier and faster. I am very interested in frontend projects website development, and maybe sometimes else I would learn the backend part also!<br><br>At the top of the page (Navbar) there's a list of my main projects I'm working or supporting on, feel free to check them out!</p>
+    </div>
+    <div class="title">
+        <h1 class="title-header">Projects</h1>
+        <p>
+            Lists of the projects I have or was working on<br>
+            - <a href="https://www.pixelpxed.xyz/timetable/">Timetable</a>: A easier way to join online Google Meet classes, and also is customizable.<br>
+            - <a href="https://www.pixelpxed.xyz/timetable/m/">Timetable-M</a>: Similar to Timetable, but the user interface is optmized for mobile phones and tablets.<br>
+            - PixelBot: A fun discord bot for everyone to use.<br>
+            - BadCalculator: A bad calculator written using python.
+        </p>
+    </div>
+    <div class="title">
+        <h1 class="title-header">Contact Me</h1>
+        <p>
+            If you have any questions, ideas, or suggestions, you can contact me through ways mention below:<br>
+            - Discord: PixelEdition#2899 (Prefered)<br>
+            - E-mail: pixel.pxed@gmail.com
+        </p>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="footer">
+        <p>© <span id="year">----</span> PixelEdition. All rights reserved</p>
+    </div>
+    
+    <div id="popup" class="popup">
+        <span id="codewrap" style="font-weight: var(--boldtext);">[<span id="code" style="font-weight: var(--boldtext);">UKN-00</span>]</span>
+        <span id="msg">An unknown error occured.</span>
+    </div>
 </body>
-<script src="./assets/js/main.js"></script>
 </html>

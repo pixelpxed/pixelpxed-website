@@ -1,0 +1,38 @@
+.title {
+    width: 90vw;
+    max-width: 50em;
+    margin: auto;
+}
+
+.title a {
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+.title-header {
+    max-width: max-content;
+    font-weight: var(--boldtext);
+    background: -webkit-linear-gradient(-30deg, var(--blue), var(--green));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 0.2em;
+}
+
+.pixeledition {
+    text-align: center;
+    padding-top: 1em;
+    font-weight: var(--boldtext);
+}
+
+.hello {
+    text-align: center;
+}
+
+.line {
+    height: 1px;
+    width: 95vw;
+    max-width: 55em;
+    background: var(--textcolor);
+    margin: 1em auto;
+}
