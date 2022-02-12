@@ -1,5 +1,5 @@
 // General variables
-var versionnumber = "2.1.0"
+var versionnumber = "2.1.1"
 var copyrightyear = "2022"
 
 // If you want a switch for Japanese and Chinese class

@@ -9,6 +9,7 @@
     --bgcolor: rgb(32, 33, 36);
 
     --blue: rgb(120, 167, 218);
+    --linkblue: rgb(120, 167, 218);
     --pink: rgb(214, 134, 183);
     --purple: rgb(202, 145, 255);
     --yellow: rgb(249, 215, 61);
@@ -124,10 +125,12 @@ body {
         --tablebg: rgb(195, 195, 195);
         --subjbg: rgb(235, 235, 235);
         --subjbg-darker: rgb(210, 210, 210);
+
+        --linkblue: rgb(28, 69, 158);
     
         --normaltext: 200;
         --boldtext: 500;
     
         color-scheme: light;
     }
-}
+}   

@@ -212,6 +212,13 @@
                 <li>Easier Timetable bookmarks customization update. Download Timetable to see changes.</li>
             </ul>
         </div>
+        <div>
+            <p>Timetable v2.1.1</p>
+            <ul>
+                <li>Updated the changelog file so the background so it would match popup background in light mode.</li>
+                <li>Minor fixes and changes.</li>
+            </ul>
+        </div>
     </div>  
 </body>
 <style>
@@ -314,6 +321,15 @@
         color: var(--blue);
         text-decoration: none;
         text-align: center;
+    }
+
+    @media (prefers-color-scheme: light) {
+        body {
+            background: rgb(195, 195, 195);
+            color: rgb(0, 0, 0);;
+
+            color-scheme: light;
+        }
     }
 </style>
 </html>

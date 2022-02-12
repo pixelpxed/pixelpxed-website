@@ -64,7 +64,7 @@ function onstartsetup() {
         while (bookmarkNumber != 4) {
             content = "content" + bookmarkNumber;
             bookmarkName = "bookmark" + bookmarkNumber + "-" + rowFilled;
-            document.getElementById(bookmarkName).innerHTML = `${bookmarks[row][content].name}<br><a style="color: var(--blue);" href="${bookmarks[row][content].url}" target="_blank">Go ›</a>`;
+            document.getElementById(bookmarkName).innerHTML = `${bookmarks[row][content].name}<br><a style="color: var(--linkblue);" href="${bookmarks[row][content].url}" target="_blank">Go ›</a>`;
             bookmarkNumber = bookmarkNumber + 1;
         } bookmarkNumber = 0;
         document.getElementById(row).innerHTML = `${bookmarks[row].rowname}`;
