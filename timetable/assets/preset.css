@@ -50,6 +50,14 @@
 body { 
     font-weight: 300;
     background: var(--bgcolor);
+
+    animation: valentines 5s;
+}
+
+@keyframes valentines {
+    0%   {background: var(--bgcolor);}
+    50%  {background: var(--pink);}
+    100% {background: var(--bgcolor);}
 }
 
 .navbar {
