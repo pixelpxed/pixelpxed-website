@@ -10,8 +10,6 @@ window.onload = function() {
 
     onstartsetup()
     joiningsystem()
-
-    popup(`<3`, `Happy Valentines Day!`, `white`)
 }
 
 setInterval(() => {
