@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-:root {
+:root, :root.dark {
     --daystextcolor: rgba(0, 0, 0, 0.5);
 
     --navbarbg: rgb(12, 13, 16);
@@ -33,6 +33,24 @@
     color-scheme: dark;
 }
 
+:root.light {
+    --navbarbg: rgb(235, 235, 235);
+    --textcolor: rgb(0, 0, 0);
+    --alt-textcolor: rgb(255, 255, 255);
+    --bgcolor: rgb(255, 255, 255);
+
+    --tablebg: rgb(195, 195, 195);
+    --subjbg: rgb(235, 235, 235);
+    --subjbg-darker: rgb(210, 210, 210);
+
+    --linkblue: rgb(28, 69, 158);
+
+    --normaltext: 200;
+    --boldtext: 500;
+
+    color-scheme: light;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -50,6 +68,8 @@
 body { 
     font-weight: 300;
     background: var(--bgcolor);
+
+    transition: 0.3s;
 }
 
 .navbar {
@@ -57,6 +77,8 @@ body {
     padding: 0.5em;
 
     background: var(--navbarbg);
+
+    transition: 0.3s;
 }
 
 .navbar a {

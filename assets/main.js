@@ -1,12 +1,18 @@
+var curtheme = 'dark'
+
 window.onload = function() {
     document.getElementById("year").innerHTML = "2022"
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        curtheme = 'light';
+    } 
 }
 
 
 function popup(code, msg, status) {
     document.querySelector(".popup").className = "popup";
-    window.requestAnimationFrame(function(time) {
-        window.requestAnimationFrame(function(time) {
+    window.requestAnimationFrame(function() {
+        window.requestAnimationFrame(function() {
             // If undefined error message
             if (!code) {
                 code = "UKN-00";
@@ -36,4 +42,16 @@ function popup(code, msg, status) {
             document.querySelector(".popup").className = "popup popup-ani";
         });
     });
+}
+
+function themeswitch() {
+    if (curtheme == 'dark') {
+        curtheme = 'light';
+        document.documentElement.className = 'light';
+        return
+    } if (curtheme == 'light') {
+        curtheme = 'dark';
+        document.documentElement.className = 'dark';
+        return
+    }
 }

@@ -1,3 +1,5 @@
+var curtheme = 'dark'
+
 window.onload = function() {
     document.getElementById("version").innerHTML = versionnumber
     document.getElementById("year").innerHTML = copyrightyear
@@ -10,6 +12,10 @@ window.onload = function() {
 
     onstartsetup()
     joiningsystem()
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        curtheme = 'light';
+    } 
 }
 
 setInterval(() => {
@@ -137,8 +143,8 @@ function clearSearch() {
 
 function popup(code, msg, status) {
     document.querySelector(".popup").className = "popup";
-    window.requestAnimationFrame(function(time) {
-        window.requestAnimationFrame(function(time) {
+    window.requestAnimationFrame(function() {
+        window.requestAnimationFrame(function() {
             // If undefined error message
             if (!code) {
                 code = "UKN-00";
@@ -174,4 +180,16 @@ function clearSearch() {
     var searchvalue = document.getElementById("searchbar").value
     window.open(`https://www.google.com/search?q=${searchvalue}`).focus
     document.getElementById("searchbar").value = ''
+}
+
+function themeswitch() {
+    if (curtheme == 'dark') {
+        curtheme = 'light';
+        document.documentElement.className = 'light';
+        return
+    } if (curtheme == 'light') {
+        curtheme = 'dark';
+        document.documentElement.className = 'dark';
+        return
+    }
 }
