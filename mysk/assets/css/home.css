@@ -1,0 +1,57 @@
+.home-hello {
+    padding: 1em;
+    text-align: center;
+}
+
+.home-hello p {
+    padding: 0.25em;
+}
+
+.home-clock {
+    padding-bottom: 1em;
+    text-align: center;
+}
+
+#clock {
+    font-size: 2em;
+    font-weight: var(--bold-text);
+}
+
+.home-category {
+    padding: 0.25em;
+}
+
+.home-category p {
+    text-align: center;
+}
+
+.home-category a {
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+.home-section {
+    background: rgba(255, 255, 255, 0.1);
+    width: 80vw;
+    max-width: 20em;
+    margin: 0.5em auto;
+    padding: 1em;
+    border-radius: 0.3em;
+}
+
+.home-logout {
+    background: var(--red);
+    width: max-content;
+    margin: 0.5em auto;
+    font-size: 0.8em;
+    padding: 0.5em;
+    border-radius: 0.3em;
+    cursor: pointer;
+}
+
+.home-copyright {
+    font-size: 0.8em;
+    text-align: center;
+    opacity: 0.5;
+    padding: 0.5em;
+}

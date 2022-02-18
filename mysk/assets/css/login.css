@@ -1,0 +1,96 @@
+body {
+    background: url('../img/loginbg.png') no-repeat center center fixed;
+}
+
+.login-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 75vw;
+    max-width: 20em;
+    height: auto;
+
+    border-radius: 0.3em;
+
+    color: var(--color-alttext);
+    background: var(--box-background);
+}
+
+.login-description-wrapper {
+    height: 100%;
+    border-radius: 0.3em 0 0 0.3em;
+}
+
+.login-description-wrapper-img {
+    width: 90%;
+    margin: auto;
+    display: block;
+}
+
+.login-description-title {
+    padding: 2em;
+}
+
+.login-inputzone-input {
+    padding: 0.5em;
+    border: none;
+    outline: none;
+
+    font-family: 'Outfit', 'Sarabun', sans-serif;
+
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: var(--box-background);
+    color: var(--color-alttext);
+    width: 90%;
+    margin: 1em auto;
+    display: block;
+    border-radius: 0.3em;
+
+    transition: 0.3s;
+    
+    -webkit-appearance: none;
+}
+
+.login-inputzone-input:focus {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.login-wrapper {
+    padding: 2em;
+}
+
+.login-wrapper #signin {
+    font-size: 0.8em;
+    text-align: center;
+    background: black;
+    cursor: pointer;
+    color: var(--color-text);
+}
+
+.login-description {
+    display: grid;
+    grid-template-columns: 1fr 4em;
+}
+
+.login-description img {
+    width: 4em;
+}
+
+.incorrect-input {
+    display: none;
+    text-align: center;
+    font-size: 0.8em;
+    color: var(--red);
+}
+
+.copyright {
+    color: var(--color-text);
+    position: fixed;
+    bottom: 0.5em;
+    width: 100vw;
+    text-align: center;
+    opacity: 0.5;
+    font-size: 0.8em;
+}

@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root {
+    --background: #202124;
+    --navbar-background: #101114;
+
+    --box-background: #ffffff;
+
+    --color-text: #ffffff;
+    --color-alttext: #000000;
+
+    --link-color: #6890ff;
+
+    --regular-text: 200;
+    --bold-text: 500;
+
+    --red: #ff6f6f;
+
+    color-scheme: dark;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+
+    -webkit-appearance: none;
+
+    font-weight: var(--regular-text);
+
+    text-decoration: none;
+    color: var(--color-text);
+
+    font-family: "Outfit", "Sarabun", sans-serif;
+}
+
+body {
+    background: var(--background) no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Outfit', 'Sarabun', sans-serif;
+    font-weight: var(--regular-text);
+}
+
+.navbar {
+    font-weight: var(--regular-text);
+    padding: 0.5em;
+
+    background: var(--navbar-background);
+
+    transition: 0.3s;
+}
+
+.navbar a {
+    padding: 0 0.5em;
+
+    text-align: center;
+    opacity: 0.6;
+    transition: 0.3s;
+    
+    display: inline-block;
+}
+
+.navbar a:hover {
+    opacity: 0.8;
+}
+
+.navbar-right {
+    float: right;
+}

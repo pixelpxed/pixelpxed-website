@@ -94,8 +94,8 @@ function joiningsystem() {
     document.addEventListener('contextmenu', event => event.preventDefault());
 
     document.querySelectorAll("a.joinable").forEach(c => {
+        var subjecttext = c.innerHTML;
         c.addEventListener("click", () => {
-            var subjecttext = c.innerHTML;
             var o = subj[subjecttext].videocall;
 
             if (subjecttext == "Japanese") {
@@ -112,8 +112,7 @@ function joiningsystem() {
             }
         }), 
         c.addEventListener("auxclick", () => {
-            var classroomtext = c.innerHTML;
-            var o = subj[classroomtext].classroom;
+            var o = subj[subjecttext].classroom;
     
             if (o !== "") {
                 console.log(`[SUC-02] Open "${c.innerHTML}" subject classroom.`)
