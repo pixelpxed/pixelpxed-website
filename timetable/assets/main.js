@@ -82,12 +82,12 @@ function japanese() {
     document.getElementById(choosesubjid).textContent = "Japanese"
     document.getElementById("jp").style.opacity = "1"
     document.getElementById("ch").style.opacity = "0.5"
-    popup(`CNE-01`, `Changed "Chinese" class to "Japanese"`, `white`)
+    popup(`CNE-01`, `The classes has been swapped.`, `white`)
 } function chinese() {
     document.getElementById(choosesubjid).textContent = "Chinese"
     document.getElementById("jp").style.opacity = "0.5"
     document.getElementById("ch").style.opacity = "1"
-    popup(`CNE-02`, `Changed "Japanese" class to "Chinese"`, `white`)
+    popup(`CNE-01`, `The classes has been swapped.`, `white`)
 }
 
 function joiningsystem() {
@@ -144,12 +144,8 @@ function popup(code, msg, status) {
     document.querySelector(".popup").className = "popup";
     window.requestAnimationFrame(function() {
         window.requestAnimationFrame(function() {
-            // If undefined error message
-            if (!code) {
-                code = "UKN-00";
-            } if (!msg) {
-                msg = "An unknown error occured.";
-            }
+            code = code ?? "UKN-00"
+            msg = msg ?? "An unknown error occured."
 
             // Popup box color
             if (status == "white") {
