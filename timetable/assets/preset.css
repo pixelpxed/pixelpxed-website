@@ -70,8 +70,6 @@ body {
     background: var(--bgcolor);
 
     transition: 0.3s;
-
-    top: -1.5em;
 }
 
 .navbar {
@@ -81,9 +79,6 @@ body {
     background: var(--navbarbg);
 
     transition: 0.3s;
-
-    position: fixed;
-    width: 100%;
 }
 
 .navbar a {
@@ -102,7 +97,6 @@ body {
 
 .navbar-right {
     float: right;
-    margin-right: 1em;
 }
 
 .popup {
