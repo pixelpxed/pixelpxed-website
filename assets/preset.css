@@ -70,11 +70,16 @@ body {
 }
 
 .navbar {
+    font-weight: 500;
     padding: 0.5em;
 
     background: var(--navbarbg);
 
     transition: 0.3s;
+
+    position: fixed;
+    width: 100%;
+    z-index: 1;
 }
 
 .navbar a {
@@ -93,6 +98,7 @@ body {
 
 .navbar-right {
     float: right;
+    margin-right: 1em;
 }
 
 .popup {
