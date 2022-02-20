@@ -1,3 +1,10 @@
+window.onload = function() {
+    console.log("%cWarning\n\n%cBy using this console you can get attacked by what it's called 'Self-XSS,' Do not paste and run any codes that you don't understand.\n",
+                "text-align: center; font-size: 1.5em; color: red; font-weight: bold;", "text-align: center;")
+    document.getElementById("version").textContent = "1.1.6"
+    document.getElementById("year").textContent = "2022"
+}
+
 setInterval(() => {
     var today = new Date();
     var day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
@@ -13,8 +20,7 @@ setInterval(() => {
     document.getElementById("date").textContent = `${day}, ${date > 9 ? date : "0" + date} ${month} ${year}`;
 }, 1000);
 
-document.getElementById("version").textContent = "1.1.5"
-document.getElementById("year").textContent = "2022"
+
 
 function changeSubjName() {
     document.getElementById("addsci").textContent = "Additional Pain"
