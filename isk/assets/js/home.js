@@ -27,11 +27,13 @@ function getInfo() {
             name_th = accountsData[i].name_th;
         }
     }
+
+    console.log(name_th + "and" + name_en)
     document.getElementById("username-th").textContent = name_th;
     document.getElementById("username-en").textContent = name_en;
 }
 
 function signOut() {
-    setCookie("token", undefined, -1)
+    setCookie("token", "Expired", -1)
     window.location.href = "./"
 }
