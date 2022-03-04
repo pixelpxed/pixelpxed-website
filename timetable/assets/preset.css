@@ -172,9 +172,10 @@ body {
 }
 
 @keyframes widthincrease {
-    0%  {width: 0%;}
-    10% {width: 0%;}
-    90% {width: 100%;}
+    0%   {width: 0%;}
+    10%  {width: 0%;}
+    90%  {width: 100%;}
+    100% {width: 100%;}
 }
 
 @media (prefers-color-scheme: light) {
