@@ -29,8 +29,8 @@ function getInfo() {
     }
 
     console.log(name_th + "and" + name_en)
-    document.getElementById("username-th").textContent = name_th;
-    document.getElementById("username-en").textContent = name_en;
+    document.getElementById("username-th").innerHTML = name_th;
+    document.getElementById("username-en").innerHTML = name_en;
 }
 
 function signOut() {

@@ -1,18 +1,22 @@
 var curtheme = 'dark'
+var language_var = 'primary'
+
+var var_day = var_day_primary 
+var var_month = var_month_primary
 
 window.onload = function() {
     console.log("%cWarning\n\n%cBy using this console you can get attacked by what it's called 'Self-XSS,' Do not paste and run any codes that you don't understand.\n",
                 "text-align: center; font-size: 1.5em; color: red; font-weight: bold;", "text-align: center;")
-
-    popup("Thank You", "Thank you for using my Timetable this year, hope to see you here again on M3 if you're on the same class as me. :)", "white")
 
     document.getElementById("version").innerHTML = versionnumber
     document.getElementById("year").innerHTML = copyrightyear
 
     if (japanesechinese == true) {
         document.getElementById("navbar-right").style.display = "block"
+    } if (secondarylanguage == true) {
+        document.getElementById("changelanguagebtn").style.display = "inline-block"
     }
-
+    
     var choosesubjid = null
 
     onstartsetup()
@@ -25,9 +29,9 @@ window.onload = function() {
 
 setInterval(() => {
     var today = new Date();
-    var day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
+    var day = var_day[today.getDay()];
     var date = today.getDate();
-    var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][today.getMonth()];
+    var month = var_month[today.getMonth()];
     var year = today.getFullYear();
 
     let h = today.getHours();
@@ -43,31 +47,40 @@ function onstartsetup() {
     var timeFilled = 0;
     var rowFilled = 0;
     var bookmarkNumber = 0;
+    var elementFilled = 0;
 
     while (timeFilled != 11) {
         document.getElementById("time" + timeFilled).innerHTML = time[timeFilled];
         timeFilled = timeFilled + 1;
     }
 
-    while (classFilled != 50) {
-        document.getElementById(classFilled).innerHTML = classes[classFilled];
+    while (classFilled != 55) {
+        document.getElementById(classFilled).innerHTML = classes_primary[classFilled];
 
         if (document.getElementById(classFilled).innerHTML == "Chinese") {
             choosesubjid = classFilled
         }
 
-        if (document.getElementById(classFilled).innerHTML == "Lunch" || "") {
+        if (document.getElementById(classFilled).innerHTML == "Lunch") {
+            document.getElementById(classFilled).classList.add("subjectgrid-darker");
+            document.getElementById(classFilled).classList.remove("joinable");
+        } if (document.getElementById(classFilled).innerHTML == "Break") {
             document.getElementById(classFilled).classList.add("subjectgrid-darker");
             document.getElementById(classFilled).classList.remove("joinable");
         } if (document.getElementById(classFilled).innerHTML == "") {
             document.getElementById(classFilled).classList.add("subjectgrid-darker");
             document.getElementById(classFilled).classList.remove("joinable");
         } if (document.getElementById(classFilled).innerHTML == "DClass") {
-            document.getElementById(classFilled).remove();
+            document.getElementById(classFilled).style.display = "none";
             document.getElementById(classFilled - 1).classList.add("dclass");
         }
 
         classFilled = classFilled + 1;
+    }
+
+    while (elementFilled != 6) {
+        document.getElementById("element" + elementFilled).textContent = element_primary[elementFilled]
+        elementFilled = elementFilled + 1
     }
 
     while (rowFilled != 2) {
@@ -80,6 +93,108 @@ function onstartsetup() {
         } bookmarkNumber = 0;
         document.getElementById(row).innerHTML = `${bookmarks[row].rowname}`;
         rowFilled = rowFilled + 1;
+    }
+}
+
+function language_primary() {
+    var_day = var_day_primary 
+    var_month = var_month_primary
+
+    var classFilled = 0;
+    var elementFilled = 0;
+    var rowFilled = 0;
+    var bookmarkNumber = 0;
+
+    while (classFilled != 55) {
+        document.getElementById(classFilled).innerHTML = classes_primary[classFilled];
+        classFilled = classFilled + 1;
+    }
+
+    while (elementFilled != 6) {
+        document.getElementById("element" + elementFilled).textContent = element_primary[elementFilled]
+        elementFilled = elementFilled + 1
+    }
+
+    while (rowFilled != 2) {
+        row = "row" + rowFilled;
+        while (bookmarkNumber != 4) {
+            content = "content" + bookmarkNumber;
+            bookmarkName = "bookmark" + bookmarkNumber + "-" + rowFilled;
+            document.getElementById(bookmarkName).innerHTML = `${bookmarks[row][content].name}<br><a style="color: var(--linkblue);" href="${bookmarks[row][content].url}" target="_blank">${bookmark_go_name_primary} ›</a>`;
+            bookmarkNumber = bookmarkNumber + 1;
+        } bookmarkNumber = 0;
+        document.getElementById(row).innerHTML = `${bookmarks[row].rowname}`;
+        rowFilled = rowFilled + 1;
+    }
+    
+    document.getElementById("timetable-box-title").innerHTML = timetable_title_primary
+    document.getElementById("timetable-box-description").innerHTML = timetable_description_primary
+
+    document.getElementById("searchtitle").textContent = bookmark_google_title_primary
+    document.getElementById("searchbar").placeholder = bookmark_google_title_primary
+    document.getElementById("searchsubmit").value = bookmark_google_search_primary
+}
+
+function language_secondary() {
+    var_day = var_day_secondary
+    var_month = var_month_secondary
+
+    var classFilled = 0
+    var elementFilled = 0;
+    var rowFilled = 0;
+    var bookmarkNumber = 0;
+    
+    while (classFilled != 55) {
+        document.getElementById(classFilled).innerHTML = classes_secondary[classFilled];
+        classFilled = classFilled + 1;
+    }
+
+    while (elementFilled != 6) {
+        document.getElementById("element" + elementFilled).textContent = element_secondary[elementFilled]
+        elementFilled = elementFilled + 1
+    }
+
+    while (rowFilled != 2) {
+        row = "row" + rowFilled;
+        while (bookmarkNumber != 4) {
+            content = "content" + bookmarkNumber;
+            bookmarkName = "bookmark" + bookmarkNumber + "-" + rowFilled;
+            document.getElementById(bookmarkName).innerHTML = `${bookmarks[row][content].name_secondary}<br><a style="color: var(--linkblue);" href="${bookmarks[row][content].url}" target="_blank">${bookmark_go_name_secondary} ›</a>`;
+            bookmarkNumber = bookmarkNumber + 1;
+        } bookmarkNumber = 0;
+        document.getElementById(row).innerHTML = `${bookmarks[row].rowname_secondary}`;
+        rowFilled = rowFilled + 1;
+    }
+
+    document.getElementById("timetable-box-title").innerHTML = timetable_title_secondary
+    document.getElementById("timetable-box-description").innerHTML = timetable_description_secondary
+
+    document.getElementById("searchtitle").textContent = bookmark_google_title_secondary
+    document.getElementById("searchbar").placeholder = bookmark_google_title_secondary
+    document.getElementById("searchsubmit").value = bookmark_google_search_secondary
+}
+
+function language_swapper() {
+    if (language_var == 'primary') {
+        language_var = 'secondary';
+        popup(`CNE-02`, `The language has been changed.`, `white`)
+        return language_secondary()
+    } if (language_var == 'secondary') {
+        language_var = 'primary';
+        popup(`CNE-02`, `The language has been changed.`, `white`)
+        return language_primary()
+    }
+}
+
+function themeswitch() {
+    if (curtheme == 'dark') {
+        curtheme = 'light';
+        popup(`CNE-03`, `The theme has been changed.`, `white`)
+        return document.documentElement.className = 'light';
+    } if (curtheme == 'light') {
+        curtheme = 'dark';
+        popup(`CNE-03`, `The theme has been changed.`, `white`)
+        return document.documentElement.className = 'dark';
     }
 }
 
@@ -104,16 +219,14 @@ function joiningsystem() {
             var o = subj[subjecttext].videocall;
 
             if (subjecttext == "Japanese") {
-                popup(`JAP-01`, `Your teacher should send you a link, please check there!`, `white`)
-                return
+                return popup(`JAP-01`, `Your teacher should send you a link, please check there!`, `white`)
             }
             
             if (o !== "") {
                 console.log(`[SUC-01] Open "${c.innerHTML}" subject video call.`)
                 return window.open(o);
             } if (o == "" || o == null) {
-                popup(`NON-02`, `"${c.innerHTML}" subject doesn't have a classroom link.`); 
-                return
+                return popup(`NON-02`, `"${c.innerHTML}" subject doesn't have a classroom link.`); 
             }
         }), 
         c.addEventListener("auxclick", () => {
@@ -123,8 +236,8 @@ function joiningsystem() {
                 console.log(`[SUC-02] Open "${c.innerHTML}" subject classroom.`)
                 return window.open(o);
             } if (o == "" || o == null) {
-                popup(`NON-02`, `"${c.innerHTML}" subject doesn't have a classroom link.`);
-                return
+                
+                return popup(`NON-02`, `"${c.innerHTML}" subject doesn't have a classroom link.`);
             }
         })
     })
@@ -169,6 +282,7 @@ function popup(code, msg, status) {
                 console.error(`[${code}] ${msg}`)
             }
 
+            document.getElementById('popup').style.display = 'block'
             document.getElementById("code").innerHTML = code;
             document.getElementById("msg").innerHTML = msg;
             document.querySelector(".popup").className = "popup popup-ani";
@@ -180,16 +294,4 @@ function clearSearch() {
     var searchvalue = document.getElementById("searchbar").value
     window.open(`https://www.google.com/search?q=${searchvalue}`).focus
     document.getElementById("searchbar").value = ''
-}
-
-function themeswitch() {
-    if (curtheme == 'dark') {
-        curtheme = 'light';
-        document.documentElement.className = 'light';
-        return
-    } if (curtheme == 'light') {
-        curtheme = 'dark';
-        document.documentElement.className = 'dark';
-        return
-    }
 }

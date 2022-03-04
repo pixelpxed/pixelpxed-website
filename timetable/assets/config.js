@@ -1,9 +1,23 @@
 // General variables
-var versionnumber = "2.2.1"
+var versionnumber = "2.3.0"
 var copyrightyear = "2022"
 
-// If you want a switch for Japanese and Chinese class
+// Translation Variables
+var var_day_primary = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+var var_month_primary = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+var var_day_secondary = ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์"]
+var var_month_secondary = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"]
+
+var timetable_title_primary = "Timetable"
+var timetable_title_secondary = "ตารางเวลา"
+
+var timetable_description_primary = "Left Click - Video Call<br>Right Click - Classroom"
+var timetable_description_secondary = "คลิกซ้าย - วีดีโอคอล<br>คลิกขวา - คลาสรูม"  // <br> - For a new line.
+
+// Switch for Japanese and Chinese class / Switch for changing between primary and secondary language (By default both false)
 var japanesechinese = true
+var secondarylanguage = true
 
 // Time to be displayed in Timetable
 const time = ["08:00 - 08:40", "08:40 - 09:20", "09:20 - 10:00", "10:20 - 11:00", "11:00 - 11:40", "12:00 - 12:40", "12:40 - 13:20", "13:40 - 14:20", "14:20 - 15:00", "15:20 - 16:00", "16:00 - 16:40"]
@@ -11,15 +25,24 @@ const time = ["08:00 - 08:40", "08:40 - 09:20", "09:20 - 10:00", "10:20 - 11:00"
 // Class to be displayed in Timetable, each line represents each day.
 // Automatic operations (All of the below is case-sensitive):
 // "Lunch"   - Will set the grid as a lunch grid automaticly
+// "Break"   - Will set the grid as a break grid automaticly
 // "DClass"  - Will remove the grid, and make the grid before stretch out into double grid.
 // "Chinese" - Will add a switcher for Japanese and Chinese class users
 // ""        - Will set the grid as a blankclass grid automaticly
 
-const classes = ["Social", "Core English", "Core Science", "DClass", "Lunch", "Core Maths", "Thai", "R+W", "Tutor", "DClass",
-                "Thai", "P.E.", "History", "Lunch", "Add Maths", "Art", "Mech. Work", "Core English", "Tutor", "DClass",
-                "Health", "Core Science", "Flim Making", "DClass", "Lunch", "R+W", "Add Maths", "Chinese", "DClass", "",
-                "Core Maths", "Buddhism", "Guidance", "Thai", "Lunch", "Music", "", "", "", "", 
-                "Career", "Core Maths", "R+W", "Lunch", "Social", "Core English", "Additional Science", "DClass", "", ""]
+const element_primary = ["Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"] // ["[Time]", "[Monday]", "[Tuesday]", "[Thursday]", "[Friday]"]
+const classes_primary = ["Homeroom", "Social", "Core English", "Core Science", "DClass", "Lunch", "Core Maths", "Thai", "R+W", "Tutor", "DClass",
+                         "Homeroom", "Thai", "P.E.", "History", "Lunch", "Add Maths", "Art", "Mech. Work", "Core English", "Tutor", "DClass",
+                         "Homeroom", "Health", "Core Science", "Flim Making", "DClass", "Lunch", "R+W", "Add Maths", "Chinese", "DClass", "",
+                         "Homeroom", "Core Maths", "Buddhism", "Guidance", "Thai", "Lunch", "Music", "", "", "", "", 
+                         "Homeroom", "Career", "Core Maths", "R+W", "Lunch", "Social", "Core English", "Additional Science", "DClass", "", ""]
+
+const element_secondary = ["เวลา", "จันทร์", "อังคาร" , "พุธ", "พฤหัสบดี", "ศุกร์"] // ["[Time]", "[Monday]", "[Tuesday]", "[Thursday]", "[Friday]"]
+const classes_secondary = ["โฮมรูม", "สังคมฯ", "ภาษาอังกฤษ", "วิทย์ฯ พื้นฐาน", "DClass", "พักกลางวัน", "คณิตฯ พื้นฐาน", "ไทย", "อ่านและเขียน", "ติวเตอร์", "DClass",
+                           "โฮมรูม", "ไทย", "พละ", "ประวัติ", "พักกลางวัน", "คณิตฯ เพิ่มเติม", "ศิลปะ", "การช่าง", "ภาษาอังกฤษ", "ติวเตอร์", "DClass",
+                           "โฮมรูม", "สุขศึกษา", "วิทย์ฯ พื้นฐาน", "ผลิดสื่อวีดีทัศน์", "DClass", "พักกลางวัน", "อ่านและเขียน", "คณิตฯ เพิ่มเติม", "ภาษาจีน", "DClass", "",
+                           "โฮมรูม", "คณิตฯ พื้นฐาน", "พระพุทธศาสนา", "แนะแนว", "ไทย", "พักกลางวัน", "ดนตรี", "", "", "", "",
+                           "โฮมรูม", "การงานฯ", "คณิตฯ พื้นฐาน", "อ่านและเขียน", "พักกลางวัน", "สังคมฯ", "ภาษาอังกฤษ", "วิทย์ฯ เพื่มเติม", "DClass", "", "",]
 
 
 // Subject's Google Meet and Google Classroom links.
@@ -29,7 +52,7 @@ const classes = ["Social", "Core English", "Core Science", "DClass", "Lunch", "C
 // }, <- Do not add the ',' if it's the last element.
 
 const subj = {
-    "Homeroom": {
+    "Homeroom"  : {
         "videocall": "https://meet.google.com/cug-fqam-xoy?authuser=2",
         "classroom": "https://classroom.google.com/u/2/c/MzQ3OTY2NzAwNjQz"
     },
@@ -122,13 +145,16 @@ const subj = {
 // Bookmarks
 //
 // "[! DO NOT EDIT !]": {
-//     "rowname": "[Row Name]"
+//     "rowname": "[Row Name]",
+//     "rowname_secondary": "[Secondary Row Name]",
 //     "[! DO NOT EDIT !]" {
-//         "name": "[Bookmark Name]"
+//         "name": "[Bookmark Name]",
+//         "name_secondary": "[Secondary Bookmark Name]",
 //         "url": "[Bookmark URL]"
 //     },
 //     "[! DO NOT EDIT !]" {
-//         "name": "[Bookmark Name]"
+//         "name": "[Bookmark Name]",
+//         "name_secondary": "[Secondary Bookmark Name]",
 //         "url": "[Bookmark URL]"
 //     }
 // }
@@ -136,42 +162,60 @@ const subj = {
 // Fixed amount of bookmarks (4 links, 2 changeable name types)
 //    Future update(s) might feature more customizable types
 
+var bookmark_google_title_primary = "Search with Google"
+var bookmark_google_title_secondary = "ค้นหาด้วยกูเกิ้ล"
+
+var bookmark_google_search_primary = "Search"
+var bookmark_google_search_secondary = "ค้นหา"
+
+var bookmark_go_name_primary = "Go"
+var bookmark_go_name_secondary = "ไป"
 var bookmarks = {
     "row0": {
         "rowname": "QuickLinks",
+        "rowname_secondary": "ลิ้งค์รวดเร็ว",
         "content0": {
             "name": "Google Classroom",
+            "name_secondary": "กูเกิ้ลคลาสรูม",
             "url": "https://classroom.google.com/u/2/h"
         },
         "content1": {
             "name": "Google Classroom - To Do",
+            "name_secondary": "กูเกิ้ลคลาสรูม - ที่ต้องทำ",
             "url": "https://classroom.google.com/u/2/a/not-turned-in/all"
         },
         "content2": {
             "name": "Google Meet",
+            "name_secondary": "กูเกิ้ลมีท",
             "url": "https://meet.google.com/landing?authuser=2"
         },
         "content3": {
             "name": "Google Drive",
+            "name_secondary": "กูเกิ้ลไดรฟ์",
             "url": "https://drive.google.com/drive/u/2/"
         }
     },
     "row1": {
         "rowname": "After School",
+        "rowname_secondary": "ลิ้งค์เลิกเรียน",
         "content0": {
             "name": "YouTube",
+            "name_secondary": "ยูทูป",
             "url": "https://www.youtube.com/"
         },
         "content1": {
             "name": "Facebook",
+            "name_secondary": "เฟสบุ๊ค",
             "url": "https://www.facebook.com/"
         },
         "content2": {
             "name": "Instagram",
+            "name_secondary": "อินสตราแกรม",
             "url": "https://www.instagram.com/"
         },
         "content3": {
             "name": "Twitter",
+            "name_secondary": "ทวิตเตอร์",
             "url": "https://twitter.com/"
         }
     }

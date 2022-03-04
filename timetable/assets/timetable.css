@@ -128,7 +128,7 @@
     max-width: 40em;
     height: 90vh;
     max-height: 30em;
-    background: var(--tablebg);
+    background: var(--changelogbg);
     border-radius: 0.5em;
 
     position: fixed;
@@ -140,6 +140,7 @@
 .changelogframe-text {
     text-align: center;
     padding: 0.5em;
+    font-weight: var(--boldtext);
 }
 
 .changelogframe {
