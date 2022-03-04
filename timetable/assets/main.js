@@ -260,6 +260,7 @@ function clearSearch() {
 
 function popup(code, msg, status) {
     document.querySelector(".popup").className = "popup";
+    document.querySelector(".timebar-player").className = "timebar-player"
     window.requestAnimationFrame(function() {
         window.requestAnimationFrame(function() {
             code = code ?? "UKN-00"
@@ -286,6 +287,7 @@ function popup(code, msg, status) {
             document.getElementById("code").innerHTML = code;
             document.getElementById("msg").innerHTML = msg;
             document.querySelector(".popup").className = "popup popup-ani";
+            document.querySelector(".timebar-player").className = "timebar-player timebar-player-ani"
         });
     });
 }
