@@ -211,11 +211,11 @@ function japanese() {
 }
 
 function joiningsystem() {
-    document.querySelectorAll("a.joinable").forEach(c => {
-        c.addEventListener('contextmenu', event => event.preventDefault());
-        
-        var subjecttext = c.innerHTML;
-        c.addEventListener("click", () => {
+    document.querySelectorAll("div.table").forEach(grid => {grid.addEventListener('contextmenu', event => event.preventDefault());})
+
+    document.querySelectorAll("a.joinable").forEach(grid => {
+        var subjecttext = grid.innerHTML;
+        grid.addEventListener("click", () => {
             var o = subj[subjecttext].videocall;
 
             if (subjecttext == "Japanese") {
@@ -223,32 +223,30 @@ function joiningsystem() {
             }
             
             if (o !== "") {
-                console.log(`[SUC-01] Open "${c.innerHTML}" subject video call.`)
+                console.log(`[SUC-01] Open "${grid.innerHTML}" subject video call.`)
                 return window.open(o);
             } if (o == "" || o == null) {
-                return popup(`NON-02`, `"${c.innerHTML}" subject doesn't have a classroom link.`); 
+                return popup(`NON-02`, `"${grid.innerHTML}" subject doesn't have a classroom link.`); 
             }
         }), 
-        c.addEventListener("auxclick", () => {
+        grid.addEventListener("auxclick", () => {
             var o = subj[subjecttext].classroom;
     
             if (o !== "") {
-                console.log(`[SUC-02] Open "${c.innerHTML}" subject classroom.`)
+                console.log(`[SUC-02] Open "${grid.innerHTML}" subject classroom.`)
                 return window.open(o);
             } if (o == "" || o == null) {
                 
-                return popup(`NON-02`, `"${c.innerHTML}" subject doesn't have a classroom link.`);
+                return popup(`NON-02`, `"${grid.innerHTML}" subject doesn't have a classroom link.`);
             }
         })
     })
 
-    document.querySelectorAll("a.subjectgrid-darker").forEach(c => {
-        c.addEventListener('contextmenu', event => event.preventDefault());
-
-        c.addEventListener("click", () => {
+    document.querySelectorAll("a.subjectgrid-darker").forEach(grid => {
+        grid.addEventListener("click", () => {
             popup(`BLK-01`, `There's no class here, so there's no video call for you to attend!`, `white`);
         }), 
-        c.addEventListener("auxclick", () => {
+        grid.addEventListener("auxclick", () => {
             popup(`BLK-02`, `There's no class here, so there's no classroom for you to check!`, `white`);
         })
     })
