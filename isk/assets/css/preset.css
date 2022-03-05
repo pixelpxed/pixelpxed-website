@@ -38,6 +38,7 @@ body {
     background-size: cover;
     font-family: 'Outfit', 'Sarabun', sans-serif;
     font-weight: var(--regular-text);
+    -webkit-text-size-adjust: 100%;
 }
 
 .navbar {

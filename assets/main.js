@@ -14,14 +14,11 @@ window.onload = function() {
 
 function popup(code, msg, status) {
     document.querySelector(".popup").className = "popup";
+    document.querySelector(".timebar-player").className = "timebar-player"
     window.requestAnimationFrame(function() {
         window.requestAnimationFrame(function() {
-            // If undefined error message
-            if (!code) {
-                code = "UKN-00";
-            } if (!msg) {
-                msg = "An unknown error occured.";
-            }
+            code = code ?? "UKN-00"
+            msg = msg ?? "An unknown error occured."
 
             // Popup box color
             if (status == "white") {
@@ -40,9 +37,11 @@ function popup(code, msg, status) {
                 console.error(`[${code}] ${msg}`)
             }
 
+            document.getElementById('popup').style.display = 'block'
             document.getElementById("code").innerHTML = code;
             document.getElementById("msg").innerHTML = msg;
             document.querySelector(".popup").className = "popup popup-ani";
+            document.querySelector(".timebar-player").className = "timebar-player timebar-player-ani"
         });
     });
 }

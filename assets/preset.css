@@ -67,6 +67,8 @@ body {
     background: var(--bgcolor);
     
     transition: 0.3s;
+
+    -webkit-text-size-adjust: 100%;
 }
 
 .navbar {
@@ -103,7 +105,6 @@ body {
     width: 90vw;
     max-width: 40em;
 
-    padding: 0.5em;
     margin: auto;
 
     text-align: center;
@@ -125,6 +126,41 @@ body {
     text-align: center;
     opacity: 0.5;
 }
+
+.popup-closebtn {
+    position: absolute;
+    right: 0.5em;
+    color: var(--alt-textcolor);
+    cursor: pointer;
+    text-align: center;
+    width: 1em;
+    height: 1em;
+    opacity: 0.4;
+    transition: 0.3s;
+}
+
+.popup-closebtn:hover {
+    opacity: 0.8;
+}
+
+.timebar-wrap {
+    height: 0.3em;
+    border-radius: 0 0 0.3em 0.3em;
+    width: 100%;
+    background-color: rgba(150, 150, 150, 0.5);
+    overflow: hidden;
+}
+
+.timebar-player {
+    width: 0%;
+    height: 100%;
+    background-color: rgba(150, 150, 150, 0.9);
+}
+
+.timebar-player-ani {
+    animation: widthincrease 5s linear;
+}
+
 
 @keyframes errorbox {
     0% {bottom: -10em;}

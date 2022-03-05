@@ -28,6 +28,9 @@
 
     --changelogbg: rgb(32, 33, 36);
 
+    --timebarwrapper: rgba(0, 0, 0, 0.1);
+    --timebarplayer: rgba(0, 0, 0, 0.2);
+
     --normaltext: 200;
     --boldtext: 500;
 
@@ -45,6 +48,9 @@
     --subjbg-darker: rgb(210, 210, 210);
 
     --linkblue: rgb(28, 69, 158);
+
+    --timebarwrapper: rgba(255, 255, 255, 0.2);
+    --timebarplayer: rgba(255, 255, 255, 0.4);
 
     --normaltext: 200;
     --boldtext: 500;
@@ -71,6 +77,8 @@ body {
     background: var(--bgcolor);
 
     transition: 0.3s;
+
+    -webkit-text-size-adjust: 100%;
 }
 
 .navbar {
@@ -150,14 +158,14 @@ body {
     height: 0.3em;
     border-radius: 0 0 0.3em 0.3em;
     width: 100%;
-    background-color: rgba(150, 150, 150, 0.5);
+    background-color: var(--timebarwrapper);
     overflow: hidden;
 }
 
 .timebar-player {
     width: 0%;
     height: 100%;
-    background-color: rgba(150, 150, 150, 0.9);
+    background-color: var(--timebarplayer);
 }
 
 .timebar-player-ani {
@@ -190,10 +198,21 @@ body {
         --subjbg-darker: rgb(210, 210, 210);
 
         --linkblue: rgb(28, 69, 158);
+
+        --timebarwrapper: rgba(255, 255, 255, 0.2);
+        --timebarplayer: rgba(255, 255, 255, 0.4);
     
         --normaltext: 200;
         --boldtext: 500;
     
         color-scheme: light;
+    }
+
+    .timebar-wrap {
+        background-color: var(--timebarwrapper);
+    }
+    
+    .timebar-player {
+        background-color: var(--timebarplayer);
     }
 }   
