@@ -211,9 +211,9 @@ function japanese() {
 }
 
 function joiningsystem() {
-    document.addEventListener('contextmenu', event => event.preventDefault());
-
     document.querySelectorAll("a.joinable").forEach(c => {
+        c.addEventListener('contextmenu', event => event.preventDefault());
+        
         var subjecttext = c.innerHTML;
         c.addEventListener("click", () => {
             var o = subj[subjecttext].videocall;
@@ -243,6 +243,8 @@ function joiningsystem() {
     })
 
     document.querySelectorAll("a.subjectgrid-darker").forEach(c => {
+        c.addEventListener('contextmenu', event => event.preventDefault());
+
         c.addEventListener("click", () => {
             popup(`BLK-01`, `There's no class here, so there's no video call for you to attend!`, `white`);
         }), 
