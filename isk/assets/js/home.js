@@ -28,7 +28,7 @@ function getInfo() {
         }
     }
 
-    console.log(name_th + "and" + name_en)
+    console.log(`${name_th} and ${name_en}`)
     document.getElementById("username-th").innerHTML = name_th;
     document.getElementById("username-en").innerHTML = name_en;
 }

@@ -1,15 +1,14 @@
-.home-hello {
-    padding: 1em;
+.home-information {
+    padding: 0.5em;
+}
+
+.home-information div {
+    padding: 0.5em;
     text-align: center;
 }
 
 .home-hello p {
     padding: 0.25em;
-}
-
-.home-clock {
-    padding-bottom: 1em;
-    text-align: center;
 }
 
 #clock {
@@ -19,10 +18,13 @@
 
 .home-category {
     padding: 0.25em;
+    width: 100%;
+    box-sizing: border-box;
+    margin: auto;
 }
 
 .home-category p {
-    text-align: center;
+    padding: 0 0.5em;
 }
 
 .home-category a {
@@ -32,10 +34,9 @@
 
 .home-section {
     background: rgba(255, 255, 255, 0.1);
-    width: 80vw;
-    max-width: 20em;
+    width: 90%;
     margin: 0.5em auto;
-    padding: 1em;
+    padding: 1em 0.5em;
     border-radius: 0.3em;
 }
 
@@ -54,4 +55,39 @@
     text-align: center;
     opacity: 0.5;
     padding: 0.5em;
+}
+
+.sidebar {
+    height: calc(100% - 36px);
+    bottom: 0;
+    width: 20em;
+    position: fixed;
+    overflow-y: auto;
+    background: #151619;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 0.5em;
+    border-right: 1px solid grey;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #151619;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    border: 0.2em solid #151619;
+    background: grey;
+    border-radius: 0.25em;
+}
+
+.sidebar::-webkit-scrollbar-corner {
+    display: none;
+}
+
+.main {
+    height: calc(100% - 2em);
+    width: calc(100% - 20em);
+    margin-left: 20em;
+    overflow-y: auto;
 }

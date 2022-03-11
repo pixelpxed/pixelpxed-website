@@ -20,9 +20,14 @@ function signIn() {
     // Checking usernames if it's correct or not.
     for (i = 0; i < accountsData.length; i++) {
         if (username == accountsData[i].username && password == accountsData[i].password) {
-            window.location.href = "./home.html";
             setCookie(`token`, `${accountsData[i].token}`, 1)
-            return
+            if (accountsData[i].type == "student") {
+                return window.location.href = "./home.html";
+            } if (accountsData[i].type == "teacher") {
+                alert("Teachers website in development. Please come back later.")
+                return window.location.href = "./login.html";
+            }
+            return signInError("ไม่สามารถหาได้ว่าบัญชีเป็นบัญชีประเภทใด", "Couldn't idenify your account type.");    
         }
     } signInError("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง", "Your username or password is incorrect.");
 }

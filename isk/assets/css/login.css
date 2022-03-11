@@ -86,7 +86,7 @@ body {
 }
 
 .copyright {
-    color: var(--color-text);
+    color: var(--color-alttext);
     position: fixed;
     bottom: 0.5em;
     width: 100vw;

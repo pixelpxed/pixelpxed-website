@@ -15,6 +15,14 @@ const accountsData = [
         "name_en": "Somchai Jaidee",
         "token": "YDWqEHhr7YSoO4wKuiCB",
         "type": "student"
+    },
+    {
+        "username": "iskadmin",
+        "password": "password",
+        "name_th": "บัญชีทดสอบ คุณครู",
+        "name_en": "Test Account Teacher",
+        "token": "Ki3HJ7DOUsl54gpZqGoe",
+        "type": "monster"
     }
 ]
 

@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="./assets/css/home.css">
     
     <script src="./assets/js/cookiefunc.js" defer></script>
-    <script src="./assets/js/home.js" defer></script>
     <script src="./assets/js/preset.js" defer></script>
+    <script src="./assets/js/home.js" defer></script>
 </head>
 <body>
     <div class="navbar">
@@ -33,72 +33,88 @@
             <a href="javascript:void(0)" onclick="signOut()" style="opacity: 1;">Sign Out</a>
         </div>
     </div>
-
-    <button onclick="getInfo();">getInfo();</button>
-
-    <div class="home-hello">
-        <p>คุณได้เข้าสู่ระบบในชื่อ<br><span style="font-weight: var(--bold-text);" id="username-th">{unknown}</span></p>
-        <p style="opacity: 0.5; font-size: 0.8em;">You've been logged in as<br><span style="font-weight: var(--bold-text);" id="username-en">{unknown}</span></p>
-    </div>
-    <div class="home-clock">
-        <p id="clock">--:--:--</p>
-        <p id="day">---------, -- ------- ----</p>
-    </div>
-    <div>
-        <div class="home-category">
-            <p>เชื้อไวรัสโควิต-19<br><span style="opacity: 0.5; font-size: 0.8em;">COVID-19</span></p>
-            <a href="#covidtest">
-                <div class="home-section">
-                    <p>บันทึกการตรวจเชื้อไวรัสโควิต-19<br>
-                        <span style="opacity: 0.5; font-size: 0.8em;">Submit a COVID-19 test result</span>
-                    </p>
+    <div class="sidebar">
+        <div>
+            <div class="home-information">
+                <div class="home-clock">
+                    <p id="clock">--:--:--</p>
+                    <p id="day">---------, -- ------- ----</p>
                 </div>
-            </a>
-            <a href="#covidvaccine">
-                <div class="home-section">
-                    <p>บันทึกการฉีดวัคซีนเชื้อไวรัสโควิต-19<br>
-                        <span style="opacity: 0.5; font-size: 0.8em;">Submit a COVID-19 vaccine history</span>
-                    </p>
+                <div class="home-hello">
+                    <p>คุณได้เข้าสู่ระบบในชื่อ<br><span style="font-weight: var(--bold-text);" id="username-th">{unknown}</span></p>
+                    <p style="opacity: 0.5; font-size: 0.8em;">You've been logged in as<br><span style="font-weight: var(--bold-text);" id="username-en">{unknown}</span></p>
                 </div>
-            </a>
-        </div>
-        <div class="home-category">
-            <p>เรียนออนไลน์<br><span style="opacity: 0.5; font-size: 0.8em;">Online Class</span></p>
-            <div class="home-section">
-                <p>ให้คะแนนคุณครูผู้สอน<br>
-                    <span style="opacity: 0.5; font-size: 0.8em;">Rate your teachers</span>
-                </p>
             </div>
-            <div class="home-section">
-                <p>ความพร้อมในการเรียนออนไลน์<br>
-                    <span style="opacity: 0.5; font-size: 0.8em;">Online class availability for learning</span>
-                </p>
+            <div class="home-category">
+                <p>เชื้อไวรัสโควิต-19<br><span style="opacity: 0.5; font-size: 0.8em;">COVID-19</span></p>
+                <a href="#covidtest">
+                    <div class="home-section">
+                        <p>บันทึกการตรวจเชื้อไวรัสโควิต-19<br>
+                            <span style="opacity: 0.5; font-size: 0.8em;">Submit a COVID-19 test result</span>
+                        </p>
+                    </div>
+                </a>
+                <a href="#covidvaccine">
+                    <div class="home-section">
+                        <p>บันทึกการฉีดวัคซีนเชื้อไวรัสโควิต-19<br>
+                            <span style="opacity: 0.5; font-size: 0.8em;">Submit a COVID-19 vaccine history</span>
+                        </p>
+                    </div>
+                </a>
             </div>
-            <div class="home-section">
-                <p>ตารางเรียนและโค้ดเข้าห้องเรียน<br>
-                    <span style="opacity: 0.5; font-size: 0.8em;">Timetable and class code for your classes</span>
-                </p>
+            <div class="home-category">
+                <p>เรียนออนไลน์<br><span style="opacity: 0.5; font-size: 0.8em;">Online Class</span></p>
+                <a href="#">
+                    <div class="home-section">
+                        <p>ให้คะแนนคุณครูผู้สอน<br>
+                            <span style="opacity: 0.5; font-size: 0.8em;">Rate your teachers</span>
+                        </p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="home-section">
+                        <p>ความพร้อมในการเรียนออนไลน์<br>
+                            <span style="opacity: 0.5; font-size: 0.8em;">Online class availability for learning</span>
+                        </p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="home-section">
+                        <p>ตารางเรียนและโค้ดเข้าห้องเรียน<br>
+                            <span style="opacity: 0.5; font-size: 0.8em;">Timetable and class code for your classes</span>
+                        </p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="home-section">
+                        <p>ช่องทางติดต่อครูผู้สอน<br>
+                            <span style="opacity: 0.5; font-size: 0.8em;">Subject teachers contact</span>
+                        </p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="home-section">
+                        <p>ครูที่ปรึกษา<br>
+                            <span style="opacity: 0.5; font-size: 0.8em;">Homeroom teachers</span>
+                        </p>
+                    </div>
+                </a>
             </div>
-            <div class="home-section">
-                <p>ช่องทางติดต่อครูผู้สอน<br>
-                    <span style="opacity: 0.5; font-size: 0.8em;">Subject teachers contact</span>
-                </p>
+            <div class="home-category">
+                <p>ระบบ iSK<br><span style="opacity: 0.5; font-size: 0.8em;">iSK System</span></p>
+                <a href="#">
+                    <div class="home-section">
+                        <p>แก้ไขข้อมูลส่วนตัว<br>
+                            <span style="opacity: 0.5; font-size: 0.8em;">Edit account information</span>
+                        </p>
+                    </div>
+                </a>
             </div>
-            <div class="home-section">
-                <p>ครูที่ปรึกษา<br>
-                    <span style="opacity: 0.5; font-size: 0.8em;">Homeroom teachers</span>
-                </p>
-            </div>
-        </div>
-        <div class="home-category">
-            <p>ระบบ iSK<br><span style="opacity: 0.5; font-size: 0.8em;">iSK System</span></p>
-            <div class="home-section">
-                <p>แก้ไขข้อมูลส่วนตัว<br>
-                    <span style="opacity: 0.5; font-size: 0.8em;">Edit account information</span>
-                </p>
-            </div>
+            <p class="home-copyright">© 2022 The iSK Team. All rights reserved</p>
         </div>
     </div>
-    <p class="home-copyright">© 2022 The iSK Team. All rights reserved</p>
+    <div class="main">
+         
+    </div>
 </body>
 </html>

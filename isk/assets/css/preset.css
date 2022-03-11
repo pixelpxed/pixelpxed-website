@@ -14,7 +14,8 @@
     --regular-text: 200;
     --bold-text: 500;
 
-    --red: #ff6f6f;
+    --red: rgb(255, 100, 100);
+    --green: rgb(146, 228, 175);
 
     color-scheme: dark;
 }
@@ -32,7 +33,7 @@
 
     font-family: "Outfit", "Sarabun", sans-serif;
 }
-
+    
 body {
     background: var(--background) no-repeat center center fixed;
     background-size: cover;
@@ -48,10 +49,16 @@ body {
     background: var(--navbar-background);
 
     transition: 0.3s;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
 }
 
 .navbar a {
     padding: 0 0.5em;
+
+    font-size: 1em;
 
     text-align: center;
     opacity: 0.6;
