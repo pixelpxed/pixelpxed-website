@@ -22,7 +22,7 @@ const accountsData = [
         "name_th": "บัญชีทดสอบ คุณครู",
         "name_en": "Test Account Teacher",
         "token": "Ki3HJ7DOUsl54gpZqGoe",
-        "type": "monster"
+        "type": "teacher"
     }
 ]
 
