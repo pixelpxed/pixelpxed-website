@@ -30,7 +30,6 @@
 <script src="./assets/config.js" defer></script>
 <script src="./assets/main.js" defer></script>
 
-
 <body id="body">
     <noscript>
         <p class="errorbox" style="bottom: 0.5em;">
@@ -46,6 +45,9 @@
             <a style="cursor: pointer;" id="jp" onclick="japanese()">JP</a>
         </div>
     </div>   
+    <div id="loadingscreen" style="position: fixed; width: 100vw; height: 100vh; background: var(--tablebg); z-index: 1;">
+        <p id="loadingscreen-msg" style="color: var(--textcolor); position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">Loading, moment please...</p>
+    </div>
     <div class="content">
         <div class="timetable-title">
             <h1 id="timetable-box-title" style="font-weight: var(--boldtext);">Timetable</h1>

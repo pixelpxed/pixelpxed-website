@@ -88,6 +88,8 @@ body {
     background: var(--navbarbg);
 
     transition: 0.3s;
+
+    z-index: 2;
 }
 
 .navbar a {
@@ -184,6 +186,11 @@ body {
     10%  {width: 0%;}
     90%  {width: 100%;}
     100% {width: 100%;}
+}
+
+@keyframes fadeout {
+    0%   {opacity: 1;}
+    100% {opacity: 0;}
 }
 
 @media (prefers-color-scheme: light) {

@@ -1,5 +1,6 @@
 body {
-    background: url('../img/loginbg.png') no-repeat center center fixed;
+    background: url('../img/loginbg-dark.png') no-repeat center center fixed;
+    background-size: cover;
 }
 
 .login-wrapper {
@@ -93,4 +94,12 @@ body {
     text-align: center;
     opacity: 0.5;
     font-size: 0.8em;
+}
+
+
+@media (prefers-color-scheme: light) {
+    body {
+        background: url("../img/loginbg-light.png")  no-repeat center center fixed;
+        background-size: cover;
+    }
 }

@@ -1,5 +1,5 @@
 // General variables
-var versionnumber = "2.3.4"
+var versionnumber = "2.3.5"
 var copyrightyear = "2022"
 
 // Translation Variables

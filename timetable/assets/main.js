@@ -25,6 +25,19 @@ window.onload = function() {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
         curtheme = 'light';
     } 
+
+    let stateCheck = setInterval(() => {
+        if (document.readyState === 'complete') {
+            clearInterval(stateCheck);
+            document.getElementById("loadingscreen-msg").innerHTML = "Complete!"
+            setTimeout(function (){
+                document.getElementById("loadingscreen").style.animation = "fadeout 1s"
+                setTimeout(function (){
+                    document.getElementById("loadingscreen").remove()
+                }, 1000);
+            }, 1000);
+        }
+    }, 100);
 }
 
 setInterval(() => {
