@@ -31,7 +31,7 @@ window.onload = function() {
             clearInterval(stateCheck);
             document.getElementById("loadingscreen").style.animation = "fadeout 0.3s"
             setTimeout(() => {
-                document.getElementById("loadingscreen").remove()
+                document.getElementById("loadingscreen").style.marginLeft = "-100vw"
             }, 300)
         }
     }, 1);
@@ -187,12 +187,30 @@ function language_secondary() {
 function language_swapper() {
     if (language_var == 'primary') {
         language_var = 'secondary';
+
+        document.getElementById("loadingscreen").style.animation = "fadein 0.5s"
+        document.getElementById("loadingscreen").style.marginLeft = "0"
+        setTimeout(() => {
+            language_secondary()
+            document.getElementById("loadingscreen").style.animation = "fadeout 0.5s"
+            setTimeout(() => {
+                document.getElementById("loadingscreen").style.marginLeft = "-100vw"
+            }, 500)
+        }, 500)
         popup(`CNE-02`, `The language has been changed.`, `white`)
-        return language_secondary()
+        return
     } if (language_var == 'secondary') {
         language_var = 'primary';
+        
+        document.getElementById("loadingscreen").style.marginLeft = "0"
+        setTimeout(() => {
+            language_primary()
+            setTimeout(() => {
+                document.getElementById("loadingscreen").style.marginLeft = "-100vw"
+            }, 500)
+        }, 500)
         popup(`CNE-02`, `The language has been changed.`, `white`)
-        return language_primary()
+        return
     }
 }
 
