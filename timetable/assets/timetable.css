@@ -151,27 +151,7 @@
     margin: auto;
 }
 
-.mobile {
-    padding: 0.8em 0.3em;
-    background: var(--tablebg);
-    width: max-content;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    margin: auto;
-    border-radius: 5em;
-    cursor: pointer;
-}
-
-.mobile a {
-    font-weight: var(--boldtext);
-    padding: 0.5em 1em;
-    border-radius: 5em;
-}
-
-.mobile a:hover {
-    background-color: var(--mobile-hover);
-}
-
-@media screen and (max-width: 500px) {
+@media only screen and (max-width: 500px) {
     .links-wrapper {
         grid-template-columns: 1fr 1fr;
     }

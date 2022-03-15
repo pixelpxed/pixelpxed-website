@@ -31,6 +31,12 @@
 <script src="./assets/main.js" defer></script>
 
 <body id="body">
+    <noscript>
+        <p class="errorbox" style="bottom: 0.5em;">
+            <span style="font-weight: bold;">Important:</span>
+            You need JavaScript enabled to run Timetable properly. Go to your browser settings to edit your JavaScript preferences.<br>
+        </p>
+    </noscript>
     <div class="navbar">
         <a href="../">Home</a>
         <a href="./index.html" style="opacity: 1;">Timetable</a>
@@ -39,25 +45,7 @@
             <a style="cursor: pointer;" id="jp" onclick="japanese()">JP</a>
         </div>
     </div>
-    <noscript>
-        <p class="errorbox" style="bottom: 0.5em;">
-            <span style="font-weight: bold;">Important:</span>
-            You need JavaScript enabled to run Timetable properly. Go to your browser settings to edit your JavaScript preferences.<br>
-        </p>
-    </noscript>
-    <div id="popup" class="popup">
-        <div style="position: relative;">
-            <div style="padding: 0.5em;">
-                <span id="codewrap" style="font-weight: var(--boldtext);">[<span id="code" style="font-weight: var(--boldtext);">UKN-00</span>]</span>
-                <span id="msg">An unknown error occurred.</span>
-                <a class="popup-closebtn" onclick="document.getElementById('popup').style.display = 'none'">✕</a>
-            </div>
-            <div class="timebar-wrap">
-                <div class="timebar-player"></div>
-            </div>
-        </div>
-    </div>
-    <div id="loadingscreen" style="position: fixed; width: 100vw; height: 100vh; background: var(--bgcolor); z-index: 1; top: 50%; bottom: 50%; transform: translate(-50%, -50%);"></div>
+    <div id="loadingscreen" style="position: fixed; width: 100vw; height: 100vh; background: var(--bgcolor); z-index: 1;"></div>
     <div class="content">
         <div class="timetable-title">
             <h1 id="timetable-box-title" style="font-weight: var(--boldtext);">Timetable</h1>
@@ -149,6 +137,7 @@
             </div>
         </div>
     </div>
+
     <div class="links-wrapper">
         <div>
             <h2 id="row0" style="font-weight: var(--boldtext);">Placeholder Row</h2>
@@ -191,6 +180,18 @@
             <h2 class="changelogframe-text" style="color: white;">Timetable Changelog</h2>
             <iframe class="changelogframe" src="./assets/changelog.html"></iframe>
             <p class="changelogframe-text"><a style="cursor: pointer; color: var(--changelog-linkblue);" onclick="document.getElementById('changelogframe-bg').style.display = 'none'">Close</a></p>
+        </div>
+    </div>
+    <div id="popup" class="popup">
+        <div style="position: relative;">
+            <div style="padding: 0.5em;">
+                <span id="codewrap" style="font-weight: var(--boldtext);">[<span id="code" style="font-weight: var(--boldtext);">UKN-00</span>]</span>
+                <span id="msg">An unknown error occurred.</span>
+                <a class="popup-closebtn" onclick="document.getElementById('popup').style.display = 'none'">✕</a>
+            </div>
+            <div class="timebar-wrap">
+                <div class="timebar-player"></div>
+            </div>
         </div>
     </div>
 </body>

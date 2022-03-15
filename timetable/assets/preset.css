@@ -31,8 +31,6 @@
     --timebarwrapper: rgba(0, 0, 0, 0.1);
     --timebarplayer: rgba(0, 0, 0, 0.2);
 
-    --mobile-hover: rgba(255, 255, 255, 0.1);
-
     --normaltext: 200;
     --boldtext: 500;
 
@@ -53,8 +51,6 @@
 
     --timebarwrapper: rgba(255, 255, 255, 0.2);
     --timebarplayer: rgba(255, 255, 255, 0.4);
-
-    --mobile-hover: rgba(0, 0, 0, 0.1);
 
     --normaltext: 200;
     --boldtext: 500;
@@ -130,7 +126,6 @@ body {
     border-radius: 0.3em;
 
     position: fixed;
-    z-index: 2;
 }
 
 .popup-ani {
@@ -191,11 +186,6 @@ body {
     10%  {width: 0%;}
     90%  {width: 100%;}
     100% {width: 100%;}
-}
-
-@keyframes fadein {
-    0%   {opacity: 0;}
-    100% {opacity: 1;}
 }
 
 @keyframes fadeout {
