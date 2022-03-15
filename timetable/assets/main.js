@@ -29,15 +29,12 @@ window.onload = function() {
     let stateCheck = setInterval(() => {
         if (document.readyState === 'complete') {
             clearInterval(stateCheck);
-            document.getElementById("loadingscreen-msg").innerHTML = "Complete!"
-            setTimeout(function (){
-                document.getElementById("loadingscreen").style.animation = "fadeout 1s"
-                setTimeout(function (){
-                    document.getElementById("loadingscreen").remove()
-                }, 1000);
-            }, 1000);
+            document.getElementById("loadingscreen").style.animation = "fadeout 0.3s"
+            setTimeout(() => {
+                document.getElementById("loadingscreen").remove()
+            }, 300)
         }
-    }, 100);
+    }, 1);
 }
 
 setInterval(() => {
