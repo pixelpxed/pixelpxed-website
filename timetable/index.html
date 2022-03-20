@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="./assets/preset.css">
     <link rel="stylesheet" href="./assets/timetable.css">
+
     <link rel="icon" href="./assets/favicon.ico">
     <title>Timetable - PixelEdition</title>
 
@@ -32,7 +34,7 @@
 
 <body id="body">
     <noscript>
-        <p class="errorbox" style="bottom: 0.5em;">
+        <p class="popup" style="bottom: 0.5em; z-index: 2; box-sizing: border-box; padding: 0.5em;">
             <span style="font-weight: bold;">Important:</span>
             You need JavaScript enabled to run Timetable properly. Go to your browser settings to edit your JavaScript preferences.<br>
         </p>
@@ -167,11 +169,11 @@
     <div class="footer">
         <p>© <span id="year">----</span> PixelEdition. All rights reserved
             <br>Timetable v<span id="version">-.-.-</span> | 
-            <a style="text-decoration: underline; cursor: pointer;" onclick="document.getElementById('changelogframe-bg').style.display = 'block'">Changelog</a> | 
             <a style="text-decoration: underline; cursor: pointer;" onclick="themeswitch();">Change Theme</a>
             <a id="changelanguagebtn" style="display: none;">| <span style="text-decoration: underline; cursor: pointer;" onclick="language_swapper();">Change Language</span></a><br>
+            <a style="text-decoration: underline; cursor: pointer;" onclick="document.getElementById('changelogframe-bg').style.display = 'block'">Changelog</a> | 
             <a style="text-decoration: underline;" href="./timetable-v2.3.0_download.zip" download>Download Timetable</a> | 
-            <a style="text-decoration: underline;" href="./m/">Timetable-M</a>
+            <a style="text-decoration: underline;" href="./mobile/">Mobile</a>
         </p>
     </div>
 

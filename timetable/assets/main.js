@@ -52,6 +52,10 @@ setInterval(() => {
     document.getElementById("day").innerHTML = `${day}, ${date > 9 ? date : "0" + date} ${month} ${year}`;
 }, 1);
 
+// setInterval(() => {
+//     fetch("https://www.pixelpxed.xyz/fetch.json")
+// }, 1)
+
 function onstartsetup() {
     var classFilled = 0;
     var timeFilled = 0;
@@ -300,10 +304,4 @@ function popup(code, msg, status) {
             document.querySelector(".timebar-player").className = "timebar-player timebar-player-ani"
         });
     });
-}
-
-function clearSearch() {
-    var searchvalue = document.getElementById("searchbar").value
-    window.open(`https://www.google.com/search?q=${searchvalue}`).focus
-    document.getElementById("searchbar").value = ''
 }

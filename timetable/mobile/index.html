@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/preset.css">
+    <link rel="stylesheet" href="../assets/timetable.css">
+    <link rel="stylesheet" href="./assets/mobile.css">
+
+    <link rel="icon" href="../assets/favicon.ico">
+    <title>Timetable (Mobile) - PixelEdition</title>
+
+    <meta name="title" content="Timetable (Mobile) - PixelEdition" />
+    <meta property="og:title" content="Timetable (Mobile) - PixelEdition" />
+    <meta name="twitter:title" content="Timetable (Mobile) - PixelEdition">
+
+    <meta name="description" content="An easier way to join a class with a click of a button." />
+    <meta property="og:description" content="An easier way to join a class with a click of a button." />
+    <meta name="twitter:description" content="An easier way to join a class with a click of a button.">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.pixelpxed.xyz/timetable/" />
+
+    <meta property="og:image"  content="https://www.pixelpxed.xyz/timetable/assets/embedimg.png">
+    <meta name="twitter:image" content="https://www.pixelpxed.xyz/timetable/assets/embedimg.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="theme-color" content="#FFFFFF">
+</head>
+<script src="../assets/config.js" defer></script>
+<script src="./assets/mobile.js" defer></script>
+
+<body>
+    <noscript>
+        <p class="popup" style="bottom: 0.5em; z-index: 2; box-sizing: border-box; padding: 0.5em;">
+            <span style="font-weight: bold;">Important:</span>
+            You need JavaScript enabled to run Timetable properly. Go to your browser settings to edit your JavaScript preferences.<br>
+        </p>
+    </noscript>
+    <div class="navbar">
+        <a href="../../">Home</a>
+        <a href="../">Timetable</a>
+        <div style="display: none;" id="navbar-right" class="navbar-right">
+            <a style="cursor: pointer; opacity: 1;" id="ch" onclick="chinese()">CH</a>
+            <a style="cursor: pointer;" id="jp" onclick="japanese()">JP</a>
+        </div>
+    </div>
+    <div id="loadingscreen" style="position: fixed; width: 100vw; height: 100vh; background: var(--bgcolor); z-index: 1;"></div>
+    <div class="content">
+        <div class="timetable-title">
+            <h1 id="timetable-box-title" style="font-weight: var(--boldtext);">Timetable</h1>
+            <p id="timetable-box-description">Left Click - Video Call<br>Right Click - Classroom</p>
+        </div>
+        <div class="clock-wrapper">
+            <p id="clock">--:--:--</p>
+            <p id="day">---------, -- --------- ----</p>
+        </div>
+        <div class="mobiletable">
+            <a class="mobiletable-element" href="./days/monday.html" style="background: var(--yellow);">
+                Monday
+            </a>
+            <a class="mobiletable-element" href="./days/tuesday.html" style="background: var(--pink);">
+                Tuesday
+            </a>
+            <a class="mobiletable-element" href="./days/wednesday.html" style="background: var(--green);">
+                Wednesday
+            </a>
+            <a class="mobiletable-element" href="./days/thursday.html" style="background: var(--orange);">
+                Thursday
+            </a>
+            <a class="mobiletable-element" href="./days/friday.html" style="background: var(--blue);">
+                Friday
+            </a>
+        </div>
+    </div>
+    <div class=""></div>
+    <div class="footer">
+        <p>© <span id="year">----</span> PixelEdition. All rights reserved
+            <br>Timetable v<span id="version">-.-.-</span> | 
+            <a style="text-decoration: underline; cursor: pointer;" onclick="themeswitch();">Change Theme</a>
+            <a id="changelanguagebtn" style="display: none;">| <span style="text-decoration: underline; cursor: pointer;" onclick="language_swapper();">Change Language</span></a><br>
+            <a style="text-decoration: underline; cursor: pointer;" onclick="document.getElementById('changelogframe-bg').style.display = 'block'">Changelog</a> | 
+            <a style="text-decoration: underline;" href="../timetable-v2.3.0_download.zip" download>Download Timetable</a> | 
+            <a style="text-decoration: underline;" href="../">PC</a>
+        </p>
+    </div>
+    <div id="changelogframe-bg" class="changelogframe-bg" onclick="document.getElementById('changelogframe-bg').style.display = 'none';">
+        <div class="changelogframe-wrapper">
+            <h2 class="changelogframe-text" style="color: white;">Timetable Changelog</h2>
+            <iframe class="changelogframe" src="../assets/changelog.html"></iframe>
+            <p class="changelogframe-text"><a style="cursor: pointer; color: var(--changelog-linkblue);" onclick="document.getElementById('changelogframe-bg').style.display = 'none'">Close</a></p>
+        </div>
+    </div>
+    <div id="popup" class="popup">
+        <div style="position: relative;">
+            <div style="padding: 0.5em;">
+                <span id="codewrap" style="font-weight: var(--boldtext);">[<span id="code" style="font-weight: var(--boldtext);">UKN-00</span>]</span>
+                <span id="msg">An unknown error occurred.</span>
+                <a class="popup-closebtn" onclick="document.getElementById('popup').style.display = 'none'">✕</a>
+            </div>
+            <div class="timebar-wrap">
+                <div class="timebar-player"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
