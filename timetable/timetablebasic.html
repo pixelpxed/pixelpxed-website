@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="./assets/favicon.ico">
+    <title>Timetable (Lite) - PixelEdition</title>
+
+    <meta name="title" content="Timetable - PixelEdition" />
+    <meta property="og:title" content="Timetable - PixelEdition" />
+    <meta name="twitter:title" content="Timetable - PixelEdition">
+
+    <meta name="description" content="An easier way to join a class with a click of a button." />
+    <meta property="og:description" content="An easier way to join a class with a click of a button." />
+    <meta name="twitter:description" content="An easier way to join a class with a click of a button.">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.pixelpxed.xyz/timetable/" />
+
+    <meta property="og:image"  content="https://www.pixelpxed.xyz/timetable/assets/embedimg.png">
+    <meta name="twitter:image" content="https://www.pixelpxed.xyz/timetable/assets/embedimg.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="theme-color" content="#FFFFFF">
+</head>
+<body>
+    <div id="sidebar" class="sidebar">
+        <div class="title">
+            <h1>Timetable</h1>
+            <p>Lite</p>
+        </div>
+        <div class="clock">
+            <p style="font-weight: bold;" id="clock">--:--:--</p>
+            <p id="day">------, -- ----- ----</p>
+        </div>
+        <a style="cursor: pointer; text-align: center; display: block;" onclick="closeSidebar()">Close Sidebar</a>
+        <div class="dottedbox">
+            <p>Days Selector</p>
+            <a href="#monday">Monday</a>
+            <a href="#tuesday">Tuesday</a>
+            <a href="#wednesday">Wednesday</a>
+            <a href="#thursday">Thursday</a>
+            <a href="#friday">Friday</a>
+        </div>
+        <div class="dottedbox">
+            <p>QuickLinks</p>
+            <a href="https://classroom.google.com/u/2/h">Google Classroom</a>
+            <a href="https://classroom.google.com/u/2/a/not-turned-in/all">Google Classroom - To Do</a>
+            <a href="https://meet.google.com/landing?authuser=2">Google Meet</a>
+            <a href="https://drive.google.com/drive/u/2/">Google Drive</a>
+        </div>
+        <div class="dottedbox">
+            <p>After School</p>
+            <a href="https://classroom.google.com/u/2/h">Google Classroom</a>
+            <a href="https://classroom.google.com/u/2/a/not-turned-in/all">Google Classroom - To Do</a>
+            <a href="https://meet.google.com/landing?authuser=2">Google Meet</a>
+            <a href="https://drive.google.com/drive/u/2/">Google Drive</a>
+        </div>
+        <div class="dottedbox">
+            <p>Timetable (Basic HTML)</p>
+            <a href="https://www.pixelpxed.xyz/timetable/">Load regular Timetable (Slower)</a>
+        </div>
+        <p style="font-size: 0.8em; text-align: center;">© 2022 PixelEdition. All rights reserved.</p>
+    </div>
+    <div id="main" class="main">
+        <a id="opensidebar-btn" class="opensidebar-btn"style="cursor: pointer; text-align: center; display: block;" onclick="openSidebar()">
+            Open Sidebar
+        </a>
+        <div class="dottedbox">
+            <h1>Monday</h1>
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    body {
+        font-family: sans-serif;
+
+        background-color: #101114;
+        color: white;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+
+        box-sizing: border-box;
+    }
+
+    a {
+        color: rgb(120, 167, 218);
+    }
+
+    hr {
+        margin: 1em 0;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        width: 25em;
+        padding: 1em;
+
+        background: #101114;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .sidebar h1, p {
+        text-align: center;
+    }
+
+    .dottedbox {
+        padding: 0.5em;
+        margin: 0.5em;
+
+        border: 1px dashed white;
+    }
+
+    .dottedbox p {
+        font-weight: bold;
+        padding: 0.25em;
+    }
+
+    .dottedbox a {
+        display: block;
+        padding: 0.25em 1em;
+    }
+
+    .title {
+        width: max-content;
+        margin: auto;
+    }
+
+    .title p {
+        text-align: right;
+        margin-top: -0.5em;
+        font-size: 0.8em;
+    }
+
+    .clock {
+        padding: 1em;
+    }
+
+    #clock {
+        font-size: 2em;
+    }
+
+    .main {
+        margin-left: 25em;
+        padding: 1em;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .opensidebar-btn {
+        display: none;
+        position: fixed;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        padding: 0.5em;
+        background-color: rgb(120, 167, 218);
+        color: #101114;
+        font-weight: bold;
+
+        border-bottom: 1px solid white;
+    }
+
+    @media only screen and (max-width: 850px) {
+        .sidebar {
+            width: 100vw;
+        }
+
+        .main {
+            margin-left: 0;
+        }
+    }
+</style>
+<script>
+    window.onload = function() {
+        setInterval(() => {
+            var today = new Date();
+            var day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
+            var date = today.getDate();
+            var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][today.getMonth()];
+            var year = today.getFullYear();
+
+            let h = today.getHours();
+            let m = today.getMinutes();
+            let s = today.getSeconds();
+
+            document.getElementById("clock").innerHTML = `${h > 9 ? h : "0" + h}:${m >= 10 ? m : "0" + m}:${s >= 10 ? s : "0" + s}`
+            document.getElementById("day").innerHTML = `${day}, ${date > 9 ? date : "0" + date} ${month} ${year}`;
+        }, 1);
+
+        document.getElementById("opensidebar-btn").style.display = "none"
+    }
+
+    function openSidebar() {
+        document.getElementById("opensidebar-btn").style.display = "none"
+        document.getElementById("sidebar").style.display = "block"
+        document.getElementById("main").style.marginLeft = "25em"
+        document.getElementById("main").style.marginTop = "0"
+    }
+
+    function closeSidebar() {
+        document.getElementById("opensidebar-btn").style.display = "block"
+        document.getElementById("sidebar").style.display = "none"
+        document.getElementById("main").style.marginLeft = "0"
+        document.getElementById("main").style.marginTop = "50px"
+    }
+</script>
