@@ -14,7 +14,7 @@ window.onload = function() {
         document.getElementById("day").innerHTML = `${day}, ${date > 9 ? date : "0" + date} ${month} ${year}`;
     }, 1);
 
-    document.getElementById("opensidebar-btn").style.display = "none";
+    document.getElementById("opensidebar-btn").style.right = "-100vw";
 
     var classfilled = 0;
     var classtext = ""; // Default Value
@@ -23,6 +23,8 @@ window.onload = function() {
         classtext = classes_primary[classfilled];
 
         if (classes_primary[classfilled] == "DClass") {
+            document.getElementById(`subject${classfilled}`).style.display = "none"
+        } if (classes_primary[classfilled] == "") {
             document.getElementById(`subject${classfilled}`).style.display = "none"
         }
 
@@ -49,7 +51,7 @@ window.onload = function() {
 }
 
 function openSidebar() {
-    document.getElementById("opensidebar-btn").style.display = "none";
+    document.getElementById("opensidebar-btn").style.right = "-100vw";
     document.getElementById("sidebar").style.marginLeft = "0";
     if (screen.width > 850) {
         document.getElementById("main").style.marginLeft = "25em";
@@ -59,7 +61,7 @@ function openSidebar() {
 }
 
 function closeSidebar() {
-    document.getElementById("opensidebar-btn").style.display = "block";
+    document.getElementById("opensidebar-btn").style.right = "0";
     document.getElementById("sidebar").style.marginLeft = "-100vw";
     document.getElementById("main").style.marginLeft = "0";
 }
