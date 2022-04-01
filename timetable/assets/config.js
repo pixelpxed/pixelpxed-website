@@ -150,6 +150,10 @@ const subj = {
         "videocall": "",
         "classroom": ""
     },
+    "Break": {
+        "videocall": "",
+        "classroom": ""
+    },
     "": {
         "videocall": "",
         "classroom": ""
