@@ -44,7 +44,6 @@ window.onload = function() {
             document.getElementById(`class${classfilled}`).innerHTML = "<b style='color: gray;'>Link Unavailible</b>"
         }
 
-        console.log(classfilled)
         classfilled = classfilled + 1
     }
 }
