@@ -1,0 +1,87 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.dm-table {
+    width: 90vw;
+    max-width: 25em;
+
+    padding: 0.5em;
+    margin: 1em auto;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0.5em;
+    
+    box-sizing: border-box;
+
+    text-align: center;
+
+    background: var(--tablebg);
+    border-radius: 0.5em;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.dm-element {
+    width: 100%;
+
+    padding: 1em;
+
+    box-sizing: border-box;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--subjbg);
+    text-decoration: none;
+    text-align: center;
+    font-weight: var(--boldtext);
+    border-radius: 0.2em;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: 0.3s;
+}
+
+.dm-element:hover {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.m-label {
+    width: 100%;
+
+    padding: 0.5em;
+
+    box-sizing: border-box;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--subjbg-darker);
+    text-decoration: none;
+    text-align: center;
+    font-weight: var(--boldtext);
+    border-radius: 0.2em;
+    transition: 0.3s;
+}
+
+.m-subjlinks {
+    padding: 0.25em 0 0.25em 0;
+}
+
+.m-subjlinks a {
+    cursor: pointer;
+    padding: 0.5em;
+    margin: 0.25em;
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 0.8em;
+    background: var(--subjbg-darker);
+    border-radius: 0.3em;
+}
+
+.dm-inside-wrapper {
+    width: 100%;
+    height: 100%;
+}
+

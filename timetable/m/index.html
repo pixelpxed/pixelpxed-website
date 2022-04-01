@@ -1,88 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Timetable M - PixelEdition</title>
-    <link rel="icon" href="./assets/favicon.ico">
-    <link rel="stylesheet" href="./assets/index.css">
-
-    <meta name="title" content="Timetable M - PixelEdition" />
-    <meta name="description" content="Interactive timetable for M205. Now on mobile." />
-
-    <meta property="og:title" content="Timetable M - PixelEdition" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://www.pixelpxed.xyz/timetable/m/" />
-    <meta property="og:description" content="Interactive timetable for M205. Now on mobile." />
-    <meta name="theme-color" content="#FFFFFF">
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./../assets/preset.css">
+    <link rel="stylesheet" href="./../assets/timetable.css">
+    <link rel="stylesheet" href="./assets/mobile.css">
+
+    <link rel="icon" href="../assets/favicon.ico">
+    <title>Timetable (Mobile) - PixelEdition</title>
+
+    <meta name="title" content="Timetable (Mobile) - PixelEdition" />
+    <meta property="og:title" content="Timetable (Mobile) - PixelEdition" />
+    <meta name="twitter:title" content="Timetable (Mobile) - PixelEdition">
+
+    <meta name="description" content="An easier way to join a class with a tap." />
+    <meta property="og:description" content="An easier way to join a class with a tap." />
+    <meta name="twitter:description" content="An easier way to join a class with a tap.">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.pixelpxed.xyz/timetable/" />
+
+    <meta property="og:image"  content="https://www.pixelpxed.xyz/timetable/assets/embedimg.png">
+    <meta name="twitter:image" content="https://www.pixelpxed.xyz/timetable/assets/embedimg.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="theme-color" content="#FFFFFF">
 </head>
+<script src="./../assets/config.js" defer></script>
+<script src="./assets/mobile.js" defer></script>
 <body>
-    <div id="sidebar" class="sidebar">
-        <a class="sidebar-items text-ellipsis close" href="javascript:void(0)" onclick="closeSidebar()">ปิดเมนู<br><span style="font-size: 0.8em; opacity: 0.5;">Close Menu</span></a>
-        <div class="line"></div>
-        <a href="../../index.html" class="sidebar-items text-ellipsis">
-            หน้าหลัก<br>
-            <span style="font-size: 0.8em; opacity: 0.5;">
-                Home
-            </span>
-        </a>
-        <a href="../" class="sidebar-items text-ellipsis">
-            ตารางเรียน<br>
-            <span style="font-size: 0.8em; opacity: 0.5;">
-                Timetable
-            </span>
-        </a>
-        <a href="./" class="sidebar-items text-ellipsis active">
-            ตารางเรียนมือถือ<br>
-            <span style="font-size: 0.8em; opacity: 0.5;">
-                Timetable M
-            </span>
-        </a>
+    <noscript>
+        <p class="popup" style="bottom: 0.5em; z-index: 2; box-sizing: border-box; padding: 0.5em;">
+            <span style="font-weight: bold;">Important:</span>
+            You need JavaScript enabled to run Timetable properly. Go to your browser settings to edit your JavaScript preferences.<br>
+        </p>
+    </noscript>
+    <div class="navbar">
+        <a href="../../">Home</a>
+        <a href="../">Timetable</a>
+        <div style="display: none;" id="navbar-right" class="navbar-right">
+            <a style="cursor: pointer; opacity: 1;" id="ch" onclick="chinese()">CH</a>
+            <a style="cursor: pointer;" id="jp" onclick="japanese()">JP</a>
+        </div>
     </div>
-    <a class="sidebar-btn text-ellipsis open" href="javascript:void(0)" onclick="openSidebar()">เปิดเมนู<br><span style="font-size: 0.8em; opacity: 0.5;">Open Menu</span></a>
-
-    <p id="supportending" style="animation: ribbonappearing 1s; background: white; color: black; padding: 0.5em; text-align: center;">Timetable-M is ending it's support soon, when Timetable recived it's mobile Google Classroom joining capabilities. <a onclick="document.getElementById('supportending').style.display = 'none';" style="cursor: pointer; font-weight: 800; color: black;">[X]</a></p>
-
-    <div id="title-wrapper">
-        <h1 id="title">Timetable M</h1>
-        <p id="time">--:--:----</p>
-        <p id="date">------, -- ----- -----</p>
+    <div id="loadingscreen" style="position: fixed; width: 100vw; height: 100vh; background: var(--bgcolor); z-index: 1;"></div>
+    <div class="content">
+        <div class="timetable-title">
+            <h1 id="timetable-box-title" style="font-weight: var(--boldtext);">Timetable</h1>
+            <p id="timetable-box-description">Select the day, then join the class.</p>
+        </div>
+        <div class="clock-wrapper">
+            <p id="clock">--:--:--</p>
+            <p id="day">---------, -- --------- ----</p>
+        </div>
+        <div class="dm-table">
+            <a class="dm-element" style="color: var(--daystextcolor); grid-column: span 2; background: var(--yellow);" href="#monday">
+                Monday
+            </a>
+            <a class="dm-element" style="color: var(--daystextcolor); grid-column: span 2; background: var(--pink);" href="#tuesday">
+                Tuesday
+            </a>
+            <a class="dm-element" style="color: var(--daystextcolor); grid-column: span 2; background: var(--green);" href="#wednesday">
+                Wednesday
+            </a>
+            <a class="dm-element" style="color: var(--daystextcolor); grid-column: span 2; background: var(--orange);" href="#thursday">
+                Thursday
+            </a>
+            <a class="dm-element" style="color: var(--daystextcolor); grid-column: span 2; background: var(--blue);" href="#friday">
+                Friday
+            </a>
+        </div>
     </div>
-    <div class="days">
-        <a style="background: var(--yellow); color: rgba(0, 0, 0, 0.5);" href="days/monday.html">Monday</a>
-        <a style="background: var(--pink); color: rgba(0, 0, 0, 0.5);" href="days/tuesday.html">Tuesday</a>
-        <a style="background: var(--green); color: rgba(0, 0, 0, 0.5);" href="days/wednesday.html">Wednesday</a>
-        <a style="background: var(--orange); color: rgba(0, 0, 0, 0.5);" href="days/thursday.html">Thursday</a>
-        <a style="background: var(--blue); color: rgba(0, 0, 0, 0.5);" href="days/friday.html">Friday</a>
-    </div>
-
-    <div>
+    <div class="links-wrapper">
         <div>
-            <h2 class="quicklinks-title">Quicklinks</h2>
-            <p class="quicklinks-content">Google Classroom<br><a href="https://classroom.google.com/u/2/h" style="color: var(--blue);" target="_blank">Go ›</a></p>
-            <p class="quicklinks-content">Google Classroom - To Do<br><a href="https://classroom.google.com/u/2/a/not-turned-in/all" style="color: var(--blue);" target="_blank">Go ›</a></p>
-            <p class="quicklinks-content">Google Meet<br><a href="https://meet.google.com/landing?authuser=2" style="color: var(--blue);" target="_blank">Go ›</a></p>
-            <p class="quicklinks-content">Google Docs<br><a href="https://docs.google.com/document/u/2/" style="color: var(--blue);" target="_blank">Go ›</a></p>
+            <h2 id="row0" style="font-weight: var(--boldtext);">Placeholder Row</h2>
+            <p id="bookmark0-0">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
+            <p id="bookmark1-0">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
+            <p id="bookmark2-0">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
+            <p id="bookmark3-0">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
         </div>
-        <div style="padding-bottom: 1em;">
-            <h2 class="quicklinks-title">After School</h2>
-            <p class="quicklinks-content">YouTube<br><a href="https://www.youtube.com/" style="color: var(--blue);" target="_blank">Go ›</a></p>
-            <p class="quicklinks-content">Facebook<br><a href="https://www.facebook.com/" style="color: var(--blue);" target="_blank">Go ›</a></p>
-            <p class="quicklinks-content">Instagram<br><a href="https://www.instagram.com/" style="color: var(--blue);" target="_blank">Go ›</a></p>
-            <p class="quicklinks-content">Twitter<br><a href="https://www.twitter.com/" style="color: var(--blue);" target="_blank">Go ›</a></p>
+        <div>
+            <h2 id="row1" style="font-weight: var(--boldtext);">Placeholder Row</h2>
+            <p id="bookmark0-1">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
+            <p id="bookmark1-1">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
+            <p id="bookmark2-1">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
+            <p id="bookmark3-1">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
+        </div>
+        <div class="google-wrapper">
+            <h2 id="searchtitle" style="font-weight: var(--boldtext);">Search with Google</h2>
+            <div>
+                <div class="searchgoogle">
+                    <input name="q" id="searchbar" type="text" spellcheck="false" placeholder="Search with Google">
+                    <input onclick="clearSearch()" id="searchsubmit" type="submit" value="Search">
+                </div>
+            </div>
         </div>
     </div>
-    
-    <div id="footer">
-        <a class="footer-days" href="days/monday.html">Monday</a>
-        <a class="footer-days" href="days/tuesday.html">Tuesday</a>
-        <a class="footer-days" href="days/wednesday.html">Wednesday</a>
-        <a class="footer-days" href="days/thursday.html">Thursday</a>
-        <a class="footer-days" href="days/friday.html">Friday</a>
-        <p class="footer-info">Timetable M v.<span id="version">x.y.z</span><br>© <span id="year">----</span> PixelEdition. All rights reserved</p>
+    <div class="footer">
+        <p>
+            Timetable v<span id="version">-.-.-</span> | 
+            <a style="text-decoration: underline; cursor: pointer;" onclick="themeswitch();">Change Theme</a>
+            <a id="changelanguagebtn" style="display: none;">| <span style="text-decoration: underline; cursor: pointer;" onclick="language_swapper();">Change Language</span></a><br>
+            <a style="text-decoration: underline; cursor: pointer;" onclick="document.getElementById('changelogframe-bg').style.display = 'block'">Changelog</a> | 
+            <a style="text-decoration: underline;" href="../timetable-v2.3.0_download.zip" download>Download Timetable</a> | 
+            <a style="text-decoration: underline;" href="../">PC</a>
+        </p>
+    </div>
+    <div id="changelogframe-bg" class="changelogframe-bg" onclick="document.getElementById('changelogframe-bg').style.display = 'none';">
+        <div class="changelogframe-wrapper">
+            <h2 class="changelogframe-text" style="color: white;">Timetable Changelog</h2>
+            <iframe class="changelogframe" src="../assets/changelog.html"></iframe>
+            <p class="changelogframe-text"><a style="cursor: pointer; color: var(--changelog-linkblue);" onclick="document.getElementById('changelogframe-bg').style.display = 'none'">Close</a></p>
+        </div>
+    </div>
+    <div id="popup" class="popup">
+        <div style="position: relative;">
+            <div style="padding: 0.5em;">
+                <span id="codewrap" style="font-weight: var(--boldtext);">[<span id="code" style="font-weight: var(--boldtext);">UKN-00</span>]</span>
+                <span id="msg">An unknown error occurred.</span>
+                <a class="popup-closebtn" onclick="document.getElementById('popup').style.display = 'none'">✕</a>
+            </div>
+            <div class="timebar-wrap">
+                <div class="timebar-player"></div>
+            </div>
+        </div>
+    </div>
+    <div class="dm-table" id="monday">
+        <div class="m-label">
+            Time
+        </div>
+        <div class="m-label" style="color: var(--daystextcolor); background: var(--yellow);">
+            Monday
+        </div>
+
+        <div class="m-timegrid dm-element time0">
+            --:-- - --:--
+        </div>
+        <div class="m-subjgrid dm-element">
+            <div class="dm-inside-wrapper">
+                <p id="0">Placeholder Class</p>
+                <div class="m-subjlinks">
+                    <a id="vdo0" href="https://www.example.com/" target="_blank">Video Call</a>
+                    <a id="cls0" href="https://www.example.com/" target="_blank">Classroom</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-timegrid dm-element time1">
+            --:-- - --:--
+        </div>
+        <div class="m-subjgrid dm-element">
+            <div class="dm-inside-wrapper">
+                <p id="1">Placeholder Class</p>
+                <div class="m-subjlinks">
+                    <a id="vdo1" href="https://www.example.com/" target="_blank">Video Call</a>
+                    <a id="cls1" href="https://www.example.com/" target="_blank">Classroom</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-timegrid dm-element time1">
+            --:-- - --:--
+        </div>
+        <div class="m-subjgrid dm-element">
+            <div class="dm-inside-wrapper">
+                <p id="2">Placeholder Class</p>
+                <div class="m-subjlinks">
+                    <a id="vdo2" href="https://www.example.com/" target="_blank">Video Call</a>
+                    <a id="cls2" href="https://www.example.com/" target="_blank">Classroom</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-timegrid dm-element time1">
+            --:-- - --:--
+        </div>
+        <div class="m-subjgrid dm-element">
+            <div class="dm-inside-wrapper">
+                <p id="3">Placeholder Class</p>
+                <div class="m-subjlinks">
+                    <a id="vdo3" href="https://www.example.com/" target="_blank">Video Call</a>
+                    <a id="cls3" href="https://www.example.com/" target="_blank">Classroom</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-timegrid dm-element time1">
+            --:-- - --:--
+        </div>
+        <div class="m-subjgrid dm-element">
+            <div class="dm-inside-wrapper">
+                <p id="4">Placeholder Class</p>
+                <div class="m-subjlinks">
+                    <a id="vdo4" href="https://www.example.com/" target="_blank">Video Call</a>
+                    <a id="cls4" href="https://www.example.com/" target="_blank">Classroom</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-timegrid dm-element time1">
+            --:-- - --:--
+        </div>
+        <div class="m-subjgrid dm-element">
+            <div class="dm-inside-wrapper">
+                <p id="5">Placeholder Class</p>
+                <div class="m-subjlinks">
+                    <a id="vdo5" href="https://www.example.com/" target="_blank">Video Call</a>
+                    <a id="cls5" href="https://www.example.com/" target="_blank">Classroom</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-timegrid dm-element time1">
+            --:-- - --:--
+        </div>
+        <div class="m-subjgrid dm-element">
+            <div class="dm-inside-wrapper">
+                <p id="6">Placeholder Class</p>
+                <div class="m-subjlinks">
+                    <a id="vdo6" href="https://www.example.com/" target="_blank">Video Call</a>
+                    <a id="cls6" href="https://www.example.com/" target="_blank">Classroom</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-timegrid dm-element time1">
+            --:-- - --:--
+        </div>
+        <div class="m-subjgrid dm-element">
+            <div class="dm-inside-wrapper">
+                <p id="7">Placeholder Class</p>
+                <div class="m-subjlinks">
+                    <a id="vdo7" href="https://www.example.com/" target="_blank">Video Call</a>
+                    <a id="cls7" href="https://www.example.com/" target="_blank">Classroom</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-timegrid dm-element time1">
+            --:-- - --:--
+        </div>
+        <div class="m-subjgrid dm-element">
+            <div class="dm-inside-wrapper">
+                <p id="8">Placeholder Class</p>
+                <div class="m-subjlinks">
+                    <a id="vdo8" href="https://www.example.com/" target="_blank">Video Call</a>
+                    <a id="cls8" href="https://www.example.com/" target="_blank">Classroom</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-timegrid dm-element time1">
+            --:-- - --:--
+        </div>
+        <div class="m-subjgrid dm-element">
+            <div class="dm-inside-wrapper">
+                <p id="9">Placeholder Class</p>
+                <div class="m-subjlinks">
+                    <a id="vdo9" href="https://www.example.com/" target="_blank">Video Call</a>
+                    <a id="cls9" href="https://www.example.com/" target="_blank">Classroom</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-timegrid dm-element time1">
+            --:-- - --:--
+        </div>
+        <div class="m-subjgrid dm-element">
+            <div class="dm-inside-wrapper">
+                <p id="10">Placeholder Class</p>
+                <div class="m-subjlinks">
+                    <a id="vdo10" href="https://www.example.com/" target="_blank">Video Call</a>
+                    <a id="cls10" href="https://www.example.com/" target="_blank">Classroom</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a onclick="window.scrollTo(0, 0);">Back to top ></a>
+    <div class="footer">
+        © <span id="year">----</span> PixelEdition. All rights reserved
     </div>
 </body>
-<script src="./assets/main.js"></script>    
 </html>

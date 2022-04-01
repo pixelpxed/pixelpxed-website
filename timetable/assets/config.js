@@ -46,7 +46,7 @@ const classes_secondary = ["โฮมรูม", "สังคมฯ", "ภา�
 
 
 // Subject's Google Meet and Google Classroom links.
-// "[Subject]": {
+// "[Subject]": { **MUST BE THE SAME WITH ONE YOU PUT ON 'class_primary' CONST**
 //     "videocall": "[Video Call Link]",
 //     "classroom": "[Classroom Link]"    
 // }, <- Do not add the ',' if it's the last element.
@@ -139,6 +139,20 @@ const subj = {
     "Career": {
         "videocall": "https://meet.google.com/gzv-wipn-vse?authuser=2",
         "classroom": "https://classroom.google.com/u/2/c/NDE4OTcwMDQ2ODky"
+    },
+
+    // Do not edit here!
+    "DClass": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Lunch": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "": {
+        "videocall": "",
+        "classroom": ""
     }
 }
 

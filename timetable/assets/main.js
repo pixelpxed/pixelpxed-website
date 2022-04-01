@@ -37,26 +37,22 @@ window.onload = function() {
     }, 1);
 }
 
-setInterval(() => {
-    var today = new Date();
-    var day = var_day[today.getDay()];
-    var date = today.getDate();
-    var month = var_month[today.getMonth()];
-    var year = today.getFullYear();
-
-    let h = today.getHours();
-    let m = today.getMinutes();
-    let s = today.getSeconds();
-
-    document.getElementById("clock").innerHTML = `${h > 9 ? h : "0" + h}:${m >= 10 ? m : "0" + m}:${s >= 10 ? s : "0" + s}`
-    document.getElementById("day").innerHTML = `${day}, ${date > 9 ? date : "0" + date} ${month} ${year}`;
-}, 1);
-
-// setInterval(() => {
-//     fetch("https://www.pixelpxed.xyz/fetch.json")
-// }, 1)
-
 function onstartsetup() {
+    setInterval(() => {
+        var today = new Date();
+        var day = var_day[today.getDay()];
+        var date = today.getDate();
+        var month = var_month[today.getMonth()];
+        var year = today.getFullYear();
+    
+        let h = today.getHours();
+        let m = today.getMinutes();
+        let s = today.getSeconds();
+    
+        document.getElementById("clock").innerHTML = `${h > 9 ? h : "0" + h}:${m >= 10 ? m : "0" + m}:${s >= 10 ? s : "0" + s}`
+        document.getElementById("day").innerHTML = `${day}, ${date > 9 ? date : "0" + date} ${month} ${year}`;
+    }, 1);
+
     var classFilled = 0;
     var timeFilled = 0;
     var rowFilled = 0;

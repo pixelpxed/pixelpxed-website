@@ -89,7 +89,7 @@ body {
 
     transition: 0.3s;
 
-    z-index: 2;
+    z-index: 1000;
 }
 
 .navbar a {

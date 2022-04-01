@@ -5,6 +5,8 @@ var var_day = var_day_primary
 var var_month = var_month_primary
 
 window.onload = function() {
+    onstartsetup()
+
     console.log("%cWarning\n\n%cBy using this console you can get attacked by what it's called 'Self-XSS,' Do not paste and run any codes that you don't understand.\n",
                 "text-align: center; font-size: 1.5em; color: red; font-weight: bold;", "text-align: center;")
 
@@ -34,20 +36,69 @@ window.onload = function() {
     }, 1);
 }
 
-setInterval(() => {
-    var today = new Date();
-    var day = var_day[today.getDay()];
-    var date = today.getDate();
-    var month = var_month[today.getMonth()];
-    var year = today.getFullYear();
+function onstartsetup() {
+    setInterval(() => {
+        var today = new Date();
+        var day = var_day[today.getDay()];
+        var date = today.getDate();
+        var month = var_month[today.getMonth()];
+        var year = today.getFullYear();
+    
+        let h = today.getHours();
+        let m = today.getMinutes();
+        let s = today.getSeconds();
+    
+        document.getElementById("clock").innerHTML = `${h > 9 ? h : "0" + h}:${m >= 10 ? m : "0" + m}:${s >= 10 ? s : "0" + s}`
+        document.getElementById("day").innerHTML = `${day}, ${date > 9 ? date : "0" + date} ${month} ${year}`;
+    }, 1);
 
-    let h = today.getHours();
-    let m = today.getMinutes();
-    let s = today.getSeconds();
+    var classFilled = 0;
+    var timeFilled = 0;
+    var rowFilled = 0;
+    var bookmarkNumber = 0;
+    var elementFilled = 0;
 
-    document.getElementById("clock").innerHTML = `${h > 9 ? h : "0" + h}:${m >= 10 ? m : "0" + m}:${s >= 10 ? s : "0" + s}`
-    document.getElementById("day").innerHTML = `${day}, ${date > 9 ? date : "0" + date} ${month} ${year}`;
-}, 1);
+    while (timeFilled != 2) {
+        document.querySelectorAll("time" + timeFilled).innerHTML = time[timeFilled];
+        timeFilled = timeFilled + 1;
+    }
+
+    while (classFilled != 11) {
+        document.getElementById(classFilled).innerHTML = classes_primary[classFilled];
+
+        if (document.getElementById(classFilled).innerHTML == "Chinese") {
+            choosesubjid = classFilled
+        }
+
+        if (document.getElementById(classFilled).innerHTML == "Lunch") {
+            document.getElementById(classFilled).classList.remove("joinable");
+        } if (document.getElementById(classFilled).innerHTML == "Break") {
+            document.getElementById(classFilled).classList.remove("joinable");
+        } if (document.getElementById(classFilled).innerHTML == "") {
+            document.getElementById(classFilled).classList.remove("joinable");
+        } if (document.getElementById(classFilled).innerHTML == "DClass") {
+            document.getElementById(classFilled).style.display = "none";
+            document.getElementById(classFilled - 1).classList.add("dclass");
+        }
+
+        var className = classes_primary[classFilled]
+        document.getElementById("vdo" + classFilled).href = subj[className].videocall
+        document.getElementById("cls" + classFilled).href = subj[className].classroom
+        classFilled = classFilled + 1;
+    }
+
+    while (rowFilled != 2) {
+        row = "row" + rowFilled;
+        while (bookmarkNumber != 4) {
+            content = "content" + bookmarkNumber;
+            bookmarkName = "bookmark" + bookmarkNumber + "-" + rowFilled;
+            document.getElementById(bookmarkName).innerHTML = `${bookmarks[row][content].name}<br><a style="color: var(--linkblue);" href="${bookmarks[row][content].url}" target="_blank">Go ›</a>`;
+            bookmarkNumber = bookmarkNumber + 1;
+        } bookmarkNumber = 0;
+        document.getElementById(row).innerHTML = `${bookmarks[row].rowname}`;
+        rowFilled = rowFilled + 1;
+    }
+}
 
 function themeswitch() {
     if (curtheme == 'dark') {

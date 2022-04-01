@@ -30,13 +30,13 @@
     <div id="sidebar" class="sidebar">
         <div class="title">
             <h1>Timetable</h1>
-            <p style="color: gray;">Lite</p>
+            <p style="color: gray;">Basic</p>
         </div>
         <div class="clock">
             <p style="font-weight: bold;" id="clock">--:--:--</p>
             <p id="day">------, -- ----- ----</p>
         </div>
-        <a style="cursor: pointer; text-align: center; display: block;" onclick="closeSidebar()">Close Sidebar</a>
+        <a class="closesidebar-btn" style="cursor: pointer; text-align: center; display: block;" onclick="closeSidebar()">Close Sidebar</a>
         <div class="dottedbox">
             <p>Days Selector</p>
             <a href="#monday">Monday</a>
@@ -69,8 +69,27 @@
         <a id="opensidebar-btn" class="opensidebar-btn"style="cursor: pointer; text-align: center; display: block;" onclick="openSidebar()">
             Open Sidebar
         </a>
-        <div class="dottedbox">
-            <h1>Monday</h1>
+        <div id="main-content" class="main-content">
+            <div class="dottedbox">
+                <h2>Monday</h2>
+                <div id="subject1">
+                    <p id="1">Subject</p>
+                    <p id="video1">Video Call: <a href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p id="class1">Classroom: <a href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+            </div>
+            <div class="dottedbox">
+                <h2>Tuesday</h2>
+            </div>
+            <div class="dottedbox">
+                <h2>Thursday</h2>
+            </div>
+            <div class="dottedbox">
+                <h2>Thursday</h2>
+            </div>
+            <div class="dottedbox">
+                <h2>Friday</h2>
+            </div>
         </div>
     </div>
 </body>
@@ -82,7 +101,7 @@
         background-color: #101114;
         color: white;
         
-        overflow-x: hidden;
+        overflow: hidden;
 
         color-scheme: dark;
     }
@@ -104,9 +123,11 @@
 
     .sidebar {
         position: fixed;
+
         top: 0;
         height: 100vh;
         width: 25em;
+
         padding: 1em;
 
         background: #101114;
@@ -158,25 +179,43 @@
     }
 
     .main {
+        height: 100vh;
+
         margin-left: 25em;
-        padding: 1em;
 
         overflow-x: hidden;
         overflow-y: auto;
     }
 
+    .main-content {
+        padding: 1em;
+    }
+
     .opensidebar-btn {
         display: none;
-        position: fixed;
-        width: 100vw;
-        top: 0;
-        left: 0;
-        padding: 0.5em;
-        background-color: rgb(120, 167, 218);
-        color: #101114;
-        font-weight: bold;
 
-        border-bottom: 1px solid white;
+        width: 100vw;
+        
+        padding: 0.5em;
+
+        color: #101114;
+        background: rgb(120, 167, 218);
+
+        font-weight: bold;
+    }
+
+    .closesidebar-btn {
+        display: block;
+        
+        width: max-content;
+
+        padding: 0.5em;
+        margin: auto;
+
+        color: #101114;
+        background: rgb(120, 167, 218);
+        
+        font-weight: bold;
     }
 
     @media only screen and (max-width: 850px) {
@@ -210,16 +249,18 @@
     }
 
     function openSidebar() {
-        document.getElementById("opensidebar-btn").style.display = "none"
-        document.getElementById("sidebar").style.display = "block"
-        document.getElementById("main").style.marginLeft = "25em"
-        document.getElementById("main").style.marginTop = "0"
+        document.getElementById("opensidebar-btn").style.display = "none";
+        document.getElementById("sidebar").style.display = "block";
+        if (screen.width > 850) {
+            document.getElementById("main").style.marginLeft = "25em";
+            return
+        };
+        document.getElementById("main").style.marginLeft = "0";
     }
 
     function closeSidebar() {
-        document.getElementById("opensidebar-btn").style.display = "block"
-        document.getElementById("sidebar").style.display = "none"
-        document.getElementById("main").style.marginLeft = "0"
-        document.getElementById("main").style.marginTop = "50px"
+        document.getElementById("opensidebar-btn").style.display = "block";
+        document.getElementById("sidebar").style.display = "none";
+        document.getElementById("main").style.marginLeft = "0";
     }
 </script>
