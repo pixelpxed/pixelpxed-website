@@ -151,6 +151,47 @@
     margin: auto;
 }
 
+.update {
+    position: fixed;
+    display: none;
+    box-sizing: border-box;
+
+    right: 1em;
+    bottom: 1em;
+
+    width: 90vw;
+    max-width: max-content;
+    height: max-content;
+
+    padding: 1em;
+
+    text-align: center;
+    border-radius: 0.5em;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: var(--tablebg);
+    z-index: 1;
+}
+
+.update-btns {
+    width: max-content;
+
+    margin: auto;
+}
+
+.update-btns a {
+    display: inline-block;
+    
+    width: max-content;
+
+    padding: 0.25em 0.5em;
+    margin: 0.5em 0.25em 0 0.25em;
+
+    cursor: pointer;
+    border-radius: 0.2em;
+    color: var(--alt-textcolor);
+    background: var(--blue);
+}
+
 @media only screen and (max-width: 500px) {
     .links-wrapper {
         grid-template-columns: 1fr 1fr;

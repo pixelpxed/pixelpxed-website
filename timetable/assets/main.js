@@ -1,6 +1,8 @@
 var curtheme = 'dark'
 var language_var = 'primary'
 
+var fetchedversion = undefined
+
 var var_day = var_day_primary 
 var var_month = var_month_primary
 
@@ -19,6 +21,7 @@ window.onload = function() {
     
     var choosesubjid = null
 
+    update()
     onstartsetup()
     joiningsystem()
 
@@ -35,6 +38,23 @@ window.onload = function() {
             }, 300)
         }
     }, 1);
+}
+
+function update() {
+    fetch('https://www.pixelpxed.xyz/fetch.json')
+        .then(res => res.json())
+        .then(data => fetchedversion = data)
+
+    let checkupdates = setInterval(() => {
+        fetch('https://www.pixelpxed.xyz/fetch.json')
+            .then(res => res.json())
+            .then(data => fetchedversion = data)
+
+        if (fetchedversion.currentversion != versionnumber) {
+            document.getElementById("update").style.display = "block"
+            clearInterval(checkupdates)
+        } console.log(`Checked for Timetable updates\n- Current Version: ${versionnumber}\n- Fetched Version: ${fetchedversion.currentversion}`)
+    }, 60000)
 }
 
 function onstartsetup() {
@@ -228,7 +248,8 @@ function joiningsystem() {
         grid.addEventListener("click", () => {
             var o = subj[subjecttext].videocall;
 
-            if (subjecttext == "Japanese") {
+            if (grid.id == choosesubjid) {
+                if (grid.textContent == "Japanese")
                 return popup(`JAP-01`, `Your teacher should send you a link, please check there!`, `white`)
             }
             
@@ -242,10 +263,15 @@ function joiningsystem() {
         grid.addEventListener("auxclick", () => {
             var o = subj[subjecttext].classroom;
     
+            if (grid.id == choosesubjid) {
+                if (grid.textContent == "Japanese")
+                return window.open(subj["Japanese"].classroom)
+            }
+
             if (o !== "") {
                 console.log(`[SUC-02] Open "${grid.innerHTML}" subject classroom.`)
                 return window.open(o);
-            } if (o == "" || o == null) {
+            } if (o == "" || o == null || o == undefined) {
                 
                 return popup(`NON-02`, `"${grid.innerHTML}" subject doesn't have a classroom link.`);
             }

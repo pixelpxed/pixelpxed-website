@@ -50,7 +50,10 @@
     <div id="loadingscreen" style="position: fixed; width: 100vw; height: 100vh; background: var(--bgcolor); z-index: 1;"></div>
     <div class="content">
         <div class="timetable-title">
-            <h1 id="timetable-box-title" style="font-weight: var(--boldtext);">Timetable</h1>
+            <div style="width: max-content; margin: auto;">
+                <h1 id="timetable-box-title" style="font-weight: var(--boldtext);">Timetable</h1>
+                <p style="display: none; color: var(--linkblue); text-align: right; font-size: 0.8em; margin-top: -0.8em; margin-bottom: 0.5em;">Dev</p>
+            </div>
             <p id="timetable-box-description">Left Click - Video Call<br>Right Click - Classroom</p>
         </div>
         <div class="clock-wrapper">
@@ -184,6 +187,7 @@
             <p class="changelogframe-text"><a style="cursor: pointer; color: var(--changelog-linkblue);" onclick="document.getElementById('changelogframe-bg').style.display = 'none'">Close</a></p>
         </div>
     </div>
+
     <div id="popup" class="popup">
         <div style="position: relative;">
             <div style="padding: 0.5em;">
@@ -194,6 +198,15 @@
             <div class="timebar-wrap">
                 <div class="timebar-player"></div>
             </div>
+        </div>
+    </div>
+
+    <div id="update" class="update">
+        <h2 style="font-weight: var(--boldtext);">A new version of Timetable is available</h2>
+        <p>Reload this page to update your Timetable to the latest version.</p>
+        <div class="update-btns">
+            <a onclick="location.reload()">Reload</a>
+            <a onclick="document.getElementById('update').style.display = 'none'">Ignore</a>
         </div>
     </div>
 </body>
