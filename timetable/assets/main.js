@@ -2,12 +2,13 @@ var curtheme = 'dark'
 var language_var = 'primary'
 
 var fetchedversion = undefined
+var notifyoffline = false
 
 var var_day = var_day_primary 
 var var_month = var_month_primary
 
 window.onload = function() {
-    console.log("%cWarning\n\n%cBy using this console you can get attacked by what it's called 'Self-XSS,' Do not paste and run any codes that you don't understand.\n",
+    console.log("%cWarning\n\n%cBy using this console you can get attacked by what it's called 'Self-XSS.' Never paste and run any codes that you don't understand.\n",
                 "text-align: center; font-size: 1.5em; color: red; font-weight: bold;", "text-align: center;")
 
     document.getElementById("version").innerHTML = versionnumber
@@ -22,6 +23,7 @@ window.onload = function() {
     var choosesubjid = null
 
     update()
+    checkconnection()
     onstartsetup()
     joiningsystem()
 
@@ -51,11 +53,29 @@ function update() {
             .then(data => fetchedversion = data)
 
         if (fetchedversion.currentversion != versionnumber) {
-            document.getElementById("update").style.display = "block"
-            clearInterval(checkupdates)
+            document.getElementById("fixedribbon").innerHTML = `A new version of Timetable is available, reload this page to update your Timetable to the latest version.<a onclick="location.reload()">Reload</a><a onclick="document.getElementById('fixedribbon').style.display = 'none'">Ignore</a>`
+            document.getElementById("fixedribbon").style.display = "block"
+            notifyoffline = false
         } console.log(`Checked for Timetable updates\n- Current Version: ${versionnumber}\n- Fetched Version: ${fetchedversion.currentversion}`)
     }, 60000)
 }
+
+function checkconnection() {
+    window.addEventListener('online', () => onlineconnection())
+    window.addEventListener('offline', () => offlineconnection())
+    
+    function onlineconnection() {
+        if (notifyoffline = true) {
+            document.getElementById("fixedribbon").style.display = "none"
+        }
+    } function offlineconnection() {
+        document.getElementById("fixedribbon").style.display = "block"
+        document.getElementById("fixedribbon").innerHTML = `It appears that you're offline. Try checking your connection! <a onclick="document.getElementById('fixedribbon').style.display = 'none'">Ignore</a>`
+        notifyoffline = true
+    }
+}
+
+
 
 function onstartsetup() {
     setInterval(() => {

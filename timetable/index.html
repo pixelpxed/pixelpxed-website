@@ -47,6 +47,11 @@
             <a style="cursor: pointer;" id="jp" onclick="japanese()">JP</a>
         </div>
     </div>
+    <div id="fixedribbon" class="fixedribbon">
+        A new version of Timetable is available, reload this page to update your Timetable to the latest version.
+        <a onclick="location.reload()">Reload</a>
+        <a onclick="document.getElementById('fixedribbon').style.display = 'none'">Ignore</a>
+    </div>
     <div id="loadingscreen" style="position: fixed; width: 100vw; height: 100vh; background: var(--bgcolor); z-index: 1;"></div>
     <div class="content">
         <div class="timetable-title">
@@ -198,15 +203,6 @@
             <div class="timebar-wrap">
                 <div class="timebar-player"></div>
             </div>
-        </div>
-    </div>
-
-    <div id="update" class="update">
-        <h2 style="font-weight: var(--boldtext);">A new version of Timetable is available</h2>
-        <p>Reload this page to update your Timetable to the latest version.</p>
-        <div class="update-btns">
-            <a onclick="location.reload()">Reload</a>
-            <a onclick="document.getElementById('update').style.display = 'none'">Ignore</a>
         </div>
     </div>
 </body>
