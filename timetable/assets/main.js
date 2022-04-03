@@ -53,7 +53,7 @@ function update() {
             .then(data => fetchedversion = data)
 
         if (fetchedversion.currentversion != versionnumber) {
-            document.getElementById("fixedribbon").innerHTML = `A new version of Timetable is available, reload this page to update your Timetable to the latest version.<a onclick="location.reload()">Reload</a><a onclick="document.getElementById('fixedribbon').style.display = 'none'">Ignore</a>`
+            document.getElementById("fixedribbon").innerHTML = `A new version of Timetable is available, reload this page to update your Timetable to the latest version.<a onclick="location.reload()">Reload</a>`
             document.getElementById("fixedribbon").style.display = "block"
             notifyoffline = false
         } console.log(`Checked for Timetable updates\n- Current Version: ${versionnumber}\n- Fetched Version: ${fetchedversion.currentversion}`)
