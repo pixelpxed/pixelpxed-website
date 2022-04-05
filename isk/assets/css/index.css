@@ -1,0 +1,23 @@
+.main {
+    padding-top: 36px;
+}
+
+.welcome {
+    box-sizing: border-box;
+    width: max-content;
+    text-align: center;
+    margin: auto;
+    padding: 1em;
+}
+
+.welcome h1 {
+    font-weight: var(--bold-text);
+}
+
+.director {
+    display: block;
+    height: 25em;
+    background: white;
+    padding: 1em;
+    margin: auto;
+}

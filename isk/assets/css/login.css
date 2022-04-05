@@ -1,5 +1,5 @@
 body {
-    background: url('../img/loginbg-dark.png') no-repeat center center fixed;
+    background: url('../img/loginbg-dark.png') no-repeat right bottom fixed;
     background-size: cover;
 }
 
@@ -17,6 +17,7 @@ body {
 
     color: var(--color-alttext);
     background: var(--box-background);
+    backdrop-filter: blur(8px);
 }
 
 .login-description-wrapper {
@@ -42,7 +43,7 @@ body {
     font-family: 'Outfit', 'Sarabun', sans-serif;
 
     border: 1px solid rgba(0, 0, 0, 0.1);
-    background: var(--box-background);
+    background: var(--color-text);
     color: var(--color-alttext);
     width: 90%;
     margin: 1em auto;
@@ -87,7 +88,7 @@ body {
 }
 
 .copyright {
-    color: var(--color-alttext);
+    color: var(--color-text);
     position: fixed;
     bottom: 0.5em;
     width: 100vw;
@@ -99,7 +100,11 @@ body {
 
 @media (prefers-color-scheme: light) {
     body {
-        background: url("../img/loginbg-light.png")  no-repeat center center fixed;
+        background: url("../img/loginbg-light.png")  no-repeat right bottom fixed;
         background-size: cover;
+    }
+
+    .copyright {
+        color: var(--color-alttext);
     }
 }

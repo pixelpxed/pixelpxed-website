@@ -64,6 +64,7 @@
     position: fixed;
     overflow-y: auto;
     background: #151619;
+    transition: 0.3s;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -89,5 +90,9 @@
     height: calc(100% - 2em);
     width: calc(100% - 20em);
     margin-left: 20em;
+
+    padding-top: 36px;
     overflow-y: auto;
+
+    transition: 0.3s;
 }

@@ -37,3 +37,15 @@ function signOut() {
     setCookie("token", "Expired", -1)
     window.location.href = "./"
 }
+
+function closeSidebar() {
+    document.getElementById("sidebar").style.marginLeft = '-20em'
+    document.getElementById("main").style.marginLeft = '0'
+    document.getElementById("menuicon").setAttribute('onclick', 'javascript:openSidebar()')
+}
+
+function openSidebar() {
+    document.getElementById("sidebar").style.marginLeft = '0'
+    document.getElementById("main").style.marginLeft = '20em'
+    document.getElementById("menuicon").setAttribute('onclick', 'javascript:closeSidebar()')
+}
