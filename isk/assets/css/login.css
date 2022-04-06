@@ -18,6 +18,7 @@ body {
     color: var(--color-alttext);
     background: var(--box-background);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .login-description-wrapper {
