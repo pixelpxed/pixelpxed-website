@@ -49,11 +49,11 @@ function popup(code, msg, status) {
 function themeswitch() {
     if (curtheme == 'dark') {
         curtheme = 'light';
-        document.documentElement.className = 'light';
-        return
+        popup(`CNE-03`, `The theme has been changed.`, `white`)
+        return document.documentElement.className = 'light';
     } if (curtheme == 'light') {
         curtheme = 'dark';
-        document.documentElement.className = 'dark';
-        return
+        popup(`CNE-03`, `The theme has been changed.`, `white`)
+        return document.documentElement.className = 'dark';
     }
 }

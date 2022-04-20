@@ -3,8 +3,10 @@
 :root {
     --background: #202124;
     --navbar-background: #101114;
+    --sidebar-background: #151619;
 
     --box-background: rgba(255, 255, 255, 0.8);
+
 
     --color-text: #ffffff;
     --color-alttext: #000000;
@@ -73,4 +75,17 @@ body {
 
 .navbar-right {
     float: right;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background: #ffffff;
+        --navbar-background: rgb(235, 235, 235);
+        --sidebar-background: rgb(210, 210, 210);
+
+        --color-text: #000000;
+        --color-alttext: #ffffff;
+
+        color-scheme: light;
+    }
 }

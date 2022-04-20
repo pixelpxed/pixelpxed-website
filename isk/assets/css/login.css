@@ -98,6 +98,10 @@ body {
     font-size: 0.8em;
 }
 
+.login-header {
+    color: var(--color-alttext);
+    font-weight: var(--bold-text);
+}
 
 @media (prefers-color-scheme: light) {
     body {
@@ -107,5 +111,23 @@ body {
 
     .copyright {
         color: var(--color-alttext);
+    }
+
+    .login-wrapper {
+        color: var(--color-text);
+    }
+
+    .login-inputzone-input {
+        background: var(--color-alttext);
+        color: var(--color-text);
+    }
+
+    .login-wrapper #signin {
+        color: var(--color-alttext);
+    }
+
+    .login-header {
+        color: var(--color-text);
+        font-weight: var(--bold-text);
     }
 }

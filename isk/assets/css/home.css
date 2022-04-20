@@ -63,7 +63,7 @@
     width: 20em;
     position: fixed;
     overflow-y: auto;
-    background: #151619;
+    background: var(--sidebar-background);
     transition: 0.3s;
 }
 
@@ -73,11 +73,11 @@
 }
 
 .sidebar::-webkit-scrollbar-track {
-    background: #151619;
+    background: var(--sidebar-background);
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-    border: 0.2em solid #151619;
+    border: 0.2em solid var(--sidebar-background);
     background: grey;
     border-radius: 0.25em;
 }
