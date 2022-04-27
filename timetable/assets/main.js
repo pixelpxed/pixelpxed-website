@@ -7,6 +7,8 @@ var notifyoffline = false
 var var_day = var_day_primary 
 var var_month = var_month_primary
 
+var choosesubjid = null
+
 window.onload = function() {
     console.log("%cWarning\n\n%cBy using this console you can get attacked by what it's called 'Self-XSS.' Never paste and run any codes that you don't understand.\n",
                 "text-align: center; font-size: 1.5em; color: red; font-weight: bold;", "text-align: center;")
@@ -19,8 +21,6 @@ window.onload = function() {
     } if (secondarylanguage == true) {
         document.getElementById("changelanguagebtn").style.display = "inline-block"
     }
-    
-    var choosesubjid = null
 
     update()
     onstartsetup()
@@ -254,12 +254,12 @@ function joiningsystem() {
                 if (grid.textContent == "Japanese")
                 return popup(`JAP-01`, `Your teacher should send you a link, please check there!`, `white`)
             }
-            
+
             if (o !== "") {
                 console.log(`[SUC-01] Open "${grid.innerHTML}" subject video call.`)
                 return window.open(o);
             } if (o == "" || o == null || o == undefined) {
-                return popup(`NON-02`, `"${grid.innerHTML}" subject doesn't have a classroom link.`); 
+                return popup(`NON-02`, `"${grid.innerHTML}" subject doesn't have a video call link.`); 
             }
         }), 
         grid.addEventListener("auxclick", () => {

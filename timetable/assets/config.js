@@ -1,5 +1,5 @@
 // General variables
-var versionnumber = "2.6.1"
+var versionnumber = "2.7.0"
 var copyrightyear = "2022"
 
 // Translation Variables
@@ -31,18 +31,18 @@ const time = ["08:00 - 08:40", "08:40 - 09:20", "09:20 - 10:00", "10:20 - 11:00"
 // ""        - Will set the grid as a blankclass grid automaticly
 
 const element_primary = ["Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"] // ["[Time]", "[Monday]", "[Tuesday]", "[Thursday]", "[Friday]"]
-const classes_primary = ["Homeroom", "Social", "Core English", "Core Science", "DClass", "Lunch", "Core Maths", "Thai", "R+W", "Tutor", "DClass",
-                         "Homeroom", "Thai", "P.E.", "History", "Lunch", "Add Maths", "Art", "Mech. Work", "Core English", "Tutor", "DClass",
-                         "Homeroom", "Health", "Core Science", "Flim Making", "DClass", "Lunch", "R+W", "Add Maths", "Chinese", "DClass", "",
-                         "Homeroom", "Core Maths", "Buddhism", "Guidance", "Thai", "Lunch", "Music", "", "", "", "", 
-                         "Homeroom", "Career", "Core Maths", "R+W", "Lunch", "Social", "Core English", "Additional Science", "DClass", "", ""]
+const classes_primary = ["Homeroom", "", "", "", "", "", "", "", "", "", "",
+                         "Homeroom", "", "", "", "", "", "", "", "", "", "",
+                         "Homeroom", "", "", "", "", "", "", "", "", "", "",
+                         "Homeroom", "", "", "", "", "", "", "", "", "", "",
+                         "Homeroom", "", "", "", "", "", "", "", "", "", "",]
 
 const element_secondary = ["เวลา", "จันทร์", "อังคาร" , "พุธ", "พฤหัสบดี", "ศุกร์"] // ["[Time]", "[Monday]", "[Tuesday]", "[Thursday]", "[Friday]"]
-const classes_secondary = ["โฮมรูม", "สังคมฯ", "ภาษาอังกฤษ", "วิทย์ฯ พื้นฐาน", "DClass", "พักกลางวัน", "คณิตฯ พื้นฐาน", "ไทย", "อ่านและเขียน", "ติวเตอร์", "DClass",
-                           "โฮมรูม", "ไทย", "พละ", "ประวัติ", "พักกลางวัน", "คณิตฯ เพิ่มเติม", "ศิลปะ", "การช่าง", "ภาษาอังกฤษ", "ติวเตอร์", "DClass",
-                           "โฮมรูม", "สุขศึกษา", "วิทย์ฯ พื้นฐาน", "ผลิดสื่อวีดีทัศน์", "DClass", "พักกลางวัน", "อ่านและเขียน", "คณิตฯ เพิ่มเติม", "ภาษาจีน", "DClass", "",
-                           "โฮมรูม", "คณิตฯ พื้นฐาน", "พระพุทธศาสนา", "แนะแนว", "ไทย", "พักกลางวัน", "ดนตรี", "", "", "", "",
-                           "โฮมรูม", "การงานฯ", "คณิตฯ พื้นฐาน", "อ่านและเขียน", "พักกลางวัน", "สังคมฯ", "ภาษาอังกฤษ", "วิทย์ฯ เพื่มเติม", "DClass", "", "",]
+const classes_secondary = ["โฮมรูม", "", "", "", "", "", "", "", "", "", "",
+                           "โฮมรูม", "", "", "", "", "", "", "", "", "", "",
+                           "โฮมรูม", "", "", "", "", "", "", "", "", "", "",
+                           "โฮมรูม", "", "", "", "", "", "", "", "", "", "",
+                           "โฮมรูม", "", "", "", "", "", "", "", "", "", "",]
 
 
 // Subject's Google Meet and Google Classroom links.
@@ -53,92 +53,8 @@ const classes_secondary = ["โฮมรูม", "สังคมฯ", "ภา�
 
 const subj = {
     "Homeroom"  : {
-        "videocall": "https://meet.google.com/cug-fqam-xoy?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/MzQ3OTY2NzAwNjQz"
-    },
-    "Tutor": {
-        "videocall": "https://meet.google.com/kvr-hrmx-jjo?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/MzU4ODk4MzgxMjMz"
-    },
-    "Social": {
-        "videocall": "https://meet.google.com/jne-tpyd-hjy?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/MzMwNjA0MTM1NjY2"
-    },
-    "Health": {
-        "videocall": "https://meet.google.com/bmn-mozj-uig?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/MzMwNjA0MTM1NzE3"
-    },
-    "P.E.": {
-        "videocall": "https://meet.google.com/buo-obyb-iih?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/MzMwNjA0MTQ4NTM1"
-    },
-    "Core Science": {
-        "videocall": "https://meet.google.com/ksm-qsei-mid?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/NDE5Nzk2NDM1MTU1"
-    },
-    "Additional Science": {
-        "videocall": "https://meet.google.com/lookup/d2lq6fo5a2?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/MzQzOTkyNjMxMDQ4"
-    },
-    "Core Maths": {
-        "videocall": "https://meet.google.com/anb-bgwt-jqb?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/NDE5NzQ3NjIwNjkx"
-    },
-    "Add Maths": {
-        "videocall": "https://meet.google.com/cxe-ntdr-put?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/NDE5NzUwMjAwNTg5"
-    },
-    "Thai": {
-        "videocall": "https://meet.google.com/wko-ywfc-rcu?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/MzQ3OTU5NTAzOTcw"
-    },
-    "Core English": {
-        "videocall": "https://meet.google.com/ubp-evqe-pag?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/MzM1MTcyNDc5ODQ0"
-    },
-    "R+W": {
-        "videocall": "https://meet.google.com/cog-zwyi-jwt?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/MzEyNTIyNzg4MDQ4"
-    },
-    "Chinese": {
-        "videocall": "https://meet.google.com/qkc-qmcj-ukt?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/MzQ3ODM2MzI4Njk2"
-    },
-    "Japanese": {
         "videocall": "",
-        "classroom": "https://classroom.google.com/u/2/c/MTE1ODAxNTg5MDk0"
-    },
-    "Art": {
-        "videocall": "https://meet.google.com/lookup/ddlxbpb3gt?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/MzQzOTYwMTQ5ODUz"
-    },
-    "History": {
-        "videocall": "https://meet.google.com/lookup/e27kcllzvs?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/MzQzNDgxNTc5MTI0"
-    },
-    "Mech. Work": {
-        "videocall": "https://meet.google.com/wcq-gqpv-kst?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/NDE4MTM4ODY2MzI1"
-    },
-    "Flim Making": {
-        "videocall": "https://meet.google.com/yyu-pujm-tus?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/NDE5MzQwMjAxNjQ4"
-    },
-    "Buddhism": {
-        "videocall": "https://meet.google.com/gmp-qpyi-xan?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/MzQzNjI3Mjg2NDU1"
-    },
-    "Guidance": {
-        "videocall": "https://meet.google.com/fgy-kcye-fzx?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/MzQzOTgxNjMzNjkw"
-    },
-    "Music": {
-        "videocall": "https://meet.google.com/xnm-kdan-hoc?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/MzQ0MDIwOTk5MjU5"
-    },
-    "Career": {
-        "videocall": "https://meet.google.com/gzv-wipn-vse?authuser=2",
-        "classroom": "https://classroom.google.com/u/2/c/NDE4OTcwMDQ2ODky"
+        "classroom": ""
     },
 
     // Do not edit here!

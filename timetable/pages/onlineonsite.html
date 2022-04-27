@@ -17,7 +17,21 @@
     <title>Timetable Online/Onsite - PixelEdition</title>
 </head>
 <body>
+    <div class="navbar">
+        <a href="../../">Home</a>
+        <a href="../index.html">Timetable</a>
+        <div style="display: none;" id="navbar-right" class="navbar-right">
+            <a style="cursor: pointer; opacity: 1;" id="ch" onclick="chinese()">CH</a>
+            <a style="cursor: pointer;" id="jp" onclick="japanese()">JP</a>
+        </div>
+    </div>
     <div class="calandar">
+        <h1 style="text-align: center;">M1 - M3</h1>
+        <p class="source">
+            <a href="../"><span class="material-symbols-outlined">arrow_back</span> Timetable</a>
+            <a href="../assets/onlineonsite-source.pdf"><span class="material-symbols-outlined">file_download</span> Source</a>
+        </p>
+
         <h2>May / พ.ค.</h2>
         <div class="table">
             <p class="date" style="background: var(--red);">Sunday</p>
@@ -180,7 +194,7 @@
         </div>
     </div>
     <p class="source">
-        <a href="javascript:void(0)" onclick="history.back()"><span class="material-symbols-outlined">arrow_back</span> Back</a>
+        <a href="../"><span class="material-symbols-outlined">arrow_back</span> Timetable</a>
         <a href="../assets/onlineonsite-source.pdf"><span class="material-symbols-outlined">file_download</span> Source</a>
     </p>
 </body>
@@ -237,9 +251,17 @@
     padding: 0;
     margin: 0;
 
+    -webkit-appearance: none;
+
+    font-weight: 200;
+
+    text-decoration: none;
+    color: var(--textcolor);
+
+    font-family: "Outfit", "Sarabun", sans-serif;
+
     box-sizing: border-box;
 }
-
 body {
     color: var(--white);
     background: var(--background);
@@ -249,6 +271,35 @@ body {
 .material-symbols-outlined {
     line-height: 1;
     font-size: 12px;
+}
+
+.navbar {
+    font-weight: 500;
+    padding: 0.5em;
+
+    background: #101114;
+
+    transition: 0.3s;
+
+    z-index: 1000;
+}
+
+.navbar a {
+    padding: 0 0.5em;
+
+    text-align: center;
+    opacity: 0.6;
+    transition: 0.3s;
+    
+    display: inline-block;
+}
+
+.navbar a:hover {
+    opacity: 0.8;
+}
+
+.navbar-right {
+    float: right;
 }
 
 .calandar {
@@ -273,6 +324,12 @@ body {
     display: grid;
 
     width: 100%;
+
+    padding: 0.5em;
+
+    background: var(--var-whiteopacity-one);
+
+    border-radius: 0.5em;
 
     grid-template-columns: repeat(7, 1fr);
     gap: 0.5em;
@@ -304,6 +361,7 @@ body {
 }
 
 .not-important::after {
+    opacity: 0.5;
     content: "--";
 }
 
