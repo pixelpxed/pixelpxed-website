@@ -23,7 +23,6 @@ window.onload = function() {
     var choosesubjid = null
 
     update()
-    checkconnection()
     onstartsetup()
     joiningsystem()
 
@@ -59,23 +58,6 @@ function update() {
         } console.log(`Checked for Timetable updates\n- Current Version: ${versionnumber}\n- Fetched Version: ${fetchedversion.currentversion}`)
     }, 60000)
 }
-
-function checkconnection() {
-    window.addEventListener('online', () => onlineconnection())
-    window.addEventListener('offline', () => offlineconnection())
-    
-    function onlineconnection() {
-        if (notifyoffline = true) {
-            document.getElementById("fixedribbon").style.display = "none"
-        }
-    } function offlineconnection() {
-        document.getElementById("fixedribbon").style.display = "block"
-        document.getElementById("fixedribbon").innerHTML = `It appears that you're offline. Try checking your connection! <a onclick="document.getElementById('fixedribbon').style.display = 'none'">Ignore</a>`
-        notifyoffline = true
-    }
-}
-
-
 
 function onstartsetup() {
     setInterval(() => {
