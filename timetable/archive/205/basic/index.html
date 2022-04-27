@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="../assets/favicon.ico">
+    <title>Timetable (Basic UI) - PixelEdition</title>
+
+    <meta name="title" content="Timetable (Basic UI) - PixelEdition" />
+    <meta property="og:title" content="Timetable (Basic UI) - PixelEdition" />
+    <meta name="twitter:title" content="Timetable (Basic UI) - PixelEdition">
+
+    <meta name="description" content="An easier way to join a class with a click of a button." />
+    <meta property="og:description" content="An easier way to join a class with a click of a button." />
+    <meta name="twitter:description" content="An easier way to join a class with a click of a button.">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.pixelpxed.xyz/timetable/" />
+
+    <meta property="og:image"  content="https://www.pixelpxed.xyz/timetable/assets/embedimg.png">
+    <meta name="twitter:image" content="https://www.pixelpxed.xyz/timetable/assets/embedimg.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="theme-color" content="#FFFFFF">
+
+    <link rel="stylesheet" href="./assets/basic.css">
+    <script src="../assets/config.js" defer></script>
+    <script src="./assets/basic.js" defer></script>
+</head>
+<body>
+    <div id="sidebar" class="sidebar">
+        <div class="title">
+            <h1>Timetable</h1>
+            <p style="color: gray;">Basic UI</p>
+        </div>
+        <div class="clock">
+            <p style="font-weight: bold;" id="clock">--:--:--</p>
+            <p id="day">------, -- ----- ----</p>
+        </div>
+        <a class="sidebar-btn" style="cursor: pointer; text-align: center; display: block;" onclick="closeSidebar()">Close Sidebar</a>
+        <div class="dottedbox linkblock">
+            <p>Days Selector</p>
+            <a href="#monday">Monday</a>
+            <a href="#tuesday">Tuesday</a>
+            <a href="#wednesday">Wednesday</a>
+            <a href="#thursday">Thursday</a>
+            <a href="#friday">Friday</a>
+        </div>
+        <div class="dottedbox linkblock">
+            <p>QuickLinks</p>
+            <a href="https://classroom.google.com/u/2/h">Google Classroom</a>
+            <a href="https://classroom.google.com/u/2/a/not-turned-in/all">Google Classroom - To Do</a>
+            <a href="https://meet.google.com/landing?authuser=2">Google Meet</a>
+            <a href="https://drive.google.com/drive/u/2/">Google Drive</a>
+        </div>
+        <div class="dottedbox linkblock">
+            <p>After School</p>
+            <a href="https://classroom.google.com/u/2/h">Google Classroom</a>
+            <a href="https://classroom.google.com/u/2/a/not-turned-in/all">Google Classroom - To Do</a>
+            <a href="https://meet.google.com/landing?authuser=2">Google Meet</a>
+            <a href="https://drive.google.com/drive/u/2/">Google Drive</a>
+        </div>
+        <div class="dottedbox linkblock">
+            <p>Timetable (Basic UI)</p>
+            <a style="text-align: center;" href="../">Load regular Timetable (Regular UI)</a>
+        </div>
+        <p style="font-size: 0.8em; text-align: center;">© 2022 PixelEdition. All rights reserved.</p>
+    </div>
+    <div id="main" class="main">
+        <a style="cursor: pointer; position: fixed; right: 0; bottom: 1em;" id="opensidebar-btn" class="sidebar-btn"style="cursor: pointer; text-align: center; display: block;" onclick="openSidebar()">
+            Open Sidebar
+        </a>
+        <div id="main-content" class="main-content">
+            <div class="dottedbox" id="monday">
+                <h2>Monday</h2>
+                <div id="subject0">
+                    <hr><p class=
+                    "subject-text" id="0">Subject</p>
+                    <p>Video Call: <a id="video0" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class0" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject1">
+                    <hr>
+                    <p class="subject-text" id="1">Subject</p>
+                    <p>Video Call: <a id="video1" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class1" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject2">
+                    <hr>
+                    <p class="subject-text" id="2">Subject</p>
+                    <p>Video Call: <a id="video2" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class2" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject3">
+                    <hr>
+                    <p class="subject-text" id="3">Subject</p>
+                    <p>Video Call: <a id="video3" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class3" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject4">
+                    <hr>
+                    <p class="subject-text" id="4">Subject</p>
+                    <p>Video Call: <a id="video4" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class4" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject5">
+                    <hr>
+                    <p class="subject-text" id="5">Subject</p>
+                    <p>Video Call: <a id="video5" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class5" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject6">
+                    <hr>
+                    <p class="subject-text" id="6">Subject</p>
+                    <p>Video Call: <a id="video6" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class6" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject7">
+                    <hr>
+                    <p class="subject-text" id="7">Subject</p>
+                    <p>Video Call: <a id="video7" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class7" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject8">
+                    <hr>
+                    <p class="subject-text" id="8">Subject</p>
+                    <p>Video Call: <a id="video8" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class8" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject9">
+                    <hr>
+                    <p class="subject-text" id="9">Subject</p>
+                    <p>Video Call: <a id="video9" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class9" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject10">
+                    <hr>
+                    <p class="subject-text" id="10">Subject</p>
+                    <p>Video Call: <a id="video10" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class10" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+            </div>
+            <div class="dottedbox" id="tuesday">
+                <h2>Tuesday</h2>
+                <div id="subject11">
+                    <hr>
+                    <p class="subject-text" id="11">Subject</p>
+                    <p>Video Call: <a id="video11" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class11" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject12">
+                    <hr>
+                    <p class="subject-text" id="12">Subject</p>
+                    <p>Video Call: <a id="video12" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class12" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject13">
+                    <hr>
+                    <p class="subject-text" id="13">Subject</p>
+                    <p>Video Call: <a id="video13" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class13" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject14">
+                    <hr>
+                    <p class="subject-text" id="14">Subject</p>
+                    <p>Video Call: <a id="video14" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class14" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject15">
+                    <hr>
+                    <p class="subject-text" id="15">Subject</p>
+                    <p>Video Call: <a id="video15" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class15" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject16">
+                    <hr>
+                    <p class="subject-text" id="16">Subject</p>
+                    <p>Video Call: <a id="video16" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class16" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject17">
+                    <hr>
+                    <p class="subject-text" id="17">Subject</p>
+                    <p>Video Call: <a id="video17" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class17" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject18">
+                    <hr>
+                    <p class="subject-text" id="18">Subject</p>
+                    <p>Video Call: <a id="video18" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class18" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject19">
+                    <hr>
+                    <p class="subject-text" id="19">Subject</p>
+                    <p>Video Call: <a id="video19" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class19" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject20">
+                    <hr>
+                    <p class="subject-text" id="20">Subject</p>
+                    <p>Video Call: <a id="video20" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class20" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject21">
+                    <hr>
+                    <p class="subject-text" id="21">Subject</p>
+                    <p>Video Call: <a id="video21" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class21" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+            </div>
+            <div class="dottedbox" id="wednesday">
+                <h2>Wednesday</h2>
+                <div id="subject22">
+                    <hr>
+                    <p class="subject-text" id="22">Subject</p>
+                    <p>Video Call: <a id="video22" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class22" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject23">
+                    <hr>
+                    <p class="subject-text" id="23">Subject</p>
+                    <p>Video Call: <a id="video23" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class23" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject24">
+                    <hr>
+                    <p class="subject-text" id="24">Subject</p>
+                    <p>Video Call: <a id="video24" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class24" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject25">
+                    <hr>
+                    <p class="subject-text" id="25">Subject</p>
+                    <p>Video Call: <a id="video25" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class25" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject26">
+                    <hr>
+                    <p class="subject-text" id="26">Subject</p>
+                    <p>Video Call: <a id="video26" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class26" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject27">
+                    <hr>
+                    <p class="subject-text" id="27">Subject</p>
+                    <p>Video Call: <a id="video27" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class27" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject28">
+                    <hr>
+                    <p class="subject-text" id="28">Subject</p>
+                    <p>Video Call: <a id="video28" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class28" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject29">
+                    <hr>
+                    <p class="subject-text" id="29">Subject</p>
+                    <p>Video Call: <a id="video29" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class29" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject30">
+                    <hr>
+                    <p class="subject-text" id="30">Subject</p>
+                    <p>Video Call: <a id="video30" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class30" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject31">
+                    <hr>
+                    <p class="subject-text" id="31">Subject</p>
+                    <p>Video Call: <a id="video31" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class31" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject32">
+                    <hr>
+                    <p class="subject-text" id="32">Subject</p>
+                    <p>Video Call: <a id="video32" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class32" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+            </div>
+            <div class="dottedbox" id="thursday">
+                <h2>Thursday</h2>
+                <div id="subject33">
+                    <hr>
+                    <p class="subject-text" id="33">Subject</p>
+                    <p>Video Call: <a id="video33" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class33" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject34">
+                    <hr>
+                    <p class="subject-text" id="34">Subject</p>
+                    <p>Video Call: <a id="video34" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class34" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject35">
+                    <hr>
+                    <p class="subject-text" id="35">Subject</p>
+                    <p>Video Call: <a id="video35" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class35" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject36">
+                    <hr>
+                    <p class="subject-text" id="36">Subject</p>
+                    <p>Video Call: <a id="video36" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class36" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject37">
+                    <hr>
+                    <p class="subject-text" id="37">Subject</p>
+                    <p>Video Call: <a id="video37" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class37" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject38">
+                    <hr>
+                    <p class="subject-text" id="38">Subject</p>
+                    <p>Video Call: <a id="video38" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class38" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject39">
+                    <hr>
+                    <p class="subject-text" id="39">Subject</p>
+                    <p>Video Call: <a id="video39" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class39" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject40">
+                    <hr>
+                    <p class="subject-text" id="40">Subject</p>
+                    <p>Video Call: <a id="video40" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class40" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject41">
+                    <hr>
+                    <p class="subject-text" id="41">Subject</p>
+                    <p>Video Call: <a id="video41" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class41" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject42">
+                    <hr>
+                    <p class="subject-text" id="42">Subject</p>
+                    <p>Video Call: <a id="video42" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class42" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject43">
+                    <hr>
+                    <p class="subject-text" id="43">Subject</p>
+                    <p>Video Call: <a id="video43" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class43" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+            </div>
+            <div class="dottedbox" id="friday">
+                <h2>Friday</h2>
+                <div id="subject44">
+                    <hr><p class=
+                    "subject-text" id="44">Subject</p>
+                    <p>Video Call: <a id="video44" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class44" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject45">
+                    <hr>
+                    <p class="subject-text" id="45">Subject</p>
+                    <p>Video Call: <a id="video45" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class45" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject46">
+                    <hr>
+                    <p class="subject-text" id="46">Subject</p>
+                    <p>Video Call: <a id="video46" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class46" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject47">
+                    <hr>
+                    <p class="subject-text" id="47">Subject</p>
+                    <p>Video Call: <a id="video47" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class47" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject48">
+                    <hr>
+                    <p class="subject-text" id="48">Subject</p>
+                    <p>Video Call: <a id="video48" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class48" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject49">
+                    <hr>
+                    <p class="subject-text" id="49">Subject</p>
+                    <p>Video Call: <a id="video49" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class49" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject50">
+                    <hr>
+                    <p class="subject-text" id="50">Subject</p>
+                    <p>Video Call: <a id="video50" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class50" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject51">
+                    <hr>
+                    <p class="subject-text" id="51">Subject</p>
+                    <p>Video Call: <a id="video51" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class51" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject52">
+                    <hr>
+                    <p class="subject-text" id="52">Subject</p>
+                    <p>Video Call: <a id="video52" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class52" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject53">
+                    <hr>
+                    <p class="subject-text" id="53">Subject</p>
+                    <p>Video Call: <a id="video53" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class53" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+                <div id="subject54">
+                    <hr>
+                    <p class="subject-text" id="54">Subject</p>
+                    <p>Video Call: <a id="video54" href="https://www.example.com/">https://www.example.com/</a></p>
+                    <p>Classroom: <a id="class54" href="https://www.example.com/">https://www.example.com/</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
