@@ -14,7 +14,7 @@
     <meta property="og:description" content="Timetable Online/Onsite Checker" />
     <meta name="theme-color" content="#FFFFFF">
 
-    <title>Timetable Online/Onsite - PixelEdition</title>
+    <title>Timetable: Online/Onsite - PixelEdition</title>
 </head>
 <body>
     <div class="navbar">
@@ -201,8 +201,17 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-:root {
+:root, :root.dark {
+    --daystextcolor: rgba(0, 0, 0, 0.5);
+
+    --navbarbg: rgb(12, 13, 16);
+    --textcolor: rgb(255, 255, 255);
+    --alt-textcolor: rgb(0, 0, 0);
+    --bgcolor: rgb(32, 33, 36);
+
     --blue: rgb(120, 167, 218);
+    --linkblue: rgb(120, 167, 218);
+    --changelog-linkblue: rgb(120, 167, 218);
     --pink: rgb(214, 134, 183);
     --purple: rgb(202, 145, 255);
     --yellow: rgb(249, 215, 61);
@@ -211,38 +220,21 @@
     --darkred: rgb(255, 50, 50);
     --green: rgb(146, 228, 175);
     --darkgreen: rgb(108, 202, 89);
-    --white: #fff;
+    --white: #ffffff;
+    --gray: #808481;
     --black: #323232;
 
-    --blacktransparent: rgba(32, 32, 32, 0.5);
+    --tablebg: rgb(42, 43, 46);
+    --subjbg: rgb(72, 73, 76);
+    --subjbg-darker: rgb(57, 58, 61);
 
-    --background: #202124;
+    --changelogbg: rgb(32, 33, 36);
 
-    --default-assetcolor: #ffffff;
-    --default-background: #202124;
-    --default-sidebar: #151619;
+    --timebarwrapper: rgba(0, 0, 0, 0.1);
+    --timebarplayer: rgba(0, 0, 0, 0.2);
 
-    --default-overlaycolor: rgba(0, 0, 0, 0.3);
-
-    --var-blackopacity-one: rgba(0, 0, 0, 0.1);
-    --var-blackopacity-two: rgba(0, 0, 0, 0.2);
-    --var-blackopacity-three: rgba(0, 0, 0, 0.3);
-    --var-blackopacity-four: rgba(0, 0, 0, 0.4);
-    --var-blackopacity-five: rgba(0, 0, 0, 0.5);
-
-    --var-whiteopacity-one: rgba(255, 255, 255, 0.1);
-    --var-whiteopacity-two: rgba(255, 255, 255, 0.2);
-    --var-whiteopacity-three: rgba(255, 255, 255, 0.3);
-    --var-whiteopacity-four: rgba(255, 255, 255, 0.4);
-    --var-whiteopacity-five: rgba(255, 255, 255, 0.5);
-
-    --transparentdark-one: rgba(220, 220, 220, 0.1);
-    --transparentdark-two: rgba(220, 220, 220, 0.2);
-    --transparentdark-four: rgba(220, 220, 220, 0.4);
-    --transparentdark-five: rgba(220, 220, 220, 0.5);
-
-    --normaltext: 400;
-    --boldtext: 700;
+    --normaltext: 200;
+    --boldtext: 500;
 
     color-scheme: dark;
 }
@@ -263,11 +255,13 @@
 
 body {
     color: var(--white);
-    background: var(--background);
+    background: var(--bgcolor);
     font-family: 'Outfit', "Sarabun", sans-serif;
 }
 
 .material-symbols-outlined {
+    color: var(--alt-textcolor);
+
     line-height: 1;
     font-size: 12px;
 }
@@ -276,7 +270,7 @@ body {
     font-weight: 500;
     padding: 0.5em;
 
-    background: #101114;
+    background: var(--navbarbg);
 
     transition: 0.3s;
 
@@ -326,7 +320,8 @@ body {
 
     padding: 0.5em;
 
-    background: var(--var-whiteopacity-one);
+    background: var(--tablebg);
+    border: 2px solid rgba(255, 255, 255, 0.5);
 
     border-radius: 0.5em;
 
@@ -345,14 +340,18 @@ body {
 
     text-align: center;
 
-    background: var(--var-whiteopacity-two);
+    background: var(--subjbg);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+
     border-radius: 0.3em;
 }
+
+
 
 .date {
     font-weight: var(--boldtext);
 
-    color: var(--blacktransparent);
+    color: var(--daystextcolor);
 }
 
 .not-important {
@@ -365,12 +364,14 @@ body {
 }
 
 .special {
-    color: var(--black) !important;
-    background: var(--white) !important;
+    color: var(--textcolor) !important;
+    background: var(--gray) !important;
 }
 
 .special::after {
-    opacity: 0.5;
+    color: var(--alt-textcolor);
+
+    opacity: 0.8;
 }
 
 .holiday::after {
@@ -409,7 +410,7 @@ body {
     padding: 0.5em 1em;
 
     text-decoration: none;
-    color: var(--black);
+    color: var(--alt-textcolor);
     background: var(--white);
 
     border-radius: 0.3em;
