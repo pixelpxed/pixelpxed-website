@@ -16,7 +16,7 @@ var timetable_description_primary = "Left Click - Video Call<br>Right Click - Cl
 var timetable_description_secondary = "คลิกซ้าย - วีดีโอคอล<br>คลิกขวา - คลาสรูม"  // <br> - For a new line.
 
 // Switch for Japanese and Chinese class / Switch for changing between primary and secondary language (By default both false)
-var japanesechinese = true
+var japanesechinese = false
 var secondarylanguage = true
 
 // Time to be displayed in Timetable
