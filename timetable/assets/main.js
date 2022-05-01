@@ -162,6 +162,8 @@ function language_primary() {
     document.getElementById("timetable-box-title").innerHTML = timetable_title_primary
     document.getElementById("timetable-box-description").innerHTML = timetable_description_primary
 
+    document.getElementById("onlineonsitetxt").textContent = online_onsite_primary
+
     document.getElementById("searchtitle").textContent = bookmark_google_title_primary
     document.getElementById("searchbar").placeholder = bookmark_google_title_primary
     document.getElementById("searchsubmit").value = bookmark_google_search_primary
@@ -200,6 +202,8 @@ function language_secondary() {
 
     document.getElementById("timetable-box-title").innerHTML = timetable_title_secondary
     document.getElementById("timetable-box-description").innerHTML = timetable_description_secondary
+
+    document.getElementById("onlineonsitetxt").textContent = online_onsite_secondary
 
     document.getElementById("searchtitle").textContent = bookmark_google_title_secondary
     document.getElementById("searchbar").placeholder = bookmark_google_title_secondary

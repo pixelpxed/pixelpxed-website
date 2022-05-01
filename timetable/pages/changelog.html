@@ -18,6 +18,14 @@
 <body>
     <div class="wrapper">
         <div>
+            <p>Timetable v2.7.4</p>
+            <ul>
+                <li>Added translation for 'On-Site/Online Calander' button.</li>
+                <li>Fixed table overflow styling issues.</li>
+                <li>Minor changes.</li>
+            </ul>
+        </div>
+        <div>
             <p>Timetable v2.7.3</p>
             <ul>
                 <li>Updated On-Site/Online calandar to current Timetable color scheme.</li>
@@ -343,55 +351,22 @@
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
     :root {
-        --blue: rgb(120, 167, 218);
-        --pink: rgb(214, 134, 183);
-        --purple: rgb(202, 145, 255);
-        --yellow: rgb(249, 215, 61);
-        --orange: rgb(248, 166, 108);
-        --red: rgb(255, 100, 100);
-        --darkred: rgb(255, 50, 50);
-        --green: rgb(146, 228, 175);
-        --darkgreen: rgb(108, 202, 89);
-        --white: #fff;
-        --black: #323232;
-
-        --blacktransparent: rgba(32, 32, 32, 0.5);
-
         --background: rgb(32, 33, 36);
 
-        --default-assetcolor: #ffffff;
-        --default-background: #202124;
-        --default-sidebar: #151619;
+        --text-color: #ffffff;
 
-        --default-overlaycolor: rgba(0, 0, 0, 0.3);
-
-        --var-blackopacity-one: rgba(0, 0, 0, 0.1);
-        --var-blackopacity-two: rgba(0, 0, 0, 0.2);
-        --var-blackopacity-three: rgba(0, 0, 0, 0.3);
-        --var-blackopacity-four: rgba(0, 0, 0, 0.4);
-        --var-blackopacity-five: rgba(0, 0, 0, 0.5);
-
-        --var-whiteopacity-one: rgba(255, 255, 255, 0.1);
-        --var-whiteopacity-two: rgba(255, 255, 255, 0.2);
-        --var-whiteopacity-three: rgba(255, 255, 255, 0.3);
-        --var-whiteopacity-four: rgba(255, 255, 255, 0.4);
-        --var-whiteopacity-five: rgba(255, 255, 255, 0.5);
-
-        --transparentdark-one: rgba(220, 220, 220, 0.1);
-        --transparentdark-two: rgba(220, 220, 220, 0.2);
-        --transparentdark-four: rgba(220, 220, 220, 0.4);
-        --transparentdark-five: rgba(220, 220, 220, 0.5);
-
-        --normaltext: 400;
-        --boldtext: 700;
+        --normaltext: 200;
+        --boldtext: 500;
 
         color-scheme: dark;
     }
 
     body {
-        color: var(--white);
+        color: var(--text-color);
         background: var(--background);
+
         font-family: 'Outfit', "Sarabun", sans-serif;
+        font-weight: 200;
     }
 
     ::-webkit-scrollbar {

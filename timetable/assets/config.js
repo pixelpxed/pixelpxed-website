@@ -1,5 +1,5 @@
 // General variables
-var versionnumber = "2.7.3"
+var versionnumber = "2.7.4"
 var copyrightyear = "2022"
 
 // Translation Variables
@@ -15,8 +15,11 @@ var timetable_title_secondary = "ตารางเวลา"
 var timetable_description_primary = "Left Click - Video Call<br>Right Click - Classroom"
 var timetable_description_secondary = "คลิกซ้าย - วีดีโอคอล<br>คลิกขวา - คลาสรูม"  // <br> - For a new line.
 
+var online_onsite_primary = "On-Site/Online Calandar"
+var online_onsite_secondary = "ปฏิทินเรียนที่โรงเรียน/บ้าน"
+
 // Switch for Japanese and Chinese class / Switch for changing between primary and secondary language (By default both false)
-var japanesechinese = false
+var japanesechinese = true
 var secondarylanguage = true
 
 // Time to be displayed in Timetable
