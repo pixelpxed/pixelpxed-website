@@ -39,6 +39,12 @@ window.onload = function() {
             }, 300)
         }
     }, 1);
+
+    if (localStorage.getItem("swapperclass") == "Japanese") {
+        japanese(false)
+    } if (localStorage.getItem("swapperclass") == "Chinese") {
+        chinese(false)
+    }
 }
 
 function update() {
@@ -234,16 +240,30 @@ function themeswitch() {
     }
 }
 
-function japanese() {
+function japanese(popupshow) {
     document.getElementById(choosesubjid).textContent = "Japanese"
     document.getElementById("jp").style.opacity = "1"
     document.getElementById("ch").style.opacity = "0.5"
-    popup(`CNE-01`, `The classes has been swapped.`, `white`)
-} function chinese() {
+
+    localStorage.setItem("swapperclass", "Japanese")
+
+    if (popupshow == false) {
+        return
+    }
+
+    popup(`CNE-01`, `The class has been swapped, Timetable will remember the change.`, `white`)
+} function chinese(popupshow) {
     document.getElementById(choosesubjid).textContent = "Chinese"
     document.getElementById("jp").style.opacity = "0.5"
     document.getElementById("ch").style.opacity = "1"
-    popup(`CNE-01`, `The classes has been swapped.`, `white`)
+
+    localStorage.setItem("swapperclass", "Chinese")
+
+    if (popupshow == false) {
+        return
+    }
+
+    popup(`CNE-01`, `The class has been swapped, Timetable will remember the change.`, `white`)
 }
 
 function joiningsystem() {
