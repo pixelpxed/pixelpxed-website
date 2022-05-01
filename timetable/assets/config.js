@@ -36,7 +36,7 @@ const time = ["08:00 - 08:40", "08:40 - 09:20", "09:20 - 10:00", "10:20 - 11:00"
 const element_primary = ["Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"] // ["[Time]", "[Monday]", "[Tuesday]", "[Thursday]", "[Friday]"]
 const classes_primary = ["Homeroom", "", "", "", "", "", "", "", "", "", "",
                          "Homeroom", "", "", "", "", "", "", "", "", "", "",
-                         "Homeroom", "", "", "Chinese", "", "", "", "", "", "", "",
+                         "Homeroom", "", "", "", "", "", "", "", "", "", "",
                          "Homeroom", "", "", "", "", "", "", "", "", "", "",
                          "Homeroom", "", "", "", "", "", "", "", "", "", "",]
 
