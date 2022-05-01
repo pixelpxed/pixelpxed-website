@@ -19,7 +19,7 @@ var online_onsite_primary = "On-Site/Online Calandar"
 var online_onsite_secondary = "ปฏิทินเรียนที่โรงเรียน/บ้าน"
 
 // Switch for Japanese and Chinese class / Switch for changing between primary and secondary language (By default both false)
-var japanesechinese = true
+var japanesechinese = false
 var secondarylanguage = true
 
 // Time to be displayed in Timetable
