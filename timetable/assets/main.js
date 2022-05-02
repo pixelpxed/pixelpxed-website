@@ -18,7 +18,15 @@ window.onload = function() {
 
     if (japanesechinese == true) {
         document.getElementById("navbar-right").style.display = "block"
-    } if (secondarylanguage == true) {
+
+        if (localStorage.getItem("swapperclass") == "Japanese") {
+            japanese(false)
+        } if (localStorage.getItem("swapperclass") == "Chinese") {
+            chinese(false)
+        }
+    }
+    
+    if (secondarylanguage == true) {
         document.getElementById("changelanguagebtn").style.display = "inline-block"
     }
 
@@ -39,12 +47,6 @@ window.onload = function() {
             }, 300)
         }
     }, 1);
-
-    if (localStorage.getItem("swapperclass") == "Japanese") {
-        japanese(false)
-    } if (localStorage.getItem("swapperclass") == "Chinese") {
-        chinese(false)
-    }
 }
 
 function update() {
@@ -81,18 +83,15 @@ function onstartsetup() {
         document.getElementById("day").innerHTML = `${day}, ${date > 9 ? date : "0" + date} ${month} ${year}`;
     }, 1);
 
-    var classFilled = 0;
-    var timeFilled = 0;
     var rowFilled = 0;
     var bookmarkNumber = 0;
     var elementFilled = 0;
 
-    while (timeFilled != 11) {
+    for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
         document.getElementById("time" + timeFilled).innerHTML = time[timeFilled];
-        timeFilled = timeFilled + 1;
     }
 
-    while (classFilled != 55) {
+    for (let classFilled = 0; classFilled <= 54; classFilled++) {
         document.getElementById(classFilled).innerHTML = classes_primary[classFilled];
 
         if (document.getElementById(classFilled).innerHTML == "Chinese") {
@@ -112,25 +111,16 @@ function onstartsetup() {
             document.getElementById(classFilled).style.display = "none";
             document.getElementById(classFilled - 1).classList.add("dclass");
         }
-
-        classFilled = classFilled + 1;
     }
 
-    while (elementFilled != 6) {
+    for (let elementFilled = 0; elementFilled <= 5; elementFilled++) {
         document.getElementById("element" + elementFilled).textContent = element_primary[elementFilled]
-        elementFilled = elementFilled + 1
     }
 
-    while (rowFilled != 2) {
-        row = "row" + rowFilled;
-        while (bookmarkNumber != 4) {
-            content = "content" + bookmarkNumber;
-            bookmarkName = "bookmark" + bookmarkNumber + "-" + rowFilled;
-            document.getElementById(bookmarkName).innerHTML = `${bookmarks[row][content].name}<br><a style="color: var(--linkblue);" href="${bookmarks[row][content].url}" target="_blank">Go ›</a>`;
-            bookmarkNumber = bookmarkNumber + 1;
-        } bookmarkNumber = 0;
-        document.getElementById(row).innerHTML = `${bookmarks[row].rowname}`;
-        rowFilled = rowFilled + 1;
+    for (let rowFilled = 0; rowFilled <= 1; rowFilled++) {
+        for (let bookmarkNumber = 0; bookmarkNumber <= 3; bookmarkNumber++) {
+            document.getElementById("bookmark" + bookmarkNumber + "-" + rowFilled).innerHTML = `${bookmarks["row" + rowFilled]["content" + bookmarkNumber].name}<br><a style="color: var(--linkblue);" href="${bookmarks["row" + rowFilled]["content" + bookmarkNumber].url}" target="_blank">${bookmark_go_name_primary} ›</a>`;
+        } document.getElementById("row" + rowFilled).innerHTML = `${bookmarks["row" + rowFilled].rowname}`;
     }
 }
 
@@ -138,31 +128,18 @@ function language_primary() {
     var_day = var_day_primary 
     var_month = var_month_primary
 
-    var classFilled = 0;
-    var elementFilled = 0;
-    var rowFilled = 0;
-    var bookmarkNumber = 0;
-
-    while (classFilled != 55) {
+    for (let classFilled = 0; classFilled <= 54; classFilled++) {
         document.getElementById(classFilled).innerHTML = classes_primary[classFilled];
-        classFilled = classFilled + 1;
     }
 
-    while (elementFilled != 6) {
+    for (let elementFilled = 0; elementFilled <= 5; elementFilled++) {
         document.getElementById("element" + elementFilled).textContent = element_primary[elementFilled]
-        elementFilled = elementFilled + 1
     }
 
-    while (rowFilled != 2) {
-        row = "row" + rowFilled;
-        while (bookmarkNumber != 4) {
-            content = "content" + bookmarkNumber;
-            bookmarkName = "bookmark" + bookmarkNumber + "-" + rowFilled;
-            document.getElementById(bookmarkName).innerHTML = `${bookmarks[row][content].name}<br><a style="color: var(--linkblue);" href="${bookmarks[row][content].url}" target="_blank">${bookmark_go_name_primary} ›</a>`;
-            bookmarkNumber = bookmarkNumber + 1;
-        } bookmarkNumber = 0;
-        document.getElementById(row).innerHTML = `${bookmarks[row].rowname}`;
-        rowFilled = rowFilled + 1;
+    for (let rowFilled = 0; rowFilled <= 1; rowFilled++) {
+        for (let bookmarkNumber = 0; bookmarkNumber <= 3; bookmarkNumber++) {
+            document.getElementById("bookmark" + bookmarkNumber + "-" + rowFilled).innerHTML = `${bookmarks["row" + rowFilled]["content" + bookmarkNumber].name}<br><a style="color: var(--linkblue);" href="${bookmarks["row" + rowFilled]["content" + bookmarkNumber].url}" target="_blank">Go ›</a>`;
+        } document.getElementById("row" + rowFilled).innerHTML = `${bookmarks["row" + rowFilled].rowname}`;
     }
     
     document.getElementById("timetable-box-title").innerHTML = timetable_title_primary
@@ -179,31 +156,22 @@ function language_secondary() {
     var_day = var_day_secondary
     var_month = var_month_secondary
 
-    var classFilled = 0
     var elementFilled = 0;
     var rowFilled = 0;
     var bookmarkNumber = 0;
     
-    while (classFilled != 55) {
+    for (let classFilled = 0; classFilled <= 54; classFilled++) {
         document.getElementById(classFilled).innerHTML = classes_secondary[classFilled];
-        classFilled = classFilled + 1;
     }
 
-    while (elementFilled != 6) {
+    for (let elementFilled = 0; elementFilled <= 5; elementFilled++) {
         document.getElementById("element" + elementFilled).textContent = element_secondary[elementFilled]
-        elementFilled = elementFilled + 1
     }
 
-    while (rowFilled != 2) {
-        row = "row" + rowFilled;
-        while (bookmarkNumber != 4) {
-            content = "content" + bookmarkNumber;
-            bookmarkName = "bookmark" + bookmarkNumber + "-" + rowFilled;
-            document.getElementById(bookmarkName).innerHTML = `${bookmarks[row][content].name_secondary}<br><a style="color: var(--linkblue);" href="${bookmarks[row][content].url}" target="_blank">${bookmark_go_name_secondary} ›</a>`;
-            bookmarkNumber = bookmarkNumber + 1;
-        } bookmarkNumber = 0;
-        document.getElementById(row).innerHTML = `${bookmarks[row].rowname_secondary}`;
-        rowFilled = rowFilled + 1;
+    for (let rowFilled = 0; rowFilled <= 1; rowFilled++) {
+        for (let bookmarkNumber = 0; bookmarkNumber <= 3; bookmarkNumber++) {
+            document.getElementById("bookmark" + bookmarkNumber + "-" + rowFilled).innerHTML = `${bookmarks["row" + rowFilled]["content" + bookmarkNumber].name}<br><a style="color: var(--linkblue);" href="${bookmarks["row" + rowFilled]["content" + bookmarkNumber].url}" target="_blank">${bookmark_go_name_primary} ›</a>`;
+        } document.getElementById("row" + rowFilled).innerHTML = `${bookmarks["row" + rowFilled].rowname_secondary}`;
     }
 
     document.getElementById("timetable-box-title").innerHTML = timetable_title_secondary

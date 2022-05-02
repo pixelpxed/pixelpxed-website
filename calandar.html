@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calandar - PixelEdition</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+    @page {
+        size: landscape;
+    }
+
+    :root {
+        --background: #ffffff;
+        --border-color: #eeeeee;
+
+        --new-calandar-background: rgba(0, 0, 0, 0.5);
+
+        --text-color: #000000;
+        --text-color-alt: #ffffff;
+        --week-color: #808080;
+        --weekend-color: #5892ff;
+
+        --font-family: "Outfit", sans-serif;
+
+        --font-normal: 100;
+        --font-semi-bold: 300;
+        --font-bold: 500;
+
+        --red: #ff6a6a;
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+    
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: var(--font-family);
+
+        color: var(--text-color);
+        background: var(--background);
+
+        font-weight: var(--font-normal);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: var(--font-bold);
+    }
+
+    .calandar-wrapper {
+        position: fixed;
+
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        user-select: none;
+    }
+
+    .calandar-title {
+        padding-bottom: 0.25em;
+
+        text-align: center;
+    }
+
+    .calandar-table {
+        width: 90vw;
+        max-width: 60em;
+        height: 80vh;
+        max-height: 40em;
+
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        grid-template-rows: max-content repeat(5, minmax(0, 1fr));
+
+        border-top: 1px solid var(--border-color);
+        border-left: 1px solid var(--border-color);
+    }
+
+    .grid-content {
+        padding: 0.5em;
+
+        line-height: 1;
+        text-align: left;
+
+        border-bottom: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
+
+        transition: 0.2s;
+    }
+
+    .grid-contentedit {
+        width: 100%;
+        height: calc(100% - 1.5em);
+
+        margin-top: 0.5em;
+
+        text-align: center;
+
+        outline: none;
+
+        overflow-y: hidden;
+    }
+
+    .grid-contentedit:focus {
+        overflow-y: auto;
+    }
+
+    .grid-contentedit::-webkit-scrollbar {
+        width: 2px;
+    }
+    
+    .grid-contentedit::-webkit-scrollbar-thumb {
+        background: var(--border-color);
+    }
+
+    .weekend {
+        color: var(--weekend-color);
+    }
+
+    .day {
+        color: var(--week-color);
+
+        text-align: center;
+        font-weight: var(--font-semi-bold);
+    }
+
+    .footer {
+        padding-top: 0.5em;
+
+        text-align: center;
+        font-size: 0.8em;
+    }
+
+    .new-calandar-wrapper {
+        display: none;
+        position: fixed;
+
+        top: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        background: var(--new-calandar-background);
+        backdrop-filter: blur(0.5em);
+
+        z-index: 1;
+    }
+
+    .new-calandar {
+        position: fixed;
+
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+
+        width: 90vw;
+        max-width: 20em;
+
+        padding: 1em;
+
+        text-align: center;
+
+        background: var(--background);
+        border-radius: 0.5em;
+    }
+
+    .new-calandar p {
+        padding-bottom: 0.5em;
+
+        font-weight: var(--font-bold);
+    }
+
+    .new-calandar label {
+        font-weight: var(--font-semi-bold);
+    }
+
+    .new-calandar input[type="number"], .new-calandar select {
+        display: block;
+
+        width: 100%;
+
+        padding: 0.25em;
+        margin: 0.5em auto 1em auto;
+
+        font-family: var(--font-family);
+        font-size: calc(16px * 0.8);
+
+        border-radius: 0.3em;
+        border: 0.5px solid var(--week-color);
+        outline: none;
+    }
+
+    .new-calandar-blank {
+        display: none;
+
+        font-weight: var(--font-normal);
+        font-size: 0.8em;
+
+        color: var(--red);
+    }
+
+    .button {
+        display: inline-block;
+
+        padding: 0.5em;
+        margin: auto;
+
+        font-family: var(--font-family);
+
+        border-radius: 0.3em;
+        border: none;
+
+        cursor: pointer;
+    }
+
+    .calandar-button-wrapper {
+        width: max-content;
+
+        padding: 1em 0 0 0;
+        margin: auto;
+    }
+
+    @media print {
+        .calandar-button-wrapper {
+            display: none;
+        }
+    }
+</style>
+<body>
+    <div id="new-calandar-wrapper" class="new-calandar-wrapper">
+        <div class="new-calandar">
+            <p>Make a New Calandar</p>
+
+            <label for="new-calandar-title">Calandar Title</label>
+
+            <select name="new-calandar-title" id="new-calandar-title">
+                <option value="0">January</option>
+                <option value="1">Febuary</option>
+                <option value="2">Febuary (Leap Year)</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+
+            <label for="new-calandar-offset">Calandar Offset</label>
+            <input id="new-calandar-offset" type="number" placeholder="Numbers only.">
+
+            <input class="button" type="submit" value="Submit" onclick="newCalandar()">
+            <input class="button" type="submit" value="Cancel" onclick="document.getElementById('new-calandar-wrapper').style.display = 'none'">
+        </div>
+    </div>
+    <div id="calandar-wrapper" class="calandar-wrapper">
+        <h1 id="calandar-title" class="calandar-title">Calandar</h1>
+        <div id="calandar-table" class="calandar-table" offset="3"></div>
+        <div class="calandar-button-wrapper">
+            <input class="button" type="button" type="submit" value="New Calandar" onclick="document.getElementById('new-calandar-wrapper').style.display = 'block'">
+            <input class="button" type="button" type="submit" value="Print Calandar" onclick="window.print()">
+        </div>
+        <p class="footer">© 2022 PixelEdition. All rights reserved.</p>
+    </div>
+    
+</body>
+<script defer>
+    const parameters = new URLSearchParams(window.location.search);
+    const urlnoparameters = location.protocol + '//' + location.host + location.pathname;
+
+    var calandartitle = parameters.get("title");
+
+    var daycount = parseInt(parameters.get("days"));
+    var offsetcount = parseInt(parameters.get("offset"));
+
+    window.onload = function() {
+        fillCalandar();
+    }
+
+    function fillCalandar() {
+        calandartitle = calandartitle ?? "Calandar";
+
+        let calandar = document.querySelector(".calandar-table")
+        
+        document.getElementById("calandar-title").innerHTML = calandartitle
+
+        for (let week = 1; week <= 7; week++) {
+            let weekname = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][week - 1];
+
+            calandar.insertAdjacentHTML("beforeend", `<div class="grid-content day">${weekname}</div>`);
+        }  
+
+        for (let offset = 1; offset <= offsetcount; offset++) {
+            calandar.insertAdjacentHTML("beforeend", `<div class="grid-content offset"></div>`);
+        }
+
+        for (let day = 1; day <= daycount; day++) {
+            calandar.insertAdjacentHTML("beforeend", `<div class="grid-content">${day}<div class="grid-contentedit" contenteditable></div></div>`);
+        }
+
+        rowcount = Math.ceil((daycount + offsetcount) / 7);
+        document.getElementById("calandar-table").style.gridTemplateRows = `max-content repeat(${rowcount}, minmax(0, 1fr))`
+    }
+
+    function newCalandar() {
+        // const newtitle = document.getElementById("new-calandar-title").value;
+        // const newdays = document.getElementById("new-calandar-days").value;
+
+        const newtitle = document.getElementById("new-calandar-title").options[document.getElementById("new-calandar-title").selectedIndex].text
+        const newdays = [31, 28, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][parseInt(document.getElementById("new-calandar-title").value)]
+        const newoffset = document.getElementById("new-calandar-offset").value;
+
+        return location.replace(`${urlnoparameters}?title=${newtitle}&days=${newdays}&offset=${newoffset}`)
+    }
+</script>
+</html>
