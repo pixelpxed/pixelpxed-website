@@ -12,9 +12,17 @@
 </head>
 <body>
     <div id="ribbon" class="ribbon">
-        <span class="material-symbols-outlined">waving_hand</span>
-        <p>Welcome to Calendar! Click on top of the grid to highlight, click again to un-highlight. Click on the middle of the grid to add text.</p>
-        <a onclick="close_slide('.ribbon', 'up', 1)"><span class="material-symbols-outlined">close</span></a>
+        <span id="ribbon-icon" class="material-symbols-outlined">waving_hand</span>
+        <p id="ribbon-content">
+            Welcome to Calendar!<br>
+            - Press '+' button at the bottom to create a new calendar.<br>
+            - Click on top of the date grid to select, click again to deselect.
+        </p>
+        <abbr title="Close">
+            <a onclick="close_slide('.ribbon', 'up', 1)">
+                <span class="material-symbols-outlined">close</span>
+            </a>
+        </abbr>
     </div>
     <div id="new-calendar-wrapper" class="new-calendar-wrapper">
         <div class="new-calendar">
@@ -41,42 +49,42 @@
             <label for="new-calendar-offset">Calendar Offset</label>
             <input id="new-calendar-offset" type="number" placeholder="Numbers only." min="0" max="6">
 
-            <a class="button button-icons" onclick="newCalendar()">
-                <abbr title="Close">
+            <abbr title="Close">
+                <a class="button button-icons" onclick="newCalendar()">
                     <span class="material-symbols-outlined">done</span>
-                </abbr>
-            </a>
-            <a class="button button-icons" onclick="closeNewCalendar()">
-                <abbr title="Close">
+                </a>
+            </abbr>
+            <abbr title="Close">
+                <a class="button button-icons" onclick="closeNewCalendar()">
                     <span class="material-symbols-outlined">close</span>
-                </abbr>
-            </a>
+                </a>
+            </abbr>
         </div>
     </div>
     <div id="calendar-wrapper" class="calendar-wrapper">
         <h1 id="calendar-title" class="calendar-title">Calendar</h1>
         <div id="calendar-table" class="calendar-table" offset="3"></div>
         <div class="calendar-button-wrapper">
-            <a href="../" class="button button-icons"><abbr title="Back to Home">
-                <abbr>
+            <abbr title="Backt to Home">
+                <a href="../" class="button button-icons"><abbr title="Back to Home">
                     <span class="material-symbols-outlined">home</span>
-                </abbr>
-            </a>
-            <a class="button button-icons" onclick="theme()">
-                <abbr title="Switch Themes">
+                </a>
+            </abbr>
+            <abbr title="Switch Theme">
+                    <a class="button button-icons" onclick="theme()">
                     <span id="themeswitch" class="material-symbols-outlined">dark_mode</span>
-                </abbr>
-            </a>
-            <a class="button button-icons" onclick="window.print()">
-                <abbr title="Print Calendar">
+                </a>
+            </abbr>
+            <abbr title="Print Calendar">
+                <a class="button button-icons" onclick="window.print()">
                     <span class="material-symbols-outlined">print</span>
-                </abbr>
-            </a>
-            <a class="button button-icons" onclick="openNewCalendar()">
-                <abbr title="New Calandar">
+                </a>
+            </abbr>
+            <abbr title="New Calandar">
+                <a class="button button-icons" onclick="openNewCalendar()">
                     <span class="material-symbols-outlined">add</span>
-                </abbr>
-            </a>
+                </a>
+            </abbr>
         </div>
         <p class="footer">© 2022 PixelEdition. All rights reserved.</p>
     </div>

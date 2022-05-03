@@ -15,7 +15,7 @@
     --color-element-button: #dddddd;
 
     --color-gray: #808080;
-    --color-blue: #5892ff;
+    --color-blue: #0a7aff;
 
     --font-family: "Outfit", sans-serif;
 
@@ -36,43 +36,33 @@
     --color-element-text-alt: #000000;
     --color-element-button: #202124;
 
+    --color-blue: #0084ff;
+
     color-scheme: dark;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-background: #101114;
-        --border-color: #202124;
-    
-        --color-element-text: #ffffff;
-        --color-element-text-alt: #000000;
-        --color-element-button: #202124;
-
-        color-scheme: dark;
-    }
 }
 
 @media print {
     :root, :root.light, :root.dark {
         --color-background: #ffffff;
         --border-color: #eeeeee;
-    
+
         --color-new-calendar-background: rgba(0, 0, 0, 0.5);
-    
+
         --color-element-text: #000000;
         --color-element-text-alt: #ffffff;
-        --color-gray: #808080;
-        --color-blue: #5892ff;
         --color-element-button: #dddddd;
-    
+
+        --color-gray: #808080;
+        --color-blue: #0a7aff;
+
         --font-family: "Outfit", sans-serif;
-    
+
         --font-normal: 100;
         --font-semi-bold: 300;
         --font-bold: 500;
-    
+
         --red: #ff6a6a;
-    
+
         color-scheme: light;
     }
     
@@ -127,6 +117,10 @@ a.underlined {
     text-decoration: underline;
 }
 
+abbr {
+    text-decoration: none;
+}
+
 .ribbon {
     position: fixed;
     display: grid;
@@ -145,41 +139,45 @@ a.underlined {
     border-bottom: 1px solid var(--border-color);
 
     transition: 0.3s animation;
+    transition: 0.3s background-color;
+    transition: 0.3s border-color;
 
     z-index: 2;
 }
 
 .ribbon p {
-    margin: 2px 0 -2px 0;
+    /* margin: 2px 0 -2px 0; */
 
     font-size: 0.8em;
     font-weight: var(--font-semi-bold);
     line-height: 1.4;
 }
 
-.ribbon span {
-    color: var(--color-blue);
+.ribbon span, .ribbon a, .ribbon abbr {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    
     font-size: 1em;
     line-height: 1.4;
+    
+    color: var(--color-blue);
 }
 
 @keyframes hideribbon-up {
-    0% {}
     100% {top: -20vh;}
 }
 
 @keyframes hideribbon-left {
-    0% {}
     100% {left: -20vw;}
 }
 
 @keyframes hideribbon-right {
-    0% {}
     100% {right: -20vw;}
 }
 
 @keyframes hideribbon-down {
-    0% {}
     100% {bottom: -20vh;}
 }
 
