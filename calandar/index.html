@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar - PixelEdition</title>
+
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./main.js"></script>
+</head>
+<body>
+    <div id="ribbon" class="ribbon">
+        <span class="material-symbols-outlined">waving_hand</span>
+        <p>Welcome to Calendar! Click on top of the grid to highlight, click again to un-highlight. Click on the middle of the grid to add text.</p>
+        <a onclick="close_slide('.ribbon', 'up', 1)"><span class="material-symbols-outlined">close</span></a>
+    </div>
+    <div id="new-calendar-wrapper" class="new-calendar-wrapper">
+        <div class="new-calendar">
+            <p>Make a New Calendar</p>
+
+            <label for="new-calendar-title">Calendar Title</label>
+
+            <select name="new-calendar-title" id="new-calendar-title">
+                <option value="0">January</option>
+                <option value="1">Febuary</option>
+                <option value="2">Febuary (Leap Year)</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+
+            <label for="new-calendar-offset">Calendar Offset</label>
+            <input id="new-calendar-offset" type="number" placeholder="Numbers only." min="0" max="6">
+
+            <a class="button button-icons" onclick="newCalendar()">
+                <abbr title="Close">
+                    <span class="material-symbols-outlined">done</span>
+                </abbr>
+            </a>
+            <a class="button button-icons" onclick="closeNewCalendar()">
+                <abbr title="Close">
+                    <span class="material-symbols-outlined">close</span>
+                </abbr>
+            </a>
+        </div>
+    </div>
+    <div id="calendar-wrapper" class="calendar-wrapper">
+        <h1 id="calendar-title" class="calendar-title">Calendar</h1>
+        <div id="calendar-table" class="calendar-table" offset="3"></div>
+        <div class="calendar-button-wrapper">
+            <a href="../" class="button button-icons"><abbr title="Back to Home">
+                <abbr>
+                    <span class="material-symbols-outlined">home</span>
+                </abbr>
+            </a>
+            <a class="button button-icons" onclick="theme()">
+                <abbr title="Switch Themes">
+                    <span id="themeswitch" class="material-symbols-outlined">dark_mode</span>
+                </abbr>
+            </a>
+            <a class="button button-icons" onclick="window.print()">
+                <abbr title="Print Calendar">
+                    <span class="material-symbols-outlined">print</span>
+                </abbr>
+            </a>
+            <a class="button button-icons" onclick="openNewCalendar()">
+                <abbr title="New Calandar">
+                    <span class="material-symbols-outlined">add</span>
+                </abbr>
+            </a>
+        </div>
+        <p class="footer">© 2022 PixelEdition. All rights reserved.</p>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@page {
+    size: landscape;
+}
+
+:root, :root.light {
+    --color-background: #ffffff;
+    --border-color: #eeeeee;
+
+    --color-new-calendar-background: rgba(0, 0, 0, 0.5);
+
+    --color-element-text: #000000;
+    --color-element-text-alt: #ffffff;
+    --color-element-button: #dddddd;
+
+    --color-gray: #808080;
+    --color-blue: #5892ff;
+
+    --font-family: "Outfit", sans-serif;
+
+    --font-normal: 100;
+    --font-semi-bold: 300;
+    --font-bold: 500;
+
+    --red: #ff6a6a;
+
+    color-scheme: light;
+}
+
+:root.dark {
+    --color-background: #101114;
+    --border-color: #202124;
+
+    --color-element-text: #ffffff;
+    --color-element-text-alt: #000000;
+    --color-element-button: #202124;
+
+    color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: #101114;
+        --border-color: #202124;
+    
+        --color-element-text: #ffffff;
+        --color-element-text-alt: #000000;
+        --color-element-button: #202124;
+
+        color-scheme: dark;
+    }
+}
+
+@media print {
+    :root, :root.light, :root.dark {
+        --color-background: #ffffff;
+        --border-color: #eeeeee;
+    
+        --color-new-calendar-background: rgba(0, 0, 0, 0.5);
+    
+        --color-element-text: #000000;
+        --color-element-text-alt: #ffffff;
+        --color-gray: #808080;
+        --color-blue: #5892ff;
+        --color-element-button: #dddddd;
+    
+        --font-family: "Outfit", sans-serif;
+    
+        --font-normal: 100;
+        --font-semi-bold: 300;
+        --font-bold: 500;
+    
+        --red: #ff6a6a;
+    
+        color-scheme: light;
+    }
+    
+    body {
+        print-color-adjust: exact;
+    }
+
+    .calendar-button-wrapper {
+        display: none !important;
+    }
+
+    .ribbon {
+        display: none !important;
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+
+    -webkit-appearance: none;
+}
+
+body {
+    font-family: var(--font-family);
+
+    color: var(--color-element-text);
+    background: var(--color-background);
+
+    font-weight: var(--font-normal);
+
+    transition: 0.3s;
+
+    user-select: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-bold);
+}
+
+a {
+    text-decoration: none;
+
+    color: var(--color-element-text);
+
+    cursor: pointer;
+}
+
+a.underlined {
+    text-decoration: underline;
+}
+
+.ribbon {
+    position: fixed;
+    display: grid;
+
+    grid-template-columns: max-content 1fr max-content;
+    gap: 0.5em;
+    
+    top: 0;
+
+    width: 100vw;
+
+    padding: 0.5em;
+
+    background: var(--color-background);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+
+    transition: 0.3s animation;
+
+    z-index: 2;
+}
+
+.ribbon p {
+    margin: 2px 0 -2px 0;
+
+    font-size: 0.8em;
+    font-weight: var(--font-semi-bold);
+    line-height: 1.4;
+}
+
+.ribbon span {
+    color: var(--color-blue);
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+@keyframes hideribbon-up {
+    0% {}
+    100% {top: -20vh;}
+}
+
+@keyframes hideribbon-left {
+    0% {}
+    100% {left: -20vw;}
+}
+
+@keyframes hideribbon-right {
+    0% {}
+    100% {right: -20vw;}
+}
+
+@keyframes hideribbon-down {
+    0% {}
+    100% {bottom: -20vh;}
+}
+
+.calendar-wrapper {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.calendar-title {
+    padding-bottom: 0.25em;
+
+    text-align: center;
+}
+
+.calendar-table {
+    width: 90vw;
+    max-width: 60em;
+    height: 80vh;
+    max-height: 40em;
+
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-rows: max-content repeat(5, minmax(0, 1fr));
+
+    border-top: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+}
+
+.grid-content {
+    position: relative;    
+    padding: 0.5em;
+
+    line-height: 1;
+    text-align: left;
+    font-weight: var(--font-semi-bold);
+
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+
+    transition: 0.2s;
+
+    cursor: pointer !important;
+}
+
+.grid-contentedit {
+    width: 100%;
+    height: calc(100% - 1.5em);
+
+    margin-top: 0.5em;
+
+    text-align: center;
+    font-weight: var(--font-normal);
+
+    outline: none;
+
+    overflow-y: hidden;
+
+    cursor: text;
+}
+
+.grid-contentedit:focus {
+    overflow-y: auto;
+}
+
+.grid-contentedit::-webkit-scrollbar {
+    width: 2px;
+}
+
+.grid-contentedit::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+}
+
+.weekend {
+    color: var(--color-blue);
+}
+
+.day {
+    color: var(--color-gray);
+    background: var(--border-color);
+
+    text-align: center;
+    font-weight: var(--font-semi-bold);
+
+    cursor: default !important;
+}
+
+.footer {
+    padding-top: 0.5em;
+
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.new-calendar-wrapper {
+    display: none;
+    position: fixed;
+
+    top: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: var(--color-new-calendar-background);
+    backdrop-filter: blur(0.5em);
+    -webkit-backdrop-filter: blur(0.5em);
+
+    z-index: 1;
+}
+
+.new-calendar {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 90vw;
+    max-width: 20em;
+
+    padding: 1em;
+
+    text-align: center;
+
+    background: var(--color-background);
+    border-radius: 0.5em;
+}
+
+.new-calendar p {
+    padding-bottom: 0.5em;
+
+    font-weight: var(--font-bold);
+}
+
+.new-calendar label {
+    font-weight: var(--font-semi-bold);
+}
+
+.new-calendar input[type="number"], .new-calendar select {
+    display: block;
+
+    width: 100%;
+
+    padding: 0.25em;
+    margin: 0.5em auto 1em auto;
+
+    font-family: var(--font-family);
+
+    color: var(--color-element-text);
+    background: var(--color-background);
+    border-radius: 0.3em;
+    border: 0.5px solid var(--color-gray);
+    outline: none;
+}
+
+.new-calendar-blank {
+    display: none;
+
+    font-weight: var(--font-normal);
+    font-size: 0.8em;
+
+    color: var(--red);
+}
+
+.button {
+    display: inline-block;
+
+    padding: 0.5em;
+    margin: auto;
+
+    text-decoration: none;
+    font-size: 0.8em;
+    font-weight: var(--font-bold);
+    font-family: var(--font-family);
+
+    color: var(--color-element-text);
+    background: var(--color-element-button);
+    border-radius: 0.3em;
+    border: none;
+
+    cursor: pointer;
+}
+
+.button-icons {
+    width: 36px;
+    height: 36px;
+
+    line-height: 1;
+}
+
+.calendar-button-wrapper {
+    width: max-content;
+
+    padding: 1em 0 0 0;
+    margin: auto;
+}
+
+.othermonth {
+    color: var(--color-gray);
+}
+
+.selected {
+    background: var(--border-color);
+}
