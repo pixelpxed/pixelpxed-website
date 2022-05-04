@@ -1,39 +1,110 @@
-.title {
-    width: 90vw;
-    max-width: 50em;
-    margin: auto;
-    padding: 0.5em;
+* {
+    box-sizing: border-box;
 }
 
-.title a {
-    color: var(--blue);
+.title {
+    padding: 1em;
+
+    font-weight: var(--boldtext);
+
+    background: var(--textcolor);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--boldtext);
+}
+
+.title h1, .title p {
+    text-align: center;
+
+    color: var(--alt-textcolor);
+}
+
+.projects-wrapper {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    width: 100%;
+    max-width: 50em;
+
+    margin: 1em auto;
+
+    border-radius: 0.5em;
+
+    overflow: hidden;
+}
+
+@media (max-width: 50em) {
+    .projects-wrapper {
+        margin: 0 auto;
+
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 40em) {
+    .projects-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+.projects-description {
+    display: flex;
+
+    align-items: center;
+
+    padding: 1em;
+}
+
+.projects-description h2, .projects-description p, .projects-description a, .projects-description li {
+    color: var(--alt-textcolor) !important;
+}
+
+.projects-description ul {
+    padding-left: 3em;
+}
+
+.projects-description > div {
+    padding: 1em;
+}
+
+.projects-description a {
     text-decoration: underline;
 }
 
-.title-header {
-    max-width: max-content;
-    font-weight: var(--boldtext);
-    background: -webkit-linear-gradient(-30deg, var(--blue), var(--green));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    padding-bottom: 0.2em;
-}
+.projects-description-button {
+    display: block;
 
-.pixeledition {
+    width: max-content;
+    min-width: 6em;
+
+    padding: 0.5em;
+    margin: 1em 0 0 0;
+
     text-align: center;
-    padding: 1em 0 0.5em 0;
-    font-weight: var(--boldtext);
+    text-decoration: none !important;
+
+    background: var(--white);
+    border-radius: 0.3em;
 }
 
-.hello {
+.projects-picture img, .projects-picture p {
+    display: block;
+    position: relative;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 100%;
+    max-width: 25em;
+
+    padding: 1em;
+    margin: auto;
+
     text-align: center;
-}
+    font-weight: var(--boldtext);
 
-.line {
-    height: 1px;
-    width: 95vw;
-    max-width: 55em;
-    background: var(--textcolor);
-    margin: 0.5em auto;
+    color: var(--black);
 }
