@@ -19,7 +19,7 @@
             - Click on top of the date grid to select, click again to deselect.
         </p>
         <abbr title="Close">
-            <a onclick="close_slide('.ribbon', 'up', 1)">
+            <a onclick="close_slide('.ribbon', 'up')">
                 <span class="material-symbols-outlined">close</span>
             </a>
         </abbr>
@@ -49,12 +49,12 @@
             <label for="new-calendar-offset">Calendar Offset</label>
             <input id="new-calendar-offset" type="number" placeholder="Numbers only." min="0" max="6">
 
-            <abbr title="Close">
+            <abbr title="Create New Calendar">
                 <a class="button button-icons" onclick="newCalendar()">
-                    <span class="material-symbols-outlined">done</span>
+                    <span class="material-symbols-outlined">add</span>
                 </a>
             </abbr>
-            <abbr title="Close">
+            <abbr title="Cancel">
                 <a class="button button-icons" onclick="closeNewCalendar()">
                     <span class="material-symbols-outlined">close</span>
                 </a>
@@ -80,7 +80,7 @@
                     <span class="material-symbols-outlined">print</span>
                 </a>
             </abbr>
-            <abbr title="New Calandar">
+            <abbr title="New Calendar">
                 <a class="button button-icons" onclick="openNewCalendar()">
                     <span class="material-symbols-outlined">add</span>
                 </a>

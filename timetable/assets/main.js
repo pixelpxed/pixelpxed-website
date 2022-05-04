@@ -15,16 +15,6 @@ window.onload = function() {
 
     document.getElementById("version").innerHTML = versionnumber
     document.getElementById("year").innerHTML = copyrightyear
-
-    if (japanesechinese == true) {
-        document.getElementById("navbar-right").style.display = "block"
-
-        if (localStorage.getItem("swapperclass") == "Japanese") {
-            japanese(false)
-        } if (localStorage.getItem("swapperclass") == "Chinese") {
-            chinese(false)
-        }
-    }
     
     if (secondarylanguage == true) {
         document.getElementById("changelanguagebtn").style.display = "inline-block"
@@ -37,6 +27,16 @@ window.onload = function() {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
         curtheme = 'light';
     } 
+
+    if (japanesechinese == true) {
+        document.getElementById("navbar-right").style.display = "block"
+
+        if (localStorage.getItem("swapperclass") == "Japanese") {
+            japanese(false)
+        } if (localStorage.getItem("swapperclass") == "Chinese") {
+            chinese(false)
+        }
+    }
 
     let stateCheck = setInterval(() => {
         if (document.readyState === 'complete') {
@@ -150,6 +150,12 @@ function language_primary() {
     document.getElementById("searchtitle").textContent = bookmark_google_title_primary
     document.getElementById("searchbar").placeholder = bookmark_google_title_primary
     document.getElementById("searchsubmit").value = bookmark_google_search_primary
+
+    if (localStorage.getItem("swapperclass") != "Japanese") {
+        document.getElementById(choosesubjid).textContent = "Chinese";
+    } if (localStorage.getItem("swapperclass") == "Japanese") {
+        document.getElementById(choosesubjid).textContent = "Japanese";
+    }
 }
 
 function language_secondary() {
@@ -182,6 +188,12 @@ function language_secondary() {
     document.getElementById("searchtitle").textContent = bookmark_google_title_secondary
     document.getElementById("searchbar").placeholder = bookmark_google_title_secondary
     document.getElementById("searchsubmit").value = bookmark_google_search_secondary
+
+    if (localStorage.getItem("swapperclass") != "Japanese") {
+        document.getElementById(choosesubjid).textContent = "ภาษาจีน";
+    } if (localStorage.getItem("swapperclass") == "Japanese") {
+        document.getElementById(choosesubjid).textContent = "ภาษาญี่ปุ่น";
+    }
 }
 
 function language_swapper() {
@@ -209,7 +221,12 @@ function themeswitch() {
 }
 
 function japanese(popupshow) {
-    document.getElementById(choosesubjid).textContent = "Japanese"
+    if (language_var == 'primary') {
+        document.getElementById(choosesubjid).textContent = "Japanese"
+    } if (language_var == 'secondary') {
+        document.getElementById(choosesubjid).textContent = "ภาษาญี่ปุ่น"
+    }
+
     document.getElementById("jp").style.opacity = "1"
     document.getElementById("ch").style.opacity = "0.5"
 
@@ -220,8 +237,15 @@ function japanese(popupshow) {
     }
 
     popup(`CNE-01`, `The class has been swapped, Timetable will remember the change.`, `white`)
-} function chinese(popupshow) {
-    document.getElementById(choosesubjid).textContent = "Chinese"
+}
+
+function chinese(popupshow) {
+    if (language_var == 'primary') {
+        document.getElementById(choosesubjid).textContent = "Chinese"
+    } if (language_var == 'secondary') {
+        document.getElementById(choosesubjid).textContent = "ภาษาจีน"
+    }
+    
     document.getElementById("jp").style.opacity = "0.5"
     document.getElementById("ch").style.opacity = "1"
 

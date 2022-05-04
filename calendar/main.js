@@ -23,8 +23,10 @@ function setDefaultValues() {
 
     if (localStorage.getItem("theme") == "dark") {
         document.documentElement.classList = "dark";
+        document.getElementById("themeswitch").textContent = "light_mode"
     } if (localStorage.getItem("theme") == "light") {
         document.documentElement.classList = "light";
+        document.getElementById("themeswitch").textContent = "dark_mode"
     }
 }
 
@@ -91,9 +93,14 @@ function openNewCalendar() {
 }
 
 // Usage: closeribbon([Element to close in CSS style writing.], [Direction: up, left, right, down], [Duration (In seconds, numbers only.)])
-function close_slide(element, direction, duration) {
-    document.querySelector(element).style.animation = `hideribbon-${direction} ${duration}s`
-    setTimeout(() => {
-        document.querySelector(element).remove()
-    }, (duration * 1000))
+function close_slide(element, direction) {
+    if (direction == "up") {
+        document.querySelector(element).style.top = `-${document.querySelector(element).offsetHeight}px`;
+    } if (direction == "down") {
+        document.querySelector(element).style.bottom = `-${document.querySelector(element).offsetHeight}px`;
+    } if (direction == "left") {
+        document.querySelector(element).style.left = `-${document.querySelector(element).offsetWidth}px`;
+    } if (direction == "right") {
+        document.querySelector(element).style.right = `-${document.querySelector(element).offsetWidth}px`;
+    }
 }

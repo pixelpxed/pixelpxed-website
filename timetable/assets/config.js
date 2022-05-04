@@ -1,5 +1,5 @@
 // General variables
-var versionnumber = "2.8.1"
+var versionnumber = "2.8.2"
 var copyrightyear = "2022"
 
 // Translation Variables
@@ -19,7 +19,7 @@ var online_onsite_primary = "On-Site/Online Calandar"
 var online_onsite_secondary = "ปฏิทินเรียนที่โรงเรียน/บ้าน"
 
 // Switch for Japanese and Chinese class / Switch for changing between primary and secondary language (By default both false)
-var japanesechinese = false
+var japanesechinese = true
 var secondarylanguage = true
 
 // Time to be displayed in Timetable
@@ -34,18 +34,18 @@ const time = ["08:00 - 08:40", "08:40 - 09:20", "09:20 - 10:00", "10:20 - 11:00"
 // ""        - Will set the grid as a blankclass grid automaticly
 
 const element_primary = ["Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"] // ["[Time]", "[Monday]", "[Tuesday]", "[Thursday]", "[Friday]"]
-const classes_primary = ["Homeroom", "", "", "", "", "", "", "", "", "", "",
-                         "Homeroom", "", "", "", "", "", "", "", "", "", "",
-                         "Homeroom", "", "", "", "", "", "", "", "", "", "",
-                         "Homeroom", "", "", "", "", "", "", "", "", "", "",
-                         "Homeroom", "", "", "", "", "", "", "", "", "", "",]
+const classes_primary = ["Homeroom", "P.E.", "Core Maths", "Guidance", "Lunch", "Social", "History", "Health", "M3 Meeting", "Club", "",
+                         "Homeroom", "Compute Sci", "DClass", "Core Maths", "Lunch", "R+W", "Thai", "Core English", "Buddhism", "Art", "",
+                         "Homeroom", "Core English", "Add Maths", "R+W", "Lunch", "Social", "Thai", "Music", "Scout", "Tutor", "DClass",
+                         "Homeroom", "Compute Sci", "Thai", "Core Maths", "Lunch", "R+W", "Core English", "Core Science", "DClass", "Tutor", "DClass",
+                         "Homeroom", "Core Science", "Add Maths", "Design and Technology", "DClass", "Lunch", "Chinese", "DClass", "Additional Science", "DClass", "",]
 
 const element_secondary = ["เวลา", "จันทร์", "อังคาร" , "พุธ", "พฤหัสบดี", "ศุกร์"] // ["[Time]", "[Monday]", "[Tuesday]", "[Thursday]", "[Friday]"]
-const classes_secondary = ["โฮมรูม", "", "", "", "", "", "", "", "", "", "",
-                           "โฮมรูม", "", "", "", "", "", "", "", "", "", "",
-                           "โฮมรูม", "", "", "", "", "", "", "", "", "", "",
-                           "โฮมรูม", "", "", "", "", "", "", "", "", "", "",
-                           "โฮมรูม", "", "", "", "", "", "", "", "", "", "",]
+const classes_secondary = ["โฮมรูม", "พละ", "คณิตฯ พื้นฐาน", "แนะแนว", "พักกลางวัน", "สังคมฯ", "ประวัติฯ", "สุขศึกษา", "ประชุม ม.3", "ชุมนุม", "",
+                           "โฮมรูม", "วิทยาการคำนวณ", "DClass", "คณิตฯ พื้นฐาน", "พักกลางวัน", "อ่านและเขียน", "ภาษาไทย", "ภาษาอังกฤษ", "พุทธศาสนา", "ศิลปะ", "",
+                           "โฮมรูม", "ภาษาอังกฤษ", "คณิตฯ เพิ่มเติม", "อ่านและเขียน", "พักกลางวัน", "สังคมฯ", "ภาษาไทย", "ดนตรี", "ลูกเสือ", "ติวเตอร์", "DClass",
+                           "โฮมรูม", "วิทยาการคำนวณ", "ภาษาไทย", "คณิตฯ พื้นฐาน", "พักกลางวัน", "อ่านและเขียน", "ภาษาอังกฤษ", "วิทย์ฯ พื้นฐาน", "DClass", "ติวเตอร์", "DClass",
+                           "โฮมรูม", "วิทย์ฯ พื้นฐาน", "คณิตฯ เพิ่มเติม", "การออกแบบและเทคโนโลยี", "DClass", "พักกลางวัน", "ภาษาจีน", "DClass", "วิทย์ฯ เพิ่มเติม", "DClass", ""]
 
 
 // Subject's Google Meet and Google Classroom links.
@@ -56,6 +56,98 @@ const classes_secondary = ["โฮมรูม", "", "", "", "", "", "", "", "",
 
 const subj = {
     "Homeroom"  : {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Core Maths": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Add Maths": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Core English": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "R+W": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Core Science": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Additional Science": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Design and Technology": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Compute Sci": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Social": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Health": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "P.E.": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Thai": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Guidance": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "History": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Buddhism": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Art": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Chinese": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Japanese": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Music": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Scout": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "M3 Meeting": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Club": {
+        "videocall": "",
+        "classroom": ""
+    },
+    "Tutor": {
         "videocall": "",
         "classroom": ""
     },
