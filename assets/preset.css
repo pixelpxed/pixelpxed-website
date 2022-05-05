@@ -33,7 +33,7 @@
 }
 
 :root.light {
-    --navbarbg: rgb(235, 235, 235);
+    --navbarbg: rgba(235, 235, 235, 0.9);
     --textcolor: rgb(0, 0, 0);
     --alt-textcolor: rgb(255, 255, 255);
     --bgcolor: rgb(255, 255, 255);
