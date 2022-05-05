@@ -3,7 +3,7 @@
 :root, :root.dark {
     --daystextcolor: rgba(0, 0, 0, 0.5);
 
-    --navbarbg: rgb(12, 13, 16);
+    --navbarbg: rgba(12, 13, 16, 0.9);
     --textcolor: rgb(255, 255, 255);
     --alt-textcolor: rgb(0, 0, 0);
     --bgcolor: rgb(32, 33, 36);
@@ -77,6 +77,9 @@ body {
     padding: 0.5em;
 
     background: var(--navbarbg);
+    border-bottom: 1px solid var(--subjbg);
+    backdrop-filter: blur(1em);
+    -webkit-backdrop-filter: blur(1em);
 
     transition: 0.3s color;
 }
