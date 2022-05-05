@@ -3,7 +3,7 @@
 :root, :root.dark {
     --daystextcolor: rgba(0, 0, 0, 0.5);
 
-    --navbarbg: rgba(12, 13, 16, 0.9);
+    --navbarbg: rgba(12, 13, 16);
     --textcolor: rgb(255, 255, 255);
     --alt-textcolor: rgb(0, 0, 0);
     --bgcolor: rgb(32, 33, 36);
@@ -33,7 +33,7 @@
 }
 
 :root.light {
-    --navbarbg: rgba(235, 235, 235, 0.9);
+    --navbarbg: rgba(235, 235, 235);
     --textcolor: rgb(0, 0, 0);
     --alt-textcolor: rgb(255, 255, 255);
     --bgcolor: rgb(255, 255, 255);
