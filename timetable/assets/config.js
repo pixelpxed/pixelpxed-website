@@ -1,5 +1,5 @@
 // General variables
-var versionnumber = "2.8.2"
+var versionnumber = "2.9.0"
 var copyrightyear = "2022"
 
 // Translation Variables
@@ -18,8 +18,16 @@ var timetable_description_secondary = "คลิกซ้าย - วีดี�
 var online_onsite_primary = "On-Site/Online Calandar"
 var online_onsite_secondary = "ปฏิทินเรียนที่โรงเรียน/บ้าน"
 
-// Switch for Japanese and Chinese class / Switch for changing between primary and secondary language (By default both false)
-var japanesechinese = true
+// Switch for Class Swapping [true/false]
+var swapper_control = true
+
+var swapper_primary_language_primary = "Chinese"
+var swapper_secondary_language_primary = "Japanese"
+
+var swapper_primary_language_secondary = "ภาษาจีน"
+var swapper_secondary_language_secondary = "ภาษาญี่ปุ่น"
+
+// 'Change Language' function. [true/false]
 var secondarylanguage = true
 
 // Time to be displayed in Timetable

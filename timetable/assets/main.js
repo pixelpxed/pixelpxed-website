@@ -28,13 +28,13 @@ window.onload = function() {
         curtheme = 'light';
     } 
 
-    if (japanesechinese == true) {
+    if (swapper_control == true) {
         document.getElementById("navbar-right").style.display = "block"
 
-        if (localStorage.getItem("swapperclass") == "Japanese") {
-            japanese(false)
-        } if (localStorage.getItem("swapperclass") == "Chinese") {
-            chinese(false)
+        if (localStorage.getItem("swapperclass") == "Primary") {
+            swap_secondary(false)
+        } if (localStorage.getItem("swapperclass") == "Secondary") {
+            swap_primary(false)
         }
     }
 
@@ -83,10 +83,6 @@ function onstartsetup() {
         document.getElementById("day").innerHTML = `${day}, ${date > 9 ? date : "0" + date} ${month} ${year}`;
     }, 1);
 
-    var rowFilled = 0;
-    var bookmarkNumber = 0;
-    var elementFilled = 0;
-
     for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
         document.getElementById("time" + timeFilled).innerHTML = time[timeFilled];
     }
@@ -94,7 +90,7 @@ function onstartsetup() {
     for (let classFilled = 0; classFilled <= 54; classFilled++) {
         document.getElementById(classFilled).innerHTML = classes_primary[classFilled];
 
-        if (document.getElementById(classFilled).innerHTML == "Chinese") {
+        if (document.getElementById(classFilled).innerHTML == swapper_primary_language_primary) {
             choosesubjid = classFilled
         }
 
@@ -151,20 +147,16 @@ function language_primary() {
     document.getElementById("searchbar").placeholder = bookmark_google_title_primary
     document.getElementById("searchsubmit").value = bookmark_google_search_primary
 
-    if (localStorage.getItem("swapperclass") != "Japanese") {
-        document.getElementById(choosesubjid).textContent = "Chinese";
-    } if (localStorage.getItem("swapperclass") == "Japanese") {
-        document.getElementById(choosesubjid).textContent = "Japanese";
+    if (localStorage.getItem("swapperclass") != "Secondary") {
+        document.getElementById(choosesubjid).textContent = swapper_secondary_language_primary;
+    } if (localStorage.getItem("swapperclass") == "Secondary") {
+        document.getElementById(choosesubjid).textContent = swapper_primary_language_primary;
     }
 }
 
 function language_secondary() {
     var_day = var_day_secondary
     var_month = var_month_secondary
-
-    var elementFilled = 0;
-    var rowFilled = 0;
-    var bookmarkNumber = 0;
     
     for (let classFilled = 0; classFilled <= 54; classFilled++) {
         document.getElementById(classFilled).innerHTML = classes_secondary[classFilled];
@@ -189,10 +181,10 @@ function language_secondary() {
     document.getElementById("searchbar").placeholder = bookmark_google_title_secondary
     document.getElementById("searchsubmit").value = bookmark_google_search_secondary
 
-    if (localStorage.getItem("swapperclass") != "Japanese") {
-        document.getElementById(choosesubjid).textContent = "ภาษาจีน";
-    } if (localStorage.getItem("swapperclass") == "Japanese") {
-        document.getElementById(choosesubjid).textContent = "ภาษาญี่ปุ่น";
+    if (localStorage.getItem("swapperclass") != "Secondary") {
+        document.getElementById(choosesubjid).textContent = swapper_secondary_language_secondary;
+    } if (localStorage.getItem("swapperclass") == "Secondary") {
+        document.getElementById(choosesubjid).textContent = swapper_primary_language_secondary;
     }
 }
 
@@ -220,42 +212,38 @@ function themeswitch() {
     }
 }
 
-function japanese(popupshow) {
+function swap_primary(popupshow) {
     if (language_var == 'primary') {
-        document.getElementById(choosesubjid).textContent = "Japanese"
+        document.getElementById(choosesubjid).textContent = swapper_secondary_language_primary
     } if (language_var == 'secondary') {
-        document.getElementById(choosesubjid).textContent = "ภาษาญี่ปุ่น"
+        document.getElementById(choosesubjid).textContent = swapper_secondary_language_secondary
     }
 
-    document.getElementById("jp").style.opacity = "1"
-    document.getElementById("ch").style.opacity = "0.5"
+    document.getElementById("swapper-primary").style.opacity = "0.5"
+    document.getElementById("swapper-secondary").style.opacity = "1"
 
-    localStorage.setItem("swapperclass", "Japanese")
+    localStorage.setItem("swapperclass", "Primary")
 
     if (popupshow == false) {
         return
-    }
-
-    popup(`CNE-01`, `The class has been swapped, Timetable will remember the change.`, `white`)
+    } return popup(`CNE-01`, `The class has been swapped, Timetable will remember the change.`, `white`)
 }
 
-function chinese(popupshow) {
+function swap_secondary(popupshow) {
     if (language_var == 'primary') {
-        document.getElementById(choosesubjid).textContent = "Chinese"
+        document.getElementById(choosesubjid).textContent = swapper_primary_language_primary
     } if (language_var == 'secondary') {
-        document.getElementById(choosesubjid).textContent = "ภาษาจีน"
+        document.getElementById(choosesubjid).textContent = swapper_primary_language_secondary
     }
     
-    document.getElementById("jp").style.opacity = "0.5"
-    document.getElementById("ch").style.opacity = "1"
+    document.getElementById("swapper-primary").style.opacity = "1"
+    document.getElementById("swapper-secondary").style.opacity = "0.5"
 
-    localStorage.setItem("swapperclass", "Chinese")
+    localStorage.setItem("swapperclass", "Secondary")
 
     if (popupshow == false) {
         return
-    }
-
-    popup(`CNE-01`, `The class has been swapped, Timetable will remember the change.`, `white`)
+    } return popup(`CNE-01`, `The class has been swapped, Timetable will remember the change.`, `white`)
 }
 
 function joiningsystem() {
