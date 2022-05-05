@@ -77,9 +77,6 @@ body {
     padding: 0.5em;
 
     background: var(--navbarbg);
-    border-bottom: 1px solid var(--subjbg);
-    backdrop-filter: blur(1em);
-    -webkit-backdrop-filter: blur(1em);
 
     transition: 0.3s color;
 }
