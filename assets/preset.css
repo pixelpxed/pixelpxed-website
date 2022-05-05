@@ -76,7 +76,7 @@ body {
 .navbar {
     padding: 0.5em;
 
-    background: var(--navbarbg);
+    background: var(--navbarbg);    
 
     transition: 0.3s color;
 }
