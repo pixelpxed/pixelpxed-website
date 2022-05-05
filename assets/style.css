@@ -1,110 +1,120 @@
-* {
-    box-sizing: border-box;
+.header {
+    padding: 1em;
+    
+    background: url("./TitleBG.png") no-repeat center right;
+    background-size: cover;
+    border-bottom: 1px solid var(--subjbg);
 }
 
-.title {
+.header h1 {
+    font-weight: var(--boldtext);
+
+    color: var(--black);
+}
+
+.header p {
+    color: var(--black);
+}
+
+.intro {
     padding: 1em;
 
-    font-weight: var(--boldtext);
+    width: 100vw;
+    max-width: 50em;
 
-    background: var(--textcolor);
+    margin: auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.intro h2 {
     font-weight: var(--boldtext);
 }
 
-.title h1, .title p {
-    text-align: center;
+.projects {
+    width: 100%;
+    max-width: 100em;
 
-    color: var(--alt-textcolor);
+    padding: 1em;
+    margin: auto;
+}
+
+.projects h3 {
+    margin-bottom: 1em;
+
+    font-weight: var(--boldtext);
 }
 
 .projects-wrapper {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
     width: 100%;
-    max-width: 50em;
 
-    margin: 1em auto;
+    border-radius: 0.5em;
 
+    overflow: auto;
+}
+
+.projects-scroll {
+    width: max-content;
+}
+
+.projects-card {
+    position: relative;
+    display: inline-block;
+
+    width: 20em;
+    height: 25em;
+
+    padding: 1em;
+    margin: 0 0.5em;
+
+    background: var(--subjbg-darker);
     border-radius: 0.5em;
 
     overflow: hidden;
 }
 
-@media (max-width: 50em) {
-    .projects-wrapper {
-        margin: 0 auto;
+.projects-card img {
+    width: 100%;
 
-        border-radius: 0;
-    }
-}
+    margin-bottom: 1em;
 
-@media (max-width: 40em) {
-    .projects-wrapper {
-        grid-template-columns: 1fr;
-    }
-}
-
-.projects-description {
-    display: flex;
-
-    align-items: center;
-
-    padding: 1em;
-}
-
-.projects-description h2, .projects-description p, .projects-description a, .projects-description li {
-    color: var(--alt-textcolor) !important;
-}
-
-.projects-description ul {
-    padding-left: 3em;
-}
-
-.projects-description > div {
-    padding: 1em;
-}
-
-.projects-description a {
-    text-decoration: underline;
-}
-
-.projects-description-button {
-    display: block;
-
-    width: max-content;
-    min-width: 6em;
-
-    padding: 0.5em;
-    margin: 1em 0 0 0;
-
-    text-align: center;
-    text-decoration: none !important;
-
-    background: var(--white);
     border-radius: 0.3em;
 }
 
-.projects-picture img, .projects-picture p {
+.projects-title {
+    color: var(--textcolor);
+
+    font-size: 1.2em;
+    font-weight: var(--boldtext);
+}
+
+.projects-description {
+    color: var(--textcolor);
+}
+
+.projects-description a {
+    color: var(--blue);
+
+    font-weight: var(--boldtext);
+}
+
+.projects-button {
+    position: absolute;
     display: block;
-    position: relative;
 
-    top: 50%;
+    left: 50%;
+    bottom: 1.5em;
 
-    transform: translateY(-50%);
+    transform: translateX(-50%);
+    
+    width: 80%;
 
-    width: 100%;
-    max-width: 25em;
-
-    padding: 1em;
+    padding: 0.5em;
     margin: auto;
 
     text-align: center;
-    font-weight: var(--boldtext);
 
     color: var(--black);
+    background: var(--white);
+    border-radius: 0.3em;
+
+    cursor: pointer;
 }
