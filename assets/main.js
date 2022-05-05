@@ -8,9 +8,16 @@ window.onload = function() {
 
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
         curtheme = 'light';
-    } 
+    }
+
+    resize()
 }
 
+window.onresize = resize()
+
+function resize() {
+    document.getElementById("main").style.marginTop = `${document.getElementById("navbar").offsetHeight}px`
+}
 
 function popup(code, msg, status) {
     document.querySelector(".popup").className = "popup";

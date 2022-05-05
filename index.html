@@ -25,232 +25,233 @@
     <script src="./assets/main.js" defer></script>
 </head>
 <body>
-    <div class="navbar">
+    <div id="navbar" class="navbar navbar-fixed">
         <a href="./" style="opacity: 1;">Home</a>
         <a href="./timetable/">Timetable</a>
         <div id="navbar-right" class="navbar-right">
             <a style="cursor: default; opacity: 1;" onclick="popup(`Fact`, `You can type anything here! It is not saved for next time though...`, `white`)" contenteditable="true"></a>
         </div>
     </div>
-
-    <div class="header">
-        <h1>PixelEdition</h1>
-        <p>I make things for people.</p>
-    </div>
-
-    <div class="intro">
-        <h2>Hi everyone visting this page!</h2>
-        <p>
-            I do website projects for fun, and sometimes makes something useful for everyone else to use also! This website purpose is to host my projects for others and archives what I made.<br><br>
-            
-            I'm from Thailand, I can speak Thai (obviously) and English (If I can't how am I writing this...)<br>I can write programs in Python, HTML, CSS, and JS.<br><br>
-
-            P.S. Top of the page on the navigation bar are the main projects I will be constantly maintaining.
-        </p>
-    </div>
-
-    <div class="projects">
-        <h3>Active Projects</h3>
-        <div class="projects-wrapper">
-            <div class="projects-scroll">
-                <div class="projects-card">
-                    <img src="./assets/timetable.png" alt="Timetable">
-                    <p class="projects-title">Timetable</p>
-                    <p class="projects-description">
-                        Easy way to join any class you imagine.<br><br>
-
-                        Easily setup your own timetable. With abilities to be able to join classes and videocalls with a click.
-                    <p>
-                
-                    <a href="./timetable/" class="projects-button">Go</a>
-                </div>
-                <div class="projects-card">
-                    <img src="./assets/timetablebasic.png" alt="Timetable (Basic UI)">
-                    <p class="projects-title">Timetable (Basic UI)</p>
-                    <p class="projects-description">
-                        Simple UI version for <a href="./timetable/">Timetable</a><br><br>
-                        
-                        This Basic UI is already made for mobile users in mind, making it able to see Google Classroom with a tap.
-                    <p>
-                
-                    <a href="./timetable/basic/" class="projects-button">Go</a>
-                </div>
-                <div class="projects-card">
-                    <img src="./assets/isk.png" alt="Timetable (Basic UI)">
-                    <p class="projects-title">iSK</p>
-                    <p class="projects-description">
-                        <a href="https://www.mysk.school/">MySK</a>'s UI redesign concept.<br><br>
-                        
-                        Concept design. Making the website look more professional.
-                    <p>
-                
-                    <a href="./isk/" class="projects-button">Go</a>
-                </div>
-                <div class="projects-card">
-                    <img src="./assets/calendar.png" alt="Timetable (Basic UI)">
-                    <p class="projects-title">Calendar</p>
-                    <p class="projects-description">
-                        Simple printable calendar.<br><br>
-                        
-                        Great design and usability. Can be save as a PDF or print for real-world uses.
-                    <p>
-                
-                    <a href="./calendar/" class="projects-button">Go</a>
-                </div>
-            </div>
+    <div id="main" class="main">
+        <div class="header">
+            <h1>PixelEdition</h1>
+            <p>I make things for people.</p>
         </div>
-    </div>
-
-    <div class="projects">
-        <h3>Discontinued Projects</h3>
-        <div class="projects-wrapper">
-            <div class="projects-scroll">
-
-                <div class="projects-card">
-                    <p class="projects-title">Timetable-M</p>
-                    <p class="projects-description"> 
-                        Timetable for mobile users<br><br><br>
-
-                        
-                        Discontinued:<br>
-                        Replaced by <a href="./timetable/basic/">Timetable (Basic UI)</a>
-                    <p>
-                
-                    <a href="./calendar/" class="projects-button">Go</a>
-                </div>
-                <div class="projects-card">
-                    <p class="projects-title">PixelBot</p>
-                    <p class="projects-description"> 
-                        A python discord bot. It's my first project into programming also!<br><br>
-                        
-                        Discontinued:<br>
-                        It's popularity died. (Unused)
-                    <p>
-                
-                    <a href="./calendar/" class="projects-button">Go</a>
-                </div>
-                <div class="projects-card">
-                    <p class="projects-title">BadCalculator</p>
-                    <p class="projects-description"> 
-                        Simple console based calculator. Can add, aubtract, multiply, and divide only.<br><br>
-                        
-                        Discontinued:<br>
-                        Bad product.
-                    <p>
-                
-                    <a href="./calendar/" class="projects-button">Go</a>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="projects">
-        <h3>All Projects</h3>
-        <div class="projects-wrapper">
-            <div class="projects-scroll">
-
-                <div class="projects-card">
-                    <img src="./assets/timetable.png" alt="Timetable">
-                    <p class="projects-title">Timetable</p>
-                    <p class="projects-description">
-                        Easy way to join any class you imagine.<br><br>
-
-                        Easily setup your own timetable. With abilities to be able to join classes and videocalls with a click.
-                    <p>
-                
-                    <a href="./timetable/" class="projects-button">Go</a>
-                </div>
-                <div class="projects-card">
-                    <img src="./assets/timetablebasic.png" alt="Timetable (Basic UI)">
-                    <p class="projects-title">Timetable (Basic UI)</p>
-                    <p class="projects-description">
-                        Simple UI version for <a href="./timetable/">Timetable</a><br><br>
-                        
-                        This Basic UI is already made for mobile users in mind, making it able to see Google Classroom with a tap.
-                    <p>
-                
-                    <a href="./timetable/basic/" class="projects-button">Go</a>
-                </div>
-                <div class="projects-card">
-                    <img src="./assets/isk.png" alt="Timetable (Basic UI)">
-                    <p class="projects-title">iSK</p>
-                    <p class="projects-description">
-                        <a href="https://www.mysk.school/">MySK</a>'s UI redesign concept.<br><br>
-                        
-                        Concept design. Making the website look more professional.
-                    <p>
-                
-                    <a href="./isk/" class="projects-button">Go</a>
-                </div>
-                <div class="projects-card">
-                    <img src="./assets/calendar.png" alt="Timetable (Basic UI)">
-                    <p class="projects-title">Calendar</p>
-                    <p class="projects-description">
-                        Simple printable calendar.<br><br>
-                        
-                        Great design and usability. Can be save as a PDF or print for real-world uses.
-                    <p>
-                
-                    <a href="./calendar/" class="projects-button">Go</a>
-                </div>
-
-                <div class="projects-card">
-                    <p class="projects-title">Timetable-M</p>
-                    <p class="projects-description"> 
-                        Timetable for mobile users<br><br><br>
-
-                        
-                        Discontinued:<br>
-                        Replaced by <a href="./timetable/basic/">Timetable (Basic UI)</a>
-                    <p>
-                
-                    <a href="./calendar/" class="projects-button">Go</a>
-                </div>
-                <div class="projects-card">
-                    <p class="projects-title">PixelBot</p>
-                    <p class="projects-description"> 
-                        A python discord bot. It's my first project into programming also!<br><br>
-                        
-                        Discontinued:<br>
-                        It's popularity died. (Unused)
-                    <p>
-                
-                    <a href="./calendar/" class="projects-button">Go</a>
-                </div>
-                <div class="projects-card">
-                    <p class="projects-title">BadCalculator</p>
-                    <p class="projects-description"> 
-                        Simple console based calculator. Can add, aubtract, multiply, and divide only.<br><br>
-                        
-                        Discontinued:<br>
-                        Bad product.
-                    <p>
-                
-                    <a href="./calendar/" class="projects-button">Go</a>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>
-            This homepage was redesigned too many times. I hope this would be the final version in a while...<br><br>
-            © <span id="year">----</span> PixelEdition. All rights reserved<br>
-            <a style="text-decoration: underline; cursor: pointer;" onclick="themeswitch();">Change Theme</a>
-        </p>
-    </div>
     
-    <div id="popup" class="popup">
-        <div style="position: relative;">
-            <div style="padding: 0.5em;">
-                <span id="codewrap" style="font-weight: var(--boldtext);">[<span id="code" style="font-weight: var(--boldtext);">UKN-00</span>]</span>
-                <span id="msg">An unknown error occurred.</span>
-                <a class="popup-closebtn" onclick="document.getElementById('popup').style.display = 'none'">✕</a>
+        <div class="intro">
+            <h2>Hi everyone visting this page!</h2>
+            <p>
+                I do website projects for fun, and sometimes makes something useful for everyone else to use also! This website purpose is to host my projects for others and archives what I made.<br><br>
+                
+                I'm from Thailand, I can speak Thai (obviously) and English (If I can't how am I writing this...)<br>I can write programs in Python, HTML, CSS, and JS.<br><br>
+    
+                P.S. Top of the page on the navigation bar are the main projects I will be constantly maintaining.
+            </p>
+        </div>
+    
+        <div class="projects">
+            <h3>Active Projects</h3>
+            <div class="projects-wrapper">
+                <div class="projects-scroll">
+                    <div class="projects-card">
+                        <img src="./assets/timetable.png" alt="Timetable">
+                        <p class="projects-title">Timetable</p>
+                        <p class="projects-description">
+                            Easy way to join any class you imagine.<br><br>
+    
+                            Easily setup your own timetable. With abilities to be able to join classes and videocalls with a click.
+                        <p>
+                    
+                        <a href="./timetable/" class="projects-button">Go</a>
+                    </div>
+                    <div class="projects-card">
+                        <img src="./assets/timetablebasic.png" alt="Timetable (Basic UI)">
+                        <p class="projects-title">Timetable (Basic UI)</p>
+                        <p class="projects-description">
+                            Simple UI version for <a href="./timetable/">Timetable</a><br><br>
+                            
+                            This Basic UI is already made for mobile users in mind, making it able to see Google Classroom with a tap.
+                        <p>
+                    
+                        <a href="./timetable/basic/" class="projects-button">Go</a>
+                    </div>
+                    <div class="projects-card">
+                        <img src="./assets/isk.png" alt="Timetable (Basic UI)">
+                        <p class="projects-title">iSK</p>
+                        <p class="projects-description">
+                            <a href="https://www.mysk.school/">MySK</a>'s UI redesign concept.<br><br>
+                            
+                            Concept design. Making the website look more professional.
+                        <p>
+                    
+                        <a href="./isk/" class="projects-button">Go</a>
+                    </div>
+                    <div class="projects-card">
+                        <img src="./assets/calendar.png" alt="Timetable (Basic UI)">
+                        <p class="projects-title">Calendar</p>
+                        <p class="projects-description">
+                            Simple printable calendar.<br><br>
+                            
+                            Great design and usability. Can be save as a PDF or print for real-world uses.
+                        <p>
+                    
+                        <a href="./calendar/" class="projects-button">Go</a>
+                    </div>
+                </div>
             </div>
-            <div class="timebar-wrap">
-                <div class="timebar-player"></div>
+        </div>
+    
+        <div class="projects">
+            <h3>Discontinued Projects</h3>
+            <div class="projects-wrapper">
+                <div class="projects-scroll">
+    
+                    <div class="projects-card">
+                        <p class="projects-title">Timetable-M</p>
+                        <p class="projects-description"> 
+                            Timetable for mobile users<br><br><br>
+    
+                            
+                            Discontinued:<br>
+                            Replaced by <a href="./timetable/basic/">Timetable (Basic UI)</a>
+                        <p>
+                    
+                        <a href="./calendar/" class="projects-button">Go</a>
+                    </div>
+                    <div class="projects-card">
+                        <p class="projects-title">PixelBot</p>
+                        <p class="projects-description"> 
+                            A python discord bot. It's my first project into programming also!<br><br>
+                            
+                            Discontinued:<br>
+                            It's popularity died. (Unused)
+                        <p>
+                    
+                        <a href="./calendar/" class="projects-button">Go</a>
+                    </div>
+                    <div class="projects-card">
+                        <p class="projects-title">BadCalculator</p>
+                        <p class="projects-description"> 
+                            Simple console based calculator. Can add, aubtract, multiply, and divide only.<br><br>
+                            
+                            Discontinued:<br>
+                            Bad product.
+                        <p>
+                    
+                        <a href="./calendar/" class="projects-button">Go</a>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    
+        <div class="projects">
+            <h3>All Projects</h3>
+            <div class="projects-wrapper">
+                <div class="projects-scroll">
+    
+                    <div class="projects-card">
+                        <img src="./assets/timetable.png" alt="Timetable">
+                        <p class="projects-title">Timetable</p>
+                        <p class="projects-description">
+                            Easy way to join any class you imagine.<br><br>
+    
+                            Easily setup your own timetable. With abilities to be able to join classes and videocalls with a click.
+                        <p>
+                    
+                        <a href="./timetable/" class="projects-button">Go</a>
+                    </div>
+                    <div class="projects-card">
+                        <img src="./assets/timetablebasic.png" alt="Timetable (Basic UI)">
+                        <p class="projects-title">Timetable (Basic UI)</p>
+                        <p class="projects-description">
+                            Simple UI version for <a href="./timetable/">Timetable</a><br><br>
+                            
+                            This Basic UI is already made for mobile users in mind, making it able to see Google Classroom with a tap.
+                        <p>
+                    
+                        <a href="./timetable/basic/" class="projects-button">Go</a>
+                    </div>
+                    <div class="projects-card">
+                        <img src="./assets/isk.png" alt="Timetable (Basic UI)">
+                        <p class="projects-title">iSK</p>
+                        <p class="projects-description">
+                            <a href="https://www.mysk.school/">MySK</a>'s UI redesign concept.<br><br>
+                            
+                            Concept design. Making the website look more professional.
+                        <p>
+                    
+                        <a href="./isk/" class="projects-button">Go</a>
+                    </div>
+                    <div class="projects-card">
+                        <img src="./assets/calendar.png" alt="Timetable (Basic UI)">
+                        <p class="projects-title">Calendar</p>
+                        <p class="projects-description">
+                            Simple printable calendar.<br><br>
+                            
+                            Great design and usability. Can be save as a PDF or print for real-world uses.
+                        <p>
+                    
+                        <a href="./calendar/" class="projects-button">Go</a>
+                    </div>
+    
+                    <div class="projects-card">
+                        <p class="projects-title">Timetable-M</p>
+                        <p class="projects-description"> 
+                            Timetable for mobile users<br><br><br>
+    
+                            
+                            Discontinued:<br>
+                            Replaced by <a href="./timetable/basic/">Timetable (Basic UI)</a>
+                        <p>
+                    
+                        <a href="./calendar/" class="projects-button">Go</a>
+                    </div>
+                    <div class="projects-card">
+                        <p class="projects-title">PixelBot</p>
+                        <p class="projects-description"> 
+                            A python discord bot. It's my first project into programming also!<br><br>
+                            
+                            Discontinued:<br>
+                            It's popularity died. (Unused)
+                        <p>
+                    
+                        <a href="./calendar/" class="projects-button">Go</a>
+                    </div>
+                    <div class="projects-card">
+                        <p class="projects-title">BadCalculator</p>
+                        <p class="projects-description"> 
+                            Simple console based calculator. Can add, aubtract, multiply, and divide only.<br><br>
+                            
+                            Discontinued:<br>
+                            Bad product.
+                        <p>
+                    
+                        <a href="./calendar/" class="projects-button">Go</a>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer">
+            <p>
+                This homepage was redesigned too many times. I hope this would be the final version in a while...<br><br>
+                © <span id="year">----</span> PixelEdition. All rights reserved<br>
+                <a style="text-decoration: underline; cursor: pointer;" onclick="themeswitch();">Change Theme</a>
+            </p>
+        </div>
+        
+        <div id="popup" class="popup">
+            <div style="position: relative;">
+                <div style="padding: 0.5em;">
+                    <span id="codewrap" style="font-weight: var(--boldtext);">[<span id="code" style="font-weight: var(--boldtext);">UKN-00</span>]</span>
+                    <span id="msg">An unknown error occurred.</span>
+                    <a class="popup-closebtn" onclick="document.getElementById('popup').style.display = 'none'">✕</a>
+                </div>
+                <div class="timebar-wrap">
+                    <div class="timebar-player"></div>
+                </div>
             </div>
         </div>
     </div>

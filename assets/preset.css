@@ -78,7 +78,17 @@ body {
 
     background: var(--navbarbg);
 
-    transition: 0.3s;
+    transition: 0.3s color;
+}
+
+.navbar-fixed {
+    position: fixed;
+
+    top: 0;
+
+    width: 100vw;
+
+    z-index: 1000;
 }
 
 .navbar a {
@@ -163,6 +173,11 @@ body {
     animation: widthincrease 5s linear;
 }
 
+.main {
+    width: 100%;
+
+    overflow: auto;
+}
 
 @keyframes errorbox {
     0% {bottom: -10em;}
