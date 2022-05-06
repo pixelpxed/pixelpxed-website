@@ -69,11 +69,11 @@ const subj = {
     },
     "Core Maths": {
         "videocall": "",
-        "classroom": ""
+        "classroom": "https://classroom.google.com/u/2/c/NDg1ODE4MTEyMjg1"
     },
     "Add Maths": {
         "videocall": "",
-        "classroom": ""
+        "classroom": "https://classroom.google.com/u/2/c/NDg1ODE4MTEyNDM5"
     },
     "Core English": {
         "videocall": "",
@@ -85,23 +85,23 @@ const subj = {
     },
     "Core Science": {
         "videocall": "",
-        "classroom": ""
+        "classroom": "https://classroom.google.com/u/2/c/NDg1ODE0NDUxMTA1"
     },
     "Additional Science": {
         "videocall": "",
-        "classroom": ""
+        "classroom": "https://classroom.google.com/u/2/c/NDg1ODEzODc3MTIx"
     },
     "Design and Technology": {
         "videocall": "",
         "classroom": ""
     },
     "Compute Sci": {
-        "videocall": "",
-        "classroom": ""
+        "videocall": "https://meet.google.com/tre-itna-eyx?authuser=2",
+        "classroom": "https://classroom.google.com/u/2/c/NDg1MTY1NjA4MjE2"
     },
     "Social": {
-        "videocall": "",
-        "classroom": ""
+        "videocall": "https://meet.google.com/gru-xkdz-rrk?authuser=2",
+        "classroom": "https://classroom.google.com/u/2/c/NTA5NzMwNzk4NzA4"
     },
     "Health": {
         "videocall": "",
@@ -121,27 +121,27 @@ const subj = {
     },
     "History": {
         "videocall": "",
-        "classroom": ""
+        "classroom": "https://classroom.google.com/u/2/c/NDg1NzQwODYyMDIy"
     },
     "Buddhism": {
         "videocall": "",
-        "classroom": ""
+        "classroom": "https://classroom.google.com/u/2/c/NDg1NzU1Mzg5MDkw"
     },
     "Art": {
         "videocall": "",
-        "classroom": ""
+        "classroom": "https://classroom.google.com/u/2/c/NDg2NTIzOTU5NDI3"
     },
     "Chinese": {
-        "videocall": "",
-        "classroom": ""
+        "videocall": "https://meet.google.com/fxh-kzgj-pfp?authuser=2",
+        "classroom": "https://classroom.google.com/u/2/c/NDg1NzczMDI2MTM2"
     },
     "Japanese": {
-        "videocall": "",
-        "classroom": ""
+        "videocall": "https://meet.google.com/gkx-pajj-hzy?authuser=2",
+        "classroom": "https://classroom.google.com/u/2/c/NDg1NzcyMDYwOTQw"
     },
     "Music": {
         "videocall": "",
-        "classroom": ""
+        "classroom": "https://classroom.google.com/u/2/c/NDg1ODE3MTgwMDI4"
     },
     "Scout": {
         "videocall": "",
