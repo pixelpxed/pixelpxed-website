@@ -183,7 +183,7 @@ hr {
     padding: 0.5em;
     margin: auto;
 
-    color: var(--text-color-alt);
+    color: var(--sidebar-background) !important;
     background: var(--a-background);
     border-radius: 10em;
 
