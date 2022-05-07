@@ -178,26 +178,33 @@
 
 .fixedribbon {
     display: none;
+    
+    align-items: center;
+    justify-content: center;
 
-    padding: 0.25em 0;
+    padding: 0.25em 0.5em;
 
     text-align: center;
     
-    background: var(--blue);
+    background: var(--bgcolor);
+    border-top: 1px solid var(--subjbg);
+    border-bottom: 1px solid var(--subjbg);
 }
 
-.fixedribbon a {
+.ribbon-btn {
     display: inline-block;
 
     width: max-content;
 
     padding: 0.25em 0.5em;
-    margin-left: 0.5em;
+    margin: 0 0 0 0.25em;
 
     cursor: pointer;
     border-radius: 0.2em;
 
-    color: var(--blue);
+    font-weight: var(--boldtext);
+
+    color: var(--bgcolor);
     background: var(--textcolor);
 }
 

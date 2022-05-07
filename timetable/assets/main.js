@@ -49,6 +49,12 @@ window.onload = function() {
     }, 1);
 }
 
+window.onresize = resize()
+
+function resize() {
+    document.getElementById("main").style.marginTop = `${document.getElementById("navbar").offsetHeight}px`
+}
+
 function update() {
     fetch('https://www.pixelpxed.xyz/fetch.json')
         .then(res => res.json())

@@ -19,7 +19,7 @@ window.onload = function() {
     document.getElementById("opensidebar-btn").style.left = "-100%";
 
     var classtext = ""; // Default Value
-    for (let classfilled = 0; classfilled <= 55; classfilled++) {
+    for (let classfilled = 0; classfilled <= 54; classfilled++) {
         document.getElementById(classfilled).innerHTML = classes_primary[classfilled];
         classtext = classes_primary[classfilled];
 
