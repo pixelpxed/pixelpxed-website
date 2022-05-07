@@ -1,5 +1,5 @@
 // General variables
-var versionnumber = "2.9.2"
+var versionnumber = "2.9.2a"
 var copyrightyear = "2022"
 
 // Translation Variables
@@ -81,7 +81,7 @@ const subj = {
     },
     "R+W": {
         "videocall": "",
-        "classroom": ""
+        "classroom": "https://classroom.google.com/u/2/c/NTEwODIyMDk4NjI0"
     },
     "Core Science": {
         "videocall": "",
@@ -96,28 +96,28 @@ const subj = {
         "classroom": ""
     },
     "Compute Sci": {
-        "videocall": "https://meet.google.com/tre-itna-eyx?authuser=2",
+        "videocall": "",
         "classroom": "https://classroom.google.com/u/2/c/NDg1MTY1NjA4MjE2"
     },
     "Social": {
-        "videocall": "https://meet.google.com/gru-xkdz-rrk?authuser=2",
+        "videocall": "",
         "classroom": "https://classroom.google.com/u/2/c/NTA5NzMwNzk4NzA4"
     },
     "Health": {
         "videocall": "",
-        "classroom": ""
+        "classroom": "https://classroom.google.com/u/2/c/NDg1ODE2NTE2OTI3"
     },
     "P.E.": {
         "videocall": "",
-        "classroom": ""
+        "classroom": "https://classroom.google.com/u/2/c/NDg1ODQxNjQxOTk3"
     },
     "Thai": {
         "videocall": "",
-        "classroom": ""
+        "classroom": "https://classroom.google.com/u/2/c/NTEzODYyMTc3MTk4"
     },
     "Guidance": {
         "videocall": "",
-        "classroom": ""
+        "classroom": "https://classroom.google.com/u/2/c/NDg1ODE2MzY3ODk4"
     },
     "History": {
         "videocall": "",
@@ -132,11 +132,11 @@ const subj = {
         "classroom": "https://classroom.google.com/u/2/c/NDg2NTIzOTU5NDI3"
     },
     "Chinese": {
-        "videocall": "https://meet.google.com/fxh-kzgj-pfp?authuser=2",
+        "videocall": "",
         "classroom": "https://classroom.google.com/u/2/c/NDg1NzczMDI2MTM2"
     },
     "Japanese": {
-        "videocall": "https://meet.google.com/gkx-pajj-hzy?authuser=2",
+        "videocall": "",
         "classroom": "https://classroom.google.com/u/2/c/NDg1NzcyMDYwOTQw"
     },
     "Music": {

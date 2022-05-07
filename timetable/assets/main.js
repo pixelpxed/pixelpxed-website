@@ -2,7 +2,6 @@ var curtheme = 'dark'
 var language_var = 'primary'
 
 var fetchedversion = undefined
-var notifyoffline = false
 
 var var_day = var_day_primary 
 var var_month = var_month_primary
@@ -49,12 +48,6 @@ window.onload = function() {
     }, 1);
 }
 
-window.onresize = resize()
-
-function resize() {
-    document.getElementById("main").style.marginTop = `${document.getElementById("navbar").offsetHeight}px`
-}
-
 function update() {
     fetch('https://www.pixelpxed.xyz/fetch.json')
         .then(res => res.json())
@@ -66,9 +59,7 @@ function update() {
             .then(data => fetchedversion = data)
 
         if (fetchedversion.currentversion != versionnumber) {
-            document.getElementById("fixedribbon").innerHTML = `A new version of Timetable is available, reload this page to update your Timetable to the latest version.<a onclick="location.reload()">Reload</a>`
             document.getElementById("fixedribbon").style.display = "block"
-            notifyoffline = false
         } console.log(`Checked for Timetable updates\n- Current Version: ${versionnumber}\n- Fetched Version: ${fetchedversion.currentversion}`)
     }, 60000)
 }
