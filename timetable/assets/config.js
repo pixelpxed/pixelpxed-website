@@ -77,7 +77,7 @@ const subj = {
     },
     "Core English": {
         "videocall": "",
-        "classroom": ""
+        "classroom": "https://classroom.google.com/u/4/c/NDg1NzU1MjUyMzgw"
     },
     "R+W": {
         "videocall": "",
