@@ -205,7 +205,7 @@ hr {
     transition: 0.3s;
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 850px) {
     .sidebar {
         width: 100vw;
     }
