@@ -75,7 +75,7 @@ function theme() {
 function openSidebar() {
     document.getElementById("opensidebar-btn").style.left = "-100%";
     document.getElementById("sidebar").style.marginLeft = "0";
-    if (screen.width > 850) {
+    if (screen.width > 980) {
         document.getElementById("main").style.marginLeft = "25em";
         return
     };
