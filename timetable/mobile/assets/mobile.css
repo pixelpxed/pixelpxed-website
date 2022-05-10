@@ -41,7 +41,7 @@ html {
 
 body {
     width: 100vh;
-    max-width: 980px;
+    max-width: 80em;
 
     margin: auto;
 
