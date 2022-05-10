@@ -86,7 +86,7 @@ hr {
     position: fixed;
 
     top: 0;
-    height: 100vh;
+    height: 100%;
     width: 25em;
 
     padding: 1em;
@@ -156,7 +156,7 @@ hr {
 }
 
 .main {
-    height: 100vh;
+    height: 100%;
 
     margin-left: 25em;
 
