@@ -1,6 +1,21 @@
 // General variables
-var versionnumber = "2.9.2c"
+var versionnumber = "2.10.0"
 var copyrightyear = "2022"
+
+// Google User Infex - Displays a setting for Google User Index [true/false]
+var googleuserindex = true
+
+// Switch for Class Swapping [true/false]
+var swapper_control = true
+
+var swapper_primary_language_primary = "Chinese"
+var swapper_secondary_language_primary = "Japanese"
+
+var swapper_primary_language_secondary = "ภาษาจีน"
+var swapper_secondary_language_secondary = "ภาษาญี่ปุ่น"
+
+// 'Change Language' function. [true/false]
+var secondarylanguage = true
 
 // Translation Variables
 var var_day_primary = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -14,21 +29,6 @@ var timetable_title_secondary = "ตารางเวลา"
 
 var timetable_description_primary = "Left Click - Video Call<br>Right Click - Classroom"
 var timetable_description_secondary = "คลิกซ้าย - วีดีโอคอล<br>คลิกขวา - คลาสรูม"  // <br> - For a new line.
-
-var online_onsite_primary = "On-Site/Online Calandar"
-var online_onsite_secondary = "ปฏิทินเรียนที่โรงเรียน/บ้าน"
-
-// Switch for Class Swapping [true/false]
-var swapper_control = true
-
-var swapper_primary_language_primary = "Chinese"
-var swapper_secondary_language_primary = "Japanese"
-
-var swapper_primary_language_secondary = "ภาษาจีน"
-var swapper_secondary_language_secondary = "ภาษาญี่ปุ่น"
-
-// 'Change Language' function. [true/false]
-var secondarylanguage = true
 
 // Time to be displayed in Timetable
 const time = ["08:00 - 08:40", "08:40 - 09:20", "09:20 - 10:00", "10:20 - 11:00", "11:00 - 11:40", "12:00 - 12:40", "12:40 - 13:20", "13:40 - 14:20", "14:20 - 15:00", "15:20 - 16:00", "16:00 - 16:40"]
@@ -64,84 +64,84 @@ const classes_secondary = ["โฮมรูม", "พละ", "คณิตฯ �
 
 const subj = {
     "Homeroom"  : {
-        "videocall": "https://meet.google.com/fuh-gtys-rmj",
-        "classroom": "https://classroom.google.com/u/2/c/NDg1MTY3MzU0NTEw"
+        "videocall": "fuh-gtys-rmj",
+        "classroom": "NDg1MTY3MzU0NTEw"
     },
     "Core Maths": {
         "videocall": "",
-        "classroom": "https://classroom.google.com/u/2/c/NDg1ODE4MTEyMjg1"
+        "classroom": "NDg1ODE4MTEyMjg1"
     },
     "Add Maths": {
         "videocall": "",
-        "classroom": "https://classroom.google.com/u/2/c/NDg1ODE4MTEyNDM5"
+        "classroom": "NDg1ODE4MTEyNDM5"
     },
     "Core English": {
-        "videocall": "https://meet.google.com/rfz-wbyx-zna",
-        "classroom": "https://classroom.google.com/u/4/c/NDg1NzU1MjUyMzgw"
+        "videocall": "rfz-wbyx-zna",
+        "classroom": "NDg1NzU1MjUyMzgw"
     },
     "R+W": {
-        "videocall": "https://meet.google.com/bnc-rzuo-jkv",
-        "classroom": "https://classroom.google.com/u/2/c/NTEwODIyMDk4NjI0"
+        "videocall": "bnc-rzuo-jkv",
+        "classroom": "NTEwODIyMDk4NjI0"
     },
     "Core Science": {
-        "videocall": "https://meet.google.com/ihi-yjfx-mhw",
-        "classroom": "https://classroom.google.com/u/2/c/NDg1ODE0NDUxMTA1"
+        "videocall": "ihi-yjfx-mhw",
+        "classroom": "NDg1ODE0NDUxMTA1"
     },
     "Additional Science": {
         "videocall": "",
-        "classroom": "https://classroom.google.com/u/2/c/NDg1ODEzODc3MTIx"
+        "classroom": "NDg1ODEzODc3MTIx"
     },
     "Design and Technology": {
         "videocall": "",
         "classroom": ""
     },
     "Compute Sci": {
-        "videocall": "https://meet.google.com/tre-itna-eyx",
-        "classroom": "https://classroom.google.com/u/2/c/NDg1MTY1NjA4MjE2"
+        "videocall": "tre-itna-eyx",
+        "classroom": "NDg1MTY1NjA4MjE2"
     },
     "Social": {
-        "videocall": "https://meet.google.com/gru-xkdz-rrk",
-        "classroom": "https://classroom.google.com/u/2/c/NTA5NzMwNzk4NzA4"
+        "videocall": "gru-xkdz-rrk",
+        "classroom": "NTA5NzMwNzk4NzA4"
     },
     "Health": {
-        "videocall": "https://meet.google.com/bst-wzqv-bds",
-        "classroom": "https://classroom.google.com/u/2/c/NDg1ODE2NTE2OTI3"
+        "videocall": "bst-wzqv-bds",
+        "classroom": "NDg1ODE2NTE2OTI3"
     },
     "P.E.": {
-        "videocall": "https://meet.google.com/eij-xbse-ctk",
-        "classroom": "https://classroom.google.com/u/2/c/NDg1ODQxNjQxOTk3"
+        "videocall": "eij-xbse-ctk",
+        "classroom": "NDg1ODQxNjQxOTk3"
     },
     "Thai": {
         "videocall": "",
-        "classroom": "https://classroom.google.com/u/2/c/NTEzODYyMTc3MTk4"
+        "classroom": "NTEzODYyMTc3MTk4"
     },
     "Guidance": {
         "videocall": "",
-        "classroom": "https://classroom.google.com/u/2/c/NDg1ODE2MzY3ODk4"
+        "classroom": "NDg1ODE2MzY3ODk4"
     },
     "History": {
         "videocall": "",
-        "classroom": "https://classroom.google.com/u/2/c/NDg1NzQwODYyMDIy"
+        "classroom": "NDg1NzQwODYyMDIy"
     },
     "Buddhism": {
         "videocall": "",
-        "classroom": "https://classroom.google.com/u/2/c/NDg1NzU1Mzg5MDkw"
+        "classroom": "NDg1NzU1Mzg5MDkw"
     },
     "Art": {
-        "videocall": "https://meet.google.com/psp-nbdt-zdh",
-        "classroom": "https://classroom.google.com/u/2/c/NDg2NTIzOTU5NDI3"
+        "videocall": "psp-nbdt-zdh",
+        "classroom": "NDg2NTIzOTU5NDI3"
     },
     "Chinese": {
-        "videocall": "https://meet.google.com/fxh-kzgj-pfp",
-        "classroom": "https://classroom.google.com/u/2/c/NDg1NzczMDI2MTM2"
+        "videocall": "fxh-kzgj-pfp",
+        "classroom": "NDg1NzczMDI2MTM2"
     },
     "Japanese": {
         "videocall": "",
-        "classroom": "https://classroom.google.com/u/2/c/NDg1NzcyMDYwOTQw"
+        "classroom": "NDg1NzcyMDYwOTQw"
     },
     "Music": {
         "videocall": "",
-        "classroom": "https://classroom.google.com/u/2/c/NDg1ODE3MTgwMDI4"
+        "classroom": "NDg1ODE3MTgwMDI4"
     },
     "Scout": {
         "videocall": "",
@@ -227,9 +227,9 @@ var bookmarks = {
             "url": "https://meet.google.com/landing?authuser=2"
         },
         "content3": {
-            "name": "Google Drive",
-            "name_secondary": "กูเกิ้ลไดรฟ์",
-            "url": "https://drive.google.com/drive/u/2/"
+            "name": "On-Site/Online Calandar",
+            "name_secondary": "ปฏิทินเรียนที่โรงเรียน/บ้าน",
+            "url": "./pages/onlineonsite.html"
         }
     },
     "row1": {

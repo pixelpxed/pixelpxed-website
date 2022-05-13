@@ -29,8 +29,13 @@ window.onload = function() {
             document.getElementById(`subject${classfilled}`).style.display = "none"
         }
 
-        document.getElementById(`video${classfilled}`).href = subj[classtext].videocall
-        document.getElementById(`video${classfilled}`).innerHTML = subj[classtext].videocall
+        var video = subj[classtext].videocall
+        if (googleuserindex == true) {
+            video = `https://meet.google.com/${subj[classtext].videocall}?authuser=2`
+        }
+
+        document.getElementById(`video${classfilled}`).href = video
+        document.getElementById(`video${classfilled}`).innerHTML = video
         
         if (subj[classtext].videocall == "") {
             document.getElementById(`video${classfilled}`).style.textDecoration = "none"
@@ -39,8 +44,13 @@ window.onload = function() {
             document.getElementById(`video${classfilled}`).href = "#"
         }
 
-        document.getElementById(`class${classfilled}`).href = subj[classtext].classroom
-        document.getElementById(`class${classfilled}`).innerHTML = subj[classtext].classroom
+        var classroom = subj[classtext].videocall
+        if (googleuserindex == true) {
+            classroom = `https://classroom.google.com/u/2/c/${subj[classtext].classroom}`
+        }
+
+        document.getElementById(`class${classfilled}`).href = classroom
+        document.getElementById(`class${classfilled}`).innerHTML = classroom
         if (subj[classtext].classroom == "") {
             document.getElementById(`class${classfilled}`).style.textDecoration = "none"
             document.getElementById(`class${classfilled}`).style.cursor = "default"

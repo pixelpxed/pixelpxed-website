@@ -1,4 +1,3 @@
-var curtheme = 'dark'
 var language_var = 'primary'
 
 var fetchedversion = undefined
@@ -23,6 +22,8 @@ window.onload = function() {
     onstartsetup()
     joiningsystem()
 
+    setDefaultValues()
+
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
         curtheme = 'light';
     } 
@@ -46,6 +47,18 @@ window.onload = function() {
             }, 300)
         }
     }, 1);
+
+    resize()
+
+    if (localStorage.getItem("indexUser") != null) {
+        document.getElementById("account-wrapper-all").style.display = "none"
+    }
+}
+
+window.onresize = resize()
+
+function resize() {
+    document.getElementById("main").style.marginTop = `${document.getElementById("navbar").offsetHeight}px`
 }
 
 function update() {
@@ -197,15 +210,27 @@ function language_swapper() {
     }
 }
 
+function setDefaultValues() {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList = 'dark';
+    }
+
+    if (localStorage.getItem("theme") == "dark") {
+        document.documentElement.classList = "dark";
+    } if (localStorage.getItem("theme") == "light") {
+        document.documentElement.classList = "light";
+    }
+}
+
 function themeswitch() {
-    if (curtheme == 'dark') {
-        curtheme = 'light';
-        popup(`CNE-03`, `The theme has been changed.`, `white`)
-        return document.documentElement.className = 'light';
-    } if (curtheme == 'light') {
-        curtheme = 'dark';
-        popup(`CNE-03`, `The theme has been changed.`, `white`)
+    if (document.documentElement.classList != 'dark') {
+        localStorage.setItem("theme", "dark")
+        popup(`TME-01`, `The theme has been changed.`, `white`)
         return document.documentElement.className = 'dark';
+    } if (document.documentElement.classList == 'dark') {
+        localStorage.setItem("theme", "light")
+        popup(`TME-01`, `The theme has been changed.`, `white`)
+        return document.documentElement.className = 'light';
     }
 }
 
@@ -258,6 +283,11 @@ function joiningsystem() {
 
             if (o !== "") {
                 console.log(`[SUC-01] Open "${grid.innerHTML}" subject video call.`)
+
+                if (googleuserindex == true) {
+                    o = `https://meet.google.com/${o}?authuser=${localStorage.getItem("indexUser")}`
+                }
+
                 return window.open(o);
             } if (o == "" || o == null || o == undefined) {
                 return popup(`NON-02`, `"${grid.innerHTML}" subject doesn't have a video call link.`); 
@@ -273,6 +303,11 @@ function joiningsystem() {
 
             if (o !== "") {
                 console.log(`[SUC-02] Open "${grid.innerHTML}" subject classroom.`)
+
+                if (googleuserindex == true) {
+                    o = `https://classroom.google.com/u/${localStorage.getItem("indexUser")}/c/${o}`
+                }
+
                 return window.open(o);
             } if (o == "" || o == null || o == undefined) {
                 return popup(`NON-02`, `"${grid.innerHTML}" subject doesn't have a classroom link.`);
@@ -294,6 +329,11 @@ function clearSearch() {
     var searchvalue = document.getElementById("searchbar").value
     window.open(`https://www.google.com/search?q=${searchvalue}`).focus
     document.getElementById("searchbar").value = ''
+}
+
+function submitIndexNumber() {
+    localStorage.setItem("indexUser", `${document.getElementById("account-index-value").value}`)
+    location.reload()
 }
 
 function popup(code, msg, status) {

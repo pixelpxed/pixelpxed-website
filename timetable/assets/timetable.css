@@ -1,5 +1,5 @@
 .timetable-title {
-    padding: 0.5em 0 1em 0;
+    padding: 1em 0;
 
     text-align: center;
 }
@@ -130,8 +130,7 @@
     cursor: pointer;
 }
 
-.changelogframe-bg {
-    display: none;
+.fulldisplay-overlay {
     position: fixed;
 
     top: 0;
@@ -139,7 +138,11 @@
     width: 100vw;
     height: 100vh;
     
-    background: rgba(0, 0, 0, 0.5);
+    background: var(--overlay-background);
+    backdrop-filter: blur(0.2em);
+    -webkit-backdrop-filter: blur(0.2em);
+
+    z-index: 1;
 }
 
 .changelogframe-wrapper {
@@ -154,7 +157,8 @@
     height: 90vh;
     max-height: 30em;
 
-    background: var(--changelogbg);
+    background: var(--overlay-box-background);
+    border: 1px solid var(--subjbg-darker);
     border-radius: 0.5em;
 }
 
@@ -174,6 +178,56 @@
     margin: auto;
 
     border: none;
+}
+
+.account-wrapper {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 90vw;
+    max-width: 30em;
+
+    height: max-content;
+    max-height: 70vh;
+
+    padding: 1em;
+
+    background: var(--overlay-box-background);
+    border: 1px solid var(--subjbg-darker);
+    border-radius: 0.5em;
+
+    overflow: auto;
+
+    z-index: 1;
+}
+
+.account-img {
+    display: block;
+
+    max-width: 100%;
+
+    margin: auto;
+
+    border-radius: 0.3em;
+}
+
+.account-wrapper a {
+    color: var(--linkblue);
+}
+
+.account-index-value {
+    width: 100%;
+
+    padding: 0.25em;
+
+    background: transparent;
+    outline: none;
+    border: 1px solid var(--textcolor);
+    border-radius: 0.3em;
 }
 
 .fixedribbon {

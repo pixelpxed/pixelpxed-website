@@ -26,7 +26,8 @@
     --subjbg: rgb(72, 73, 76);
     --subjbg-darker: rgb(57, 58, 61);
 
-    --changelogbg: rgb(32, 33, 36);
+    --overlay-background: rgba(0, 0, 0, 0.8);
+    --overlay-box-background: rgb(12, 13, 16);
 
     --timebarwrapper: rgba(0, 0, 0, 0.1);
     --timebarplayer: rgba(0, 0, 0, 0.2);
@@ -49,10 +50,13 @@
 
     --linkblue: rgb(28, 69, 158);
 
+    --overlay-background: rgba(0, 0, 0, 0.8);
+    --overlay-box-background: rgb(235, 235, 235);
+
     --timebarwrapper: rgba(255, 255, 255, 0.2);
     --timebarplayer: rgba(255, 255, 255, 0.4);
 
-    --normaltext: 200;
+    --normaltext: 300;
     --boldtext: 500;
 
     color-scheme: light;
@@ -83,6 +87,14 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 
+b {
+    font-weight: var(--boldtext);
+}
+
+.header {
+    font-weight: var(--boldtext);
+}
+
 .navbar {
     padding: 0.5em;
 
@@ -96,7 +108,7 @@ body {
 
     top: 0;
 
-    width: 100vw;
+    width: 100%;
 
     z-index: 1000;
 }
@@ -114,6 +126,7 @@ body {
 .navbar a:hover {
     opacity: 0.8;
 }
+
 .navbar-right {
     float: right;
 }
@@ -212,9 +225,12 @@ body {
         --tablebg: rgb(195, 195, 195);
         --subjbg: rgb(235, 235, 235);
         --subjbg-darker: rgb(210, 210, 210);
-
+    
         --linkblue: rgb(28, 69, 158);
-
+    
+        --overlay-background: rgba(255, 255, 255, 0.8);
+        --overlay-box-background: rgb(235, 235, 235);
+    
         --timebarwrapper: rgba(255, 255, 255, 0.2);
         --timebarplayer: rgba(255, 255, 255, 0.4);
     

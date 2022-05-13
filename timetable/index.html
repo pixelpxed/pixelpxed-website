@@ -36,12 +36,14 @@
 
 <body id="body">
     <noscript>
-        <p class="popup" style="bottom: 0.5em; z-index: 2; box-sizing: border-box; padding: 0.5em;">
-            <span style="font-weight: bold;">Important:</span>
-            You need JavaScript enabled to run Timetable properly. Go to your browser settings to edit your JavaScript preferences.<br>
+        <p style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: max-content; height: max-content; background: var(--textcolor); color: var(--alt-textcolor); box-sizing: border-box; padding: 1em; z-index: 1000; text-align: center; border-radius: 0.5em;">
+            <span style="font-weight: bold; color: var(--alt-textcolor);">Important:</span><br>
+            You need JavaScript enabled to run Timetable properly.<br>
+            Go to your browser settings to edit your JavaScript preferences.
         </p>
     </noscript>
-    <div class="navbar">
+
+    <div id="navbar" class="navbar navbar-fixed">
         <a href="../">Home</a>
         <a href="./index.html" style="opacity: 1;">Timetable</a>
         <div style="display: none;" id="navbar-right" class="navbar-right">
@@ -49,161 +51,207 @@
             <a style="cursor: pointer;" id="swapper-secondary" onclick="swap_primary()">JP</a>
         </div>
     </div>
-    <div id="fixedribbon" class="fixedribbon">
-        A new version of Timetable is available, reload this page to update your Timetable to the latest version.
-        <a class="ribbon-btn" onclick="location.reload()">Reload</a>
-    </div>
-    <div id="loadingscreen" style="position: fixed; width: 100vw; height: 100vh; background: var(--bgcolor); z-index: 1;"></div>
-    <div class="content">
-        <div class="timetable-title">
-            <div style="width: max-content; margin: auto;">
-                <h1 id="timetable-box-title" style="font-weight: var(--boldtext);">Timetable</h1>
-                <p style="display: none; color: var(--linkblue); text-align: right; font-size: 0.8em; margin-top: -0.8em; margin-bottom: 0.5em;">Dev</p>
+
+    <div id="loadingscreen" class="fulldisplay-overlay" style="z-index: 999; background: var(--bgcolor);"></div>
+    
+    <div id="main" class="main">
+        <div id="fixedribbon" class="fixedribbon">
+            A new version of Timetable is available, reload this page to update your Timetable to the latest version.
+            <a class="ribbon-btn" onclick="location.reload()">Reload</a>
+        </div>
+
+        <div id="account-wrapper-all" class="fulldisplay-overlay">
+            <div id="account-wrapper" class="account-wrapper">
+                <p class="header" style="font-size: 1.2em;">Setup your Google account index.</p>
+                <p style="padding: 0 1em 1em 1em;">
+                    <br><b style="color: var(--red); display: block; text-align: center;">This step is not requied for mobile and tablets, please click submit and continue using your Timetable normally.</b><br>
+
+                    Your Google account index is used to determine which account to log you into Google servies, 
+                    we will use this data to log you in the correct account for your classes.<br><br>
+
+                    You can always change this value in the footer of Timetable to display this popup again.<br><br>
+
+                    <b>Recommended:</b> Go to <a href="https://classroom.google.com/" target="_blank">Google Classroom</a>, then sign into your school
+                    account and get the account index number. If you don't understand, try looking at the picture below.
+                </p>
+                <img src="./assets/googleindexno.png" class="account-img">
+                <div style="padding: 1em; display: grid; grid-template-columns: 1fr max-content; gap: 0.5em;">
+                    <input type="number" id="account-index-value" class="account-index-value" value="0" min="0" placeholder="Account Index">
+                    <input onclick="submitIndexNumber()" type="submit" class="account-index-value" style="background: var(--textcolor); color: var(--alt-textcolor); font-weight: var(--boldtext);">
+                </div>
+                <span style="display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 1em; padding-right: 0.25em;" class="material-symbols-outlined">privacy_tip</span>
+                    <span style="font-size: 0.8em;">Your data is stored in your device.</span>
+                </span>
             </div>
-            <p id="timetable-box-description">Left Click - Video Call<br>Right Click - Classroom</p>
         </div>
-        <div class="clock-wrapper">
-            <p id="clock">--:--:--</p>
-            <p id="day">---------, -- --------- ----</p>
+        
+        <div class="content">
+            <div class="timetable-title">
+                <div style="width: max-content; margin: auto;">
+                    <h1 id="timetable-box-title" style="font-weight: var(--boldtext);">Timetable</h1>
+                    <p style="display: none; color: var(--linkblue); text-align: right; font-size: 0.8em; margin-top: -0.8em; margin-bottom: 0.5em;">Dev</p>
+                </div>
+                <p id="timetable-box-description">Left Click - Video Call<br>Right Click - Classroom</p>
+            </div>
+            <div class="clock-wrapper">
+                <p id="clock">--:--:--</p>
+                <p id="day">---------, -- --------- ----</p>
+            </div>
+            <div id="table" class="table">
+                <a class="subjectgrid-time" id="element0">Time</a>
+                <a class="subjectgrid-time" id="time0"></a>
+                <a class="subjectgrid-time" id="time1"></a>
+                <a class="subjectgrid-time" id="time2"></a>
+                <a class="subjectgrid-time" id="time3"></a>
+                <a class="subjectgrid-time" id="time4"></a>
+                <a class="subjectgrid-time" id="time5"></a>
+                <a class="subjectgrid-time" id="time6"></a>
+                <a class="subjectgrid-time" id="time7"></a>
+                <a class="subjectgrid-time" id="time8"></a>
+                <a class="subjectgrid-time" id="time9"></a>
+                <a class="subjectgrid-time" id="time10"></a>
+
+                <a class="subjectgrid" id="element1" style="color: var(--daystextcolor); background: var(--yellow); font-weight: 500;">Monday</a>
+                <a class="subjectgrid joinable" id="0"></a>
+                <a class="subjectgrid joinable" id="1"></a>
+                <a class="subjectgrid joinable" id="2"></a>
+                <a class="subjectgrid joinable" id="3"></a>
+                <a class="subjectgrid joinable" id="4"></a>
+                <a class="subjectgrid joinable" id="5"></a>
+                <a class="subjectgrid joinable" id="6"></a>
+                <a class="subjectgrid joinable" id="7"></a>
+                <a class="subjectgrid joinable" id="8"></a>
+                <a class="subjectgrid joinable" id="9"></a>
+                <a class="subjectgrid joinable" id="10"></a>
+
+                <a class="subjectgrid" id="element2" style="color: var(--daystextcolor); background: var(--pink); font-weight: 500;">Tuesday</a>
+                <a class="subjectgrid joinable" id="11"></a>
+                <a class="subjectgrid joinable" id="12"></a>
+                <a class="subjectgrid joinable" id="13"></a>
+                <a class="subjectgrid joinable" id="14"></a>
+                <a class="subjectgrid joinable" id="15"></a>
+                <a class="subjectgrid joinable" id="16"></a>
+                <a class="subjectgrid joinable" id="17"></a>
+                <a class="subjectgrid joinable" id="18"></a>
+                <a class="subjectgrid joinable" id="19"></a>
+                <a class="subjectgrid joinable" id="20"></a>
+                <a class="subjectgrid joinable" id="21"></a>
+
+                <a class="subjectgrid" id="element3" style="color: var(--daystextcolor); background: var(--green); font-weight: 500;">Wednesday</a>
+                <a class="subjectgrid joinable" id="22"></a>
+                <a class="subjectgrid joinable" id="23"></a>
+                <a class="subjectgrid joinable" id="24"></a>
+                <a class="subjectgrid joinable" id="25"></a>
+                <a class="subjectgrid joinable" id="26"></a>
+                <a class="subjectgrid joinable" id="27"></a>
+                <a class="subjectgrid joinable" id="28"></a>
+                <a class="subjectgrid joinable" id="29"></a>
+                <a class="subjectgrid joinable" id="30"></a>
+                <a class="subjectgrid joinable" id="31"></a>
+                <a class="subjectgrid joinable" id="32"></a>
+
+                <a class="subjectgrid" id="element4" style="color: var(--daystextcolor); background: var(--orange); font-weight: 500;">Thursday</a>
+                <a class="subjectgrid joinable" id="33"></a>
+                <a class="subjectgrid joinable" id="34"></a>
+                <a class="subjectgrid joinable" id="35"></a>
+                <a class="subjectgrid joinable" id="36"></a>
+                <a class="subjectgrid joinable" id="37"></a>
+                <a class="subjectgrid joinable" id="38"></a>
+                <a class="subjectgrid joinable" id="39"></a>
+                <a class="subjectgrid joinable" id="40"></a>
+                <a class="subjectgrid joinable" id="41"></a>
+                <a class="subjectgrid joinable" id="42"></a>
+                <a class="subjectgrid joinable" id="43"></a>
+
+                <a class="subjectgrid" id="element5" style="color: var(--daystextcolor); background: var(--blue); font-weight: 500;">Friday</a>       
+                <a class="subjectgrid joinable" id="44"></a>
+                <a class="subjectgrid joinable" id="45"></a>
+                <a class="subjectgrid joinable" id="46"></a>
+                <a class="subjectgrid joinable" id="47"></a>
+                <a class="subjectgrid joinable" id="48"></a>
+                <a class="subjectgrid joinable" id="49"></a>
+                <a class="subjectgrid joinable" id="50"></a>
+                <a class="subjectgrid joinable" id="51"></a>
+                <a class="subjectgrid joinable" id="52"></a>
+                <a class="subjectgrid joinable" id="53"></a>
+                <a class="subjectgrid joinable" id="54"></a>
+            </div>
         </div>
-        <div id="table" class="table">
-            <a class="subjectgrid-time" id="element0">Time</a>
-            <a class="subjectgrid-time" id="time0"></a>
-            <a class="subjectgrid-time" id="time1"></a>
-            <a class="subjectgrid-time" id="time2"></a>
-            <a class="subjectgrid-time" id="time3"></a>
-            <a class="subjectgrid-time" id="time4"></a>
-            <a class="subjectgrid-time" id="time5"></a>
-            <a class="subjectgrid-time" id="time6"></a>
-            <a class="subjectgrid-time" id="time7"></a>
-            <a class="subjectgrid-time" id="time8"></a>
-            <a class="subjectgrid-time" id="time9"></a>
-            <a class="subjectgrid-time" id="time10"></a>
-
-            <a class="subjectgrid" id="element1" style="color: var(--daystextcolor); background: var(--yellow); font-weight: 500;">Monday</a>
-            <a class="subjectgrid joinable" id="0"></a>
-            <a class="subjectgrid joinable" id="1"></a>
-            <a class="subjectgrid joinable" id="2"></a>
-            <a class="subjectgrid joinable" id="3"></a>
-            <a class="subjectgrid joinable" id="4"></a>
-            <a class="subjectgrid joinable" id="5"></a>
-            <a class="subjectgrid joinable" id="6"></a>
-            <a class="subjectgrid joinable" id="7"></a>
-            <a class="subjectgrid joinable" id="8"></a>
-            <a class="subjectgrid joinable" id="9"></a>
-            <a class="subjectgrid joinable" id="10"></a>
-
-            <a class="subjectgrid" id="element2" style="color: var(--daystextcolor); background: var(--pink); font-weight: 500;">Tuesday</a>
-            <a class="subjectgrid joinable" id="11"></a>
-            <a class="subjectgrid joinable" id="12"></a>
-            <a class="subjectgrid joinable" id="13"></a>
-            <a class="subjectgrid joinable" id="14"></a>
-            <a class="subjectgrid joinable" id="15"></a>
-            <a class="subjectgrid joinable" id="16"></a>
-            <a class="subjectgrid joinable" id="17"></a>
-            <a class="subjectgrid joinable" id="18"></a>
-            <a class="subjectgrid joinable" id="19"></a>
-            <a class="subjectgrid joinable" id="20"></a>
-            <a class="subjectgrid joinable" id="21"></a>
-
-            <a class="subjectgrid" id="element3" style="color: var(--daystextcolor); background: var(--green); font-weight: 500;">Wednesday</a>
-            <a class="subjectgrid joinable" id="22"></a>
-            <a class="subjectgrid joinable" id="23"></a>
-            <a class="subjectgrid joinable" id="24"></a>
-            <a class="subjectgrid joinable" id="25"></a>
-            <a class="subjectgrid joinable" id="26"></a>
-            <a class="subjectgrid joinable" id="27"></a>
-            <a class="subjectgrid joinable" id="28"></a>
-            <a class="subjectgrid joinable" id="29"></a>
-            <a class="subjectgrid joinable" id="30"></a>
-            <a class="subjectgrid joinable" id="31"></a>
-            <a class="subjectgrid joinable" id="32"></a>
-
-            <a class="subjectgrid" id="element4" style="color: var(--daystextcolor); background: var(--orange); font-weight: 500;">Thursday</a>
-            <a class="subjectgrid joinable" id="33"></a>
-            <a class="subjectgrid joinable" id="34"></a>
-            <a class="subjectgrid joinable" id="35"></a>
-            <a class="subjectgrid joinable" id="36"></a>
-            <a class="subjectgrid joinable" id="37"></a>
-            <a class="subjectgrid joinable" id="38"></a>
-            <a class="subjectgrid joinable" id="39"></a>
-            <a class="subjectgrid joinable" id="40"></a>
-            <a class="subjectgrid joinable" id="41"></a>
-            <a class="subjectgrid joinable" id="42"></a>
-            <a class="subjectgrid joinable" id="43"></a>
-
-            <a class="subjectgrid" id="element5" style="color: var(--daystextcolor); background: var(--blue); font-weight: 500;">Friday</a>       
-            <a class="subjectgrid joinable" id="44"></a>
-            <a class="subjectgrid joinable" id="45"></a>
-            <a class="subjectgrid joinable" id="46"></a>
-            <a class="subjectgrid joinable" id="47"></a>
-            <a class="subjectgrid joinable" id="48"></a>
-            <a class="subjectgrid joinable" id="49"></a>
-            <a class="subjectgrid joinable" id="50"></a>
-            <a class="subjectgrid joinable" id="51"></a>
-            <a class="subjectgrid joinable" id="52"></a>
-            <a class="subjectgrid joinable" id="53"></a>
-            <a class="subjectgrid joinable" id="54"></a>
-        </div>
-    </div>
-    <a class="onlineonsitebtn" href="./pages/onlineonsite.html"><span id="onlineonsitetxt">On-Site/Online Calandar</span> <span class="material-symbols-outlined">arrow_forward</span></a>
-    <div class="links-wrapper">
-        <div>
-            <h2 id="row0" style="font-weight: var(--boldtext);">Placeholder Row</h2>
-            <p id="bookmark0-0">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
-            <p id="bookmark1-0">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
-            <p id="bookmark2-0">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
-            <p id="bookmark3-0">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
-        </div>
-        <div>
-            <h2 id="row1" style="font-weight: var(--boldtext);">Placeholder Row</h2>
-            <p id="bookmark0-1">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
-            <p id="bookmark1-1">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
-            <p id="bookmark2-1">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
-            <p id="bookmark3-1">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
-        </div>
-        <div class="google-wrapper">
-            <h2 id="searchtitle" style="font-weight: var(--boldtext);">Search with Google</h2>
+        <div class="links-wrapper">
             <div>
-                <div class="searchgoogle">
-                    <input name="q" id="searchbar" type="text" spellcheck="false" placeholder="Search with Google">
-                    <input onclick="clearSearch()" id="searchsubmit" type="submit" value="Search">
+                <h2 id="row0" style="font-weight: var(--boldtext);">Placeholder Row</h2>
+                <p id="bookmark0-0">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
+                <p id="bookmark1-0">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
+                <p id="bookmark2-0">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
+                <p id="bookmark3-0">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
+            </div>
+            <div>
+                <h2 id="row1" style="font-weight: var(--boldtext);">Placeholder Row</h2>
+                <p id="bookmark0-1">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
+                <p id="bookmark1-1">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
+                <p id="bookmark2-1">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
+                <p id="bookmark3-1">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
+            </div>
+            <div class="google-wrapper">
+                <h2 id="searchtitle" style="font-weight: var(--boldtext);">Search with Google</h2>
+                <div>
+                    <div class="searchgoogle">
+                        <input name="q" id="searchbar" type="text" spellcheck="false" placeholder="Search with Google">
+                        <input onclick="clearSearch()" id="searchsubmit" type="submit" value="Search">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© <span id="year">----</span> PixelEdition. All rights reserved
+                <br>Timetable v<span id="version">-.-.-</span> | 
+                <a style="text-decoration: underline; cursor: pointer;" onclick="themeswitch();">
+                    Change Theme
+                </a>
+                <a id="changelanguagebtn" style="display: none;">
+                    | <span style="text-decoration: underline; cursor: pointer;" onclick="language_swapper();">Change Language</span>
+                </a> | 
+                <a style="text-decoration: underline;" href="./archive/">
+                    Archived Classes
+                </a><br>
+                <a style="text-decoration: underline; cursor: pointer;" onclick="document.getElementById('changelogframe-bg').style.display = 'block'">
+                    Changelog
+                </a> | 
+                <a style="text-decoration: underline;" href="./timetable-v2.3.0_download.zip" download>
+                    Download Timetable v2.3.0
+                </a> | 
+                <a style="text-decoration: underline;" href="./mobile/">
+                    Timetable (Mobile)
+                </a> | 
+                <a style="text-decoration: underline; cursor: pointer;" onclick="document.getElementById('account-wrapper-all').style.display = 'block'">
+                    Change User Index
+                </a>
+            </p>
+        </div>
+
+        <div style="display: none;" id="changelogframe-bg" class="fulldisplay-overlay" onclick="document.getElementById('changelogframe-bg').style.display = 'none';">
+            <div class="changelogframe-wrapper">
+                <h2 class="changelogframe-text" style="color: white;">Timetable Changelog</h2>
+                <iframe class="changelogframe" src="./pages/changelog.html"></iframe>
+                <p class="changelogframe-text"><a style="cursor: pointer; color: var(--changelog-linkblue);" onclick="document.getElementById('changelogframe-bg').style.display = 'none'">Close</a></p>
+            </div>
+        </div>
+
+        <div id="popup" class="popup">
+            <div style="position: relative;">
+                <div style="padding: 0.5em;">
+                    <span id="codewrap" style="font-weight: var(--boldtext);">[<span id="code" style="font-weight: var(--boldtext);">UKN-00</span>]</span>
+                    <span id="msg">An unknown error occurred.</span>
+                    <a class="popup-closebtn" onclick="document.getElementById('popup').style.display = 'none'">✕</a>
+                </div>
+                <div class="timebar-wrap">
+                    <div class="timebar-player"></div>
                 </div>
             </div>
         </div>
     </div>
-    
-    <div class="footer">
-        <p>© <span id="year">----</span> PixelEdition. All rights reserved
-            <br>Timetable v<span id="version">-.-.-</span> | 
-            <a style="text-decoration: underline; cursor: pointer;" onclick="themeswitch();">Change Theme</a>
-            <a id="changelanguagebtn" style="display: none;">| <span style="text-decoration: underline; cursor: pointer;" onclick="language_swapper();">Change Language</span></a> | 
-            <a style="text-decoration: underline;" href="./archive/">Archived Classes</a><br>
-            <a style="text-decoration: underline; cursor: pointer;" onclick="document.getElementById('changelogframe-bg').style.display = 'block'">Changelog</a> | 
-            <a style="text-decoration: underline;" href="./timetable-v2.3.0_download.zip" download>Download Timetable v2.3.0</a> | 
-            <a style="text-decoration: underline;" href="./mobile/">Timetable (Mobile)</a>
-        </p>
-    </div>
 
-    <div id="changelogframe-bg" class="changelogframe-bg" onclick="document.getElementById('changelogframe-bg').style.display = 'none';">
-        <div class="changelogframe-wrapper">
-            <h2 class="changelogframe-text" style="color: white;">Timetable Changelog</h2>
-            <iframe class="changelogframe" src="./pages/changelog.html"></iframe>
-            <p class="changelogframe-text"><a style="cursor: pointer; color: var(--changelog-linkblue);" onclick="document.getElementById('changelogframe-bg').style.display = 'none'">Close</a></p>
-        </div>
-    </div>
-
-    <div id="popup" class="popup">
-        <div style="position: relative;">
-            <div style="padding: 0.5em;">
-                <span id="codewrap" style="font-weight: var(--boldtext);">[<span id="code" style="font-weight: var(--boldtext);">UKN-00</span>]</span>
-                <span id="msg">An unknown error occurred.</span>
-                <a class="popup-closebtn" onclick="document.getElementById('popup').style.display = 'none'">✕</a>
-            </div>
-            <div class="timebar-wrap">
-                <div class="timebar-player"></div>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
