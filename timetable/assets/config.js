@@ -43,15 +43,15 @@ const time = ["08:00 - 08:40", "08:40 - 09:20", "09:20 - 10:00", "10:20 - 11:00"
 
 const element_primary = ["Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"] // ["[Time]", "[Monday]", "[Tuesday]", "[Thursday]", "[Friday]"]
 const classes_primary = ["Homeroom", "P.E.", "Core Maths", "Guidance", "Lunch", "Social", "History", "Health", "M3 Meeting", "Club", "",
-                         "Homeroom", "Compute Sci", "DClass", "Core Maths", "Lunch", "R+W", "Thai", "Core English", "Buddhism", "Art", "",
-                         "Homeroom", "Core English", "Add Maths", "R+W", "Lunch", "Social", "Thai", "Music", "Scout", "Tutor", "DClass",
+                         "Homeroom", "Compute Sci", "DClass", "Core Maths", "Lunch", "R+W", "Thai", "Core English", "Buddhism", "Music", "",
+                         "Homeroom", "Core English", "Add Maths", "R+W", "Lunch", "Social", "Thai", "Art", "Scout", "Tutor", "DClass",
                          "Homeroom", "Compute Sci", "Thai", "Core Maths", "Lunch", "R+W", "Core English", "Core Science", "DClass", "Tutor", "DClass",
                          "Homeroom", "Core Science", "Add Maths", "Design and Technology", "DClass", "Lunch", "Chinese", "DClass", "Additional Science", "DClass", "",]
 
 const element_secondary = ["เวลา", "จันทร์", "อังคาร" , "พุธ", "พฤหัสบดี", "ศุกร์"] // ["[Time]", "[Monday]", "[Tuesday]", "[Thursday]", "[Friday]"]
 const classes_secondary = ["โฮมรูม", "พละ", "คณิตฯ พื้นฐาน", "แนะแนว", "พักกลางวัน", "สังคมฯ", "ประวัติฯ", "สุขศึกษา", "ประชุม ม.3", "ชุมนุม", "",
-                           "โฮมรูม", "วิทยาการคำนวณ", "DClass", "คณิตฯ พื้นฐาน", "พักกลางวัน", "อ่านและเขียน", "ภาษาไทย", "ภาษาอังกฤษ", "พุทธศาสนา", "ศิลปะ", "",
-                           "โฮมรูม", "ภาษาอังกฤษ", "คณิตฯ เพิ่มเติม", "อ่านและเขียน", "พักกลางวัน", "สังคมฯ", "ภาษาไทย", "ดนตรี", "ลูกเสือ", "ติวเตอร์", "DClass",
+                           "โฮมรูม", "วิทยาการคำนวณ", "DClass", "คณิตฯ พื้นฐาน", "พักกลางวัน", "อ่านและเขียน", "ภาษาไทย", "ภาษาอังกฤษ", "พุทธศาสนา", "ดนตรี", "",
+                           "โฮมรูม", "ภาษาอังกฤษ", "คณิตฯ เพิ่มเติม", "อ่านและเขียน", "พักกลางวัน", "สังคมฯ", "ภาษาไทย", "ศิลปะ", "ลูกเสือ", "ติวเตอร์", "DClass",
                            "โฮมรูม", "วิทยาการคำนวณ", "ภาษาไทย", "คณิตฯ พื้นฐาน", "พักกลางวัน", "อ่านและเขียน", "ภาษาอังกฤษ", "วิทย์ฯ พื้นฐาน", "DClass", "ติวเตอร์", "DClass",
                            "โฮมรูม", "วิทย์ฯ พื้นฐาน", "คณิตฯ เพิ่มเติม", "การออกแบบและเทคโนโลยี", "DClass", "พักกลางวัน", "ภาษาจีน", "DClass", "วิทย์ฯ เพิ่มเติม", "DClass", ""]
 
@@ -64,8 +64,8 @@ const classes_secondary = ["โฮมรูม", "พละ", "คณิตฯ �
 
 const subj = {
     "Homeroom"  : {
-        "videocall": "",
-        "classroom": ""
+        "videocall": "https://meet.google.com/fuh-gtys-rmj",
+        "classroom": "https://classroom.google.com/u/2/c/NDg1MTY3MzU0NTEw"
     },
     "Core Maths": {
         "videocall": "",
@@ -76,15 +76,15 @@ const subj = {
         "classroom": "https://classroom.google.com/u/2/c/NDg1ODE4MTEyNDM5"
     },
     "Core English": {
-        "videocall": "",
+        "videocall": "https://meet.google.com/rfz-wbyx-zna",
         "classroom": "https://classroom.google.com/u/4/c/NDg1NzU1MjUyMzgw"
     },
     "R+W": {
-        "videocall": "",
+        "videocall": "https://meet.google.com/bnc-rzuo-jkv",
         "classroom": "https://classroom.google.com/u/2/c/NTEwODIyMDk4NjI0"
     },
     "Core Science": {
-        "videocall": "",
+        "videocall": "https://meet.google.com/ihi-yjfx-mhw",
         "classroom": "https://classroom.google.com/u/2/c/NDg1ODE0NDUxMTA1"
     },
     "Additional Science": {
@@ -96,19 +96,19 @@ const subj = {
         "classroom": ""
     },
     "Compute Sci": {
-        "videocall": "",
+        "videocall": "https://meet.google.com/tre-itna-eyx",
         "classroom": "https://classroom.google.com/u/2/c/NDg1MTY1NjA4MjE2"
     },
     "Social": {
-        "videocall": "",
+        "videocall": "https://meet.google.com/gru-xkdz-rrk",
         "classroom": "https://classroom.google.com/u/2/c/NTA5NzMwNzk4NzA4"
     },
     "Health": {
-        "videocall": "",
+        "videocall": "https://meet.google.com/bst-wzqv-bds",
         "classroom": "https://classroom.google.com/u/2/c/NDg1ODE2NTE2OTI3"
     },
     "P.E.": {
-        "videocall": "",
+        "videocall": "https://meet.google.com/eij-xbse-ctk",
         "classroom": "https://classroom.google.com/u/2/c/NDg1ODQxNjQxOTk3"
     },
     "Thai": {
@@ -128,11 +128,11 @@ const subj = {
         "classroom": "https://classroom.google.com/u/2/c/NDg1NzU1Mzg5MDkw"
     },
     "Art": {
-        "videocall": "",
+        "videocall": "https://meet.google.com/psp-nbdt-zdh",
         "classroom": "https://classroom.google.com/u/2/c/NDg2NTIzOTU5NDI3"
     },
     "Chinese": {
-        "videocall": "",
+        "videocall": "https://meet.google.com/fxh-kzgj-pfp",
         "classroom": "https://classroom.google.com/u/2/c/NDg1NzczMDI2MTM2"
     },
     "Japanese": {
