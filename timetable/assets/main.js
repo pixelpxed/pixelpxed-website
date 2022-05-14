@@ -24,16 +24,12 @@ window.onload = function() {
 
     setDefaultValues()
 
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-        curtheme = 'light';
-    } 
-
     if (swapper_control == true) {
         document.getElementById("navbar-right").style.display = "block"
 
-        if (localStorage.getItem("swapperclass") == "Primary") {
+        if (localStorage.getItem("swapperclass") == "Secondary") {
             swap_secondary(false)
-        } if (localStorage.getItem("swapperclass") == "Secondary") {
+        } if (localStorage.getItem("swapperclass") != "Secondary") {
             swap_primary(false)
         }
     }

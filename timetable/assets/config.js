@@ -1,5 +1,5 @@
 // General variables
-var versionnumber = "2.10.0"
+var versionnumber = "2.10.1"
 var copyrightyear = "2022"
 
 // Google User Infex - Displays a setting for Google User Index [true/false]
