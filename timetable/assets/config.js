@@ -1,5 +1,5 @@
 // General variables
-var versionnumber = "2.10.1a"
+var versionnumber = "2.10.1b"
 var copyrightyear = "2022"
 
 // Google User Infex - Displays a setting for Google User Index [true/false]
@@ -68,11 +68,11 @@ const subj = {
         "classroom": "NDg1MTY3MzU0NTEw"
     },
     "Core Maths": {
-        "videocall": "",
+        "videocall": "wat-pabz-qjm",
         "classroom": "NDg1ODE4MTEyMjg1"
     },
     "Add Maths": {
-        "videocall": "",
+        "videocall": "ekc-jbjg-bdw",
         "classroom": "NDg1ODE4MTEyNDM5"
     },
     "Core English": {
@@ -88,7 +88,7 @@ const subj = {
         "classroom": "NDg1ODE0NDUxMTA1"
     },
     "Additional Science": {
-        "videocall": "",
+        "videocall": "cyg-igrw-zvg",
         "classroom": "NDg1ODEzODc3MTIx"
     },
     "Design and Technology": {
@@ -116,11 +116,11 @@ const subj = {
         "classroom": "NTEzODYyMTc3MTk4"
     },
     "Guidance": {
-        "videocall": "",
+        "videocall": "cyg-igrw-zvg",
         "classroom": "NDg1ODE2MzY3ODk4"
     },
     "History": {
-        "videocall": "",
+        "videocall": "kkw-emfp-qyu",
         "classroom": "NDg1NzQwODYyMDIy"
     },
     "Buddhism": {
