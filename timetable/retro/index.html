@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +7,16 @@
     <title>Timetable: Retro</title>
 </head>
 <style>
-    html {
+    .html-win98 {
        cursor: url("./win98cursor.cur"), default; 
+    }
+
+    .html-winxp {
+       cursor: url("./winXPcursor.cur"), default; 
+    }
+
+    .html-win7 {
+       cursor: url("./win7cursor.cur"), default; 
     }
 
     * {
@@ -19,14 +27,13 @@
     }
 
     body {
-        /* background: url("./windows7wallpaper.png") no-repeat center center fixed; */
         background: black;
         background-size: cover;
 
         font-family: sans-serif;
     }
 
-    a {
+    .html-win98 a {
         cursor: url("./win98pointer.cur"), pointer; 
     }
 </style>
@@ -70,22 +77,29 @@
         const parameters = new URLSearchParams(window.location.search);
 
         var uiversion = parameters.get("ui");
+        var el = document.querySelectorAll('a');
 
         if (uiversion === "98") {
             var uihref = "https://unpkg.com/98.css"
             document.getElementById("body").style.background = "teal no-repeat center center fixed"
             document.getElementById("uilibcredit").innerHTML = "<a href='https://jdan.github.io/98.css/' target='_blank'>UI Library</a>"
             document.getElementById("uiversion-98").style.fontWeight = "bold"
+
+            document.documentElement.className = 'html-win98';
         } if (uiversion === "xp") {
             var uihref = "https://unpkg.com/xp.css"
             document.getElementById("body").style.background = "url('./windowsXPwallpaper.png') no-repeat center center fixed"
             document.getElementById("uilibcredit").innerHTML = "<a href='https://botoxparty.github.io/XP.css/' target='_blank'>UI Library</a>"
             document.getElementById("uiversion-xp").style.fontWeight = "bold"
+
+            document.documentElement.className = 'html-winxp';
         } if (uiversion === "7" || uiversion === null) {
             var uihref = "https://unpkg.com/7.css"
             document.getElementById("body").style.background = "url('./windows7wallpaper.png') no-repeat center center fixed"
             document.getElementById("uilibcredit").innerHTML = "<a href='https://khang-nd.github.io/7.css/' target='_blank'>UI Library</a>"
             document.getElementById("uiversion-7").style.fontWeight = "bold"
+
+            document.documentElement.className = 'html-win7';
         }
 
         var cssId = 'uilib';
