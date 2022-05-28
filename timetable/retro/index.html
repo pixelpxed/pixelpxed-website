@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable: Retro</title>
+</head>
+<style>
+    html {
+       cursor: url("./win98cursor.cur"), default; 
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+
+        box-sizing: border-box;
+    }
+
+    body {
+        /* background: url("./windows7wallpaper.png") no-repeat center center fixed; */
+        background: black;
+        background-size: cover;
+
+        font-family: sans-serif;
+    }
+
+    a {
+        cursor: url("./win98pointer.cur"), pointer; 
+    }
+</style>
+<body id="body">
+    <div class="window" style="width: 90vw; max-width: 350px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                Timetable
+            </div>
+            <abbr title="Theese buttons does not actually work.">
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </abbr>
+        </div>
+        <div class="window-body">
+            <p>Select your class, class link options, and then click.<br><br></p>
+            <ul id="timetable-links-wrapper" class="tree-view" style="height: 80vh; max-height: 400px; overflow: auto;"></ul>
+        </div>
+        <div class="status-bar">
+            <p class="status-bar-field">Credit: <span id="uilibcredit"></span></p>
+            <p class="status-bar-field">
+                Versions:
+                <a id="uiversion-98" href="./?ui=98">Win98</a> | 
+                <a id="uiversion-xp" href="./?ui=xp">WinXP</a> | 
+                <a id="uiversion-7" href="./?ui=7">Win7</a>
+            </p>
+        </div>
+    </div>
+</body>
+<script defer src="../assets/config.js"></script>
+<script defer>
+    window.onload = function() {
+        uiStyle()
+        fillClasses()
+    }
+
+    function uiStyle() {
+        const parameters = new URLSearchParams(window.location.search);
+
+        var uiversion = parameters.get("ui");
+
+        if (uiversion === "98") {
+            var uihref = "https://unpkg.com/98.css"
+            document.getElementById("body").style.background = "teal no-repeat center center fixed"
+            document.getElementById("uilibcredit").innerHTML = "<a href='https://jdan.github.io/98.css/' target='_blank'>UI Library</a>"
+            document.getElementById("uiversion-98").style.fontWeight = "bold"
+        } if (uiversion === "xp") {
+            var uihref = "https://unpkg.com/xp.css"
+            document.getElementById("body").style.background = "url('./windowsXPwallpaper.png') no-repeat center center fixed"
+            document.getElementById("uilibcredit").innerHTML = "<a href='https://botoxparty.github.io/XP.css/' target='_blank'>UI Library</a>"
+            document.getElementById("uiversion-xp").style.fontWeight = "bold"
+        } if (uiversion === "7" || uiversion === null) {
+            var uihref = "https://unpkg.com/7.css"
+            document.getElementById("body").style.background = "url('./windows7wallpaper.png') no-repeat center center fixed"
+            document.getElementById("uilibcredit").innerHTML = "<a href='https://khang-nd.github.io/7.css/' target='_blank'>UI Library</a>"
+            document.getElementById("uiversion-7").style.fontWeight = "bold"
+        }
+
+        var cssId = 'uilib';
+        if (!document.getElementById(cssId)) {
+            var head  = document.getElementsByTagName('head')[0];
+            var link  = document.createElement('link');
+            link.rel  = 'stylesheet';
+            link.href = uihref;
+            link.id   = cssId;
+            head.appendChild(link);
+        }
+    }
+
+    function fillClasses() {
+        let weekNumber = 0
+        const weekName = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+        const isNewWeek = classFilled => {return (classFilled + 1) % 11 === 0}
+
+        for (let classFilled = 0; classFilled <= (classes_primary.length - 1); classFilled++) {
+            if (classFilled === 0 || (isNewWeek(classFilled) === true) && classFilled != 54) {
+                document.getElementById("timetable-links-wrapper").insertAdjacentHTML(
+                    "beforeend",
+                    `
+                    <li>${classFilled != 0 ? "<br>" : ""}<b>${weekName[weekNumber]}</b></li>
+                    `
+                )
+                weekNumber++
+            }
+    
+            if (classes_primary[classFilled] != "Lunch" && classes_primary[classFilled] != "" && classes_primary[classFilled] != "Break" && classes_primary[classFilled] != "DClass") {
+                var videocalllink = subj[classes_primary[classFilled]].videocall;
+                var classroomlink = subj[classes_primary[classFilled]].classroom;
+
+                if (videocalllink != "") {
+                    videocalllink = `https://meet.google.com/${videocalllink}?authuser=2`
+                } if (classroomlink != "") {
+                    classroomlink = `https://classroom.google.com/u/2/c/${classroomlink}`
+                }
+                
+                document.getElementById("timetable-links-wrapper").insertAdjacentHTML(
+                    "beforeend",
+                    `
+                    <li>
+                        ${classes_primary[classFilled]}
+                        <ul>
+                            <li><a href="${videocalllink}" target="_blank">Google Meet</a></li>
+                            <li><a href="${classroomlink}" target="_blank">Google Classroom</a></li>
+                        </ul>
+                    </li>
+                    `
+                )
+            }
+        }
+    }
+</script>
+</html>
