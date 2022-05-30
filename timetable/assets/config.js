@@ -1,5 +1,5 @@
 // General variables
-var versionnumber = "2.10.1c"
+var versionnumber = "2.10.1d"
 var copyrightyear = "2022"
 
 // Google User Infex - Displays a setting for Google User Index [true/false]
@@ -116,7 +116,7 @@ const subj = {
         "classroom": "NTEzODYyMTc3MTk4"
     },
     "Guidance": {
-        "videocall": "cyg-igrw-zvg",
+        "videocall": "mim-nozq-ywa",
         "classroom": "NDg1ODE2MzY3ODk4"
     },
     "History": {
