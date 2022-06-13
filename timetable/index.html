@@ -62,27 +62,14 @@
 
         <div id="account-wrapper-all" class="fulldisplay-overlay">
             <div id="account-wrapper" class="account-wrapper">
-                <p class="header" style="font-size: 1.2em;">Setup your Google account index.</p>
-                <p style="padding: 0 1em 1em 1em;">
-                    <br><b style="color: var(--red); display: block; text-align: center;">This step is not requied for mobile and tablets, please click submit and continue using your Timetable normally.</b><br>
+                <h2 class="header" style="font-weight: bold; text-align: center;">Let's setup your Timetable.</h2>
+                <p>This setup screen will only pop up on your first visit, when you clear your browser cache/cookies, or when you decided to reset your Timetable data.</p>
 
-                    Your Google account index is used to determine which account to log you into Google services, 
-                    we will use this data to log you in the correct account for your classes.<br><br>
-
-                    You can always change this value in the footer of Timetable to display this popup again.<br><br>
-
-                    <b>Recommended:</b> Go to <a href="https://classroom.google.com/" target="_blank">Google Classroom</a>, then sign into your school
-                    account and get the account index number. If you don't understand, try looking at the picture below.
-                </p>
+                <p style="padding-top: 0.5em; font-weight: bold;">Google Account Index</p>
+                <p>To sign you into the correct account while you join classes.</p>
+                <input type="number" id="account-index-value" class="account-index-value" value="0" min="0" placeholder="Account Index">
                 <img src="./assets/googleindexno.png" class="account-img">
-                <div style="padding: 1em; display: grid; grid-template-columns: 1fr max-content; gap: 0.5em;">
-                    <input type="number" id="account-index-value" class="account-index-value" value="0" min="0" placeholder="Account Index">
-                    <input onclick="submitIndexNumber()" type="submit" class="account-index-value" style="background: var(--textcolor); color: var(--alt-textcolor); font-weight: var(--boldtext);">
-                </div>
-                <span style="display: flex; align-items: center; justify-content: center;">
-                    <span style="font-size: 1em; padding-right: 0.25em;" class="material-symbols-outlined">privacy_tip</span>
-                    <span style="font-size: 0.8em;">Your data is stored in your device.</span>
-                </span>
+                <button onclick="submitIndexNumber()" class="account-index-value" style="cursor: pointer; padding: 0.5em; background: var(--textcolor); color: var(--alt-textcolor); font-weight: var(--boldtext);">Complete Setup</button>
             </div>
         </div>
         

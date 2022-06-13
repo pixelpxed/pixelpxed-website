@@ -222,11 +222,12 @@
 .account-index-value {
     width: 100%;
 
-    padding: 0.25em;
+    padding: 0.5em;
+    margin: 0.5em 0;
 
     background: transparent;
     outline: none;
-    border: 1px solid var(--textcolor);
+    border: 1px solid var(--subjbg-darker);
     border-radius: 0.3em;
 }
 
