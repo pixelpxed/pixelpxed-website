@@ -1,4 +1,11 @@
 window.onload = function() {
+    // Block non-setup users and non-305.
+    if (localStorage.getItem("setupComplete") != "true") {
+        return location.href = "../"
+    } if (localStorage.getItem("classTimetable") != "305") {
+        return location.href = "../?m-not305"
+    }
+
     setInterval(() => {
         var today = new Date();
         var day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
@@ -20,42 +27,38 @@ window.onload = function() {
 
     var classtext = ""; // Default Value
     for (let classfilled = 0; classfilled <= 54; classfilled++) {
-        document.getElementById(classfilled).innerHTML = classes_primary[classfilled];
-        classtext = classes_primary[classfilled];
+        document.getElementById(classfilled).innerHTML = classes_305[classfilled];
+        classtext = classes_305[classfilled];
 
-        if (classes_primary[classfilled] == "DClass") {
+        if (classes_305[classfilled] == "DClass") {
             document.getElementById(`subject${classfilled}`).style.display = "none"
-        } if (classes_primary[classfilled] == "") {
+        } if (classes_305[classfilled] == "") {
             document.getElementById(`subject${classfilled}`).style.display = "none"
         }
 
-        var video = subj[classtext].videocall
-        if (googleuserindex == true) {
-            video = `https://meet.google.com/${subj[classtext].videocall}?authuser=2`
-        }
+        if (classtext != "" && classtext != "Lunch" && classtext != "DClass") {
+            var video = `https://meet.google.com/${subj_305[classtext].videocall}?authuser=${localStorage.getItem("gaiTimetable")}`
 
-        document.getElementById(`video${classfilled}`).href = video
-        document.getElementById(`video${classfilled}`).innerHTML = video
-        
-        if (subj[classtext].videocall == "") {
-            document.getElementById(`video${classfilled}`).style.textDecoration = "none"
-            document.getElementById(`video${classfilled}`).style.cursor = "default"
-            document.getElementById(`video${classfilled}`).innerHTML = "Link Unavailible"
-            document.getElementById(`video${classfilled}`).href = "#"
-        }
+            document.getElementById(`video${classfilled}`).href = video
+            document.getElementById(`video${classfilled}`).innerHTML = video
+            
+            if (subj_305[classtext].videocall == "") {
+                document.getElementById(`video${classfilled}`).style.textDecoration = "none"
+                document.getElementById(`video${classfilled}`).style.cursor = "default"
+                document.getElementById(`video${classfilled}`).innerHTML = "Link Unavailible"
+                document.getElementById(`video${classfilled}`).href = "#"
+            }
 
-        var classroom = subj[classtext].videocall
-        if (googleuserindex == true) {
-            classroom = `https://classroom.google.com/u/2/c/${subj[classtext].classroom}`
-        }
+            var classroom = `https://classroom.google.com/u/${localStorage.getItem("gaiTimetable")}/c/${subj_305[classtext].classroom}`
 
-        document.getElementById(`class${classfilled}`).href = classroom
-        document.getElementById(`class${classfilled}`).innerHTML = classroom
-        if (subj[classtext].classroom == "") {
-            document.getElementById(`class${classfilled}`).style.textDecoration = "none"
-            document.getElementById(`class${classfilled}`).style.cursor = "default"
-            document.getElementById(`class${classfilled}`).innerHTML = "Link Unavailible"
-            document.getElementById(`class${classfilled}`).href = "#"
+            document.getElementById(`class${classfilled}`).href = classroom
+            document.getElementById(`class${classfilled}`).innerHTML = classroom
+            if (subj_305[classtext].classroom == "") {
+                document.getElementById(`class${classfilled}`).style.textDecoration = "none"
+                document.getElementById(`class${classfilled}`).style.cursor = "default"
+                document.getElementById(`class${classfilled}`).innerHTML = "Link Unavailible"
+                document.getElementById(`class${classfilled}`).href = "#"
+            }
         }
     }
 }

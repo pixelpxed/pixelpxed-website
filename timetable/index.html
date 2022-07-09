@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="./assets/preset.css">
-    <link rel="stylesheet" href="./assets/timetable.css">
+    <title>Timetable</title>
 
-    <link rel="icon" href="./assets/favicon.ico">
-    <title>Timetable - PixelEdition</title>
+    <link rel="shortcut icon" href="./assets/etc/favicon.ico">
 
-    <meta name="title" content="Timetable - PixelEdition" />
-    <meta property="og:title" content="Timetable - PixelEdition" />
-    <meta name="twitter:title" content="Timetable - PixelEdition">
+    <meta name="title" content="Timetable" />
+    <meta property="og:title" content="Timetable" />
+    <meta name="twitter:title" content="Timetable">
 
     <meta name="description" content="An easier way to join a class with a click of a button." />
     <meta property="og:description" content="An easier way to join a class with a click of a button." />
@@ -22,221 +19,362 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://www.pixelpxed.xyz/timetable/" />
 
-    <meta property="og:image"  content="https://www.pixelpxed.xyz/timetable/assets/embedimg.png">
-    <meta name="twitter:image" content="https://www.pixelpxed.xyz/timetable/assets/embedimg.png">
+    <meta property="og:image"  content="https://www.pixelpxed.xyz/timetable/assets/img/embedimg.png">
+    <meta name="twitter:image" content="https://www.pixelpxed.xyz/timetable/assets/img/embedimg.png">
 
     <meta name="twitter:card" content="summary_large_image">
 
     <meta name="theme-color" content="#FFFFFF">
+
+    <link rel="stylesheet" href="./assets/css/global.css">
+    <link rel="stylesheet" href="./assets/css/timetable.css">
+
+    <!-- Components -->
+    <script defer src="./assets/js/components/clock.js"></script>
+    <script defer src="./assets/js/components/setup.js"></script>
+
+    <script defer src="./assets/js/global.js"></script>
+    <script defer src="./assets/js/timetable.js"></script>
+
+    <script defer src="./assets/js/config/config.js"></script>
+
+    <script defer src="./assets/js/config/classinfo/305.js"></script>
+    <script defer src="./assets/js/config/classinfo/306.js"></script>
 </head>
-<script src="./assets/config.js" defer></script>
-<script src="./assets/main.js" defer></script>
-
-<body id="body">
-    <noscript>
-        <p style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: max-content; height: max-content; background: var(--textcolor); color: var(--alt-textcolor); box-sizing: border-box; padding: 1em; z-index: 1000; text-align: center; border-radius: 0.5em;">
-            <span style="font-weight: bold; color: var(--alt-textcolor);">Important:</span><br>
-            You need JavaScript enabled to run Timetable properly.<br>
-            Go to your browser settings to edit your JavaScript preferences.
-        </p>
-    </noscript>
-
-    <div id="navbar" class="navbar navbar-fixed">
-        <a href="../">Home</a>
-        <a href="./index.html" style="opacity: 1;">Timetable</a>
-        <div style="display: none;" id="navbar-right" class="navbar-right">
-            <a style="cursor: pointer; opacity: 1;" id="swapper-primary" onclick="swap_secondary()">CH</a>
-            <a style="cursor: pointer;" id="swapper-secondary" onclick="swap_primary()">JP</a>
-        </div>
-    </div>
-
-    <div id="loadingscreen" class="fulldisplay-overlay" style="z-index: 999; background: var(--bgcolor);"></div>
-    
-    <div id="main" class="main">
-        <div id="fixedribbon" class="fixedribbon">
-            A new version of Timetable is available, reload this page to update your Timetable to the latest version.
-            <a class="ribbon-btn" onclick="location.reload()">Reload</a>
-        </div>
-
-        <div id="account-wrapper-all" class="fulldisplay-overlay">
-            <div id="account-wrapper" class="account-wrapper">
-                <h2 class="header" style="font-weight: bold; text-align: center;">Let's setup your Timetable.</h2>
-                <p>This setup screen will only pop up on your first visit, when you clear your browser cache/cookies, or when you decided to reset your Timetable data.</p>
-
-                <p style="padding-top: 0.5em; font-weight: bold;">Google Account Index</p>
-                <p>To sign you into the correct account while you join classes.</p>
-                <input type="number" id="account-index-value" class="account-index-value" value="0" min="0" placeholder="Account Index">
-                <img src="./assets/googleindexno.png" class="account-img">
-                <button onclick="submitIndexNumber()" class="account-index-value" style="cursor: pointer; padding: 0.5em; background: var(--textcolor); color: var(--alt-textcolor); font-weight: var(--boldtext);">Complete Setup</button>
-            </div>
-        </div>
-        
-        <div class="content">
-            <div class="timetable-title">
-                <div style="width: max-content; margin: auto;">
-                    <h1 id="timetable-box-title" style="font-weight: var(--boldtext);">Timetable</h1>
-                    <p style="display: none; color: var(--linkblue); text-align: right; font-size: 0.8em; margin-top: -0.8em; margin-bottom: 0.5em;">Dev</p>
-                </div>
-                <p id="timetable-box-description">Left Click - Video Call<br>Right Click - Classroom</p>
-            </div>
-            <div class="clock-wrapper">
-                <p id="clock">--:--:--</p>
-                <p id="day">---------, -- --------- ----</p>
-            </div>
-            <div id="table" class="table">
-                <a class="subjectgrid-time" id="element0">Time</a>
-                <a class="subjectgrid-time" id="time0"></a>
-                <a class="subjectgrid-time" id="time1"></a>
-                <a class="subjectgrid-time" id="time2"></a>
-                <a class="subjectgrid-time" id="time3"></a>
-                <a class="subjectgrid-time" id="time4"></a>
-                <a class="subjectgrid-time" id="time5"></a>
-                <a class="subjectgrid-time" id="time6"></a>
-                <a class="subjectgrid-time" id="time7"></a>
-                <a class="subjectgrid-time" id="time8"></a>
-                <a class="subjectgrid-time" id="time9"></a>
-                <a class="subjectgrid-time" id="time10"></a>
-
-                <a class="subjectgrid" id="element1" style="color: var(--daystextcolor); background: var(--yellow); font-weight: 500;">Monday</a>
-                <a class="subjectgrid joinable" id="0"></a>
-                <a class="subjectgrid joinable" id="1"></a>
-                <a class="subjectgrid joinable" id="2"></a>
-                <a class="subjectgrid joinable" id="3"></a>
-                <a class="subjectgrid joinable" id="4"></a>
-                <a class="subjectgrid joinable" id="5"></a>
-                <a class="subjectgrid joinable" id="6"></a>
-                <a class="subjectgrid joinable" id="7"></a>
-                <a class="subjectgrid joinable" id="8"></a>
-                <a class="subjectgrid joinable" id="9"></a>
-                <a class="subjectgrid joinable" id="10"></a>
-
-                <a class="subjectgrid" id="element2" style="color: var(--daystextcolor); background: var(--pink); font-weight: 500;">Tuesday</a>
-                <a class="subjectgrid joinable" id="11"></a>
-                <a class="subjectgrid joinable" id="12"></a>
-                <a class="subjectgrid joinable" id="13"></a>
-                <a class="subjectgrid joinable" id="14"></a>
-                <a class="subjectgrid joinable" id="15"></a>
-                <a class="subjectgrid joinable" id="16"></a>
-                <a class="subjectgrid joinable" id="17"></a>
-                <a class="subjectgrid joinable" id="18"></a>
-                <a class="subjectgrid joinable" id="19"></a>
-                <a class="subjectgrid joinable" id="20"></a>
-                <a class="subjectgrid joinable" id="21"></a>
-
-                <a class="subjectgrid" id="element3" style="color: var(--daystextcolor); background: var(--green); font-weight: 500;">Wednesday</a>
-                <a class="subjectgrid joinable" id="22"></a>
-                <a class="subjectgrid joinable" id="23"></a>
-                <a class="subjectgrid joinable" id="24"></a>
-                <a class="subjectgrid joinable" id="25"></a>
-                <a class="subjectgrid joinable" id="26"></a>
-                <a class="subjectgrid joinable" id="27"></a>
-                <a class="subjectgrid joinable" id="28"></a>
-                <a class="subjectgrid joinable" id="29"></a>
-                <a class="subjectgrid joinable" id="30"></a>
-                <a class="subjectgrid joinable" id="31"></a>
-                <a class="subjectgrid joinable" id="32"></a>
-
-                <a class="subjectgrid" id="element4" style="color: var(--daystextcolor); background: var(--orange); font-weight: 500;">Thursday</a>
-                <a class="subjectgrid joinable" id="33"></a>
-                <a class="subjectgrid joinable" id="34"></a>
-                <a class="subjectgrid joinable" id="35"></a>
-                <a class="subjectgrid joinable" id="36"></a>
-                <a class="subjectgrid joinable" id="37"></a>
-                <a class="subjectgrid joinable" id="38"></a>
-                <a class="subjectgrid joinable" id="39"></a>
-                <a class="subjectgrid joinable" id="40"></a>
-                <a class="subjectgrid joinable" id="41"></a>
-                <a class="subjectgrid joinable" id="42"></a>
-                <a class="subjectgrid joinable" id="43"></a>
-
-                <a class="subjectgrid" id="element5" style="color: var(--daystextcolor); background: var(--blue); font-weight: 500;">Friday</a>       
-                <a class="subjectgrid joinable" id="44"></a>
-                <a class="subjectgrid joinable" id="45"></a>
-                <a class="subjectgrid joinable" id="46"></a>
-                <a class="subjectgrid joinable" id="47"></a>
-                <a class="subjectgrid joinable" id="48"></a>
-                <a class="subjectgrid joinable" id="49"></a>
-                <a class="subjectgrid joinable" id="50"></a>
-                <a class="subjectgrid joinable" id="51"></a>
-                <a class="subjectgrid joinable" id="52"></a>
-                <a class="subjectgrid joinable" id="53"></a>
-                <a class="subjectgrid joinable" id="54"></a>
-            </div>
-        </div>
-        
-        <div class="links-wrapper">
+<body>
+    <!-- Navigation Bar -->
+    <nav id="navigation-bar" class="navigation-bar navigation-bar-fixed">
+        <div class="navigation-bar-wrapper">
             <div>
-                <h2 id="row0" style="font-weight: var(--boldtext);">Placeholder Row</h2>
-                <p id="bookmark0-0">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
-                <p id="bookmark1-0">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
-                <p id="bookmark2-0">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
-                <p id="bookmark3-0">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
-            </div>
-            <div>
-                <h2 id="row1" style="font-weight: var(--boldtext);">Placeholder Row</h2>
-                <p id="bookmark0-1">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
-                <p id="bookmark1-1">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
-                <p id="bookmark2-1">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
-                <p id="bookmark3-1">Placeholder</h2> Bookmark<br><a style="color: var(--linkblue);" href="https://example.com/" target="_blank">Go ›</a></p>
-            </div>
-            <div class="google-wrapper">
-                <h2 id="searchtitle" style="font-weight: var(--boldtext);">Search with Google</h2>
-                <div>
-                    <div class="searchgoogle">
-                        <input name="q" id="searchbar" type="text" spellcheck="false" placeholder="Search with Google">
-                        <input onclick="clearSearch()" id="searchsubmit" type="submit" value="Search">
-                    </div>
-                </div>
+                <a>Home</a>
+                <a>Timetable</a>
             </div>
         </div>
-        
-        <div class="footer">
-            <p>© <span id="year">----</span> PixelEdition. All rights reserved
-                <br>Timetable v<span id="version">-.-.-</span> | 
-                <a style="text-decoration: underline; cursor: pointer;" onclick="themeswitch();">
-                    Change Theme
-                </a>
-                <a id="changelanguagebtn" style="display: none;">
-                    | <span style="text-decoration: underline; cursor: pointer;" onclick="language_swapper();">Change Language</span>
-                </a> | 
-                <a style="text-decoration: underline;" href="./archive/">
-                    Archived Classes
-                </a><br>
-                <a style="text-decoration: underline; cursor: pointer;" onclick="document.getElementById('changelogframe-bg').style.display = 'block'">
-                    Changelog
-                </a> | 
-                <a style="text-decoration: underline;" href="./timetable-v2.3.0_download.zip" download>
-                    Download Timetable v2.3.0
-                </a> | 
-                <a style="text-decoration: underline;" href="./mobile/">
-                    Timetable (Mobile)
-                </a> | 
-                <a style="text-decoration: underline; cursor: pointer;" onclick="document.getElementById('account-wrapper-all').style.display = 'block'">
-                    Change User Index
-                </a>
+    </nav>
+
+    <!-- Popup Elements -->
+    <div id="setup-wrapper" class="contentbox-wrapper">
+        <!-- Setup Elements -->
+        <div class="popup-content">
+            <!-- Setup Title -->
+            <p>
+                <span class="popup-title">Let's setup your Timetable.</span>
+                <span>
+                    This setup screen will only pop up on your first visit, 
+                    when you clear your browser cache/cookies, 
+                    or when you decided to reset your Timetable data.
+                </span>
             </p>
-        </div>
+            <!-- Class -->
+            <div class="contentbox-option-wrapper">
+                <p class="contentbox-option-title">
+                    Select Your Class
+                    <abbr title="To provide you with your class timetable.">
+                        <span class="material-symbols-outlined">
+                            help
+                        </span>
+                    </abbr>
+                </p>
+                <select id="setup-option-class">
+                    <option value="305">305</option>
+                    <option value="306">306</option>
+                    <option value="custom">Custom Class</option>
+                </select>
+            </div>
 
-        <div style="display: none;" id="changelogframe-bg" class="fulldisplay-overlay" onclick="document.getElementById('changelogframe-bg').style.display = 'none';">
-            <div class="changelogframe-wrapper">
-                <h2 class="changelogframe-text">Timetable Changelog</h2>
-                <iframe class="changelogframe" src="./pages/changelog.html"></iframe>
-                <p class="changelogframe-text"><a style="cursor: pointer; color: var(--changelog-linkblue);" onclick="document.getElementById('changelogframe-bg').style.display = 'none'">Close</a></p>
+            <!-- Custom JSON Class -->
+            <div id="setup-custom-json-wrapper" class="contentbox-option-wrapper setup-custom-json-wrapper">
+                <p class="contentbox-option-title">
+                    Custom Class Names <a href="./templates/customclass.json" target="_blank">(Format)</a>
+                    <abbr title="This will be use to fill in your timetable classes.">
+                        <span class="material-symbols-outlined">
+                            help
+                        </span>
+                    </abbr>
+                </p>
+                <textarea id="setup-custom-json-value-classes" type="text" class="setup-custom-json" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"></textarea>
+                
+                <p class="contentbox-option-title">
+                    Custom Class Links <a href="./templates/customlinks.json" target="_blank">(Format)</a>
+                    <abbr title="This will be use to fill in your timetable links.">
+                        <span class="material-symbols-outlined">
+                            help
+                        </span>
+                    </abbr>
+                </p>
+                <textarea id="setup-custom-json-value-links" type="text" class="setup-custom-json" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"></textarea>
+                
+                <p id="setup-error" class="setup-error"></p>
+            </div>
+
+            <!-- Google Account Index -->
+            <div class="contentbox-option-wrapper">
+                <p class="contentbox-option-title">
+                    Google Account Index
+                    <abbr title="Google account index is used to sign you into the correct account while you join classes.">
+                        <span class="material-symbols-outlined">
+                            help
+                        </span>
+                    </abbr>
+                </p>
+                <input id="setup-option-index" type="number" value="0" min="0">
+            </div>
+            <img 
+                src="./assets/img/googleindexno.png"
+                class="setup-img"
+                alt="Step 1: Go to Google Classroom, then log into your preferred account to use for your Timetable.
+                     Step 2: Observe the URL, you should see the Google account index like this: 'https://classroom.google.com/u/{Index Number}/h'"
+            >
+        </div>
+        <div class="popup-buttons-box">
+            <div class="popup-buttons-wrapper">
+                <a class="popup-button" onclick="setupTimetable()">Complete Setup</a>
             </div>
         </div>
+    </div>
 
-        <div id="popup" class="popup">
-            <div style="position: relative;">
-                <div style="padding: 0.5em;">
-                    <span id="codewrap" style="font-weight: var(--boldtext);">[<span id="code" style="font-weight: var(--boldtext);">UKN-00</span>]</span>
-                    <span id="msg">An unknown error occurred.</span>
-                    <a class="popup-closebtn" onclick="document.getElementById('popup').style.display = 'none'">✕</a>
-                </div>
-                <div class="timebar-wrap">
-                    <div class="timebar-player"></div>
+    <div id="changelog-wrapper" class="contentbox-wrapper">
+        <div class="popup-content">
+            <p class="popup-title">Changelog</p>
+            <div id="changelog-content" class="changelog-content">
+                <span class="material-symbols-outlined animation-rotate-inf">
+                    autorenew
+                </span>
+            </div>
+        </div>
+        <div class="popup-buttons-box">
+            <div class="popup-buttons-wrapper">
+                <a class="popup-button" onclick="changelog()">Done</a>
+            </div>
+        </div>
+    </div>
+    
+
+    <div id="popup-type-confirm" class="popup popup-type-confirm">
+        <div class="popup-wrapper">
+            <div class="popup-content">
+                <span id="popup-confirm-title" class="popup-title"></span>
+                <span id="popup-confirm-content"></span>
+            </div>
+            <div class="popup-buttons-box">
+                <div class="popup-buttons-wrapper">
+                    <a id="popup-confirm-true" class="popup-button">Yes</a>
+                    <a id="popup-confirm-false" class="popup-button">No</a>
                 </div>
             </div>
         </div>
     </div>
+
+    <div id="full-page-overlay" class="full-page-overlay">
+
+    </div>
+
+    <div id="notification-center" class="notification-wrapper">
+        
+    </div>
+
+    <!-- Main Content -->
+    <div id="main" class="main">
+        <div class="title-wrapper">
+            <h1>Timetable</h1>
+            <p>Left Click - Video Call</p>
+            <p>Right Click - Classroom</p>
+        </div>
+
+        <div class="clock-wrapper">
+            <p class="clock" id="clock">--:--:--</p>
+            <p class="date" id="date">------, -- ----- ----</p>
+        </div>
+
+        <!-- Experimental Feature: Time Left -->
+        <div> 
+            <p id="timeleft-final" onload="checktime()"></p>
+            <script defer>
+                function checktime() {
+                    var date = new Date();
+                    var hour = date.getHours();
+                    var minute = date.getMinutes();
+                    var second = date.getSeconds();
+                    var curtimeM = (hour * 60) + minute;
+                    var curtimeS = (curtimeM * 60) + second;
+                    const initialTime = 27600;
+                    var endtime = initialTime;
+                    var timediff = endtime - curtimeS ;
+                    var periodno = -1;
+                    while (timediff < 0) {
+                        var timediff = timediff + 3000;
+                        var periodno = periodno + 1;
+                        }
+                    
+                    var rseconds = timediff % 60;
+                    var rminutes = Math.floor(timediff / 60);
+                    if (rseconds < 10) {
+                        var rseconds = "0" + rseconds;
+                        }
+                    if (rminutes < 10) {
+                        var rminutes = "0" + rminutes;
+                        }
+                        
+                    var result = "Time Remaining for Period " + periodno + " -> " + rminutes +" : " + rseconds;
+                    document.getElementById("timeleft-final").innerHTML = result;
+                    var t = setTimeout(function(){ checktime() }, 1000);
+                }
+            </script>
+        </div>
+
+        <div class="table">
+            <div class="table-grid-time">Time</div>
+            <div id="time1" class="table-grid-time"></div>
+            <div id="time2" class="table-grid-time"></div>
+            <div id="time3" class="table-grid-time"></div>
+            <div id="time4" class="table-grid-time"></div>
+            <div id="time5" class="table-grid-time"></div>
+            <div id="time6" class="table-grid-time"></div>
+            <div id="time7" class="table-grid-time"></div>
+            <div id="time8" class="table-grid-time"></div>
+            <div id="time9" class="table-grid-time"></div>
+            <div id="time10" class="table-grid-time"></div>
+            <div id="time11" class="table-grid-time"></div>
+
+            <div class="table-grid table-days" style="background: var(--color-monday);">Monday</div>
+            <div id="1" class="table-grid"></div>
+            <div id="2" class="table-grid"></div>
+            <div id="3" class="table-grid"></div>
+            <div id="4" class="table-grid"></div>
+            <div id="5" class="table-grid"></div>
+            <div id="6" class="table-grid"></div>
+            <div id="7" class="table-grid"></div>
+            <div id="8" class="table-grid"></div>
+            <div id="9"class="table-grid"></div>
+            <div id="10" class="table-grid"></div>
+            <div id="11" class="table-grid"></div>
+
+            <div class="table-grid table-days" style="background: var(--color-tuesday);">Tuesday</div>
+            <div id="12" class="table-grid"></div>
+            <div id="13" class="table-grid"></div>
+            <div id="14" class="table-grid"></div>
+            <div id="15" class="table-grid"></div>
+            <div id="16" class="table-grid"></div>
+            <div id="17" class="table-grid"></div>
+            <div id="18" class="table-grid"></div>
+            <div id="19" class="table-grid"></div>
+            <div id="20" class="table-grid"></div>
+            <div id="21" class="table-grid"></div>
+            <div id="22" class="table-grid"></div>
+            
+            <div class="table-grid table-days" style="background: var(--color-wednesday);">Wednesday</div>
+            <div id="23" class="table-grid"></div>
+            <div id="24" class="table-grid"></div>
+            <div id="25" class="table-grid"></div>
+            <div id="26" class="table-grid"></div>
+            <div id="27" class="table-grid"></div>
+            <div id="28" class="table-grid"></div>
+            <div id="29" class="table-grid"></div>
+            <div id="30" class="table-grid"></div>
+            <div id="31" class="table-grid"></div>
+            <div id="32" class="table-grid"></div>
+            <div id="33" class="table-grid"></div>
+
+            <div class="table-grid table-days" style="background: var(--color-thursday);">Thursday</div>
+            <div id="34" class="table-grid"></div>
+            <div id="35" class="table-grid"></div>
+            <div id="36" class="table-grid"></div>
+            <div id="37" class="table-grid"></div>
+            <div id="38" class="table-grid"></div>
+            <div id="39" class="table-grid"></div>
+            <div id="40" class="table-grid"></div>
+            <div id="41" class="table-grid"></div>
+            <div id="42" class="table-grid"></div>
+            <div id="43" class="table-grid"></div>
+            <div id="44" class="table-grid"></div>
+
+            <div class="table-grid table-days" style="background: var(--color-friday);">Friday</div>
+            <div id="45" class="table-grid"></div>
+            <div id="46" class="table-grid"></div>
+            <div id="47" class="table-grid"></div>
+            <div id="48" class="table-grid"></div>
+            <div id="49" class="table-grid"></div>
+            <div id="50" class="table-grid"></div>
+            <div id="51" class="table-grid"></div>
+            <div id="52" class="table-grid"></div>
+            <div id="53" class="table-grid"></div>
+            <div id="54" class="table-grid"></div>
+            <div id="55" class="table-grid"></div>
+        </div>
+
+        <div class="bookmarks-wrapper">
+            <div class="bookmarks-box">
+                <h2 id="bookmark-title-0">Bookmark-Title</h2>
+                <div class="bookmarks-links">
+                    <a target="_blank" id="bookmark-0-0">Bookmark-Name</a>
+                    <a target="_blank" id="bookmark-0-1">Bookmark-Name</a>
+                    <a target="_blank" id="bookmark-0-2">Bookmark-Name</a>
+                    <a target="_blank" id="bookmark-0-3">Bookmark-Name</a>
+                    <a target="_blank" id="bookmark-0-4">Bookmark-Name</a>
+                </div>
+            </div>
+            <div class="bookmarks-box">
+                <h2 id="bookmark-title-1">Bookmark-Title</h2>
+                <div class="bookmarks-links">
+                    <a target="_blank" id="bookmark-1-0">Bookmark-Name</a>
+                    <a target="_blank" id="bookmark-1-1">Bookmark-Name</a>
+                    <a target="_blank" id="bookmark-1-2">Bookmark-Name</a>
+                    <a target="_blank" id="bookmark-1-3">Bookmark-Name</a>
+                    <a target="_blank" id="bookmark-1-4">Bookmark-Name</a>
+                </div>
+            </div>
+            <div class="bookmarks-box">
+                <h2>Google Search</h2>
+                <div class="bookmarks-search">
+                    <input id="google-search" type="text">
+                    <button onclick="searchGoogle()">Search</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="setting-buttons-wrapper">
+            <abbr title="Change Theme">
+                <a onclick="swapTheme()">
+                    <span id="theme-switch" class="icon-button icon-button-inline material-symbols-outlined">
+                        light_mode
+                    </span>
+                </a>
+            </abbr>
+            <abbr class="elective-swapper" title="Swap Elective Class">
+                <a onclick="swapElectiveClass()">
+                    <span class="icon-button icon-button-inline material-symbols-outlined">
+                        swap_horiz
+                    </span>
+                </a>
+            </abbr>
+            <abbr title="View Timetable Changelog">
+                <a onclick="changelog()">
+                    <span class="icon-button icon-button-inline material-symbols-outlined">
+                        sticky_note_2
+                    </span>
+                </a>
+            </abbr>
+            <abbr title="Timetable Mobile">
+                <a href="./mobile/">
+                    <span class="icon-button icon-button-inline material-symbols-outlined">
+                        smartphone
+                    </span>
+                </a>
+            </abbr>
+            <abbr title="Reset Timetable Data">
+                <a onclick="resetTimetable()">
+                    <span class="icon-button icon-button-inline icon-button-danger material-symbols-outlined">
+                        refresh
+                    </span>
+                </a>
+            </abbr>
+        </div>
+    </div>
+    <footer class="footer-wrapper">
+        <p>
+            © <span id="year">----</span> PixelEdition. All rights reserved<br>
+            Timetable v<span id="version">-.-.-</span>
+        </p>
+    </footer>
 </body>
 </html>
