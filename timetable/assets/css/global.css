@@ -452,7 +452,7 @@ option {
     bottom: 0.5em;
     right: 1em;
 
-    width: calc(100vw - 2em);
+    width: calc(100% - 2em);
     max-width: 30em;
     height: max-content;
 

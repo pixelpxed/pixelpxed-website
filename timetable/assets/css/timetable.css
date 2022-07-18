@@ -42,7 +42,7 @@
 
 .setting-buttons-wrapper {
     width: max-content;
-    max-width: calc(100vw - 2em);
+    max-width: calc(100% - 2em);
 
     margin: 0 auto;
 }
@@ -70,7 +70,7 @@
     grid-template-columns: repeat(12, minmax(7em, 1fr));
     gap: 0.5em;
 
-    width: calc(100vw - 2em);
+    width: calc(100% - 2em);
     max-width: 100em;
 
     padding: 0.5em;
@@ -112,7 +112,7 @@
 }
 
 .table-grid-dark {
-    background: var(--color-gray-6);
+    background: transparent ;
 }
 
 .table-days {
@@ -143,6 +143,8 @@
     border: 1px solid var(--color-gray-4);
 
     border-radius: 0.3em;
+
+    transition: 0.2s background-color, 0.3s border;
 }
 
 .bookmarks-wrapper {
