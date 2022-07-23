@@ -191,15 +191,15 @@
     margin: 0.5em auto;
 }
 
-.changelog-content div {
+.about-content div {
     margin: 1em 1em 0 1em;
 }
 
-.changelog-content p {
+.about-content p {
     font-weight: var(--font-weight-bold);
 }
 
-.changelog-content ul {
+.about-content ul {
     padding-left: 2em;
 }
 
@@ -222,4 +222,8 @@
     .bookmarks-wrapper {
         grid-template-columns: 1fr;
     }
+}
+
+.timeleft-final {
+    text-align: center;
 }

@@ -32,6 +32,7 @@
     <!-- Components -->
     <script defer src="./assets/js/components/clock.js"></script>
     <script defer src="./assets/js/components/setup.js"></script>
+    <script defer src="./assets/js/components/timeleft.js"></script>
 
     <script defer src="./assets/js/config/config.js"></script>
 
@@ -133,10 +134,31 @@
         </div>
     </div>
 
-    <div id="changelog-wrapper" class="contentbox-wrapper">
+    <div id="about-wrapper" class="contentbox-wrapper">
         <div class="popup-content">
+            <p class="popup-title">About Timetable</p>
+            <div class="about-content" style="padding-bottom: 1em;">
+                <div>
+                    <p>Developer(s)</p>
+                    <ul>
+                        <li>@PixelEdition: Timetable</li>
+                        <ul>
+                            <li>Discord: pixel#2899</li>
+                        </ul>
+                    </ul>
+                </div>
+                <div>
+                    <p>Extra Feature Developer(s)</p>
+                    <ul>
+                        <li>@Pawin: Timeleft</li>
+                        <ul>
+                            <li>Discord: Pawin#5564</li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
             <p class="popup-title">Changelog</p>
-            <div id="changelog-content" class="changelog-content">
+            <div id="about-content" class="about-content">
                 <span class="material-symbols-outlined animation-rotate-inf">
                     autorenew
                 </span>
@@ -144,7 +166,7 @@
         </div>
         <div class="popup-buttons-box">
             <div class="popup-buttons-wrapper">
-                <a class="popup-button" onclick="changelog()">Done</a>
+                <a class="popup-button" onclick="about()">Done</a>
             </div>
         </div>
     </div>
@@ -188,38 +210,7 @@
 
         <!-- Experimental Feature: Time Left -->
         <div> 
-            <p id="timeleft-final" onload="checktime()"></p>
-            <script defer>
-                function checktime() {
-                    var date = new Date();
-                    var hour = date.getHours();
-                    var minute = date.getMinutes();
-                    var second = date.getSeconds();
-                    var curtimeM = (hour * 60) + minute;
-                    var curtimeS = (curtimeM * 60) + second;
-                    const initialTime = 27600;
-                    var endtime = initialTime;
-                    var timediff = endtime - curtimeS ;
-                    var periodno = -1;
-                    while (timediff < 0) {
-                        var timediff = timediff + 3000;
-                        var periodno = periodno + 1;
-                        }
-                    
-                    var rseconds = timediff % 60;
-                    var rminutes = Math.floor(timediff / 60);
-                    if (rseconds < 10) {
-                        var rseconds = "0" + rseconds;
-                        }
-                    if (rminutes < 10) {
-                        var rminutes = "0" + rminutes;
-                        }
-                        
-                    var result = "Time Remaining for Period " + periodno + " -> " + rminutes +" : " + rseconds;
-                    document.getElementById("timeleft-final").innerHTML = result;
-                    var t = setTimeout(function(){ checktime() }, 1000);
-                }
-            </script>
+            <p id="timeleft-final" class="timeleft-final"></p>
         </div>
 
         <div class="table">
@@ -347,10 +338,10 @@
                     </span>
                 </a>
             </abbr>
-            <abbr title="View Timetable Changelog">
-                <a onclick="changelog()">
+            <abbr title="About Timetable">
+                <a onclick="about()">
                     <span class="icon-button icon-button-inline material-symbols-outlined">
-                        sticky_note_2
+                        info
                     </span>
                 </a>
             </abbr>

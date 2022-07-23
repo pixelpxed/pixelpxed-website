@@ -9,10 +9,8 @@ window.addEventListener('load', () => {
         classJoiningSystem()
         fillBookmarks()
         updateChecker()
-    }
 
-    if (location.search === "?m-not305") {
-        addNotification("Timetable-M currently only supports class 305. We're sorry for the inconvenience, please try again in later days.")
+        about()
     }
 });
 
@@ -140,20 +138,20 @@ function searchGoogle() {
 }
 
 var changelogfetched = false
-function changelog() {    
-    if (document.getElementById("changelog-wrapper").style.display != "block") {
+function about() {    
+    if (document.getElementById("about-wrapper").style.display != "block") {
         disableScrollbar()
         if (changelogfetched === false) {
             fetch('./assets/components/html/changelog.html')
                 .then((response) => response.text())
-                .then((html) => {document.getElementById("changelog-content").innerHTML = html;})
+                .then((html) => {document.getElementById("about-content").innerHTML = html;})
             changelogfetched = true
         }
-        document.getElementById("changelog-wrapper").style.display = "block"
+        document.getElementById("about-wrapper").style.display = "block"
         return document.getElementById("full-page-overlay").style.display = "block"
-    } if (document.getElementById("changelog-wrapper").style.display == "block") {
+    } if (document.getElementById("about-wrapper").style.display == "block") {
         enableScrollbar()
-        document.getElementById("changelog-wrapper").style.display = "none"
+        document.getElementById("about-wrapper").style.display = "none"
         return document.getElementById("full-page-overlay").style.display = "none"
     }
 }
