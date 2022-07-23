@@ -1,5 +1,5 @@
 var copyrightyear = "2022"
-var timetableversion = "3.1.2"
+var timetableversion = "3.1.1"
 
 var elective_toggle = true
 var elective_primary = "Chinese"
