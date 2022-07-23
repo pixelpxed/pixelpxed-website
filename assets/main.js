@@ -13,7 +13,7 @@ window.onload = function() {
     setNavigationOffset()
     setThemeIcon()
 
-    document.querySelectorAll(".projects-title-link").forEach(title => {
+    document.querySelectorAll("a.projects-title[href]:not([value='']").forEach(title => {
         title.innerHTML += `<span style="color: var(--color-blue);" class="material-symbols-outlined">navigate_next</span>`
     })
 }
@@ -41,7 +41,7 @@ function setThemeIcon() {
 }
 
 // Function for swapping color themes.
-function themeswitch() {
+function swapTheme() {
     if (document.documentElement.classList != 'dark') {
         localStorage.setItem("theme", "dark")
         document.getElementById("theme-switch").textContent = "light_mode"
