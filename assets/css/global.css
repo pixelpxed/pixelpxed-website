@@ -140,8 +140,6 @@ body {
     background-size: cover;
 
     transition: 0.2s background-color;
-        
-    -webkit-text-size-adjust: 100%;
 }
 
 h1, h2, h3, h4, h5, h6, b {

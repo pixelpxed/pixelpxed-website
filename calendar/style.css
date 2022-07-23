@@ -77,6 +77,14 @@
     .ribbon {
         display: none !important;
     }
+
+    .copyright {
+        display: none !important;
+    }
+
+    .watermark {
+        display: block !important;
+    }
 }
 
 * {
@@ -121,6 +129,10 @@ a.underlined {
 
 abbr {
     text-decoration: none;
+}
+
+.watermark {
+    display: none;
 }
 
 .ribbon {

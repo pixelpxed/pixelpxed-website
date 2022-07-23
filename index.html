@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/preset.css">
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/css/global.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="icon" href="./assets/favicon.ico">
     <title>Home - PixelEdition</title>
 
@@ -25,129 +25,131 @@
     <script src="./assets/main.js" defer></script>
 </head>
 <body>
-    <div id="navbar" class="navbar navbar-fixed">
-        <a href="./" style="opacity: 1;">Home</a>
-        <a href="./timetable/">Timetable</a>
-        <div id="navbar-right" class="navbar-right">
-            <a style="cursor: default; opacity: 1;" onclick="popup(`Fact`, `You can type anything here! It is not saved for next time though...`, `white`)" contenteditable="true"></a>
+    <div id="navigation-bar" class="navigation-bar navigation-bar-fixed">
+        <div>
+            <a href="./" style="opacity: 1;">Home</a>
+            <a href="./timetable/">Timetable</a>
+        </div>
+        <div>
+            <abbr title="Change Theme">
+                <a onclick="themeswitch()" style="width: 36px; height: 36px;">
+                    <span id="theme-switch" class="material-symbols-outlined" style="font-size: 20px;">
+                        light_mode
+                    </span>
+                </a>
+            </abbr>
         </div>
     </div>
     <div id="main" class="main">
-        <div class="header">
-            <h1>PixelEdition</h1>
-            <p>I make things for people.</p>
-        </div>
-    
         <div class="intro">
-            <h2>Hi everyone visting this page!</h2>
-            <p>
-                I do website projects for fun, and sometimes makes something useful for everyone else to use also! This website purpose is to host my projects for others and archives what I made.<br><br>
-                
-                I'm from Thailand, I can speak Thai (obviously) and English (If I can't how am I writing this...)<br>I can write programs in Python, HTML, CSS, and JS.<br><br>
-    
-                P.S. Top of the page on the navigation bar are the main projects I will be constantly maintaining.
-            </p>
+            <div>
+                <img src="./assets/img/pixeledition.png">
+                <p style="text-align: center; font-size: 0.8em; opacity: 0.5;">PixelEdition</p>
+            </div>
+            <div>
+                <h1>Hi, im PixelEdition!</h1>
+                <p>
+                    I'm a student from <a href="https://en.wikipedia.org/wiki/Thailand">Thailand</a>, and is very interested in web development. I do web projects for fun and to learn, I sometimes make some useful tools like <a href="./timetable/">Timetable</a>. This website is to host my web projects and give information and downloads to non-web projects.<br><br>
+                    
+                    Below are all of my public projects since I started programming in mid-July 2020. And projects in the navigation bar is the main projects I'm working on.<br><br>
+
+                    <h2>Facts about me:</h2>
+                    <ul>
+                        <li>Can speak <b>Thai</b> and <b>English</b>.</li>
+                        <li>Writes <b>HTML</b>, <b>CSS</b>, <b>JS</b> and basic <b>Python</b>.</li>
+                        <li>Loves <b>fried chicken</b> and <b>Thailand's 7-EleveN sandwich</b>.</li>
+                        <li>Plays <b>CS:GO</b> and <b>Minecraft</b>.</li>
+                    </ul>
+                </p>
+            </div>
+            
         </div>
     
         <div class="projects">
-            <h3>Active Projects</h3>
+            <h2>Active Projects</h2>
+            <p>These are the projects I'm maintaining and updating.</p>
             <div class="projects-wrapper">
                 <div class="projects-scroll">
                     <div class="projects-card">
-                        <img src="./assets/timetable.png">
-                        <p class="projects-title">Timetable</p>
+                        <img src="./assets/img/projects/timetable.png">
+                        <a href="./timetable/" class="projects-title projects-title-link">Timetable</a>
                         <p class="projects-description">
-                            Easy way to join any class you imagine.<br><br>
+                            Join classes with a click.<br><br>
     
-                            Easily setup your own timetable. With abilities to be able to join classes and video calls with a click.
+                            Easily setup your own timetable with classes and links. With abilities to join classes and video calls with a click.
                         <p>
-                    
-                        <a href="./timetable/" class="projects-button">Go</a>
                     </div>
                     <div class="projects-card">
-                        <img src="./assets/timetablemobile.png">
-                        <p class="projects-title">Timetable (Mobile)
-                            <span style="font-size: 0.5em; opacity: 0.5; padding-top: -0.5em;">
-                        </p>
+                        <img src="./assets/img/projects/timetablemobile.png">
+                        <a href="./timetable/mobile/"  class="projects-title projects-title-link">Timetable (Mobile)</a>
                         <p class="projects-description">
-                            Previously: Timetable (Basic UI)<br><br>
+                            Join classes with a tap.<br><br>
 
-                            Simplified UI makes mobiles user able to join Google Classroom links, with ability to see the actual links also.
+                            Setup your Timetable from the main Timetable, then get all the links to join classes and video calls with a tap.
                         <p>
-                    
-                        <a href="./timetable/mobile/" class="projects-button">Go</a>
                     </div>
                     <div class="projects-card">
-                        <img src="./assets/isk.png">
-                        <p class="projects-title">iSK</p>
-                        <p class="projects-description">
-                            <a href="https://www.mysk.school/">MySK</a>'s UI redesign concept.<br><br>
-                            
-                            Concept design. Making the website look more professional.
-                        <p>
-                    
-                        <a href="./isk/" class="projects-button">Go</a>
-                    </div>
-                    <div class="projects-card">
-                        <img src="./assets/calendar.png">
-                        <p class="projects-title">Calendar</p>
+                        <img src="./assets/img/projects/calendar.png">
+                        <a href="./calendar/" class="projects-title projects-title-link">Calendar</a>
                         <p class="projects-description">
                             Simple printable calendar.<br><br>
                             
-                            Great design and usability. Can be save as a PDF or print for real-world uses.
+                            Great design and usability. Add notes and save as a PDF or print as a paper.
                         <p>
-                    
-                        <a href="./calendar/" class="projects-button">Go</a>
+                    </div>
+                    <div class="projects-card">
+                        <img src="./assets/img/projects/pixelpxedwebsite.png">
+                        <a href="./" class="projects-title projects-title-link">pixelpxed Website</a>
+                        <p class="projects-description">
+                            This website you're currently viewing!<br><br>
+                            
+                            For all things made by me, this website hosts all the web based projects and store every project's information and downloads.
+                        <p>
+                    </div>
+                    <div class="projects-card">
+                        <img src="./assets/img/projects/isk.png">
+                        <a href="https://isk-ui.vercel.app/" class="projects-title projects-title-link">iSK</a>
+                        <p class="projects-description">
+                            Professional looking <a href="http://www.mysk.school/" target="_blank">MySK</a>.<br><br>
+                            
+                            This is a concept design of <a href="http://www.mysk.school/" target="_blank">MySK</a> which is bad looking, and is not be frequently updated. This project is seperated from pixelpxed website's file system.
+                        <p>
                     </div>
                 </div>
             </div>
         </div>
     
         <div class="projects">
-            <h3>Discontinued Projects</h3>
+            <h2>Discontinued Projects</h2>
+            <p>These are the projects I've no longer maintaining and new features.</p>
             <div class="projects-wrapper">
                 <div class="projects-scroll">
     
                     <div class="projects-card">
                         <p class="projects-title">Timetable-M</p>
                         <p class="projects-description"> 
-                            Timetable for mobile users<br><br><br>
-    
-                            
-                            Discontinued:<br>
-                            Replaced by <a href="./timetable/basic/">Timetable (Basic UI)</a>
+                            Join classes with a tap similar to <a href="./timetable/mobile/">Timetable (Mobile)</a> but is harder to maintain, so the new <a href="./timetable/mobile/">Timetable (Mobile)</a> replaced it for maintaining purposes.
                         <p>
                     </div>
                     <div class="projects-card">
                         <p class="projects-title">PixelBot</p>
                         <p class="projects-description"> 
-                            A python discord bot. It's my first project into programming also!<br><br>
-                            
-                            Discontinued:<br>
-                            It's popularity died. (Unused)
+                            A Discord bot written in Python, for fun and administrative purposes. This is also my first ever project. Discontinued from it's dying popularity.
                         <p>
                     </div>
                     <div class="projects-card">
                         <p class="projects-title">BadCalculator</p>
                         <p class="projects-description"> 
-                            Simple console based calculator. Can add, aubtract, multiply, and divide only.<br><br>
-                            
-                            Discontinued:<br>
-                            Bad product.
+                            Simple console based calculator. Can add, aubtract, multiply, and divide only. Discontinued from it's useless functions and is a bad project.   
                         <p>
                     </div>
-   
                 </div>
             </div>
         </div>
     
-        <div class="footer">
-            <p>
-                This homepage was redesigned too many times. I hope this would be the final version in a while...<br><br>
-                © <span id="year">----</span> PixelEdition. All rights reserved<br>
-                <a style="text-decoration: underline; cursor: pointer;" onclick="themeswitch();">Change Theme</a>
-            </p>
-        </div>
+        <footer>
+            © <span id="year">----</span> PixelEdition. All rights reserved<br>
+        </footer>
         
         <div id="popup" class="popup">
             <div style="position: relative;">

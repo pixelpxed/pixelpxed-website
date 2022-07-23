@@ -20,6 +20,12 @@ function setThemeIcon() {
     } if (localStorage.getItem("theme") == "light") {
         document.documentElement.classList = "light";
         return document.getElementById("theme-switch").textContent = "dark_mode"
+    } else {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.documentElement.className = 'light';
+        } if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.className = 'dark';
+        }
     }
 }
 

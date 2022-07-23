@@ -1,5 +1,3 @@
-var curtheme = 'dark'
-
 window.onload = function() {
     console.log("%cWarning\n\n%cBy using this console you can get attacked by what it's called 'Self-XSS.' Never paste and run any codes that you don't understand.\n",
                 "text-align: center; font-size: 1.5em; color: red; font-weight: bold;", "text-align: center;")
@@ -7,60 +5,50 @@ window.onload = function() {
     document.getElementById("year").innerHTML = "2022"
 
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-        curtheme = 'light';
+        document.documentElement.className = 'light';
+    } if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.className = 'dark';
     }
 
-    resize()
+    setNavigationOffset()
+    setThemeIcon()
+
+    document.querySelectorAll(".projects-title-link").forEach(title => {
+        title.innerHTML += `<span style="color: var(--color-blue);" class="material-symbols-outlined">navigate_next</span>`
+    })
 }
 
-window.onresize = resize()
-
-function resize() {
-    document.getElementById("main").style.marginTop = `${document.getElementById("navbar").offsetHeight}px`
+function setNavigationOffset() {
+    document.getElementById("main").style.marginTop = `${document.getElementById("navigation-bar").offsetHeight}px`
+    window.addEventListener('resize', setNavigationOffset)
 }
 
-function popup(code, msg, status) {
-    document.querySelector(".popup").className = "popup";
-    document.querySelector(".timebar-player").className = "timebar-player"
-    window.requestAnimationFrame(function() {
-        window.requestAnimationFrame(function() {
-            code = code ?? "UKN-00"
-            msg = msg ?? "An unknown error occured."
 
-            // Popup box color
-            if (status == "white") {
-                document.getElementById("popup").style.background = "var(--textcolor)";
-
-                document.getElementById("codewrap").style.color = "var(--alt-textcolor)";
-                document.getElementById("code").style.color = "var(--alt-textcolor)";
-                document.getElementById("msg").style.color = "var(--alt-textcolor)";
-            } if (!status || status != "white") {
-                document.getElementById("popup").style.background = "var(--red)";
-
-                document.getElementById("codewrap").style.color = "var(--textcolor)";
-                document.getElementById("code").style.color = "var(--textcolor)";
-                document.getElementById("msg").style.color = "var(--textcolor)";
-
-                console.error(`[${code}] ${msg}`)
-            }
-
-            document.getElementById('popup').style.display = 'block'
-            document.getElementById("code").innerHTML = code;
-            document.getElementById("msg").innerHTML = msg;
-            document.querySelector(".popup").className = "popup popup-ani";
-            document.querySelector(".timebar-player").className = "timebar-player timebar-player-ani"
-        });
-    });
+function setThemeIcon() {
+    if (localStorage.getItem("theme") == "dark") {
+        document.documentElement.classList = "dark";
+        return document.getElementById("theme-switch").textContent = "light_mode"
+    } if (localStorage.getItem("theme") == "light") {
+        document.documentElement.classList = "light";
+        return document.getElementById("theme-switch").textContent = "dark_mode"
+    } else {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.documentElement.className = 'light';
+        } if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.className = 'dark';
+        }
+    }
 }
 
+// Function for swapping color themes.
 function themeswitch() {
-    if (curtheme == 'dark') {
-        curtheme = 'light';
-        popup(`CNE-03`, `The theme has been changed.`, `white`)
-        return document.documentElement.className = 'light';
-    } if (curtheme == 'light') {
-        curtheme = 'dark';
-        popup(`CNE-03`, `The theme has been changed.`, `white`)
+    if (document.documentElement.classList != 'dark') {
+        localStorage.setItem("theme", "dark")
+        document.getElementById("theme-switch").textContent = "light_mode"
         return document.documentElement.className = 'dark';
+    } if (document.documentElement.classList == 'dark') {
+        localStorage.setItem("theme", "light")
+        document.getElementById("theme-switch").textContent = "dark_mode"
+        return document.documentElement.className = 'light';
     }
 }
