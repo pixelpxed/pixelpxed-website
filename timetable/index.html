@@ -134,6 +134,42 @@
         </div>
     </div>
 
+    <div id="settings-wrapper" style="display: block;" class="contentbox-wrapper">
+        <div class="popup-content">
+            <p class="popup-title">Timetable Settings</p>
+
+            <div style="margin: 0.5em 0;">
+                <p style="margin-bottom: 0.5em;"><b>Time Remaining</b></p>
+                <div style="display: flex; gap: 0.5em;">
+                    <input type="checkbox" id="enable-timeremaining" name="enable-timeremaining">
+                    <label for="enable-timeremaining">Time remaining countdown</label>
+                </div>
+                <div style="display: flex; gap: 0.5em; margin-left: 1.5em;">
+                    <input type="checkbox" id="enable-timeremaining-sound" name="enable-timeremaining-sound">
+                    <label for="enable-timeremaining-sound">Sound effect when class ends</label>
+                </div>
+            </div>
+
+            <div style="margin: 0.5em 0;">
+                <p style="margin-bottom: 0.5em;"><b>Theme</b></p>
+                <select name="theme" id="theme-select">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+            
+            <div style="margin: 0.5em 0;">
+                <p style="margin-bottom: 0.5em;"><b>Danger Zone</b></p>
+                <a class="popup-button" onclick="resetTimetable()" style="background: var(--color-red);">Reset Timetable</a>
+            </div>
+        </div>
+        <div class="popup-buttons-box">
+            <div class="popup-buttons-wrapper">
+                <a class="popup-button" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'">Done</a>
+            </div>
+        </div>
+    </div>
+
     <div id="about-wrapper" class="contentbox-wrapper">
         <div class="popup-content">
             <p class="popup-title">About</p>

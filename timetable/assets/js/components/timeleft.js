@@ -2,7 +2,11 @@ var enable_timeleft = true
 var enable_timeleft_sound = true
 
 var periodperday = 11 // Number of periods per day
-var periodlength = 10 // Period's length in minutes
+var periodlength = 50 // Period's length in minutes
+
+// When the system starts counting in time.
+var starthour = 7 // Hour
+var startmin = 40 // Minutes
 
 window.addEventListener('load', () => {
     timeleft()
@@ -10,7 +14,7 @@ window.addEventListener('load', () => {
 
 function timeleft() {
     if (enable_timeleft == true && (localStorage.getItem("classTimetable") === "305" || localStorage.getItem("classTimetable") === "306")) {
-        var soundplaying = false
+        var bellchimescooldown = false
         setInterval(() => {
             var date = new Date();
             var hour = date.getHours();
@@ -20,7 +24,7 @@ function timeleft() {
             var curtimeM = (hour * 60) + minute;
             var curtimeS = (curtimeM * 60) + second;
 
-            var endtime = 27600;
+            var endtime = ((starthour * 60) * 60) + (startmin * 60);
             var timediff = endtime - curtimeS;
 
             var periodno = -1;
@@ -36,16 +40,15 @@ function timeleft() {
                 document.getElementById("timeleft-final").innerHTML = `Time Remaining for<br><b style="font-family: 'Roboto Mono', monospace;">Period ${periodno} - ${rminutes >= 10 ? rminutes : "0" + rminutes}:${rseconds >= 10 ? rseconds : "0" + rseconds}</b>`;
                 
                 if (((rminutes == 0) && (rseconds == 0)) && (enable_timeleft_sound = true)) {
-                    if (soundplaying != true) {
-                        soundplaying = true
-                        var bellChimes = new Audio("./assets/sound/bellChimes.mp3")
-                        bellChimes.play()
+                    if (bellchimescooldown != true) {
+                        bellchimescooldown = true
+                        new Audio("./assets/sound/bellChimes.mp3").play()
                         setTimeout(() => {
-                            soundplaying = false
+                            bellchimescooldown = false
                         }, 34945);
                     }
                 }
-            } if (periodno >= periodperday || periodno <= 0) {
+            } if (periodno > periodperday || periodno <= 0) {
                 document.getElementById("timeleft-final").innerHTML = `School has ended or isn't started yet.<br><b style="font-family: 'Roboto Mono', monospace;">(Reload the page to use this feature again if the school has ended.)</b>`
             }
         }, 1);
