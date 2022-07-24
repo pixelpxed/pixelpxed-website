@@ -136,8 +136,15 @@
 
     <div id="about-wrapper" class="contentbox-wrapper">
         <div class="popup-content">
-            <p class="popup-title">About Timetable</p>
+            <p class="popup-title">About</p>
             <div class="about-content" style="padding-bottom: 1em;">
+                <div>
+                    <p>About Timetable</p>
+                    <ul>
+                        <li>Version: <span class="js-fill-version"></span></li>
+                        <li>Copyright Year: <span class="js-fill-year"></span></li>
+                    </ul>
+                </div>
                 <div>
                     <p>Developer(s)</p>
                     <ul>
@@ -150,7 +157,7 @@
                 <div>
                     <p>Extra Feature Developer(s)</p>
                     <ul>
-                        <li>@Pawin: Timeleft</li>
+                        <li>@Pawin: Time Remaining</li>
                         <ul>
                             <li>Discord: Pawin#5564</li>
                         </ul>
@@ -208,9 +215,8 @@
             <p class="date" id="date">------, -- ----- ----</p>
         </div>
 
-        <!-- Experimental Feature: Time Left -->
         <div> 
-            <p id="timeleft-final" class="timeleft-final"></p>
+            <p id="timeleft-final" class="timeleft-final">Loading...</p>
         </div>
 
         <div class="table">
@@ -345,7 +351,7 @@
                     </span>
                 </a>
             </abbr>
-            <abbr title="Timetable Mobile">
+            <abbr class="mobile-link" title="Timetable Mobile">
                 <a href="./mobile/">
                     <span class="icon-button icon-button-inline material-symbols-outlined">
                         smartphone
@@ -363,8 +369,8 @@
     </div>
     <footer class="footer-wrapper">
         <p>
-            © <span id="year">----</span> PixelEdition. All rights reserved<br>
-            Timetable v<span id="version">-.-.-</span>
+            © <span class="js-fill-year">----</span> PixelEdition. All rights reserved<br>
+            Timetable v<span class="js-fill-version">-.-.-</span>
         </p>
     </footer>
 </body>

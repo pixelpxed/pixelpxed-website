@@ -9,14 +9,15 @@ window.addEventListener('load', () => {
         classJoiningSystem()
         fillBookmarks()
         updateChecker()
-
-        about()
+        googleSearchEnter()
     }
 });
 
 function setTimetableVersion() {
     if (timetableversion != "") {
-        document.getElementById("version").innerHTML = timetableversion
+        document.querySelectorAll(".js-fill-version").forEach(element => {
+            element.innerHTML = timetableversion
+        })
     }
 }
 
@@ -24,6 +25,7 @@ function setClassVariables() {
     if (localStorage.getItem("classTimetable") === "305") {
         classes = classes_305
         subj = subj_305
+        document.querySelector(".mobile-link").style.display = "inline-flex"
         return
     } if (localStorage.getItem("classTimetable") === "306") {
         classes = classes_306
@@ -129,6 +131,14 @@ function swapElectiveClass() {
             return electiveGridContent.innerHTML = elective_primary
         }
     }
+}
+
+function googleSearchEnter() {
+    document.getElementById("google-search").addEventListener("keydown", key => {
+        if (key.code === "Enter") {
+            searchGoogle()
+        }
+    })
 }
 
 function searchGoogle() {

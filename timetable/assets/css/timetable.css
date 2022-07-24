@@ -10,6 +10,10 @@
     display: none;
 }
 
+.mobile-link {
+    display: none;
+}
+
 .setup-img {
     width: 100%;
 
@@ -61,7 +65,9 @@
 
 .clock {
     font-size: 2em;
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-bold);
+
+    font-family: 'Roboto Mono', monospace;
 }
 
 .table {
