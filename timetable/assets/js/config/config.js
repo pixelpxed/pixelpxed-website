@@ -5,7 +5,7 @@ var elective_toggle = true
 var elective_primary = "Chinese"
 var elective_secondary = "Japanese"
 
-var enable_specialclass = false
+var enable_specialclass = true
 
 const classtimes_regular = [
     "08:00 - 08:40", 
