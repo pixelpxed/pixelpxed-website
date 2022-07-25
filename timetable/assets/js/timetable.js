@@ -51,6 +51,7 @@ function fillClasses() {
     var classtimes = classtimes_regular
     if (enable_specialclass == true) {
         classtimes = classtimes_special
+        addNotification("Special class times is enabled.")
     }
 
     for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
