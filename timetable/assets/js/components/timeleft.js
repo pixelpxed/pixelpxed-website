@@ -6,7 +6,7 @@ var periodlength = 40 // Period's length in minutes
 
 // When the system starts counting in time.
 var starthour = 7 // Hour
-var startmin = 40 // Minutes
+var startmin = 50 // Minutes
 
 window.addEventListener('load', () => {
     timeleft()
