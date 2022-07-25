@@ -2,11 +2,19 @@ var enable_timeleft = true
 var enable_timeleft_sound = true
 
 var periodperday = 11 // Number of periods per day
-var periodlength = 40 // Period's length in minutes
+var periodlength = 50 // Period's length in minutes
 
 // When the system starts counting in time.
 var starthour = 7 // Hour
-var startmin = 50 // Minutes
+var startmin = 40 // Minutes
+
+if (enable_specialclass == true) {
+    periodperday = 11
+    periodlength = 40
+
+    starthour = 7
+    startmin = 50
+}
 
 window.addEventListener('load', () => {
     timeleft()
