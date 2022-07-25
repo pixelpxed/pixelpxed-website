@@ -5,7 +5,9 @@ var elective_toggle = true
 var elective_primary = "Chinese"
 var elective_secondary = "Japanese"
 
-const classtimes = [
+var enable_specialclass = true
+
+const classtimes_regular = [
     "08:00 - 08:40", 
     "08:40 - 09:20", 
     "09:20 - 10:00", 
@@ -17,6 +19,20 @@ const classtimes = [
     "14:20 - 15:00", 
     "15:20 - 16:00", 
     "16:00 - 16:40"
+]
+
+const classtimes_special = [
+    "08:00 - 08:30",
+    "08:30 - 09:10",
+    "09:10 - 09:50",
+    "09:50 - 10:30",
+    "10:30 - 11:10",
+    "11:10 - 11:50",
+    "11:50 - 12:30",
+    "12:30 - 13:10",
+    "13:10 - 13:50",
+    "13:50 - 14:30",
+    "14:30 - 15:10"
 ]
 
 const bookmarks = {

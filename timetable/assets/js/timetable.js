@@ -48,6 +48,11 @@ function fillClasses() {
         event.preventDefault();
     })
 
+    var classtimes = classtimes_regular
+    if (enable_specialclass == true) {
+        classtimes = classtimes_special
+    }
+
     for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
         document.getElementById(`time${timeFilled + 1}`).innerHTML = classtimes[timeFilled]
     }
