@@ -17,6 +17,8 @@ if (enable_specialclass == true) {
 }
 
 window.addEventListener('load', () => {
+    document.querySelector(".clock-wrapper").insertAdjacentHTML("afterend", '<div><p id="timeleft-final" class="timeleft-final">Loading...</p></div>')
+
     timeleft()
 });
 
