@@ -8,7 +8,7 @@ var periodlength = 50 // Period's length in minutes
 var starthour = 7 // Hour
 var startmin = 40 // Minutes
 
-if (enable_specialclass == true) {
+if (enable_specialclass = true) {
     periodperday = 11
     periodlength = 40
 
