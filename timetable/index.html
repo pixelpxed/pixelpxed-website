@@ -55,83 +55,7 @@
 
     <!-- Popup Elements -->
     <div id="setup-wrapper" class="contentbox-wrapper">
-        <!-- Setup Elements -->
-        <div class="popup-content">
-            <!-- Setup Title -->
-            <p>
-                <span class="popup-title">Let's setup your Timetable.</span>
-                <span>
-                    This setup screen will only pop up on your first visit, 
-                    when you clear your browser cache/cookies, 
-                    or when you decided to reset your Timetable data.
-                </span>
-            </p>
-            <!-- Class -->
-            <div class="contentbox-option-wrapper">
-                <p class="contentbox-option-title">
-                    Select Your Class
-                    <abbr title="To provide you with your class timetable.">
-                        <span class="material-symbols-outlined">
-                            help
-                        </span>
-                    </abbr>
-                </p>
-                <select id="setup-option-class">
-                    <option value="305">305</option>
-                    <option value="306">306</option>
-                    <option value="custom">Custom Class</option>
-                </select>
-            </div>
-
-            <!-- Custom JSON Class -->
-            <div id="setup-custom-json-wrapper" class="contentbox-option-wrapper setup-custom-json-wrapper">
-                <p class="contentbox-option-title">
-                    Custom Class Names <a href="./templates/customclass.json" target="_blank">(Format)</a>
-                    <abbr title="This will be use to fill in your timetable classes.">
-                        <span class="material-symbols-outlined">
-                            help
-                        </span>
-                    </abbr>
-                </p>
-                <textarea id="setup-custom-json-value-classes" type="text" class="setup-custom-json" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"></textarea>
-                
-                <p class="contentbox-option-title">
-                    Custom Class Links <a href="./templates/customlinks.json" target="_blank">(Format)</a>
-                    <abbr title="This will be use to fill in your timetable links.">
-                        <span class="material-symbols-outlined">
-                            help
-                        </span>
-                    </abbr>
-                </p>
-                <textarea id="setup-custom-json-value-links" type="text" class="setup-custom-json" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"></textarea>
-                
-                <p id="setup-error" class="setup-error"></p>
-            </div>
-
-            <!-- Google Account Index -->
-            <div class="contentbox-option-wrapper">
-                <p class="contentbox-option-title">
-                    Google Account Index
-                    <abbr title="Google account index is used to sign you into the correct account while you join classes.">
-                        <span class="material-symbols-outlined">
-                            help
-                        </span>
-                    </abbr>
-                </p>
-                <input id="setup-option-index" type="number" value="0" min="0">
-            </div>
-            <img 
-                src="./assets/img/googleindexno.png"
-                class="setup-img"
-                alt="Step 1: Go to Google Classroom, then log into your preferred account to use for your Timetable.
-                     Step 2: Observe the URL, you should see the Google account index like this: 'https://classroom.google.com/u/{Index Number}/h'"
-            >
-        </div>
-        <div class="popup-buttons-box">
-            <div class="popup-buttons-wrapper">
-                <a class="popup-button" onclick="setupTimetable()">Complete Setup</a>
-            </div>
-        </div>
+        
     </div>
 
     <div id="settings-wrapper" style="display: block;" class="contentbox-wrapper">
@@ -139,35 +63,74 @@
             <p class="popup-title">Timetable Settings</p>
 
             <div style="margin: 0.5em 0;">
-                <p style="margin-bottom: 0.5em;"><b>Time Remaining</b></p>
-                <div style="display: flex; gap: 0.5em;">
+                <p style="margin-bottom: 0.5em;"><b>Time Remaining (Beta)</b></p>
+                <div style="display: flex; gap: 0.5em; align-items: center;">
                     <input type="checkbox" id="enable-timeremaining" name="enable-timeremaining">
                     <label for="enable-timeremaining">Time remaining countdown</label>
                 </div>
-                <div style="display: flex; gap: 0.5em; margin-left: 1.5em;">
+                <div style="display: flex; gap: 0.5em; align-items: center; margin-left: 1.5em;">
                     <input type="checkbox" id="enable-timeremaining-sound" name="enable-timeremaining-sound">
-                    <label for="enable-timeremaining-sound">Sound effect when class ends</label>
+                    <label for="enable-timeremaining-sound">Play virtual bell sound when class ends</label>
                 </div>
             </div>
 
             <div style="margin: 0.5em 0;">
-                <p style="margin-bottom: 0.5em;"><b>Theme</b></p>
+                <p style="margin-bottom: 0.5em;">
+                    <b>
+                        Theme
+                    </b><br>
+                    <span style="font-size: 0.8em; opacity: 0.5;">
+                        This theme will be applied across updated pixelpxed website pages.
+                    </span>
+                </p>
                 <select name="theme" id="theme-select">
-                    <option value="light">Light</option>
+                    <option value="sync-os">Automatic (sync with system)</option>
                     <option value="dark">Dark</option>
+                    <option value="light">Light</option>
                 </select>
             </div>
             
             <div style="margin: 0.5em 0;">
                 <p style="margin-bottom: 0.5em;"><b>Danger Zone</b></p>
-                <a class="popup-button" onclick="resetTimetable()" style="background: var(--color-red);">Reset Timetable</a>
+                <a class="popup-button popup-button-full" onclick="resetTimetable()" style="background: var(--color-red);">Reset Timetable</a>
             </div>
         </div>
         <div class="popup-buttons-box">
             <div class="popup-buttons-wrapper">
-                <a class="popup-button" onclick="this.parentNode.parentNode.parentNode.style.display = 'none'">Done</a>
+                <a class="popup-button" onclick="settingsDone()">Done</a>
             </div>
         </div>
+        <script defer>
+            window.addEventListener("load", () => {
+                if (localStorage.getItem("theme")) {
+                    document.getElementById("theme-select").value = localStorage.getItem("theme")
+                } if (!localStorage.getItem("theme")) {
+                    document.getElementById("theme-select").value = "sync-os"
+                }
+                
+            })
+
+            function settingsDone() {
+                document.getElementById("settings-wrapper").style.display = "none"
+
+                if (document.getElementById("enable-timeremaining").checked == true) {
+                    localStorage.setItem("enableTimeRemaining", true)
+                    if (document.getElementById("enable-timeremaining-sound").checked == true) {
+                        localStorage.setItem("enableTimeRemainingSound", true)
+                    } if (document.getElementById("enable-timeremaining-sound").checked == false) {
+                        localStorage.setItem("enableTimeRemainingSound", false)
+                    }
+                } if (document.getElementById("enable-timeremaining").checked == false) {
+                    localStorage.setItem("enableTimeRemaining", false)
+                    localStorage.setItem("enableTimeRemainingSound", false)
+                }
+
+                if (localStorage.getItem('theme') != document.getElementById("theme-select").value) {
+                    localStorage.setItem('theme', document.getElementById("theme-select").value)
+                    location.reload()
+                }
+            }
+        </script>
     </div>
 
     <div id="about-wrapper" class="contentbox-wrapper">
@@ -178,7 +141,9 @@
                     <p>About Timetable</p>
                     <ul>
                         <li>Version: <span class="js-fill-version"></span></li>
+                        <li>Time List: <span class="js-fill-timetype"></span></li>
                         <li>Copyright Year: <span class="js-fill-year"></span></li>
+                        <li>Timetable works best with latest version of modern browsers.</li>
                     </ul>
                 </div>
                 <div>
@@ -214,30 +179,10 @@
             </div>
         </div>
     </div>
-    
 
-    <div id="popup-type-confirm" class="popup popup-type-confirm">
-        <div class="popup-wrapper">
-            <div class="popup-content">
-                <span id="popup-confirm-title" class="popup-title"></span>
-                <span id="popup-confirm-content"></span>
-            </div>
-            <div class="popup-buttons-box">
-                <div class="popup-buttons-wrapper">
-                    <a id="popup-confirm-true" class="popup-button">Yes</a>
-                    <a id="popup-confirm-false" class="popup-button">No</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="full-page-overlay" class="full-page-overlay"></div>
 
-    <div id="full-page-overlay" class="full-page-overlay">
-
-    </div>
-
-    <div id="notification-center" class="notification-wrapper">
-        
-    </div>
+    <div id="notification-center" class="notification-wrapper"></div>
 
     <!-- Main Content -->
     <div id="main" class="main">
@@ -391,10 +336,10 @@
                     </span>
                 </a>
             </abbr>
-            <abbr title="Reset Timetable Data">
+            <abbr title="Settings">
                 <a onclick="resetTimetable()">
-                    <span class="icon-button icon-button-inline icon-button-danger material-symbols-outlined">
-                        refresh
+                    <span class="icon-button icon-button-inline material-symbols-outlined">
+                        settings
                     </span>
                 </a>
             </abbr>

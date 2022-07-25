@@ -1,15 +1,12 @@
-var enable_timeleft = true
-var enable_timeleft_sound = true
-
-var periodperday = 11 // Number of periods per day
+var periodperday = 10 // Number of periods per day
 var periodlength = 50 // Period's length in minutes
 
 // When the system starts counting in time.
 var starthour = 7 // Hour
 var startmin = 40 // Minutes
 
-if (enable_specialclass == true) {
-    periodperday = 11
+if (classtime_type === "special") {
+    periodperday = 10
     periodlength = 40
 
     starthour = 7
@@ -18,12 +15,11 @@ if (enable_specialclass == true) {
 
 window.addEventListener('load', () => {
     document.querySelector(".clock-wrapper").insertAdjacentHTML("afterend", '<div><p id="timeleft-final" class="timeleft-final">Loading...</p></div>')
-
     timeleft()
 });
 
 function timeleft() {
-    if (enable_timeleft == true && (localStorage.getItem("classTimetable") === "305" || localStorage.getItem("classTimetable") === "306")) {
+    if (localStorage.getItem("enableTimeRemaining" == "true") && (localStorage.getItem("classTimetable") === "305" || localStorage.getItem("classTimetable") === "306")) {
         var bellchimescooldown = false
         setInterval(() => {
             var date = new Date();
@@ -49,7 +45,7 @@ function timeleft() {
             if (periodno >= 0 && periodno <= periodperday) {
                 document.getElementById("timeleft-final").innerHTML = `Time Remaining for<br><b style="font-family: 'Roboto Mono', monospace;">Period ${periodno} - ${rminutes >= 10 ? rminutes : "0" + rminutes}:${rseconds >= 10 ? rseconds : "0" + rseconds}</b>`;
                 
-                if (((rminutes == 0) && (rseconds == 0)) && (enable_timeleft_sound = true)) {
+                if (((rminutes == 0) && (rseconds == 0)) && (localStorage.getItem("enableTimeRemainingSound") == true)) {
                     if (bellchimescooldown != true) {
                         bellchimescooldown = true
                         new Audio("./assets/sound/bellChimes.mp3").play()
@@ -62,7 +58,7 @@ function timeleft() {
                 document.getElementById("timeleft-final").innerHTML = `School has ended or isn't started yet.<br><b style="font-family: 'Roboto Mono', monospace;">(Reload the page to use this feature again if the school has ended.)</b>`
             }
         }, 1);
-    } if (enable_timeleft != true || (localStorage.getItem("classTimetable") !== "305" || localStorage.getItem("classTimetable") !== "306")) {
+    } if (localStorage.getItem("enableTimeRemaining") != "true" || (localStorage.getItem("classTimetable") !== "305" || localStorage.getItem("classTimetable") !== "306")) {
         document.getElementById("timeleft-final").innerHTML = "";
     }
 }

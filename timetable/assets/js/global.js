@@ -14,31 +14,26 @@ function setNavigationOffset() {
 
 // Set default values when Timetable loads.
 function setThemeIcon() {
+    document.documentElement.classList = localStorage.getItem("theme");
     if (localStorage.getItem("theme") == "dark") {
-        document.documentElement.classList = "dark";
         return document.getElementById("theme-switch").textContent = "light_mode"
     } if (localStorage.getItem("theme") == "light") {
-        document.documentElement.classList = "light";
         return document.getElementById("theme-switch").textContent = "dark_mode"
-    } else {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-            document.documentElement.className = 'light';
-        } if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.className = 'dark';
-        }
     }
 }
 
 // Function for swapping color themes.
 function swapTheme() {
-    if (document.documentElement.classList != 'dark') {
+    if (localStorage.getItem("theme") === "dark") {
         localStorage.setItem("theme", "dark")
         document.getElementById("theme-switch").textContent = "light_mode"
         return document.documentElement.className = 'dark';
-    } if (document.documentElement.classList == 'dark') {
+    } if (localStorage.getItem("theme") === "light") {
         localStorage.setItem("theme", "light")
         document.getElementById("theme-switch").textContent = "dark_mode"
         return document.documentElement.className = 'light';
+    } if (localStorage.getItem("theme") === "sync-os") {
+        return
     }
 }
 
@@ -54,7 +49,7 @@ function addNotification(content, type) {
             <p class="notification-content">
                 ${content}
             </p>
-            <a class="notification-close" onclick="this.parentNode.remove()">
+            <a class="notification-close" onclick="this.parentNode.classList.add('notification-box-out'); setTimeout(() => {this.parentNode.remove()}, 300);">
                 <span class="material-symbols-outlined">
                     close
                 </span>
@@ -63,32 +58,36 @@ function addNotification(content, type) {
     `);
 }
 
+var popupid = 0
 function popupConfirm(title, content, answerTrue, answerFalse) {
     disableScrollbar()
 
-    document.getElementById("popup-confirm-title").innerHTML = title
-    document.getElementById("popup-confirm-content").innerHTML = content
+    document.querySelector(".full-page-overlay").insertAdjacentHTML("beforebegin", `
+    <div id="popup-type-confirm-${popupid}" class="popup popup-type-confirm">
+        <div class="popup-wrapper">
+            <div class="popup-content">
+                <span id="popup-confirm-title" class="popup-title">${title}</span>
+                <span id="popup-confirm-content">${content}</span>
+            </div>
+            <div class="popup-buttons-box">
+                <div class="popup-buttons-wrapper">
+                    <a id="popup-confirm-true" class="popup-button" onclick="popupConfirmDone(${popupid}); ${answerTrue}();">Yes</a>
+                    <a id="popup-confirm-false" class="popup-button" onclick="popupConfirmDone(${popupid}); ${answerFalse}();">No</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    `)
 
     document.getElementById("full-page-overlay").style.display = "block"
-    document.getElementById("popup-type-confirm").style.display = "block"
 
-    document.getElementById("popup-confirm-true").addEventListener("click", () => {
-        popupConfirmDone()
-        enableScrollbar()
-        answerTrue()
-    })
-    document.getElementById("popup-confirm-false").addEventListener("click", () => {
-        popupConfirmDone()
-        enableScrollbar()
-        answerFalse()
-    })
-    
-    
+    popupid = popupid + 1
 }
 
-function popupConfirmDone() {
+function popupConfirmDone(id) {
     document.getElementById("full-page-overlay").style.display = "none"
-    document.getElementById("popup-type-confirm").style.display = "none"
+    document.getElementById(`popup-type-confirm-${id}`).remove()
+    enableScrollbar()
 }
 
 function disableScrollbar() {
