@@ -16,7 +16,7 @@ setTimeout(() => {
         starthour = 7
         startmin = 50
     }
-), 1000);
+}, 1000);
 
 window.addEventListener('load', () => {
     timeleft()
