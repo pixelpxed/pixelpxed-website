@@ -8,15 +8,13 @@ var periodlength = 50 // Period's length in minutes
 var starthour = 7 // Hour
 var startmin = 40 // Minutes
 
-setTimeout(() => {
-    if (enable_specialclass == true) {
-        periodperday = 11
-        periodlength = 40
+if (enable_specialclass == true) {
+    periodperday = 11
+    periodlength = 40
 
-        starthour = 7
-        startmin = 50
-    }
-}, 1000);
+    starthour = 7
+    startmin = 50
+}
 
 window.addEventListener('load', () => {
     timeleft()
