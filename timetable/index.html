@@ -97,7 +97,8 @@
         </div>
         <div class="popup-buttons-box">
             <div class="popup-buttons-wrapper">
-                <a class="popup-button" onclick="settingsDone()">Update Settings</a>
+                <a class="popup-button" onclick="settingsDone()">Done</a>
+                <a href="popup-button" onclick="settingsIgnore()">Cancel</a>
             </div>
         </div>
         <script defer>
@@ -109,6 +110,10 @@
                 }
                 
             })
+
+            function settingsIgnore() {
+                document.getElementById("settings-wrapper").style.display = "none"
+            }
 
             function settingsDone() {
                 document.getElementById("settings-wrapper").style.display = "none"
