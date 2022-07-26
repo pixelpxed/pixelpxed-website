@@ -4,7 +4,6 @@ window.addEventListener('load', () => {
                 "font-family: sans-serif;")
 
     setNavigationOffset()
-    setThemeIcon()
 });
 
 function setNavigationOffset() {
@@ -49,7 +48,7 @@ function addNotification(content, type) {
             <p class="notification-content">
                 ${content}
             </p>
-            <a class="notification-close" onclick="this.parentNode.classList.add('notification-box-out'); setTimeout(() => {this.parentNode.remove()}, 300);">
+            <a class="notification-close" onclick="this.parentNode.classList.add('notification-box-out'); setTimeout(() => {this.parentNode.remove()}, 200);">
                 <span class="material-symbols-outlined">
                     close
                 </span>
