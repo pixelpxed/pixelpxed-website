@@ -5,6 +5,11 @@ window.addEventListener("load", () => {
         document.getElementById("theme-select").value = "sync-os"
     }
     
+    if (localStorage.getItem("enable-timeremaining") == "true") {
+        document.getElementById("enable-timeremaining").checked = true
+    } if (!localStorage.getItem("enable-timeremaining")) {
+        document.getElementById("enable-timeremaining").checked = false
+    }
 })
 
 function settingsIgnore() {
