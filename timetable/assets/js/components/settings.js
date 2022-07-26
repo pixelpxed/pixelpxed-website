@@ -6,9 +6,7 @@ window.addEventListener("load", () => {
     }
     
     if (localStorage.getItem("enable-timeremaining") == "true") {
-        document.getElementById("enable-timeremaining").checked = true
-    } if (!localStorage.getItem("enable-timeremaining")) {
-        document.getElementById("enable-timeremaining").checked = false
+        document.getElementById("enable-timeremaining").click()
     }
 })
 
