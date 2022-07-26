@@ -4,21 +4,25 @@ var classes = undefined
 window.addEventListener('load', () => {
     if (localStorage.getItem("setupComplete") === "true") {
         setClassVariables()
-        setTimetableVersion()
+        setTimetableSystemInformation()
         fillClasses()
         classJoiningSystem()
         fillBookmarks()
         updateChecker()
-    }
-
-    if (location.search === "?m-not305") {
-        addNotification("Timetable-M currently only supports class 305. We're sorry for the inconvenience, please try again in later days.")
+        googleSearchEnter()
     }
 });
 
-function setTimetableVersion() {
+function setTimetableSystemInformation() {
     if (timetableversion != "") {
-        document.getElementById("version").innerHTML = timetableversion
+        document.querySelectorAll(".js-fill-version").forEach(element => {
+            element.innerHTML = timetableversion
+        })
+    }
+    if (classtime_type != "") {
+        document.querySelectorAll(".js-fill-timetype").forEach(element => {
+            element.innerHTML = classtime_type
+        })
     }
 }
 
@@ -26,6 +30,7 @@ function setClassVariables() {
     if (localStorage.getItem("classTimetable") === "305") {
         classes = classes_305
         subj = subj_305
+        document.querySelector(".mobile-link").style.display = "inline-flex"
         return
     } if (localStorage.getItem("classTimetable") === "306") {
         classes = classes_306
@@ -36,7 +41,7 @@ function setClassVariables() {
         subj = JSON.parse(localStorage.getItem("customLinksJSON"))
         return
     } else {
-        popupConfirm("An error occured.", "Your Timetable data doesn't seem to be correct, click 'Yes' to setup your Timetable again.", resetTimetable, returnNothing)
+        popupConfirm("An error occured.", "Your Timetable data doesn't seem to be correct, click 'Yes' to setup your Timetable again.", "resetTimetable", "returnNothing")
     }
 }
 
@@ -49,7 +54,7 @@ function fillClasses() {
     })
 
     for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
-        document.getElementById(`time${timeFilled + 1}`).innerHTML = classtimes[timeFilled]
+        document.getElementById(`time${timeFilled + 1}`).innerHTML = classtimes[classtime_type][timeFilled]
     }
 
     // Fill class names and styling.
@@ -133,6 +138,14 @@ function swapElectiveClass() {
     }
 }
 
+function googleSearchEnter() {
+    document.getElementById("google-search").addEventListener("keydown", key => {
+        if (key.code === "Enter") {
+            searchGoogle()
+        }
+    })
+}
+
 function searchGoogle() {
     var searchValue = document.getElementById('google-search').value;
     window.open(`https://www.google.com/search?q=${searchValue}`);
@@ -140,20 +153,20 @@ function searchGoogle() {
 }
 
 var changelogfetched = false
-function changelog() {    
-    if (document.getElementById("changelog-wrapper").style.display != "block") {
+function about() {    
+    if (document.getElementById("about-wrapper").style.display != "block") {
         disableScrollbar()
         if (changelogfetched === false) {
             fetch('./assets/components/html/changelog.html')
                 .then((response) => response.text())
-                .then((html) => {document.getElementById("changelog-content").innerHTML = html;})
+                .then((html) => {document.getElementById("about-content").innerHTML = html;})
             changelogfetched = true
         }
-        document.getElementById("changelog-wrapper").style.display = "block"
+        document.getElementById("about-wrapper").style.display = "block"
         return document.getElementById("full-page-overlay").style.display = "block"
-    } if (document.getElementById("changelog-wrapper").style.display == "block") {
+    } if (document.getElementById("about-wrapper").style.display == "block") {
         enableScrollbar()
-        document.getElementById("changelog-wrapper").style.display = "none"
+        document.getElementById("about-wrapper").style.display = "none"
         return document.getElementById("full-page-overlay").style.display = "none"
     }
 }
@@ -187,7 +200,7 @@ function updateChecker() {
             .then(data => fetchedversion = data)
 
         if (fetchedversion.currentversion != timetableversion) {
-            popupConfirm("New version of Timetable", `A new version of Timetable is available, reload this page now to update to the latest version by clicking the button 'Yes'.`, reloadPage, returnNothing)
+            popupConfirm("New version of Timetable", `A new version of Timetable is available, reload this page now to update to the latest version by clicking the button 'Yes'.`, "reloadPage", "returnNothing")
             clearInterval(checkupdates)
         } 
         

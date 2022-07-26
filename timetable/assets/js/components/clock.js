@@ -1,4 +1,9 @@
 window.addEventListener('load', () => {
+    clock()
+    setCopyrightYear()
+});
+
+function clock() {
     setInterval(() => {
         let today = new Date();
         let day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
@@ -13,12 +18,12 @@ window.addEventListener('load', () => {
         document.getElementById("clock").innerHTML = `${h > 9 ? h : "0" + h}:${m >= 10 ? m : "0" + m}:${s >= 10 ? s : "0" + s}`
         document.getElementById("date").innerHTML = `${day}, ${date > 9 ? date : "0" + date} ${month} ${year}`;
     }, 1);
-
-    setCopyrightYear()
-});
+}
 
 function setCopyrightYear() {
     if (copyrightyear != "") {
-        document.getElementById("year").innerHTML = copyrightyear
+        document.querySelectorAll(".js-fill-year").forEach(element => {
+            element.innerHTML = copyrightyear
+        })
     }
 }

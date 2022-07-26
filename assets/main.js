@@ -4,14 +4,11 @@ window.onload = function() {
 
     document.getElementById("year").innerHTML = "2022"
 
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-        document.documentElement.className = 'light';
-    } if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.className = 'dark';
-    }
+    if (!localStorage.getItem("theme")) {
+        localStorage.setItem("theme", "sync-os")
+    } document.documentElement.className = localStorage.getItem("theme")
 
     setNavigationOffset()
-    setThemeIcon()
 
     document.querySelectorAll("a.projects-title[href]:not([value='']").forEach(title => {
         title.innerHTML += `<span style="color: var(--color-blue);" class="material-symbols-outlined">navigate_next</span>`
@@ -26,17 +23,9 @@ function setNavigationOffset() {
 
 function setThemeIcon() {
     if (localStorage.getItem("theme") == "dark") {
-        document.documentElement.classList = "dark";
         return document.getElementById("theme-switch").textContent = "light_mode"
     } if (localStorage.getItem("theme") == "light") {
-        document.documentElement.classList = "light";
         return document.getElementById("theme-switch").textContent = "dark_mode"
-    } else {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-            document.documentElement.className = 'light';
-        } if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.className = 'dark';
-        }
     }
 }
 
