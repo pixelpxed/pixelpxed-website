@@ -487,16 +487,21 @@ footer, .footer-wrapper {
 
     border-radius: 0.3em;
 
-    animation: notification-fly 0.3s;
+    animation: notification-fly-in 0.2s;
 }
 
 .notification-box-out {
-    animation: notification-fly 0.3s reverse;
+    animation: notification-fly-out 0.2s;
 }
 
-@keyframes notification-fly {
+@keyframes notification-fly-in {
     0%   {opacity: 0; transform: translateX(1em);}
     100% {opacity: 1; transform: translateX(0);}
+}
+
+@keyframes notification-fly-out {
+    0%   {opacity: 1; transform: translateX(0);}
+    100% {opacity: 0; transform: translateX(1em);}
 }
 
 .notification-content, .notification-close {
