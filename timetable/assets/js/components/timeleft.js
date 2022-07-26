@@ -5,7 +5,7 @@ var periodlength = 50 // Period's length in minutes
 var starthour = 7 // Hour
 var startmin = 40 // Minutes
 
-if (classtime_type === "special") {
+if (classtime_type === "Special") {
     periodperday = 10
     periodlength = 40
 
@@ -19,7 +19,7 @@ window.addEventListener('load', () => {
 });
 
 function timeleft() {
-    if (localStorage.getItem("enableTimeRemaining" == "true") && (localStorage.getItem("classTimetable") === "305" || localStorage.getItem("classTimetable") === "306")) {
+    if ((localStorage.getItem("enableTimeRemaining") == "true") && (localStorage.getItem("classTimetable") === "305" || localStorage.getItem("classTimetable") === "306")) {
         var bellchimescooldown = false
         setInterval(() => {
             var date = new Date();
@@ -58,7 +58,7 @@ function timeleft() {
                 document.getElementById("timeleft-final").innerHTML = `School has ended or isn't started yet.<br><b style="font-family: 'Roboto Mono', monospace;">(Reload the page to use this feature again if the school has ended.)</b>`
             }
         }, 1);
-    } if (localStorage.getItem("enableTimeRemaining") != "true" || (localStorage.getItem("classTimetable") !== "305" || localStorage.getItem("classTimetable") !== "306")) {
+    } if ((localStorage.getItem("enableTimeRemaining") != "true") || (localStorage.getItem("classTimetable") !== "305" || localStorage.getItem("classTimetable") !== "306")) {
         document.getElementById("timeleft-final").innerHTML = "";
     }
 }
