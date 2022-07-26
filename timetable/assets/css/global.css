@@ -359,7 +359,7 @@ footer, .footer-wrapper {
 }
 
 .popup-button-danger {
-    color: var(--color-main-text);
+    color: var(--color-white);
     background: var(--color-red);
 }
 
