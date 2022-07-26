@@ -32,6 +32,7 @@
     <script defer src="./assets/js/config/config.js"></script>
 
     <!-- Components -->
+    <script defer src="./assets/js/components/settings.js"></script>
     <script defer src="./assets/js/components/clock.js"></script>
     <script defer src="./assets/js/components/setup.js"></script>
     <script defer src="./assets/js/components/timeleft.js"></script>
@@ -101,41 +102,6 @@
                 <a class="popup-button" onclick="settingsIgnore()">Cancel</a>
             </div>
         </div>
-        <script defer>
-            window.addEventListener("load", () => {
-                if (localStorage.getItem("theme")) {
-                    document.getElementById("theme-select").value = localStorage.getItem("theme")
-                } if (!localStorage.getItem("theme")) {
-                    document.getElementById("theme-select").value = "sync-os"
-                }
-                
-            })
-
-            function settingsIgnore() {
-                document.getElementById("settings-wrapper").style.display = "none"
-            }
-
-            function settingsDone() {
-                document.getElementById("settings-wrapper").style.display = "none"
-
-                if (document.getElementById("enable-timeremaining").checked == true) {
-                    localStorage.setItem("enableTimeRemaining", true)
-                    if (document.getElementById("enable-timeremaining-sound").checked == true) {
-                        localStorage.setItem("enableTimeRemainingSound", true)
-                    } if (document.getElementById("enable-timeremaining-sound").checked == false) {
-                        localStorage.setItem("enableTimeRemainingSound", false)
-                    }
-                } if (document.getElementById("enable-timeremaining").checked == false) {
-                    localStorage.setItem("enableTimeRemaining", false)
-                    localStorage.setItem("enableTimeRemainingSound", false)
-                }
-
-                if (localStorage.getItem('theme') != document.getElementById("theme-select").value) {
-                    localStorage.setItem('theme', document.getElementById("theme-select").value)
-                    location.reload()
-                }
-            }
-        </script>
     </div>
 
     <div id="about-wrapper" class="contentbox-wrapper">
