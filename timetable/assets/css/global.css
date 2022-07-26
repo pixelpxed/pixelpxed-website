@@ -495,13 +495,13 @@ footer, .footer-wrapper {
 }
 
 @keyframes notification-fly-in {
-    0%   {opacity: 0; transform: translateX(1em);}
+    0%   {opacity: 0; transform: translateX(calc(100% + 1em));}
     100% {opacity: 1; transform: translateX(0);}
 }
 
 @keyframes notification-fly-out {
     0%   {opacity: 1; transform: translateX(0);}
-    100% {opacity: 0; transform: translateX(1em);}
+    100% {opacity: 0; transform: translateX(calc(100% + 1em));}
 }
 
 .notification-content, .notification-close {
