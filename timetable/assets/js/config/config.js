@@ -10,7 +10,7 @@ var elective_secondary = "Japanese"
 
 // You can add custom timelist in classtimes variable, define it, 
 // and then put the time list into action with classtype_type.
-var classtime_type = "Online"
+var classtime_type = "Regular"
 var classtimes = {
     "Regular": [
         "08:00 - 08:30", 
