@@ -22,7 +22,7 @@ function checkSetup() {
             <div class="contentbox-option-wrapper">
                 <p class="contentbox-option-title">
                     Select Your Class
-                    <abbr title="To provide you with your class timetable.">
+                    <abbr title="Provide you with your class timetable.">
                         <span class="material-symbols-outlined">
                             help
                         </span>
@@ -39,7 +39,7 @@ function checkSetup() {
             <div id="setup-custom-json-wrapper" class="contentbox-option-wrapper setup-custom-json-wrapper">
                 <p class="contentbox-option-title">
                     Custom Class Names <a href="./templates/customclass.json" target="_blank">(Format)</a>
-                    <abbr title="This will be use to fill in your timetable classes.">
+                    <abbr title="To fill in your timetable classes.">
                         <span class="material-symbols-outlined">
                             help
                         </span>
@@ -49,7 +49,7 @@ function checkSetup() {
                 
                 <p class="contentbox-option-title">
                     Custom Class Links <a href="./templates/customlinks.json" target="_blank">(Format)</a>
-                    <abbr title="This will be use to fill in your timetable links.">
+                    <abbr title="To fill in your timetable links.">
                         <span class="material-symbols-outlined">
                             help
                         </span>
@@ -64,7 +64,7 @@ function checkSetup() {
             <div class="contentbox-option-wrapper">
                 <p class="contentbox-option-title">
                     Google Account Index
-                    <abbr title="Google account index is used to sign you into the correct account while you join classes.">
+                    <abbr title="Google account to sign into when opening classes and joining video calls.">
                         <span class="material-symbols-outlined">
                             help
                         </span>

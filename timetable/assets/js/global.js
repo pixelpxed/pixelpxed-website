@@ -61,6 +61,8 @@ var popupid = 0
 function popupConfirm(title, content, answerTrue, answerFalse) {
     disableScrollbar()
 
+    new Audio("./assets/sound/BellChimes.mp3").play()
+
     document.querySelector(".full-page-overlay").insertAdjacentHTML("beforebegin", `
     <div id="popup-type-confirm-${popupid}" class="popup popup-type-confirm">
         <div class="popup-wrapper">

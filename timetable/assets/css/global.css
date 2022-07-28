@@ -294,12 +294,14 @@ footer, .footer-wrapper {
     overflow: auto;
 }
 
-.popup-wrapper img {
-    width: 100%;
+.popup-type-confirm {
+    animation: blinkingpopup 0.3s 3;
+}
 
-    margin: 0 0 0.5em 0;
-
-    border-radius: 0.3em;
+@keyframes blinkingpopup {
+    0%   {}
+    50%  {border: 1px solid var(--color-gray-1);}
+    100% {}
 }
 
 .popup-header {
@@ -332,6 +334,8 @@ footer, .footer-wrapper {
     max-height: 60vh;
 
     overflow: auto;
+
+    scroll-behavior: smooth;
 }
 
 .popup-buttons-box {
@@ -365,6 +369,11 @@ footer, .footer-wrapper {
     background: var(--color-blue);
 
     border-radius: 0.3em;
+}
+
+.popup-button-transparent {
+    color: var(--color-blue);
+    background: transparent;
 }
 
 .popup-button-full {
@@ -500,11 +509,11 @@ footer, .footer-wrapper {
 
     border-radius: 0.3em;
 
-    animation: notification-fly-in 0.2s;
+    animation: notification-fly-in 0.2s ease-out;
 }
 
 .notification-box-out {
-    animation: notification-fly-out 0.2s;
+    animation: notification-fly-out 0.2s ease-in;
 }
 
 @keyframes notification-fly-in {

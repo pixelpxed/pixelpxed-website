@@ -35,6 +35,7 @@ function setClassVariables() {
     } if (localStorage.getItem("classTimetable") === "306") {
         classes = classes_306
         subj = subj_306
+        document.querySelector(".mobile-link").style.display = "none"
         return
     } if (localStorage.getItem("classTimetable") === "custom") {
         classes = JSON.parse(localStorage.getItem("customClassJSON"))
@@ -61,6 +62,10 @@ function fillClasses() {
     for (let classFilled = 0; classFilled <= 54; classFilled++) {
         var gridForwardZero = document.getElementById(classFilled)
         var gridForwardOne = document.getElementById(classFilled + 1)
+
+        gridForwardOne.className = "table-grid"
+        gridForwardOne.style.display = "block"
+
 
         gridForwardOne.innerHTML = classes[classFilled]
         gridForwardOne.classList.add("class-joinable")
