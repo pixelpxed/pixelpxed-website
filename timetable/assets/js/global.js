@@ -43,6 +43,8 @@ function addNotification(content, type) {
         var notificationType = "notification-error"
     }
 
+    new Audio("./assets/sound/notify.mp3").play()
+
     document.getElementById("notification-center").insertAdjacentHTML("beforeend", `
         <div class="notification-box ${notificationType}">  
             <p class="notification-content">
