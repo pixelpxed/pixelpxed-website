@@ -43,8 +43,6 @@ function addNotification(content, type) {
         var notificationType = "notification-error"
     }
 
-    new Audio("./assets/sound/notify.mp3").play()
-
     document.getElementById("notification-center").insertAdjacentHTML("beforeend", `
         <div class="notification-box ${notificationType}">  
             <p class="notification-content">
@@ -62,8 +60,6 @@ function addNotification(content, type) {
 var popupid = 0
 function popupConfirm(title, content, answerTrue, answerFalse) {
     disableScrollbar()
-
-    new Audio("./assets/sound/notify.mp3").play()
 
     document.querySelector(".full-page-overlay").insertAdjacentHTML("beforebegin", `
     <div id="popup-type-confirm-${popupid}" class="popup popup-type-confirm">

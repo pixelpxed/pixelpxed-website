@@ -24,6 +24,9 @@ function setTimetableSystemInformation() {
             element.innerHTML = classtime_type
         })
     }
+    if (classtimes[classtime_type]["notify"] == true) {
+        addNotification(`${classtime_type} class time is enabled by your Timetable provider.`)
+    }
 }
 
 function setClassVariables() {
@@ -38,8 +41,8 @@ function setClassVariables() {
         document.querySelector(".mobile-link").style.display = "none"
         return
     } if (localStorage.getItem("classTimetable") === "custom") {
-        classes = JSON.parse(localStorage.getItem("customClassJSON"))
-        subj = JSON.parse(localStorage.getItem("customLinksJSON"))
+        classes = JSON.parse(localStorage.getItem("customClassJSON")).customclass
+        subj = JSON.parse(localStorage.getItem("customClassJSON")).customlinks
         return
     } else {
         popupConfirm("An error occured.", "Your Timetable data doesn't seem to be correct, click 'Yes' to setup your Timetable again.", "resetTimetable", "returnNothing")
@@ -55,7 +58,17 @@ function fillClasses() {
     })
 
     for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
-        document.getElementById(`time${timeFilled + 1}`).innerHTML = classtimes[classtime_type][timeFilled]
+        document.getElementById(`time${timeFilled + 1}`).innerHTML = classtimes[classtime_type]["list"][timeFilled]
+    }
+
+    if (localStorage.getItem("classTimetable") === "custom") {
+        for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
+            document.getElementById(`time${timeFilled + 1}`).innerHTML = (JSON.parse(localStorage.getItem("customClassJSON")).customtime)[timeFilled]
+        }
+
+        document.querySelectorAll(".js-fill-timetype").forEach(element => {
+            element.innerHTML = "Custom"
+        })
     }
 
     // Fill class names and styling.

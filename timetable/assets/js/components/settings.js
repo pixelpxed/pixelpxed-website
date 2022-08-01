@@ -68,10 +68,6 @@ window.addEventListener("load", () => {
             }
         })
     })
-
-    setTimeout(() => {
-        openSettings()
-    }, 500);
 })
 
 function openSettings() {
