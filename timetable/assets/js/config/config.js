@@ -26,7 +26,13 @@ var classtimes = {
             "14:20 - 15:10", 
             "15:10 - 16:00", 
             "16:00 - 16:50"
-        ]
+        ],
+        "timeremaining": {
+            "periodperday": 10398470983759874320895,
+            "periodlength": 50,
+            "starthour": 7,
+            "startmin": 40,
+        }
     },
     "Special": {
         "notify": true,
@@ -42,7 +48,13 @@ var classtimes = {
             "13:10 - 13:50",
             "13:50 - 14:30",
             "14:30 - 15:10"
-        ]
+        ],
+        "timeremaining": {
+            "periodperday": 10,
+            "periodlength": 40,
+            "starthour": 7,
+            "startmin": 50,
+        }
     },
     "Online": {
         "notify": false,
@@ -58,7 +70,13 @@ var classtimes = {
             "14:20 - 15:00", 
             "15:20 - 16:00", 
             "16:00 - 16:40"
-        ]
+        ],
+        "timeremaining": {
+            "periodperday": 10,
+            "periodlength": 50,
+            "starthour": 7,
+            "startmin": 40,
+        }
     },
 }
 

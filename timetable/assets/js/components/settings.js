@@ -56,8 +56,11 @@ window.addEventListener("load", () => {
             if (event.target.name === "timeremaining") {
                 if (event.target.checked) {
                     localStorage.setItem("enableTimeRemaining", true)
+                    timeleft()
                 } if (!event.target.checked) {
                     localStorage.setItem("enableTimeRemaining", false)
+                    clearInterval(timeleftinterval)
+                    document.querySelector(".timeleft-final").remove()
                 }
             } if (event.target.name === "timeremaining-sound") {
                 if (event.target.checked) {
