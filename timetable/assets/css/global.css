@@ -267,12 +267,6 @@ footer, .footer-wrapper {
     color: var(--color-main-text);
 }
 
-.navigation-bar-wrapper {
-    display: flex;
-    
-    place-content: space-between;
-}
-
 .popup {
     position: fixed;
 
