@@ -4,10 +4,10 @@ var classes = undefined
 window.addEventListener('load', () => {
     if (localStorage.getItem("setupComplete") === "true") {
         setClassVariables()
-        setTimetableSystemInformation()
         fillClasses()
         classJoiningSystem()
         fillBookmarks()
+        setTimetableSystemInformation()
         updateChecker()
         googleSearchEnter()
     }
@@ -64,11 +64,7 @@ function fillClasses() {
     if (localStorage.getItem("classTimetable") === "custom") {
         for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
             document.getElementById(`time${timeFilled + 1}`).innerHTML = (JSON.parse(localStorage.getItem("customClassJSON")).customtime)[timeFilled]
-        }
-
-        document.querySelectorAll(".js-fill-timetype").forEach(element => {
-            element.innerHTML = "Custom"
-        })
+        } classtime_type = "Custom"
     }
 
     // Fill class names and styling.

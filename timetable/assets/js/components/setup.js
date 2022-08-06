@@ -47,16 +47,6 @@ function checkSetup() {
                 </p>
                 <textarea id="setup-custom-json-value-classes" type="text" class="setup-custom-json" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"></textarea>
                 
-                <p class="contentbox-option-title">
-                    Custom Class Links <a href="./templates/customlinks.json" target="_blank">(Format)</a>
-                    <abbr title="To fill in your timetable links.">
-                        <span class="material-symbols-outlined">
-                            help
-                        </span>
-                    </abbr>
-                </p>
-                <textarea id="setup-custom-json-value-links" type="text" class="setup-custom-json" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"></textarea>
-                
                 <p id="setup-error" class="setup-error"></p>
             </div>
 
@@ -118,19 +108,15 @@ function setupTimetable() {
 
     if (classSetup == "custom") {
         var jsonClassSetup = document.getElementById("setup-custom-json-value-classes").value
-        var jsonLinksSetup = document.getElementById("setup-custom-json-value-links").value
 
-        if (jsonClassSetup == "" || jsonLinksSetup === "") {
+        if (jsonClassSetup == "") {
             return document.getElementById("setup-error").textContent = "All fields can't be empty."
-        } 
-        
-        localStorage.setItem("customClassJSON", jsonClassSetup)
-        localStorage.setItem("customLinksJSON", jsonLinksSetup)
+        } localStorage.setItem("customClassJSON", jsonClassSetup)
     }
 
     localStorage.setItem("setupComplete", "true")
 
-    location.href = "./"
+    location.reload()
 }
 
 function resetTimetable() {
@@ -139,5 +125,5 @@ function resetTimetable() {
 
 function resetTimetableTrue() {
     localStorage.clear()
-    return location.href = "./"
+    return location.reload()
 }
