@@ -1,6 +1,8 @@
 var customclasses = undefined
 var classes = undefined
 
+var skMarchDrip = new Audio("./assets/sound/skMarchDrip.mp3")
+
 window.addEventListener('load', () => {
     if (localStorage.getItem("setupComplete") === "true") {
         setClassVariables()
@@ -34,6 +36,13 @@ function setClassVariables() {
         classes = classes_305
         subj = subj_305
         document.querySelector(".mobile-link").style.display = "inline-flex"
+
+        window.addEventListener("keydown", (event) => {
+            if (event.altKey && event.key === "Shift") {
+                addNotification(`🔥 Drip:&nbsp;<a href="https://www.youtube.com/watch?v=ZXfu4XMnd_g" target="_blank">https://www.youtube.com/watch?v=ZXfu4XMnd_g</a>`)
+                skMarchDrip.play()
+            }
+        })
         return
     } if (localStorage.getItem("classTimetable") === "306") {
         classes = classes_306
