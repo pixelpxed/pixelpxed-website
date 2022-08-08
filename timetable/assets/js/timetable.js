@@ -41,6 +41,8 @@ function setClassVariables() {
             if (event.altKey && event.key === "Shift") {
                 addNotification(`🔥 Drip:&nbsp;<a href="https://www.youtube.com/watch?v=ZXfu4XMnd_g" target="_blank">https://www.youtube.com/watch?v=ZXfu4XMnd_g</a>`)
                 skMarchDrip.play()
+
+                document.querySelector("html").style = "animation: rgb-background 3s infinite linear;"
             }
         })
         return

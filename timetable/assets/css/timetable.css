@@ -261,3 +261,14 @@
 .timeleft-final {
     text-align: center;
 }
+
+@keyframes rgb-background {
+    0%   {background: var(--color-red);}
+    25%  {background: var(--color-green);}
+    50%  {background: var(--color-blue);}
+    100% {background: var(--color-red);}
+}
+
+#google-search {
+    background: var(--background-html);
+}
