@@ -28,8 +28,8 @@ var classtimes = {
             "16:00 - 16:50"
         ],
         "timeremaining": {
-            "periodperday": 10,
-            "periodlength": 50,
+            "periodperday": 13429834895238450892345,
+            "periodlength": 1,
             "starthour": 7,
             "startmin": 40,
         }

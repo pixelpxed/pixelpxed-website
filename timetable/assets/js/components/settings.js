@@ -133,7 +133,9 @@ function openSettings() {
                                 edit_note
                             </span>
                             <span>
-                                Custom Class<br>
+                            Custom Class
+                            <a target="_blank" href="./templates/custom.json">(Format)</a>
+                            <br>
                                 <span class="popup-description">
                                     Create your personal class.
                                 </span>
