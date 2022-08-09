@@ -4,10 +4,10 @@ var classes = undefined
 window.addEventListener('load', () => {
     if (localStorage.getItem("setupComplete") === "true") {
         setClassVariables()
-        setTimetableSystemInformation()
         fillClasses()
         classJoiningSystem()
         fillBookmarks()
+        setTimetableSystemInformation()
         updateChecker()
         googleSearchEnter()
     }
@@ -24,6 +24,11 @@ function setTimetableSystemInformation() {
             element.innerHTML = classtime_type
         })
     }
+    if (localStorage.getItem("classTimetable") !== "custom") {
+        if (classtimes[classtime_type]["notify"] == true) {
+            addNotification(`${classtime_type} class time is enabled by your Timetable provider.`)
+        }
+    }
 }
 
 function setClassVariables() {
@@ -31,14 +36,28 @@ function setClassVariables() {
         classes = classes_305
         subj = subj_305
         document.querySelector(".mobile-link").style.display = "inline-flex"
+
+        var skMarchDrip = new Audio("./assets/sound/skMarchDrip.mp3")
+        window.addEventListener("keydown", (event) => {
+            if (event.altKey && event.key === "Shift") {
+                addNotification(`<a href="https://www.youtube.com/watch?v=ZXfu4XMnd_g" target="_blank">https://www.youtube.com/watch?v=ZXfu4XMnd_g</a>`)        
+                skMarchDrip.play()
+
+                document.querySelector("html").classList.add("drip-timetable")
+                setTimeout(() => {
+                    document.querySelector("html").classList.remove("drip-timetable")
+                }, 81873)
+            }
+        })
         return
     } if (localStorage.getItem("classTimetable") === "306") {
         classes = classes_306
         subj = subj_306
+        document.querySelector(".mobile-link").style.display = "none"
         return
     } if (localStorage.getItem("classTimetable") === "custom") {
-        classes = JSON.parse(localStorage.getItem("customClassJSON"))
-        subj = JSON.parse(localStorage.getItem("customLinksJSON"))
+        classes = JSON.parse(localStorage.getItem("customClassJSON")).customclass
+        subj = JSON.parse(localStorage.getItem("customClassJSON")).customlinks
         return
     } else {
         popupConfirm("An error occured.", "Your Timetable data doesn't seem to be correct, click 'Yes' to setup your Timetable again.", "resetTimetable", "returnNothing")
@@ -53,14 +72,24 @@ function fillClasses() {
         event.preventDefault();
     })
 
-    for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
-        document.getElementById(`time${timeFilled + 1}`).innerHTML = classtimes[classtime_type][timeFilled]
+    if (localStorage.getItem("classTimetable") !== "custom") {
+        for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
+            document.getElementById(`time${timeFilled + 1}`).innerHTML = classtimes[classtime_type]["list"][timeFilled]
+        }
+    } if (localStorage.getItem("classTimetable") === "custom") {
+        for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
+            document.getElementById(`time${timeFilled + 1}`).innerHTML = (JSON.parse(localStorage.getItem("customClassJSON")).customtime)[timeFilled]
+        } classtime_type = "Custom"
     }
 
     // Fill class names and styling.
     for (let classFilled = 0; classFilled <= 54; classFilled++) {
         var gridForwardZero = document.getElementById(classFilled)
         var gridForwardOne = document.getElementById(classFilled + 1)
+
+        gridForwardOne.className = "table-grid"
+        gridForwardOne.style.display = "block"
+
 
         gridForwardOne.innerHTML = classes[classFilled]
         gridForwardOne.classList.add("class-joinable")

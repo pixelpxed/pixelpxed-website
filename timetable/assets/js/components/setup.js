@@ -1,143 +1,157 @@
 window.addEventListener('load', () => {
-    checkSetup()
+    fillSetup()
 });
 
-function checkSetup() {
+var classSetup = undefined
+function fillSetup() {
     if (localStorage.getItem("setupComplete") != "true") {
         disableScrollbar()
 
-        document.getElementById("setup-wrapper").innerHTML = `
+        document.querySelector(".popup-center").innerHTML = `
         <!-- Setup Elements -->
-        <div class="popup-content">
-            <!-- Setup Title -->
-            <p>
-                <span class="popup-title">Let's setup your Timetable.</span>
-                <span>
-                    This setup screen will only pop up on your first visit, 
-                    when you clear your browser cache/cookies, 
-                    or when you decided to reset your Timetable data.
-                </span>
-            </p>
-            <!-- Class -->
-            <div class="contentbox-option-wrapper">
-                <p class="contentbox-option-title">
-                    Select Your Class
-                    <abbr title="To provide you with your class timetable.">
-                        <span class="material-symbols-outlined">
-                            help
-                        </span>
-                    </abbr>
+        <div id="setup-wrapper" class="contentbox-wrapper" style="display: block;">
+            <div class="popup-content">
+                <!-- Setup Title -->
+                <p>
+                    <span class="popup-title">Let's setup your Timetable.</span>
+                    <span>
+                        This setup screen will only pop up on your first visit, 
+                        sometimes when you clear your browser cache/cookies, 
+                        or when you decided to reset your Timetable in settings. 
+                    </span>
                 </p>
-                <select id="setup-option-class">
-                    <option value="305">305</option>
-                    <option value="306">306</option>
-                    <option value="custom">Custom Class</option>
-                </select>
-            </div>
 
-            <!-- Custom JSON Class -->
-            <div id="setup-custom-json-wrapper" class="contentbox-option-wrapper setup-custom-json-wrapper">
-                <p class="contentbox-option-title">
-                    Custom Class Names <a href="./templates/customclass.json" target="_blank">(Format)</a>
-                    <abbr title="This will be use to fill in your timetable classes.">
-                        <span class="material-symbols-outlined">
-                            help
-                        </span>
-                    </abbr>
-                </p>
-                <textarea id="setup-custom-json-value-classes" type="text" class="setup-custom-json" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"></textarea>
-                
-                <p class="contentbox-option-title">
-                    Custom Class Links <a href="./templates/customlinks.json" target="_blank">(Format)</a>
-                    <abbr title="This will be use to fill in your timetable links.">
-                        <span class="material-symbols-outlined">
-                            help
-                        </span>
-                    </abbr>
-                </p>
-                <textarea id="setup-custom-json-value-links" type="text" class="setup-custom-json" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"></textarea>
-                
-                <p id="setup-error" class="setup-error"></p>
-            </div>
+                <div style="margin-top: 1em;">
+                    <div>
+                        <p class="settings-option-label">
+                            <span class="material-symbols-outlined">
+                                school
+                            </span>
+                            <span>
+                                Class<br>
+                                <span class="popup-description">
+                                    Select your class to fill into the table.
+                                </span>
+                            </span>
+                        </p>
+                        <div style="margin: 0.5em 0;" onload="checkForCustomJSON()">
+                            <label class="settings-option-label">
+                                <input name="setup-class" type="radio" value="305">
+                                <span class="material-symbols-outlined">
+                                    notes
+                                </span>
+                                <span>
+                                    305<br>
+                                    <span class="popup-description">
+                                        Updated by your Timetable provider.
+                                    </span>
+                                </span>
+                            </label>
+                            <label class="settings-option-label">
+                                <input name="setup-class" type="radio" value="306">
+                                <span class="material-symbols-outlined">
+                                    notes
+                                </span>
+                                <span>
+                                    306<br>
+                                    <span class="popup-description">
+                                        Updated by your Timetable provider.
+                                    </span>
+                                </span>
+                            </label>
+                            <label class="settings-option-label">
+                                <input name="setup-class" type="radio" value="custom">
+                                <span class="material-symbols-outlined">
+                                    edit_note
+                                </span>
+                                <span>
+                                    Custom Class
+                                    <a target="_blank" href="./templates/custom.json">(Format)</a>
+                                    <br>
+                                    <span class="popup-description">
+                                        Create your personal class.
+                                    </span>
+                                </span>
+                            </label>
+                        </div>
 
-            <!-- Google Account Index -->
-            <div class="contentbox-option-wrapper">
-                <p class="contentbox-option-title">
-                    Google Account Index
-                    <abbr title="Google account index is used to sign you into the correct account while you join classes.">
-                        <span class="material-symbols-outlined">
-                            help
-                        </span>
-                    </abbr>
-                </p>
-                <input id="setup-option-index" type="number" value="0" min="0">
+                        <div class="setup-class-custom-wrapper" style="display: none; overflow: hidden; transition: 0.2s ease-in-out; margin: 0 0 0.5em 2em;">
+                            <div>
+                                <p class="settings-option-label">
+                                    <span class="material-symbols-outlined">
+                                        edit_note
+                                    </span>
+                                    <span>
+                                        Custom Class Information<br>
+                                        <span class="popup-description">
+                                            Fill in your custom timetable class names.
+                                        </span>
+                                    </span>
+                                </p>
+                                <textarea type="text" class="setup-class-custom-json custom-json" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="settings-option-label">
+                            <span class="material-symbols-outlined">
+                                login
+                            </span>
+                            <span>
+                                Google Account Index 
+                                <a onclick="document.querySelector('.setup-img').classList.toggle('setup-img-block')">
+                                    (Help)
+                                </a><br>
+                                <span class="popup-description">
+                                    Google account to sign into.
+                                </span>
+                            </span>
+                        </p>
+                        <input type="number" name="gaiindex" class="setup-gaiindex" min="0" value="0">
+                    </div>
+                    <img 
+                        src="./assets/img/googleindexno.png"
+                        class="setup-img"
+                        alt="Step 1: Go to Google Classroom, then log into your preferred account to use for your Timetable.
+                            Step 2: Observe the URL, you should see the Google account index like this: 'https://classroom.google.com/u/{Index Number}/h'"
+                    >
+                </div>
             </div>
-            <img 
-                src="./assets/img/googleindexno.png"
-                class="setup-img"
-                alt="Step 1: Go to Google Classroom, then log into your preferred account to use for your Timetable.
-                     Step 2: Observe the URL, you should see the Google account index like this: 'https://classroom.google.com/u/{Index Number}/h'"
-            >
-        </div>
-        <div class="popup-buttons-box">
-            <div class="popup-buttons-wrapper">
-                <a class="popup-button" onclick="setupTimetable()">Complete Setup</a>
+            <div class="popup-buttons-box">
+                <div class="popup-buttons-wrapper">
+                    <a class="popup-button" onclick="localStorage.setItem('setupComplete', true); location.reload();">Complete Setup</a>
+                </div>
             </div>
         </div>
         `
+        document.querySelectorAll("input[name='setup-class']").forEach((element) => {  
+            element.addEventListener("change", function(event) {
+                if (event.target.value == "custom") {
+                    document.querySelector(".setup-class-custom-wrapper").style.display = "block"
+                } if (event.target.value != "custom") {
+                    document.querySelector(".setup-class-custom-wrapper").style.display = "none"
+                    localStorage.setItem("classTimetable", event.target.value)
+                }
+            })
+        })
 
-        document.getElementById("setup-wrapper").style.display = "block"
-
-
-
-        checkForCustomJSON()
+        document.querySelector("input[name='gaiindex']").addEventListener("click", () => {
+            localStorage.setItem("gaiTimetable", document.querySelector("input[name='gaiindex']").value)
+        })
     } if (localStorage.getItem("setupComplete") == "true") {
-        document.getElementById("setup-wrapper").remove()
         document.getElementById("full-page-overlay").style.display = "none"
     }
 }
 
-// If #setup-option-class value is 'custom', display #setup-custom-json-wrapper.
-function checkForCustomJSON() {
-    document.getElementById("setup-option-class").addEventListener("click", () => {
-        if (document.getElementById("setup-option-class").value == "custom") {
-            return document.getElementById("setup-custom-json-wrapper").style.display = "block"
-        } if (document.getElementById("setup-option-class").value != "custom") {
-            return document.getElementById("setup-custom-json-wrapper").style.display = "none"
-        }
-    })
-}
-
-function setupTimetable() {
-    localStorage.clear()
-
-    var classSetup = document.getElementById("setup-option-class").value
-
-    localStorage.setItem("classTimetable", classSetup)
-    localStorage.setItem("gaiTimetable", document.getElementById("setup-option-index").value)
-
-    if (classSetup == "custom") {
-        var jsonClassSetup = document.getElementById("setup-custom-json-value-classes").value
-        var jsonLinksSetup = document.getElementById("setup-custom-json-value-links").value
-
-        if (jsonClassSetup == "" || jsonLinksSetup === "") {
-            return document.getElementById("setup-error").textContent = "All fields can't be empty."
-        } 
-        
-        localStorage.setItem("customClassJSON", jsonClassSetup)
-        localStorage.setItem("customLinksJSON", jsonLinksSetup)
-    }
-
-    localStorage.setItem("setupComplete", "true")
-
-    location.href = "./"
-}
-
 function resetTimetable() {
-    popupConfirm("Reset Timetable?", "Are you sure you want to reset your Timetable? This action can't be undone!", "resetTimetableTrue", "returnNothing")
+    popupConfirm("Reset Timetable?", 
+                 "Are you sure you want to reset your Timetable? This action can't be undone!", 
+                 "resetTimetableTrue", 
+                 "returnNothing")
 }
 
 function resetTimetableTrue() {
     localStorage.clear()
-    return location.href = "./"
+    return location.reload()
 }

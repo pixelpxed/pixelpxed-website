@@ -288,14 +288,6 @@ footer, .footer-wrapper {
     overflow: auto;
 }
 
-.popup-wrapper img {
-    width: 100%;
-
-    margin: 0 0 0.5em 0;
-
-    border-radius: 0.3em;
-}
-
 .popup-header {
     display: block;
     
@@ -326,6 +318,8 @@ footer, .footer-wrapper {
     max-height: 60vh;
 
     overflow: auto;
+
+    scroll-behavior: smooth;
 }
 
 .popup-buttons-box {
@@ -359,6 +353,11 @@ footer, .footer-wrapper {
     background: var(--color-blue);
 
     border-radius: 0.3em;
+}
+
+.popup-button-transparent {
+    color: var(--color-blue);
+    background: transparent;
 }
 
 .popup-button-full {
@@ -494,11 +493,11 @@ footer, .footer-wrapper {
 
     border-radius: 0.3em;
 
-    animation: notification-fly-in 0.2s;
+    animation: notification-fly-in 0.2s ease-out;
 }
 
 .notification-box-out {
-    animation: notification-fly-out 0.2s;
+    animation: notification-fly-out 0.2s ease-in;
 }
 
 @keyframes notification-fly-in {

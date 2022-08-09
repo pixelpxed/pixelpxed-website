@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="./assets/css/timetable.css">
 
     <script defer src="./assets/js/config/config.js"></script>
+    <script defer src="./assets/js/global.js"></script>
 
     <!-- Components -->
     <script defer src="./assets/js/components/settings.js"></script>
@@ -40,7 +41,6 @@
     <script defer src="./assets/js/config/classinfo/305.js"></script>
     <script defer src="./assets/js/config/classinfo/306.js"></script>
 
-    <script defer src="./assets/js/global.js"></script>
     <script defer src="./assets/js/timetable.js"></script>
 </head>
 <body>
@@ -55,116 +55,9 @@
     </nav>
 
     <!-- Popup Elements -->
-    <div id="setup-wrapper" class="contentbox-wrapper">
-        
-    </div>
 
-    <div id="settings-wrapper" class="contentbox-wrapper">
-        <div class="popup-content">
-            <p class="popup-title">Settings</p>
+    <div id="popup-center" class="popup-center">
 
-            <div class="settings-section-wrapper">
-                <p class="settings-section-title">
-                    <b>
-                        Themes
-                    </b><br>
-                    <span class="popup-description">
-                        Themes will be applied across updated pixelpxed pages.
-                    </span>
-                </p>
-                <label class="settings-option-label">
-                    <input class="settings-theme" type="radio" name="theme" value="sync-os">
-                    <span class="material-symbols-outlined">
-                        sync_alt
-                    </span>
-                    <span>
-                        Automatic<br>
-                        <span class="popup-description">
-                            Use your device system theme to adjust theme.
-                        </span>
-                    </span>
-                </label>
-                <label class="settings-option-label">
-                    <input class="settings-theme" type="radio" name="theme" value="dark">
-                    <span class="material-symbols-outlined">
-                        dark_mode
-                    </span>
-                    <span>
-                        Dark<br>
-                        <span class="popup-description">
-                            Best for night owls and might reduce eye strain.
-                        </span>
-                    </span>
-                </label>
-                <label class="settings-option-label">
-                    <input class="settings-theme" type="radio" name="theme" value="light">
-                    <span class="material-symbols-outlined">
-                        light_mode
-                    </span>
-                    <span>
-                        Light<br>
-                        <span class="popup-description">
-                            More visible content, but might cause eye strain.
-                        </span>
-                    </span>
-                </label>
-            </div>
-
-            <div class="settings-section-wrapper">
-                <p class="settings-section-title">
-                    <b>
-                        Time Remaining (Beta)
-                    </b><br>
-                    <span class="popup-description">
-                        Calculate the time remaining for the period.
-                    </span>
-                </p>
-                <label class="settings-option-label">
-                    <input class="settings-timeremaining" type="checkbox" name="timeremaining" value="enable-timeremaining">
-                    <span class="material-symbols-outlined">
-                        schedule
-                    </span>
-                    <span>
-                        Time remaining<br>
-                        <span class="popup-description">
-                            Enable time remaining feature.
-                        </span>
-                    </span>
-                </label>
-                <label class="settings-option-label">
-                    <input class="settings-timeremaining" type="checkbox" name="timeremaining-sound" value="enable-timeremaining-sound">
-                    <span class="material-symbols-outlined">
-                        volume_up
-                    </span>
-                    <span>
-                        Period end sound<br>
-                        <span class="popup-description">
-                            When the period ends, play virtual school bell sound.
-                        </span>
-                    </span>
-                </label>
-                <span class="popup-description">
-                    <b>Please <a onclick="location.reload()">reload</a> this page when disabling time remaining feature to apply changes. (For now while we're troubleshooting the problem)</b>
-                </span>
-            </div>
-            
-            <div class="settings-section-wrapper">
-                <p class="settings-section-title">
-                    <b>
-                        Danger Zone
-                    </b><br>
-                    <span class="popup-description">
-                        These are settings at are sensitive, such as your Timetable data.
-                    </span>
-                </p>
-                <a class="popup-button popup-button-danger popup-button-full" onclick="resetTimetable()">Reset Timetable</a>
-            </div>
-        </div>
-        <div class="popup-buttons-box">
-            <div class="popup-buttons-wrapper">
-                <a class="popup-button" onclick="closeSettings()">Done</a>
-            </div>
-        </div>
     </div>
 
     <div id="about-wrapper" class="contentbox-wrapper">
@@ -174,10 +67,9 @@
                 <div>
                     <p>About Timetable</p>
                     <ul>
-                        <li>Version: <span class="js-fill-version"></span></li>
-                        <li>Time List: <span class="js-fill-timetype"></span></li>
-                        <li>Copyright Year: <span class="js-fill-year"></span></li>
-                        <li>Timetable works best with latest version of modern browsers.</li>
+                        <li><b>Version:</b> v<span class="js-fill-version"></span></li>
+                        <li><b>Time List:</b> <span class="js-fill-timetype"></span></li>
+                        <li><b>Copyright:</b> © <span class="js-fill-year"></span></li>
                     </ul>
                 </div>
                 <div>
@@ -221,7 +113,7 @@
     <!-- Main Content -->
     <div id="main" class="main">
         <div class="title-wrapper">
-            <h1>Timetable</h1>
+            <h1 class="title-timetable">Timetable</h1>
             <p>Left Click - Video Call</p>
             <p>Right Click - Classroom</p>
         </div>
@@ -254,7 +146,7 @@
             <div id="6" class="table-grid"></div>
             <div id="7" class="table-grid"></div>
             <div id="8" class="table-grid"></div>
-            <div id="9"class="table-grid"></div>
+            <div id="9" class="table-grid"></div>
             <div id="10" class="table-grid"></div>
             <div id="11" class="table-grid"></div>
 
@@ -345,7 +237,7 @@
             <abbr class="elective-swapper" title="Swap Elective Class">
                 <a onclick="swapElectiveClass()">
                     <span class="icon-button icon-button-inline material-symbols-outlined">
-                        swap_horiz
+                        sync_alt
                     </span>
                 </a>
             </abbr>

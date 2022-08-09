@@ -1,6 +1,6 @@
 // Basic Timetable information.
 var copyrightyear = "2022"
-var timetableversion = "3.2.0"
+var timetableversion = "3.3.0"
 
 // Elective classe (Is disabled in custom classes, since the user 
 // would put their data in by themselves, not requiring the feature.)
@@ -12,45 +12,72 @@ var elective_secondary = "Japanese"
 // and then put the time list into action with classtype_type.
 var classtime_type = "Regular"
 var classtimes = {
-    "Regular": [
-        "08:00 - 08:30", 
-        "08:30 - 09:20", 
-        "09:20 - 10:10", 
-        "10:10 - 11:00", 
-        "11:00 - 11:50", 
-        "11:50 - 12:40", 
-        "12:40 - 13:30", 
-        "13:30 - 14:20", 
-        "14:20 - 15:10", 
-        "15:10 - 16:00", 
-        "16:00 - 16:50"
-    ],
-    "Online": [
-        "08:00 - 08:40", 
-        "08:40 - 09:20", 
-        "09:20 - 10:00", 
-        "10:20 - 11:00", 
-        "11:00 - 11:40", 
-        "12:00 - 12:40", 
-        "12:40 - 13:20", 
-        "13:40 - 14:20", 
-        "14:20 - 15:00", 
-        "15:20 - 16:00", 
-        "16:00 - 16:40"
-    ],
-    "Special": [
-        "08:00 - 08:30",
-        "08:30 - 09:10",
-        "09:10 - 09:50",
-        "09:50 - 10:30",
-        "10:30 - 11:10",
-        "11:10 - 11:50",
-        "11:50 - 12:30",
-        "12:30 - 13:10",
-        "13:10 - 13:50",
-        "13:50 - 14:30",
-        "14:30 - 15:10"
-    ]
+    "Regular": {
+        "notify": false,
+        "list": [
+            "08:00 - 08:30", 
+            "08:30 - 09:20", 
+            "09:20 - 10:10", 
+            "10:10 - 11:00", 
+            "11:00 - 11:50", 
+            "11:50 - 12:40", 
+            "12:40 - 13:30", 
+            "13:30 - 14:20", 
+            "14:20 - 15:10", 
+            "15:10 - 16:00", 
+            "16:00 - 16:50"
+        ],
+        "timeremaining": {
+            "periodperday": 10,
+            "periodlength": 50,
+            "starthour": 7,
+            "startmin": 40,
+        }
+    },
+    "Special": {
+        "notify": true,
+        "list": [
+            "08:00 - 08:30",
+            "08:30 - 09:10",
+            "09:10 - 09:50",
+            "09:50 - 10:30",
+            "10:30 - 11:10",
+            "11:10 - 11:50",
+            "11:50 - 12:30",
+            "12:30 - 13:10",
+            "13:10 - 13:50",
+            "13:50 - 14:30",
+            "14:30 - 15:10"
+        ],
+        "timeremaining": {
+            "periodperday": 10,
+            "periodlength": 40,
+            "starthour": 7,
+            "startmin": 50,
+        }
+    },
+    "Online": {
+        "notify": false,
+        "list": [
+            "08:00 - 08:40", 
+            "08:40 - 09:20", 
+            "09:20 - 10:00", 
+            "10:20 - 11:00", 
+            "11:00 - 11:40", 
+            "12:00 - 12:40", 
+            "12:40 - 13:20", 
+            "13:40 - 14:20", 
+            "14:20 - 15:00", 
+            "15:20 - 16:00", 
+            "16:00 - 16:40"
+        ],
+        "timeremaining": {
+            "periodperday": 10,
+            "periodlength": 50,
+            "starthour": 7,
+            "startmin": 40,
+        }
+    },
 }
 
 // Bookmarks
