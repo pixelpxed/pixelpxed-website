@@ -288,16 +288,6 @@ footer, .footer-wrapper {
     overflow: auto;
 }
 
-.popup-type-confirm {
-    animation: blinkingpopup 0.3s 3;
-}
-
-@keyframes blinkingpopup {
-    0%   {}
-    50%  {border: 1px solid var(--color-gray-1);}
-    100% {}
-}
-
 .popup-header {
     display: block;
     

@@ -1,6 +1,6 @@
 // Basic Timetable information.
 var copyrightyear = "2022"
-var timetableversion = "3.2.0"
+var timetableversion = "3.3.0"
 
 // Elective classe (Is disabled in custom classes, since the user 
 // would put their data in by themselves, not requiring the feature.)
@@ -28,7 +28,7 @@ var classtimes = {
             "16:00 - 16:50"
         ],
         "timeremaining": {
-            "periodperday": 10398470983759874320895,
+            "periodperday": 10,
             "periodlength": 50,
             "starthour": 7,
             "startmin": 40,
