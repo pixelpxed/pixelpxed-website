@@ -98,12 +98,17 @@ function popupOK(title, content, answer) {
     </div>
     `)
     popupid = popupid + 1
-    document.getElementById("full-page-overlay").style.display = "block"
+    document.querySelector(".full-page-overlay").style.display = "block"
 }
 
 function popupDone(id) {
     document.getElementById(`popup-id-${id}`).remove()
     popupid = popupid - 1
+
+    if (popupid === 0) {
+        document.querySelector(".full-page-overlay").style.display = "none"
+    }
+
     enableScrollbar()
 }
 

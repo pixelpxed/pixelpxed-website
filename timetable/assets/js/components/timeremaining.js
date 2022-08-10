@@ -1,12 +1,13 @@
 var bellChimes = new Audio("./assets/sound/bellChimes.mp3")
+var timeleftinterval = undefined
 
-window.addEventListener('load', () => {
-    var timeleftinterval = undefined
-    timeleft()
+window.addEventListener('load', () => {  
+    if ((localStorage.getItem("enableTimeRemaining") === "true")) {  
+        timeleft()
+    }
 });
 
 function timeleft() {
-    if ((localStorage.getItem("enableTimeRemaining") === "true")) {
         document.querySelector(".clock-wrapper").insertAdjacentHTML("afterend", `<div class="timeleft-final">Time Remaining for<br><span id="timeleft-final" style="font-family: 'Roboto Mono', monospace; font-weight: var(--font-weight-bold);">Period - - --:--</span></div>`)
 
         var periodperday = classtimes[classtime_type]["timeremaining"]["periodperday"]
@@ -40,12 +41,15 @@ function timeleft() {
             if (periodno >= 0 && periodno <= periodperday) {
                 document.getElementById("timeleft-final").innerHTML = `Period ${periodno} - ${rminutes >= 10 ? rminutes : "0" + rminutes}:${rseconds >= 10 ? rseconds : "0" + rseconds}`;
                 
-                if (((rminutes == 0) && (rseconds == 0)) && (localStorage.getItem("enableTimeRemainingSound") == true)) {
-                    bellChimes.play()
+                if ((rminutes == 0) && (rseconds == 0)) {
+                    if (localStorage.getItem("enableTimeRemainingSound") === "true") {
+                        bellChimes.play()
+                    }
                 }
-            } if (periodno > periodperday || periodno <= 0) {
+            } if (periodno <= 0) {
+                document.getElementById("timeleft-final").innerHTML = `Good morning!`
+            } if (periodno > periodperday) {
                 document.getElementById("timeleft-final").innerHTML = `School has ended`
             }
         }, 1);
-    }
 }
