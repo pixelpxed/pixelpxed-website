@@ -1,3 +1,9 @@
+window.addEventListener('load', () => {
+    if (!localStorage.getItem("theme")) {
+        localStorage.setItem("theme", "sync-os")
+    } document.querySelector("html").classList = localStorage.getItem("theme")
+})
+
 function openSettings() {
     disableScrollbar()
     document.querySelector(".popup-center").innerHTML += `
@@ -166,18 +172,30 @@ function openSettings() {
             <div class="settings-section-wrapper">
                 <p class="settings-section-title settings-option-label">
                     <span class="material-symbols-outlined">
-                        update
+                        checklist
                     </span>
                     <span>
                         <b>
-                            Time Remaining (Beta)
+                            Optional Features
                         </b><br>
                         <span class="popup-description">
-                            Calculate the time remaining for the period.
+                            Features not nescessary for Timetable.
                         </span>
                     </span>
                 </p>
                 <div style="margin-left: 2em;">
+                    <label class="settings-option-label">
+                        <input class="settings-popupmode" type="checkbox" name="popupmode" value="enable-popupmode">
+                        <span class="material-symbols-outlined">
+                            open_in_new
+                        </span>
+                        <span>
+                            Class Pop-up Mode (Reload Required)<br>
+                            <span class="popup-description">
+                                (Mobile Friendly) Show links window when click on a class.
+                            </span>
+                        </span>
+                    </label>
                     <label class="settings-option-label">
                         <input class="settings-timeremaining" type="checkbox" name="timeremaining" value="enable-timeremaining">
                         <span class="material-symbols-outlined">
@@ -245,12 +263,6 @@ function closeSettings() {
 function setDefaultSettingsValue() {
     // Theme
     document.querySelectorAll("input[name='settings-theme']").forEach((element) => {
-        // Set page theme from localStorage. 
-        // If there's none, set the value as sync-os.
-        if (!localStorage.getItem("theme")) {
-            localStorage.setItem("theme", "sync-os")
-        } document.documentElement.classList = localStorage.getItem("theme")
-
         if (element.value == localStorage.getItem("theme")) {
             element.setAttribute("checked", "checked")
         }
@@ -269,15 +281,17 @@ function setDefaultSettingsValue() {
             }
         }
     }); document.querySelector(".settings-class-custom-json").value = localStorage.getItem("customClassJSON")
-
-    // Time Remaining
-    document.querySelectorAll(".settings-timeremaining").forEach((element) => {
-        if (localStorage.getItem("enableTimeRemaining") == "true") {
-            document.querySelector("input[name='timeremaining']").setAttribute("checked", "checked")
-        } if (localStorage.getItem("enableTimeRemainingSound") == "true") {
-            document.querySelector("input[name='timeremaining-sound']").setAttribute("checked", "checked")
+    
+        // Pop-up Mode
+        if (localStorage.getItem("popupMode") == "true") {
+            document.querySelector("input[name='popupmode']").setAttribute("checked", "checked")
         }
-    })  
+    // Time Remaining
+    if (localStorage.getItem("enableTimeRemaining") == "true") {
+        document.querySelector("input[name='timeremaining']").setAttribute("checked", "checked")
+    } if (localStorage.getItem("enableTimeRemainingSound") == "true") {
+        document.querySelector("input[name='timeremaining-sound']").setAttribute("checked", "checked")
+    }
 }
 
 function setListenersSettingsChange() {
@@ -324,6 +338,21 @@ function setListenersSettingsChange() {
                     localStorage.setItem("enableTimeRemainingSound", true)
                 } if (!event.target.checked) {
                     localStorage.setItem("enableTimeRemainingSound", false)
+                }
+            }
+        })
+    })
+
+    // Pop-up Mode
+    document.querySelectorAll(".settings-popupmode").forEach((element) => {
+        element.addEventListener("click", function(event) {
+            if (event.target.name === "popupmode") {
+                if (event.target.checked) {
+                    localStorage.setItem("popupMode", true)
+                    location.reload()
+                } if (!event.target.checked) {
+                    localStorage.setItem("popupMode", false)
+                    location.reload()
                 }
             }
         })

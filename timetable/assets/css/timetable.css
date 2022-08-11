@@ -264,6 +264,10 @@
 }
 
 .drip-timetable {
+    background: linear-gradient(-15deg, var(--color-tuesday), var(--color-friday)) no-repeat center center fixed;
+}
+
+/* .drip-timetable {
     animation: rgb-background 1s linear infinite;
 }
 
@@ -272,8 +276,4 @@
     33%  {background: var(--color-green);}
     66%  {background: var(--color-blue);}
     100% {background: var(--color-red);}
-}
-
-#google-search {
-    background: var(--background-html);
-}
+} */

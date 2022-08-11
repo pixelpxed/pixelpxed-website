@@ -54,6 +54,19 @@ function setClassVariables() {
         classes = classes_306
         subj = subj_306
         document.querySelector(".mobile-link").style.display = "none"
+
+        var skMarchDrip = new Audio("./assets/sound/skMarchDrip.mp3")
+        window.addEventListener("keydown", (event) => {
+            if (event.altKey && event.key === "Shift") {
+                addNotification(`<a href="https://www.youtube.com/watch?v=ZXfu4XMnd_g" target="_blank">https://www.youtube.com/watch?v=ZXfu4XMnd_g</a>`)        
+                skMarchDrip.play()
+
+                document.querySelector("html").classList.add("drip-timetable")
+                setTimeout(() => {
+                    document.querySelector("html").classList.remove("drip-timetable")
+                }, 81873)
+            }
+        })
         return
     } if (localStorage.getItem("classTimetable") === "custom") {
         classes = JSON.parse(localStorage.getItem("customClassJSON")).customclass
@@ -124,34 +137,69 @@ function fillClasses() {
 function classJoiningSystem() {
     var gaiNumber = localStorage.getItem("gaiTimetable")
 
-    document.querySelectorAll(".class-joinable").forEach(grid => {
-        var subjText = grid.innerHTML;
-        grid.addEventListener("click", () => {
-            var subjVdo = subj[subjText].videocall
+    if (localStorage.getItem("popupMode") === "true") {
+        document.querySelectorAll(".class-joinable").forEach(grid => {
+            var subjText = grid.innerHTML;
+            grid.addEventListener("click", () => {
+                var subjVdo = subj[subjText].videocall
+                var subjCls = subj[subjText].classroom
 
-            if (grid.id == electiveGrid) {
-                if (grid.textContent == elective_secondary) {
-                    return window.open(`https://meet.google.com/${subj[elective_secondary].videocall}?authuser=${gaiNumber}`);
-                }
-            }
+                document.querySelector(".popup-center").insertAdjacentHTML("beforeend", `
+                    <div id="popup-id-${popupid}" class="class-popupmode popup">
+                        <div class="popup-wrapper">
+                            <div class="popup-content">
+                                <span class="popup-title">Class selected: ${subjText}</span>
+                                <span>Select your action with options below.</span><br>
+                                <span class="popup-description">The link doesn't exist if there's no button for the action.</span>
+                            </div>
+                            <div class="popup-buttons-box">
+                                <div class="popup-buttons-wrapper">
+                                    <a class="popup-button popup-button-danger" onclick="popupDone(${popupid})">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `)
 
-            if (subjVdo !== "" && subjVdo !== null && subjVdo !== undefined) {
-                console.log(`"${subjText}" class video call opened.`)
-                return window.open(`https://meet.google.com/${subjVdo}?authuser=${gaiNumber}`);
-            } if (subjVdo == "" || subjVdo == null || subjVdo == undefined) {
-                return addNotification(`"${subjText}" class does not have a video call link.`, `error`)
-            }
-        }),
-        grid.addEventListener("auxclick", () => {
-            var subjCls = subj[subjText].classroom
-            if (subjCls !== "" && subjCls !== null && subjCls !== undefined) {
-                console.log(`"${subjText}" class classroom opened.`)
-                return window.open(`https://classroom.google.com/u/${gaiNumber}/c/${subjCls}`);
-            } if (subjCls == "" || subjCls == null || subjCls == undefined) {
-                return addNotification(`"${subjText}" class does not have a classroom link.`, `error`)
-            }
+                if (subjCls != "") {
+                    document.querySelector(".popup-buttons-wrapper").insertAdjacentHTML("afterbegin", `<a target="_blank" class="popup-button" onclick="popupDone(${popupid})" href="https://classroom.google.com/u/${gaiNumber}/c/${subjCls}">Classroom</a>`)
+                } if (subjVdo != "") {
+                    document.querySelector(".popup-buttons-wrapper").insertAdjacentHTML("afterbegin", `<a target="_blank" class="popup-button" onclick="popupDone(${popupid})" href="https://meet.google.com/${subjVdo}?authuser=${gaiNumber}">Video Call</a>`)
+                } 
+
+                popupOpen()
+            })
         })
-    })
+    } if (localStorage.getItem("popupMode") !== "true") {
+        document.querySelectorAll(".class-joinable").forEach(grid => {
+            var subjText = grid.innerHTML;
+            grid.addEventListener("click", () => {
+                var subjVdo = subj[subjText].videocall
+    
+                if (grid.id == electiveGrid) {
+                    if (grid.textContent == elective_secondary) {
+                        return window.open(`https://meet.google.com/${subj[elective_secondary].videocall}?authuser=${gaiNumber}`);
+                    }
+                }
+    
+                if (subjVdo !== "" && subjVdo !== null && subjVdo !== undefined) {
+                    console.log(`"${subjText}" class video call opened.`)
+                    return window.open(`https://meet.google.com/${subjVdo}?authuser=${gaiNumber}`);
+                } if (subjVdo == "" || subjVdo == null || subjVdo == undefined) {
+                    return addNotification(`"${subjText}" class does not have a video call link.`, `error`)
+                }
+            }),
+            grid.addEventListener("auxclick", () => {
+                var subjCls = subj[subjText].classroom
+                if (subjCls !== "" && subjCls !== null && subjCls !== undefined) {
+                    console.log(`"${subjText}" class classroom opened.`)
+                    return window.open(`https://classroom.google.com/u/${gaiNumber}/c/${subjCls}`);
+                } if (subjCls == "" || subjCls == null || subjCls == undefined) {
+                    return addNotification(`"${subjText}" class does not have a classroom link.`, `error`)
+                }
+            })
+        })
+    } 
 }
 
 function swapElectiveClass() {
@@ -159,10 +207,10 @@ function swapElectiveClass() {
         var electiveGridContent = document.getElementById(electiveGrid)
         if (electiveGridContent.innerHTML == elective_primary) {
             localStorage.setItem("electiveClass", elective_secondary)
-            return electiveGridContent.innerHTML = elective_secondary
+            return location.reload()
         } if (electiveGridContent.innerHTML == elective_secondary) {
             localStorage.setItem("electiveClass", elective_primary)
-            return electiveGridContent.innerHTML = elective_primary
+            return location.reload()
         }
     }
 }

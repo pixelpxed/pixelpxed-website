@@ -19,8 +19,8 @@
 }
 
 :root, :root.light {
-    --background-html: rgb(255, 255, 255);
-    --background-body: transparent;
+    --background-html: rgb(255, 255, 255) no-repeat center center fixed;
+    --background-body: transparent no-repeat center center fixed;
 
     --color-main-text: rgb(0, 0, 0);
     --color-alt-text: rgb(255, 255, 255);
@@ -49,8 +49,8 @@
 }
 
 :root.dark {
-    --background-html: rgb(0, 0, 0);
-    --background-body: transparent;
+    --background-html: rgb(0, 0, 0) no-repeat center center fixed;
+    --background-body: transparent no-repeat center center fixed;
 
     --color-main-text: rgb(255, 255, 255);
     --color-alt-text: rgb(0, 0, 0);
@@ -126,7 +126,7 @@
 }
 
 html {
-    background: var(--background-html) no-repeat center center fixed;
+    background: var(--background-html);
     background-size: cover;
 
     transition: 0.2s background-color;
@@ -136,7 +136,7 @@ body {
     font-weight: var(--font-weight-normal);
 
     color: var(--color-main-text);
-    background: var(--background-body) no-repeat center center fixed;
+    background: var(--background-body);
     background-size: cover;
 
     transition: 0.2s background-color;

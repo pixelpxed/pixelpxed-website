@@ -59,13 +59,12 @@ function addNotification(content, type) {
 
 var popupid = 0
 function popupConfirm(title, content, answerTrue, answerFalse) {
-    disableScrollbar()
-    document.querySelector(".full-page-overlay").insertAdjacentHTML("beforebegin", `
+    document.querySelector(".popup-center").insertAdjacentHTML("beforeend", `
     <div id="popup-id-${popupid}" class="popup">
         <div class="popup-wrapper">
             <div class="popup-content">
-                <span id="popup-confirm-title" class="popup-title">${title}</span>
-                <span id="popup-confirm-content">${content}</span>
+                <span class="popup-title">${title}</span>
+                <span>${content}</span>
             </div>
             <div class="popup-buttons-box">
                 <div class="popup-buttons-wrapper">
@@ -76,18 +75,16 @@ function popupConfirm(title, content, answerTrue, answerFalse) {
         </div>
     </div>
     `)
-    popupid = popupid + 1
-    document.getElementById("full-page-overlay").style.display = "block"
+    popupOpen()
 }
 
 function popupOK(title, content, answer) {
-    disableScrollbar()
-    document.querySelector(".full-page-overlay").insertAdjacentHTML("beforebegin", `
+    document.querySelector(".popup-center").insertAdjacentHTML("beforeend", `
     <div id="popup-id-${popupid}" class="popup">
         <div class="popup-wrapper">
             <div class="popup-content">
-                <span id="popup-confirm-title" class="popup-title">${title}</span>
-                <span id="popup-confirm-content">${content}</span>
+                <span class="popup-title">${title}</span>
+                <span>${content}</span>
             </div>
             <div class="popup-buttons-box">
                 <div class="popup-buttons-wrapper">
@@ -97,6 +94,11 @@ function popupOK(title, content, answer) {
         </div>
     </div>
     `)
+    popupOpen()
+}
+
+function popupOpen() {
+    disableScrollbar()
     popupid = popupid + 1
     document.querySelector(".full-page-overlay").style.display = "block"
 }
