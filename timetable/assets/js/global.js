@@ -60,9 +60,8 @@ function addNotification(content, type) {
 var popupid = 0
 function popupConfirm(title, content, answerTrue, answerFalse) {
     disableScrollbar()
-
     document.querySelector(".full-page-overlay").insertAdjacentHTML("beforebegin", `
-    <div id="popup-type-confirm-${popupid}" class="popup popup-type-confirm">
+    <div id="popup-id-${popupid}" class="popup">
         <div class="popup-wrapper">
             <div class="popup-content">
                 <span id="popup-confirm-title" class="popup-title">${title}</span>
@@ -70,22 +69,46 @@ function popupConfirm(title, content, answerTrue, answerFalse) {
             </div>
             <div class="popup-buttons-box">
                 <div class="popup-buttons-wrapper">
-                    <a id="popup-confirm-true" class="popup-button" onclick="popupConfirmDone(${popupid}); ${answerTrue}();">Yes</a>
-                    <a id="popup-confirm-false" class="popup-button" onclick="popupConfirmDone(${popupid}); ${answerFalse}();">No</a>
+                    <a id="popup-confirm-true" class="popup-button" onclick="popupDone(${popupid}); ${answerTrue}();">Yes</a>
+                    <a id="popup-confirm-false" class="popup-button" onclick="popupDone(${popupid}); ${answerFalse}();">No</a>
                 </div>
             </div>
         </div>
     </div>
     `)
-
-    document.getElementById("full-page-overlay").style.display = "block"
-
     popupid = popupid + 1
+    document.getElementById("full-page-overlay").style.display = "block"
 }
 
-function popupConfirmDone(id) {
-    document.getElementById("full-page-overlay").style.display = "none"
-    document.getElementById(`popup-type-confirm-${id}`).remove()
+function popupOK(title, content, answer) {
+    disableScrollbar()
+    document.querySelector(".full-page-overlay").insertAdjacentHTML("beforebegin", `
+    <div id="popup-id-${popupid}" class="popup">
+        <div class="popup-wrapper">
+            <div class="popup-content">
+                <span id="popup-confirm-title" class="popup-title">${title}</span>
+                <span id="popup-confirm-content">${content}</span>
+            </div>
+            <div class="popup-buttons-box">
+                <div class="popup-buttons-wrapper">
+                    <a id="popup-confirm-true" class="popup-button" onclick="popupDone(${popupid}); ${answer}();">OK</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    `)
+    popupid = popupid + 1
+    document.querySelector(".full-page-overlay").style.display = "block"
+}
+
+function popupDone(id) {
+    document.getElementById(`popup-id-${id}`).remove()
+    popupid = popupid - 1
+
+    if (popupid === 0) {
+        document.querySelector(".full-page-overlay").style.display = "none"
+    }
+
     enableScrollbar()
 }
 

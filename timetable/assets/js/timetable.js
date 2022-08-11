@@ -1,8 +1,6 @@
 var customclasses = undefined
 var classes = undefined
 
-var skMarchDrip = new Audio("./assets/sound/skMarchDrip.mp3")
-
 window.addEventListener('load', () => {
     if (localStorage.getItem("setupComplete") === "true") {
         setClassVariables()
@@ -26,8 +24,10 @@ function setTimetableSystemInformation() {
             element.innerHTML = classtime_type
         })
     }
-    if (classtimes[classtime_type]["notify"] == true) {
-        addNotification(`${classtime_type} class time is enabled by your Timetable provider.`)
+    if (localStorage.getItem("classTimetable") !== "custom") {
+        if (classtimes[classtime_type]["notify"] == true) {
+            addNotification(`${classtime_type} class time is enabled by your Timetable provider.`)
+        }
     }
 }
 
@@ -37,12 +37,16 @@ function setClassVariables() {
         subj = subj_305
         document.querySelector(".mobile-link").style.display = "inline-flex"
 
+        var skMarchDrip = new Audio("./assets/sound/skMarchDrip.mp3")
         window.addEventListener("keydown", (event) => {
             if (event.altKey && event.key === "Shift") {
-                addNotification(`🔥 Drip:&nbsp;<a href="https://www.youtube.com/watch?v=ZXfu4XMnd_g" target="_blank">https://www.youtube.com/watch?v=ZXfu4XMnd_g</a>`)
+                addNotification(`<a href="https://www.youtube.com/watch?v=ZXfu4XMnd_g" target="_blank">https://www.youtube.com/watch?v=ZXfu4XMnd_g</a>`)        
                 skMarchDrip.play()
 
-                document.querySelector("html").style = "animation: rgb-background 3s infinite linear;"
+                document.querySelector("html").classList.add("drip-timetable")
+                setTimeout(() => {
+                    document.querySelector("html").classList.remove("drip-timetable")
+                }, 81873)
             }
         })
         return
@@ -68,11 +72,11 @@ function fillClasses() {
         event.preventDefault();
     })
 
-    for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
-        document.getElementById(`time${timeFilled + 1}`).innerHTML = classtimes[classtime_type]["list"][timeFilled]
-    }
-
-    if (localStorage.getItem("classTimetable") === "custom") {
+    if (localStorage.getItem("classTimetable") !== "custom") {
+        for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
+            document.getElementById(`time${timeFilled + 1}`).innerHTML = classtimes[classtime_type]["list"][timeFilled]
+        }
+    } if (localStorage.getItem("classTimetable") === "custom") {
         for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
             document.getElementById(`time${timeFilled + 1}`).innerHTML = (JSON.parse(localStorage.getItem("customClassJSON")).customtime)[timeFilled]
         } classtime_type = "Custom"
