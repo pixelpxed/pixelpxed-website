@@ -5,4 +5,4 @@ This website respiratory is for all things made by me, this website hosts all th
 
 You can visit this website hosting at:  
 **main:** https://www.pixelpxed.xyz/  
-**dev:** https://pxedition-git-dev-pixeledition.vercel.app/
+**dev:** https://dev.pixelpxed.xyz/ 
