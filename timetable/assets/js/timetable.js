@@ -52,7 +52,6 @@ function setClassVariables() {
     } if (localStorage.getItem("classTimetable") === "306") {
         classes = classes_306
         subj = subj_306
-        document.querySelector(".mobile-link").style.display = "none"
 
         var skMarchDrip = new Audio("./assets/sound/skMarchDrip.mp3")
         window.addEventListener("keydown", (event) => {
