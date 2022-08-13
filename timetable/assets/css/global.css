@@ -172,6 +172,12 @@ input[type="text"], input[type="button"], input[type="number"], select, textarea
     outline: none;
     
     border-radius: 0.3em;
+
+    transition: 0.2s background-color, 0.2s border, 0.2s opacity;
+}
+
+input[type="text"]:hover, input[type="button"]:hover, input[type="number"]:hover, select:hover, textarea:hover {
+    border: 1px solid var(--color-gray-1);
 }
 
 input[type="checkbox"], input[type="radio"] {
@@ -447,6 +453,12 @@ footer, .footer-wrapper {
     overflow: hidden;
 
     user-select: none;
+
+    transition: 0.2s background-color, 0.3s border;
+}
+
+.icon-button:hover {
+    border: 1px solid var(--color-gray-1);
 }
 
 .icon-button-inline {
@@ -493,11 +505,11 @@ footer, .footer-wrapper {
 
     border-radius: 0.3em;
 
-    animation: notification-fly-in 0.2s ease-out;
+    animation: notification-fly-in 0.2s;
 }
 
 .notification-box-out {
-    animation: notification-fly-out 0.2s ease-in;
+    animation: notification-fly-out 0.2s;
 }
 
 @keyframes notification-fly-in {
@@ -510,7 +522,8 @@ footer, .footer-wrapper {
     100% {opacity: 0; transform: translateX(calc(1em));}
 }
 
-.notification-content, .notification-close {
+.notification-content, 
+.notification-close {
     display: flex;
 
     align-items: center;
@@ -527,11 +540,11 @@ footer, .footer-wrapper {
 }
 
 .notification-error {
-    color: var(--color-white);
     background: var(--color-red) !important;
     border: 1px solid var(--color-main-transparent) !important;
 }
 
+.notification-error, 
 .notification-error .notification-close {
     color: var(--color-white);
 }

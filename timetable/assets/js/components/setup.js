@@ -36,7 +36,7 @@ function fillSetup() {
                         </p>
                         <div style="margin: 0.5em 0;" onload="checkForCustomJSON()">
                             <label class="settings-option-label">
-                                <input name="setup-class" type="radio" value="305">
+                                <input name="setup-class" class="setup-class-default" type="radio" value="305">
                                 <span class="material-symbols-outlined">
                                     notes
                                 </span>
@@ -117,6 +117,33 @@ function fillSetup() {
                             Step 2: Observe the URL, you should see the Google account index like this: 'https://classroom.google.com/u/{Index Number}/h'"
                     >
                 </div>
+
+                <div>
+                    <p class="settings-section-title settings-option-label">
+                        <span class="material-symbols-outlined">
+                            checklist
+                        </span>
+                        <span>
+                            Optional Features
+                            <br>
+                            <span class="popup-description">
+                                Features not nescessary for Timetable.
+                            </span>
+                        </span>
+                    </p>
+                    <label class="settings-option-label">
+                        <input class="setup-popupmode" type="checkbox" name="setup-popupmode" value="enable-popupmode">
+                        <span class="material-symbols-outlined">
+                            open_in_new
+                        </span>
+                        <span>
+                            Class Pop-up Mode<br>
+                            <span class="popup-description">
+                                (Mobile Friendly) Show links window when click on a class.
+                            </span>
+                        </span>
+                    </label>
+                </div>
             </div>
             <div class="popup-buttons-box">
                 <div class="popup-buttons-wrapper">
@@ -125,6 +152,9 @@ function fillSetup() {
             </div>
         </div>
         `
+
+        document.querySelector(".setup-class-default").checked = true;
+        localStorage.setItem("classTimetable", document.querySelector(".setup-class-default").value)
         document.querySelectorAll("input[name='setup-class']").forEach((element) => {  
             element.addEventListener("change", function(event) {
                 if (event.target.value == "custom") {
@@ -134,6 +164,14 @@ function fillSetup() {
                     localStorage.setItem("classTimetable", event.target.value)
                 }
             })
+        })
+
+        document.querySelector("input[name='setup-popupmode']").addEventListener("click", function(event) {
+            if (event.target.checked) {
+                localStorage.setItem("popupMode", true)
+            } if (!event.target.checked) {
+                localStorage.setItem("popupMode", false)
+            }
         })
 
         document.querySelector("input[name='gaiindex']").addEventListener("click", () => {

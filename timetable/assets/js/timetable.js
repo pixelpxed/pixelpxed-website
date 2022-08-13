@@ -35,7 +35,6 @@ function setClassVariables() {
     if (localStorage.getItem("classTimetable") === "305") {
         classes = classes_305
         subj = subj_305
-        document.querySelector(".mobile-link").style.display = "inline-flex"
 
         var skMarchDrip = new Audio("./assets/sound/skMarchDrip.mp3")
         window.addEventListener("keydown", (event) => {
