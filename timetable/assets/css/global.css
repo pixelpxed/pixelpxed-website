@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
-:root, :root.sync-os {
+:root, :root.sync-os, :root[theme="sync-os"] {
     --font-family: "Outfit", "Sarabun", sans-serif;
 
     --color-black: #000000;
@@ -18,7 +18,7 @@
     --color-days: rgba(0, 0, 0, 0.8);
 }
 
-:root, :root.light {
+:root, :root.light, :root[theme="light"] {
     --background-html: rgb(255, 255, 255) no-repeat center center fixed;
     --background-body: transparent no-repeat center center fixed;
 
@@ -48,7 +48,7 @@
     color-scheme: light;
 }
 
-:root.dark {
+:root.dark, :root[theme="dark"] {
     --background-html: rgb(0, 0, 0) no-repeat center center fixed;
     --background-body: transparent no-repeat center center fixed;
 
@@ -79,7 +79,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    :root, :root.sync-os {
+    :root, :root.sync-os, :root[theme="sync-os"] {
         --background-html: rgb(0, 0, 0);
         --background-body: transparent;
     
@@ -522,7 +522,6 @@ footer, .footer-wrapper {
     100% {opacity: 0; transform: translateX(calc(1em));}
 }
 
-.notification-content, 
 .notification-close {
     display: flex;
 

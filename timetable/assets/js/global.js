@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
 });
 
 function setNavigationOffset() {
-    document.getElementById("main").style.marginTop = `${document.getElementById("navigation-bar").offsetHeight}px`
+    document.querySelector(".main").style.marginTop = `${document.querySelector(".navigation-bar").offsetHeight}px`
     window.addEventListener('resize', setNavigationOffset)
 }
 
@@ -15,9 +15,9 @@ function setNavigationOffset() {
 function setThemeIcon() {
     document.documentElement.classList = localStorage.getItem("theme");
     if (localStorage.getItem("theme") == "dark") {
-        return document.getElementById("theme-switch").textContent = "light_mode"
+        return document.querySelector("#theme-switch").textContent = "light_mode"
     } if (localStorage.getItem("theme") == "light") {
-        return document.getElementById("theme-switch").textContent = "dark_mode"
+        return document.querySelector("#theme-switch").textContent = "dark_mode"
     }
 }
 
@@ -25,11 +25,11 @@ function setThemeIcon() {
 function swapTheme() {
     if (localStorage.getItem("theme") === "dark") {
         localStorage.setItem("theme", "dark")
-        document.getElementById("theme-switch").textContent = "light_mode"
+        document.querySelector("#theme-switch").textContent = "light_mode"
         return document.documentElement.className = 'dark';
     } if (localStorage.getItem("theme") === "light") {
         localStorage.setItem("theme", "light")
-        document.getElementById("theme-switch").textContent = "dark_mode"
+        document.querySelector("#theme-switch").textContent = "dark_mode"
         return document.documentElement.className = 'light';
     } if (localStorage.getItem("theme") === "sync-os") {
         return
@@ -45,9 +45,9 @@ function addNotification(content, type) {
 
     document.getElementById("notification-center").insertAdjacentHTML("beforeend", `
         <div class="notification-box ${notificationType}">  
-            <p class="notification-content">
+            <div class="notification-content">
                 ${content}
-            </p>
+            </div>
             <a class="notification-close" onclick="this.parentNode.classList.add('notification-box-out'); setTimeout(() => {this.parentNode.remove()}, 200);">
                 <span class="material-symbols-outlined">
                     close

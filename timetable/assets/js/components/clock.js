@@ -1,29 +1,62 @@
 window.addEventListener('load', () => {
     clock()
-    setCopyrightYear()
+    setMainClock()
 });
 
+var daylist = [
+    "Sunday", 
+    "Monday", 
+    "Tuesday", 
+    "Wednesday", 
+    "Thursday", 
+    "Friday", 
+    "Saturday"
+]
+
+var monthlist = [
+    "January", 
+    "February", 
+    "March", 
+    "April", 
+    "May", 
+    "June", 
+    "July", 
+    "August", 
+    "September", 
+    "October", 
+    "November", 
+    "December"
+]
+
+// Set Public Variables
+var today = undefined;
+var day = undefined;
+var date = undefined;
+var month = undefined;
+var year = undefined;
+
+var hour = undefined;
+var minute = undefined;
+var second = undefined;
+
+// Public Clock
 function clock() {
     setInterval(() => {
-        let today = new Date();
-        let day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
-        let date = today.getDate();
-        let month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][today.getMonth()];
-        let year = today.getFullYear();
+        today = new Date();
+        day = daylist[today.getDay()];
+        date = today.getDate();
+        month = monthlist[today.getMonth()];
+        year = today.getFullYear();
     
-        let h = today.getHours();
-        let m = today.getMinutes();
-        let s = today.getSeconds();
-    
-        document.getElementById("clock").innerHTML = `${h > 9 ? h : "0" + h}:${m >= 10 ? m : "0" + m}:${s >= 10 ? s : "0" + s}`
-        document.getElementById("date").innerHTML = `${day}, ${date > 9 ? date : "0" + date} ${month} ${year}`;
+        hour = today.getHours();
+        minute = today.getMinutes();
+        second = today.getSeconds();
     }, 1);
 }
 
-function setCopyrightYear() {
-    if (copyrightyear != "") {
-        document.querySelectorAll(".js-fill-year").forEach(element => {
-            element.innerHTML = copyrightyear
-        })
-    }
+function setMainClock() {
+    setInterval(() => {
+        document.getElementById("clock").innerHTML = `${hour > 9 ? hour : "0" + hour}:${minute >= 10 ? minute : "0" + minute}:${second >= 10 ? second : "0" + second}`
+        document.getElementById("date").innerHTML = `${day}, ${date > 9 ? date : "0" + date} ${month} ${year}`;
+    }, 1);
 }
