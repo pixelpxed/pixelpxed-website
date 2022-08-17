@@ -144,12 +144,12 @@ function classJoiningSystem() {
     var gaiNumber = localStorage.getItem("gaiTimetable")
 
     if (localStorage.getItem("popupMode") === "true") {
+        document.querySelector(".title-description").innerHTML = `<p>Tap - Show Options<br>Select Your Action</p>`
         document.querySelectorAll(".class-joinable").forEach(grid => {
             var subjText = grid.innerHTML;
+            var subjVdo = subj[subjText].videocall
+            var subjCls = subj[subjText].classroom
             grid.addEventListener("click", () => {
-                var subjVdo = subj[subjText].videocall
-                var subjCls = subj[subjText].classroom
-
                 document.querySelector(".popup-center").insertAdjacentHTML("beforeend", `
                     <div id="popup-id-${popupid}" class="class-popupmode popup">
                         <div class="popup-wrapper">
@@ -177,6 +177,7 @@ function classJoiningSystem() {
             })
         })
     } if (localStorage.getItem("popupMode") !== "true") {
+        document.querySelector(".title-description").innerHTML = `<p>Left Click - Video Call<br>Right Click - Classroom</p>`
         document.querySelectorAll(".class-joinable").forEach(grid => {
             var subjText = grid.innerHTML;
             grid.addEventListener("click", () => {
