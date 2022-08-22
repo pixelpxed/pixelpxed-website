@@ -55,7 +55,7 @@ function timeleft() {
                 }
             }
         } if (periodno <= 0) {
-            document.getElementById("timeremaining-refreshcontent").innerHTML = `Good morning!`;
+            document.getElementById("timeremaining-refreshcontent").innerHTML = `School isn't started yet`;
         } if (periodno > periodperday) {
             document.getElementById("timeremaining-refreshcontent").innerHTML = `School has ended`;
         }

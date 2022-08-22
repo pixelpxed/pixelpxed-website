@@ -4,23 +4,29 @@ window.addEventListener('load', () => {
     } document.querySelector("html").setAttribute("theme", localStorage.getItem("theme"));
 })
 
+var settingsBoxFetched = false
 function openSettings() {
     disableScrollbar()
-
-    fetch('./assets/components/html/settings.html')
-        .then((response) => response.text())
-        .then((html) => document.querySelector(".popup-center").innerHTML += html)
-        .then(() => {
-            setDefaultSettingsValue();
-            setListenersSettingsChange();
-        })
+    
+    if (settingsBoxFetched == true) {
+        document.querySelector('.settings-wrapper').style.display = "block"
+    } if (settingsBoxFetched != true) {
+        fetch('./assets/components/html/settings.html')
+            .then((response) => response.text())
+            .then((html) => document.querySelector(".popup-center").innerHTML += html)
+            .then(() => {
+                setDefaultSettingsValue();
+                setListenersSettingsChange();
+            })
+        settingsBoxFetched = true
+    } 
     
     document.getElementById("full-page-overlay").style.display = "block"
 }
 
 function closeSettings() {
     enableScrollbar()
-    document.querySelector('.settings-wrapper').remove()
+    document.querySelector('.settings-wrapper').style.display = "none"
     document.querySelector(".full-page-overlay").style.display = "none"
 }
 
