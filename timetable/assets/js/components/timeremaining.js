@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
     // Check localStorage for setting Time Remaining
-    if ((localStorage.getItem("enableTimeRemaining") === "true")) {  
+    if ((localStorage.getItem("enableTimeRemaining") === "true")) {
         timeleft()
     }
 });
@@ -27,7 +27,7 @@ function timeleft() {
     var starthour = periodTimeLeft["starthour"];
     var startmin = periodTimeLeft["startmin"];
 
-    // Calculated every 1 millisecond.
+    // Calculated every 1 second.
     timeleftinterval = setInterval(() => {
         var curtimeM = (hour * 60) + minute;
         var curtimeS = (curtimeM * 60) + second;
@@ -41,13 +41,13 @@ function timeleft() {
             var timediff = timediff + (periodlength * 60);
             var periodno = periodno + 1;
         }
-        
+
         var rseconds = timediff % 60;
         var rminutes = Math.floor(timediff / 60);
-        
+
         if (periodno >= 0 && periodno <= periodperday) {
             document.getElementById("timeremaining-refreshcontent").innerHTML = `Period ${periodno} - ${rminutes >= 10 ? rminutes : "0" + rminutes}:${rseconds >= 10 ? rseconds : "0" + rseconds}`;
-            
+
             // Check if period ends (hour and minutes = 0)
             if ((rminutes == 0) && (rseconds == 0)) {
                 // If sound setting is enabled, play the sound.
@@ -60,5 +60,5 @@ function timeleft() {
         } if (periodno > periodperday) {
             document.getElementById("timeremaining-refreshcontent").innerHTML = `School has ended`;
         }
-    }, 1);
+    }, 1000);
 }

@@ -51,12 +51,12 @@ function clock() {
         hour = today.getHours();
         minute = today.getMinutes();
         second = today.getSeconds();
-    }, 1);
+    }, 1000);
 }
 
 function setMainClock() {
     setInterval(() => {
         document.getElementById("clock").innerHTML = `${hour > 9 ? hour : "0" + hour}:${minute >= 10 ? minute : "0" + minute}:${second >= 10 ? second : "0" + second}`
         document.getElementById("date").innerHTML = `${day}, ${date > 9 ? date : "0" + date} ${month} ${year}`;
-    }, 1);
+    }, 1000);
 }
