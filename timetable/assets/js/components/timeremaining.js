@@ -36,6 +36,7 @@ function timeleft() {
         var timediff = endtime - curtimeS;
 
         var periodno = -1;
+
         while (timediff < 0) {
             var timediff = timediff + (periodlength * 60);
             var periodno = periodno + 1;

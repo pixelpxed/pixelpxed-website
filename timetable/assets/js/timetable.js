@@ -13,6 +13,7 @@ window.addEventListener('load', () => {
         setTimetableSystemInformation()
         updateChecker()
         googleSearchEnter()
+        checkConnection()
     }
 });
 
@@ -248,25 +249,34 @@ function about() {
 }
 
 var fetchedversion = timetableversion
+var checkupdates = undefined
 function updateChecker() {
-    fetch('https://www.pixelpxed.xyz/timetable/assets/components/json/fetchresources.json')
-        .then((respond) => respond.json())
-        .then((data) => fetchedversion = data)
-
-    let checkupdates = setInterval(() => {
+    checkupdates = setInterval(() => {
         fetch('https://www.pixelpxed.xyz/timetable/assets/components/json/fetchresources.json')
             .then((respond) => respond.json())
             .then((data) => fetchedversion = data)
-
-        if (fetchedversion.currentversion != timetableversion) {
-            addNotification(`<b>New version of Timetable is available. (v${fetchedversion.currentversion})</b><br><a onclick="location.reload()">Reload</a> Timetable now to update.`)
-            clearInterval(checkupdates)
-        } 
-        
-        console.log(`Checked for Timetable updates\n- Current Version: ${timetableversion}\n- Fetched Version: ${fetchedversion.currentversion}`)
+            .then(() => {
+                if (fetchedversion.currentversion != timetableversion) {
+                    addNotification(`<b>New version of Timetable is available. (v${fetchedversion.currentversion})</b><br><a onclick="location.reload()">Reload</a> Timetable now to update.`)
+                    clearInterval(checkupdates)
+                } 
+                
+                console.log(`Checked for Timetable updates\n- Client Version: ${timetableversion}\n- Server Version: ${fetchedversion.currentversion}`)
+            })
     }, 60000)
 }
 
 function reloadPage() {
     location.reload()
+}
+
+function checkConnection() {
+    window.addEventListener('online', () => {
+        addNotification("You're now back online, you can now use Timetable normally.")
+        updateChecker()
+    });
+    window.addEventListener('offline', () => {
+        addNotification("It seems like you're offline, it might be our end. But please check your internet connection.")
+        clearInterval(checkupdates)
+    });
 }

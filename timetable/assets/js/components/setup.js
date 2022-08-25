@@ -25,6 +25,7 @@ function setupEventListener() {
             element.addEventListener("change", function(event) {
                 if (event.target.value == "custom") {
                     document.querySelector(".setup-class-custom-wrapper").style.display = "block"
+                    localStorage.setItem("classTimetable", "custom")
                 } if (event.target.value != "custom") {
                     document.querySelector(".setup-class-custom-wrapper").style.display = "none"
                     localStorage.setItem("classTimetable", event.target.value)
@@ -43,6 +44,15 @@ function setupEventListener() {
         document.querySelector("input[name='gaiindex']").addEventListener("click", () => {
             localStorage.setItem("gaiTimetable", document.querySelector("input[name='gaiindex']").value)
         })
+}
+
+function completeSetup() {
+    if (localStorage.getItem("classTimetable") == "custom") {
+        localStorage.setItem("customClassJSON", document.querySelector(".setup-class-custom-json").value)
+    }
+    
+    localStorage.setItem('setupComplete', true);
+    location.reload();
 }
 
 function resetTimetable() {

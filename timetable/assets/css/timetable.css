@@ -40,7 +40,7 @@
 
     resize: vertical;
 
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto Mono', 'Sarabun', monospace;
 }
 
 .setup-error {
