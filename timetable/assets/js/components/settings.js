@@ -97,7 +97,7 @@ function setListenersSettingsChange() {
             if (event.target.name === "timeremaining") {
                 if (event.target.checked) {
                     localStorage.setItem("enableTimeRemaining", true)
-                    timeleft()
+                    timeRemaining()
                 } if (!event.target.checked) {
                     localStorage.setItem("enableTimeRemaining", false)
                     clearInterval(timeleftinterval)

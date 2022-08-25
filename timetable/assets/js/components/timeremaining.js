@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
     // Check localStorage for setting Time Remaining
     if ((localStorage.getItem("enableTimeRemaining") === "true")) {
-        timeleft()
+        timeRemaining()
     }
 });
 
@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
 var timeleftinterval = undefined
 var bellChimes = new Audio("./assets/sound/bellChimes.mp3")
 
-function timeleft() {
+function timeRemaining() {
     // Inserts the HTML code for time remaining after clock.
     document.querySelector(".clock-wrapper").insertAdjacentHTML("afterend", `
         <div class="timeremaining">
