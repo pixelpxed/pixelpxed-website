@@ -13,9 +13,19 @@ window.addEventListener('load', () => {
         setTimetableSystemInformation()
         updateChecker()
         googleSearchEnter()
-        checkConnection()
     }
 });
+
+function checkConnection() {
+    window.addEventListener('online', () => {
+        addNotification("You're now back online.")
+        updateChecker()
+    });
+    window.addEventListener('offline', () => {
+        addNotification("You're not connected to the internet.", "error")
+        clearInterval(checkupdates)
+    });
+}
 
 function setTimetableSystemInformation() {
     document.querySelectorAll(".js-fill-version").forEach(element => {
@@ -268,15 +278,4 @@ function updateChecker() {
 
 function reloadPage() {
     location.reload()
-}
-
-function checkConnection() {
-    window.addEventListener('online', () => {
-        addNotification("You're now back online, you can now use Timetable normally.")
-        updateChecker()
-    });
-    window.addEventListener('offline', () => {
-        addNotification("It seems like you're offline, it might be our end. But please check your internet connection.")
-        clearInterval(checkupdates)
-    });
 }

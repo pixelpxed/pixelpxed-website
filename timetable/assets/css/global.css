@@ -233,6 +233,9 @@ footer, .footer-wrapper {
     color: var(--color-gray-2);
 }
 
+ul {
+    margin-left: 2em;
+}
 
 .main {
     position: relative;

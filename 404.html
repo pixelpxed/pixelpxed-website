@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" theme="sync-os">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 (Not Found) - PixelEdition</title>
+
+    <link rel="stylesheet" href="./timetable/assets/css/global.css">
+    <link rel="stylesheet" href="./timetable/assets/css/timetable.css">
+
+    <script defer src="../../js/global.js"></script>
+</head>
+<body>
+    <style>
+        p {
+            margin: 1em 0;
+        }
+
+        .error-wrapper {
+            position: fixed;
+
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            display: grid;
+            grid-template-columns: max-content max-content;
+            gap: 1em;
+
+            width: 100%;
+            max-width: max-content;
+
+            max-height: 100vh;
+
+            margin: auto;
+            padding-top: 37px;
+
+            overflow: auto;
+        }
+
+        .error-content {
+            width: 100%;
+            max-width: 30em;
+
+            padding: 1em;
+        }
+
+        .error-picture span {
+            display: block;
+
+            width: max-content;
+
+            margin: auto;
+
+            font-size: 10em;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8em;
+
+            opacity: 0.5;
+        }
+
+        @media screen and (max-width: 50em) {
+            .error-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- Navigation Bar -->
+    <nav id="navigation-bar" class="navigation-bar navigation-bar-fixed">
+        <div>
+            <div>
+                <a href="https://www.pixelpxed.xyz/">Home</a>
+                <a href="https://www.pixelpxed.xyz/timetable/">Timetable</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Popup Elements -->
+    <div id="popup-center" class="popup-center"></div>
+    <div id="notification-center" class="notification-wrapper"></div>
+
+    <div id="main" class="main">
+        <div class="error-wrapper">
+            <div class="error-picture">
+                <span class="material-symbols-outlined">
+                    description
+                </span>
+            </div>
+            <div class="error-content">
+                <div>
+                    <h1>Woah, you lost?</h1>
+                    <p>You shouldn't be here, here let me see the problem and I'll help you. <i>Hmm...</i> Oh I get it now, you took a wrong turn to a path that doesn't exist. Here, let me guide you to some other places.</p>
+                    <p><b>404.</b><span style="opacity: 0.5;"> Your requested URL was not found on the server.</span></p>
+                </div>
+                <ul>
+                    <li><a href="https://www.pixelpxed.xyz/">Home</a></li>
+                    <li><a href="https://www.pixelpxed.xyz/timetable/">Timetable</a></li>
+                </ul>
+                <p class="copyright">
+                    © 2022 PixelEdition. All rights reserved
+                </p>
+            </div>
+        </div>
+        <footer class="footer-wrapper">
+    </div>
+</body>
+</html>
