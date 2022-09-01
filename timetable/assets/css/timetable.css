@@ -234,10 +234,6 @@
     font-weight: var(--font-weight-bold);
 }
 
-.about-content ul {
-    padding-left: 2em;
-}
-
 .animation-rotate-inf {
     display: block;
 
