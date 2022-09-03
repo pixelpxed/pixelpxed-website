@@ -4,27 +4,27 @@ window.addEventListener('load', () => {
 });
 
 var daylist = [
-    "Sunday", 
-    "Monday", 
-    "Tuesday", 
-    "Wednesday", 
-    "Thursday", 
-    "Friday", 
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
     "Saturday"
 ]
 
 var monthlist = [
-    "January", 
-    "February", 
-    "March", 
-    "April", 
-    "May", 
-    "June", 
-    "July", 
-    "August", 
-    "September", 
-    "October", 
-    "November", 
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
     "December"
 ]
 
@@ -47,7 +47,7 @@ function clock() {
         date = today.getDate();
         month = monthlist[today.getMonth()];
         year = today.getFullYear();
-    
+
         hour = today.getHours();
         minute = today.getMinutes();
         second = today.getSeconds();

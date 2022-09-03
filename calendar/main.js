@@ -6,9 +6,9 @@ var calendartitle = parameters.get("month");
 var daycount = parseInt(parameters.get("days"));
 var offsetcount = parseInt(parameters.get("offset"));
 
-window.onload = function() {
+window.onload = function () {
     console.log("%cWarning\n\n%cBy using this console you can get attacked by what it's called 'Self-XSS.' Never paste and run any codes that you don't understand.\n",
-                "text-align: center; font-size: 1.5em; color: red; font-weight: bold;", "text-align: center;")
+        "text-align: center; font-size: 1.5em; color: red; font-weight: bold;", "text-align: center;")
 
     fillCalender();
     setDefaultValues();
@@ -24,7 +24,8 @@ function setDefaultValues() {
     if (localStorage.getItem("theme") == "dark") {
         document.documentElement.classList = "dark";
         document.getElementById("themeswitch").textContent = "light_mode"
-    } if (localStorage.getItem("theme") == "light") {
+    }
+    if (localStorage.getItem("theme") == "light") {
         document.documentElement.classList = "light";
         document.getElementById("themeswitch").textContent = "dark_mode"
     }
@@ -32,7 +33,7 @@ function setDefaultValues() {
 
 function fillCalender() {
     let calendar = document.querySelector(".calendar-table")
-    
+
     document.getElementById("calendar-title").innerHTML = calendartitle
 
     rowcount = Math.ceil((daycount + offsetcount) / 7);
@@ -44,7 +45,7 @@ function fillCalender() {
         let weekname = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][week - 1];
 
         calendar.insertAdjacentHTML("beforeend", `<div class="grid-content day">${weekname}</div>`);
-    }  
+    }
 
     for (let offset = 1; offset <= offsetcount; offset++) {
         calendar.insertAdjacentHTML("beforeend", `<div class="grid-content othermonth">&nbsp<div class="grid-contentedit" contenteditable></div></div>`);
@@ -79,7 +80,8 @@ function theme() {
         localStorage.setItem("theme", "dark")
         document.getElementById("themeswitch").textContent = "light_mode"
         return document.documentElement.className = 'dark';
-    } if (document.documentElement.classList == 'dark') {
+    }
+    if (document.documentElement.classList == 'dark') {
         localStorage.setItem("theme", "light")
         document.getElementById("themeswitch").textContent = "dark_mode"
         return document.documentElement.className = 'light';
@@ -88,7 +90,9 @@ function theme() {
 
 function openNewCalendar() {
     document.getElementById('new-calendar-wrapper').style.display = 'block';
-} function closeNewCalendar() {
+}
+
+function closeNewCalendar() {
     document.getElementById('new-calendar-wrapper').style.display = 'none';
 }
 
@@ -96,11 +100,14 @@ function openNewCalendar() {
 function close_slide(element, direction) {
     if (direction == "up") {
         document.querySelector(element).style.top = `-${document.querySelector(element).offsetHeight}px`;
-    } if (direction == "down") {
+    }
+    if (direction == "down") {
         document.querySelector(element).style.bottom = `-${document.querySelector(element).offsetHeight}px`;
-    } if (direction == "left") {
+    }
+    if (direction == "left") {
         document.querySelector(element).style.left = `-${document.querySelector(element).offsetWidth}px`;
-    } if (direction == "right") {
+    }
+    if (direction == "right") {
         document.querySelector(element).style.right = `-${document.querySelector(element).offsetWidth}px`;
     }
 }

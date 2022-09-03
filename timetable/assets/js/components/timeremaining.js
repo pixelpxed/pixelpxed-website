@@ -55,9 +55,11 @@ function timeleft() {
                     bellChimes.play();
                 }
             }
-        } if (periodno <= 0) {
+        }
+        if (periodno <= 0) {
             document.getElementById("timeremaining-refreshcontent").innerHTML = `School isn't started yet`;
-        } if (periodno > periodperday) {
+        }
+        if (periodno > periodperday) {
             document.getElementById("timeremaining-refreshcontent").innerHTML = `School has ended`;
         }
     }, 1000);

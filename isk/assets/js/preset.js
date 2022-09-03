@@ -1,6 +1,5 @@
 // Users account info.
-const accountsData = [
-    {
+const accountsData = [{
         "username": "57729",
         "password": "02112550",
         "name_th": "ปุณณภัทท์ โรจนพิพัฒน์",
@@ -27,7 +26,7 @@ const accountsData = [
 ]
 
 
-window.onload = function() {
+window.onload = function () {
     console.log("%cWarning\n\n%cBy using this console you can get attacked by what it's called 'Self-XSS.' Never paste and run any codes that you don't understand.\n",
-                "text-align: center; font-size: 1.5em; color: red; font-weight: bold;", "text-align: center;")
+        "text-align: center; font-size: 1.5em; color: red; font-weight: bold;", "text-align: center;")
 }
