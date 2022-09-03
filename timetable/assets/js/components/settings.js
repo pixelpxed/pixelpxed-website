@@ -1,16 +1,19 @@
 window.addEventListener('load', () => {
     if (!localStorage.getItem("theme")) {
         localStorage.setItem("theme", "sync-os");
-    } document.querySelector("html").setAttribute("theme", localStorage.getItem("theme"));
+    }
+    document.querySelector("html").setAttribute("theme", localStorage.getItem("theme"));
 })
 
 var settingsBoxFetched = false
+
 function openSettings() {
     disableScrollbar()
-    
+
     if (settingsBoxFetched == true) {
         document.querySelector('.settings-wrapper').style.display = "block"
-    } if (settingsBoxFetched != true) {
+    }
+    if (settingsBoxFetched != true) {
         fetch('./assets/components/html/settings.html')
             .then((response) => response.text())
             .then((html) => document.querySelector(".popup-center").innerHTML += html)
@@ -19,8 +22,8 @@ function openSettings() {
                 setListenersSettingsChange();
             })
         settingsBoxFetched = true
-    } 
-    
+    }
+
     document.getElementById("full-page-overlay").style.display = "block"
 }
 
@@ -50,16 +53,18 @@ function setDefaultSettingsValue() {
                 document.querySelector(".settings-class-custom-wrapper").style.display = "block"
             }
         }
-    }); document.querySelector(".settings-class-custom-json").value = localStorage.getItem("customClassJSON")
-    
-        // Pop-up Mode
-        if (localStorage.getItem("popupMode") == "true") {
-            document.querySelector("input[name='popupmode']").setAttribute("checked", "checked")
-        }
+    });
+    document.querySelector(".settings-class-custom-json").value = localStorage.getItem("customClassJSON")
+
+    // Pop-up Mode
+    if (localStorage.getItem("popupMode") == "true") {
+        document.querySelector("input[name='popupmode']").setAttribute("checked", "checked")
+    }
     // Time Remaining
     if (localStorage.getItem("enableTimeRemaining") == "true") {
         document.querySelector("input[name='timeremaining']").setAttribute("checked", "checked")
-    } if (localStorage.getItem("enableTimeRemainingSound") == "true") {
+    }
+    if (localStorage.getItem("enableTimeRemainingSound") == "true") {
         document.querySelector("input[name='timeremaining-sound']").setAttribute("checked", "checked")
     }
 }
@@ -67,7 +72,7 @@ function setDefaultSettingsValue() {
 function setListenersSettingsChange() {
     // Theme
     document.querySelectorAll("input[name='settings-theme']").forEach((element) => {
-        element.addEventListener("change", function(event) {
+        element.addEventListener("change", function (event) {
             document.querySelector("html").setAttribute("theme", event.target.value);
             localStorage.setItem("theme", event.target.value)
         })
@@ -80,10 +85,11 @@ function setListenersSettingsChange() {
 
     // Class
     document.querySelectorAll("input[name='settings-class']").forEach((element) => {
-        element.addEventListener("change", function(event) {
+        element.addEventListener("change", function (event) {
             if (event.target.value == "custom") {
                 document.querySelector(".settings-class-custom-wrapper").style.display = "block"
-            } if (event.target.value != "custom") {
+            }
+            if (event.target.value != "custom") {
                 document.querySelector(".settings-class-custom-wrapper").style.display = "none"
                 localStorage.setItem("classTimetable", event.target.value)
                 location.reload()
@@ -93,7 +99,7 @@ function setListenersSettingsChange() {
 
     // Time Remaining
     document.querySelectorAll(".settings-timeremaining").forEach((element) => {
-        element.addEventListener("click", function(event) {
+        element.addEventListener("click", function (event) {
             if (event.target.name === "timeremaining") {
                 if (event.target.checked) {
                     localStorage.setItem("enableTimeRemaining", true)
@@ -103,10 +109,12 @@ function setListenersSettingsChange() {
                     clearInterval(timeleftinterval)
                     document.querySelector(".timeremaining").remove()
                 }
-            } if (event.target.name === "timeremaining-sound") {
+            }
+            if (event.target.name === "timeremaining-sound") {
                 if (event.target.checked) {
                     localStorage.setItem("enableTimeRemainingSound", true)
-                } if (!event.target.checked) {
+                }
+                if (!event.target.checked) {
                     localStorage.setItem("enableTimeRemainingSound", false)
                 }
             }
@@ -115,12 +123,13 @@ function setListenersSettingsChange() {
 
     // Pop-up Mode
     document.querySelectorAll(".settings-popupmode").forEach((element) => {
-        element.addEventListener("click", function(event) {
+        element.addEventListener("click", function (event) {
             if (event.target.name === "popupmode") {
                 if (event.target.checked) {
                     localStorage.setItem("popupMode", true)
                     location.reload()
-                } if (!event.target.checked) {
+                }
+                if (!event.target.checked) {
                     localStorage.setItem("popupMode", false)
                     location.reload()
                 }

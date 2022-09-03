@@ -52,7 +52,7 @@ body {
     border-radius: 0.3em;
 
     transition: 0.3s;
-    
+
     -webkit-appearance: none;
 }
 
@@ -105,7 +105,7 @@ body {
 
 @media (prefers-color-scheme: light) {
     body {
-        background: url("../img/loginbg-light.png")  no-repeat right bottom fixed;
+        background: url("../img/loginbg-light.png") no-repeat right bottom fixed;
         background-size: cover;
     }
 

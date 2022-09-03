@@ -1,28 +1,28 @@
 const classes_306 = [
     // Monday
-    "Homeroom", 
-    "Core Maths", 
-    "Art", 
-    "Thai", 
-    "Lunch", 
-    "Music", 
-    "Core English", 
-    "Core Science", 
-    "M3 Meeting", 
-    "Club", 
+    "Homeroom",
+    "Core Maths",
+    "Art",
+    "Thai",
+    "Lunch",
+    "Music",
+    "Core English",
+    "Core Science",
+    "M3 Meeting",
+    "Club",
     "",
 
     // Tuesday
-    "Homeroom", 
-    "Social", 
-    "R+W", 
-    "History", 
-    "Lunch", 
-    "Thai", 
-    "Core Maths", 
-    "Buddhism", 
-    "Technology", 
-    "DClass", 
+    "Homeroom",
+    "Social",
+    "R+W",
+    "History",
+    "Lunch",
+    "Thai",
+    "Core Maths",
+    "Buddhism",
+    "Technology",
+    "DClass",
     "",
 
     // Wednesday
@@ -37,7 +37,7 @@ const classes_306 = [
     "Scout",
     "Tutor",
     "DClass",
-    
+
     // Thursday
     "Homeroom",
     "Core English",
@@ -50,7 +50,7 @@ const classes_306 = [
     "DClass",
     "Tutor",
     "DClass",
-    
+
     // Friday
     "Homeroom",
     "Technology",
@@ -66,7 +66,7 @@ const classes_306 = [
 ]
 
 const subj_306 = {
-    "Homeroom"  : {
+    "Homeroom": {
         "videocall": "tir-krhe-ffd",
         "classroom": "NDg1ODUxMzEwNjgx"
     },
