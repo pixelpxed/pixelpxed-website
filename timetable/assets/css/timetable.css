@@ -60,9 +60,9 @@
 
 .settings-option-label {
     display: flex;
-    
+
     gap: 0.5em;
-    
+
     align-items: center;
 }
 
@@ -139,12 +139,12 @@
 
 .class-joinable:hover {
     border: 1px solid var(--color-gray-1);
-    
+
     cursor: pointer;
 }
 
 .table-grid-dark {
-    background: transparent ;
+    background: transparent;
 }
 
 .table-days {
@@ -181,7 +181,7 @@
 
 .bookmarks-wrapper {
     display: grid;
-    
+
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5em;
 
@@ -213,13 +213,13 @@
     padding: 1em;
 }
 
-.bookmarks-search input, 
+.bookmarks-search input,
 .bookmarks-search button {
     display: flex;
 
     align-items: center;
     justify-content: center;
-    
+
     width: 90%;
     height: 2em;
 
@@ -238,15 +238,20 @@
     display: block;
 
     width: max-content;
-    
+
     margin: 0.5em auto 0 auto;
 
     animation: rotate-360 1s linear infinite;
 }
 
 @keyframes rotate-360 {
-    0%   {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @media (max-width: 500px) {
@@ -260,7 +265,7 @@
 }
 
 .timeremaining span {
-    font-family: 'Roboto Mono', monospace; 
+    font-family: 'Roboto Mono', monospace;
     font-weight: var(--font-weight-bold);
 }
 

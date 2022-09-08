@@ -35,7 +35,7 @@
 
     font-family: "Outfit", "Sarabun", sans-serif;
 }
-    
+
 body {
     background: var(--background) no-repeat center center fixed;
     background-size: cover;
@@ -65,7 +65,7 @@ body {
     text-align: center;
     opacity: 0.6;
     transition: 0.3s;
-    
+
     display: inline-block;
 }
 

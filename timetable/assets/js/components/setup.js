@@ -12,54 +12,57 @@ function fillSetup() {
             .then(() => {
                 setupEventListener()
             })
-        
-    } if (localStorage.getItem("setupComplete") == "true") {
+
+    }
+    if (localStorage.getItem("setupComplete") == "true") {
         document.getElementById("full-page-overlay").style.display = "none"
     }
 }
 
 function setupEventListener() {
     document.querySelector(".setup-class-default").checked = true;
-        localStorage.setItem("classTimetable", document.querySelector(".setup-class-default").value)
-        document.querySelectorAll("input[name='setup-class']").forEach((element) => {  
-            element.addEventListener("change", function(event) {
-                if (event.target.value == "custom") {
-                    document.querySelector(".setup-class-custom-wrapper").style.display = "block"
-                    localStorage.setItem("classTimetable", "custom")
-                } if (event.target.value != "custom") {
-                    document.querySelector(".setup-class-custom-wrapper").style.display = "none"
-                    localStorage.setItem("classTimetable", event.target.value)
-                }
-            })
-        })
-
-        document.querySelector("input[name='setup-popupmode']").addEventListener("click", function(event) {
-            if (event.target.checked) {
-                localStorage.setItem("popupMode", true)
-            } if (!event.target.checked) {
-                localStorage.setItem("popupMode", false)
+    localStorage.setItem("classTimetable", document.querySelector(".setup-class-default").value)
+    document.querySelectorAll("input[name='setup-class']").forEach((element) => {
+        element.addEventListener("change", function (event) {
+            if (event.target.value == "custom") {
+                document.querySelector(".setup-class-custom-wrapper").style.display = "block"
+                localStorage.setItem("classTimetable", "custom")
+            }
+            if (event.target.value != "custom") {
+                document.querySelector(".setup-class-custom-wrapper").style.display = "none"
+                localStorage.setItem("classTimetable", event.target.value)
             }
         })
+    })
 
-        document.querySelector("input[name='gaiindex']").addEventListener("click", () => {
-            localStorage.setItem("gaiTimetable", document.querySelector("input[name='gaiindex']").value)
-        })
+    document.querySelector("input[name='setup-popupmode']").addEventListener("click", function (event) {
+        if (event.target.checked) {
+            localStorage.setItem("popupMode", true)
+        }
+        if (!event.target.checked) {
+            localStorage.setItem("popupMode", false)
+        }
+    })
+
+    document.querySelector("input[name='gaiindex']").addEventListener("click", () => {
+        localStorage.setItem("gaiTimetable", document.querySelector("input[name='gaiindex']").value)
+    })
 }
 
 function completeSetup() {
     if (localStorage.getItem("classTimetable") == "custom") {
         localStorage.setItem("customClassJSON", document.querySelector(".setup-class-custom-json").value)
     }
-    
+
     localStorage.setItem('setupComplete', true);
     location.reload();
 }
 
 function resetTimetable() {
-    popupConfirm("Reset Timetable?", 
-                 "Are you sure you want to reset your Timetable? This action can't be undone!", 
-                 "resetTimetableTrue", 
-                 "returnNothing")
+    popupConfirm("Reset Timetable?",
+        "Are you sure you want to reset your Timetable? This action can't be undone!",
+        "resetTimetableTrue",
+        "returnNothing")
 }
 
 function resetTimetableTrue() {

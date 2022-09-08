@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
     console.log("%cWarning!%c\n\nConsole is a very powerful tool.\n\nRunning codes you don't understand can break your Timetable, or worse, steal your personal data.\n\nNever paste and run any code you don't understand.",
-                "font-family: sans-serif; font-weight: bold; font-size: 1.5em; color: var(--color-red);",
-                "font-family: sans-serif;")
+        "font-family: sans-serif; font-weight: bold; font-size: 1.5em; color: var(--color-red);",
+        "font-family: sans-serif;")
 
     setNavigationOffset()
     checkConnection()
@@ -17,7 +17,8 @@ function setThemeIcon() {
     document.documentElement.classList = localStorage.getItem("theme");
     if (localStorage.getItem("theme") == "dark") {
         return document.querySelector("#theme-switch").textContent = "light_mode"
-    } if (localStorage.getItem("theme") == "light") {
+    }
+    if (localStorage.getItem("theme") == "light") {
         return document.querySelector("#theme-switch").textContent = "dark_mode"
     }
 }
@@ -28,11 +29,13 @@ function swapTheme() {
         localStorage.setItem("theme", "dark")
         document.querySelector("#theme-switch").textContent = "light_mode"
         return document.documentElement.className = 'dark';
-    } if (localStorage.getItem("theme") === "light") {
+    }
+    if (localStorage.getItem("theme") === "light") {
         localStorage.setItem("theme", "light")
         document.querySelector("#theme-switch").textContent = "dark_mode"
         return document.documentElement.className = 'light';
-    } if (localStorage.getItem("theme") === "sync-os") {
+    }
+    if (localStorage.getItem("theme") === "sync-os") {
         return
     }
 }
@@ -40,7 +43,8 @@ function swapTheme() {
 function addNotification(content, type) {
     if (type != "error") {
         var notificationType = "notification-normal"
-    } if (type == "error") {
+    }
+    if (type == "error") {
         var notificationType = "notification-error"
     }
 
@@ -59,6 +63,7 @@ function addNotification(content, type) {
 }
 
 var popupid = 0
+
 function popupConfirm(title, content, answerTrue, answerFalse) {
     document.querySelector(".popup-center").insertAdjacentHTML("beforeend", `
     <div id="popup-id-${popupid}" class="popup">

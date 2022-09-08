@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
     getInfo();
 }
 
@@ -21,7 +21,8 @@ function getInfo() {
     var token = getCookie(`token`)
     if (token == "") {
         window.location.href = "./login.html"
-    } for (i = 0; i < accountsData.length; i++) {
+    }
+    for (i = 0; i < accountsData.length; i++) {
         if (token == accountsData[i].token) {
             name_en = accountsData[i].name_en;
             name_th = accountsData[i].name_th;
