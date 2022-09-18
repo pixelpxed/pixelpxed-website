@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notetaker</title>
+
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" sizes="any" type="image/png">
+
+    <link rel="stylesheet" href="./assets/css/global.css">
+    <link rel="stylesheet" href="./assets/css/notetaker.css">
+
+    <script defer src="./assets/js/notetaker.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+
+</head>
+<body>
+    <div class="popup-zone">
+        <div class="contentbox-wrapper" id="settings-wrapper">
+            <div class="popup-content">
+                <p class="popup-title">Settings</p>
+
+                <!-- Themes -->
+                <div class="settings-section-wrapper">
+                    <p class="settings-section-title settings-option-label">
+                        <span class="material-symbols-outlined">
+                            style
+                        </span>
+                        <span>
+                            <b>
+                                Themes
+                            </b><br>
+                            <span class="popup-description">
+                                Themes will be applied across updated pixelpxed pages.
+                            </span>
+                        </span>
+                    </p>
+                    <div style="margin-left: 2em;">
+                        <label class="settings-option-label">
+                            <input name="settings-theme" type="radio" value="sync-os" checked="checked">
+                            <span class="material-symbols-outlined">
+                                auto_mode
+                            </span>
+                            <span>
+                                Automatic<br>
+                                <span class="popup-description">
+                                    Use your device system theme to adjust the theme.
+                                </span>
+                            </span>
+                        </label>
+                        <label class="settings-option-label">
+                            <input name="settings-theme" type="radio" value="dark">
+                            <span class="material-symbols-outlined">
+                                dark_mode
+                            </span>
+                            <span>
+                                Dark<br>
+                                <span class="popup-description">
+                                    Best for night owls and might reduce eye strain.
+                                </span>
+                            </span>
+                        </label>
+                        <label class="settings-option-label">
+                            <input name="settings-theme" type="radio" value="light">
+                            <span class="material-symbols-outlined">
+                                light_mode
+                            </span>
+                            <span>
+                                Light<br>
+                                <span class="popup-description">
+                                    More visible content, but might cause eye strain.
+                                </span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Monospace Editing -->
+                <div class="settings-section-wrapper">
+                    <p class="settings-section-title settings-option-label">
+                        <span class="material-symbols-outlined">
+                            edit_note
+                        </span>
+                        <span>
+                            <b>
+                                Editor
+                            </b><br>
+                            <span class="popup-description">
+                                Note editor settings.
+                            </span>
+                        </span>
+                    </p>
+                    <div style="margin-left: 2em;">
+                        <label class="settings-option-label">
+                            <input class="settings-monospace" name="settings-monospace" type="checkbox">
+                            <span class="material-symbols-outlined">
+                                abc
+                            </span>
+                            <span>
+                                Use  <span style="font-family: 'Roboto Mono', monospace; padding: 0.15em; background: var(--color-gray-4); border-radius: 0.2rem;">monospace</span> font<br>
+                                <span class="popup-description">
+                                    Use a fixed-width font in editor.
+                                </span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-buttons-box">
+                <div class="popup-buttons-wrapper">
+                    <a class="popup-button" onclick="togglePopup('#settings-wrapper')">Done</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="contentbox-wrapper" id="help-wrapper">
+            <div class="popup-content">
+                <p class="popup-title">Help</p>
+                <div class="settings-section-wrapper">
+                    Click on title to change title.<br>
+                    Click on note content to edit the content.<br>
+                    That's it ¯\_(ツ)_/¯, happy editing!
+                </div>
+            </div>
+            <div class="popup-buttons-box">
+                <div class="popup-buttons-wrapper">
+                    <a class="popup-button" onclick="togglePopup('#help-wrapper')">Done</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-page-overlay"></div>
+    </div>
+    <div class="application-root">
+        <nav class="navigation-bar">
+            <div>
+                <a href="/">Home</a>
+                <a href="/timetable">Timetable</a>
+                <a href="/notetaker">Notetaker</a>
+            </div>
+            <div>
+                <a class="material-symbols-outlined" title="New Note">add</a>
+                <a class="material-symbols-outlined" title="Help" onclick="togglePopup('#help-wrapper')">help</a>
+                <a class="material-symbols-outlined" title="Settings" onclick="togglePopup('#settings-wrapper')">settings</a>
+            </div>
+        </nav>
+        <div class="application-content">
+            <div class="side-bar">
+                <div class="notes-panel-wrapper">
+                    <div class="justify-content-between-center">
+                        <p><b>Notes</b></p>
+                        <a class="material-symbols-outlined" onclick="toggleSidebar()" title="Toggle Sidebar">menu_open</a>
+                    </div>
+                    <ul class="notes-panel"></ul>
+                </div>
+                <div style="border-top: 1px solid var(--color-gray-4);">
+                    <p><b>Important</b></p>
+                    <p class="popup-description">
+                        It is not recommended that you store any sensitive information in Notetaker, while your data is stored on your device, it is not encrypted.
+                    </p>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="navigation-bar file-path-bar">
+                    <div>
+                        <a class="material-symbols-outlined" onclick="toggleSidebar()" title="Toggle Sidebar">menu_open</a>
+                        <p class="save-indicator popup-description">Saved</p>
+                        <p class="main-edit-filepath">&nbsp;</p>
+                    </div>
+                </div>
+                <div class="main-edit">
+                    <h1 class="main-edit-title" contenteditable>Notetaker is loading...</h1>
+                    <hr>
+                    <p class="main-edit-content" contenteditable>We'll get ready in no time!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
