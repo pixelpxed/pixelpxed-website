@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../../css/global.css">
+</head>
+<style>
+    body {
+        position: relative;
+    }
+    .subject-card {
+        width: calc(100% - 2em);
+        max-width: 25em;
+
+        margin: auto;
+
+        background: var(--color-gray-6);
+        border: 1px solid var(--color-gray-4);
+
+        border-radius: 0.5em;
+    }
+
+    .subject-teacher {
+        display: inline-flex;
+
+        align-items: center;
+    }
+
+    .subject-card-content {
+        padding: 1em;
+    }
+
+    .popup-buttons-box {
+        display: flex;
+
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .timetable-integration {
+        border-top: 1px solid var(--color-gray-4);
+    }
+
+    .subject-card-integration-title {
+        padding: 1em;
+
+        font-size: 0.8em;
+
+        opacity: 0.5;
+    }
+
+    .teacher-card-img {
+        display: block;
+
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 15em;
+
+        margin: auto;
+
+        border-radius: 0.3em;
+    }
+
+    .teacher-card-table {
+        width: 100%;
+
+        border-collapse: collapse;
+
+        border-radius: 0.5em;
+        border: 1px solid var(--color-gray-4);
+    }
+
+    .teacher-card-table thead {
+        background: var(--color-gray-5);
+    }
+
+    .teacher-card-table th,
+    td {
+        text-align: center;
+
+        padding: 0.25em;
+
+        border: 1px solid var(--color-gray-4);
+    }
+
+    .teacher-card-contacts {
+        margin: 1em 0;
+    }
+
+    .fixed-center {
+        position: fixed;
+
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<body>
+    <div class="subject-card">
+        <div class="popup-content">
+            <h2 class="subject-name">สังคมศึกษา ศาสนา และวัฒนธรรม</h2>
+            <p>
+                <a class="subject-teacher" teacher="skt491">
+                    <span class="subject-teacher-name">
+                        จิตรลดา รุ่งเรือง
+                    </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</body>
+<script>
+    const teachers = {
+        "skt491": {
+            "img": "http://www.mysk.school/th/img/homeroom/skt491.jpg",
+            "name": "จิตรลดา รุ่งเรือง",
+            "subjgroup": "สังคมศึกษา ศาสนา และวัฒนธรรม",
+            "contact": [
+                {
+                    "method": "มือถือ",
+                    "data": "087-997-3756"
+                },
+                {
+                    "method": "อีเมล",
+                    "data": "jitlada.r@sk.ac.th"
+                }
+            ]
+        }
+    }
+
+    document.querySelector(".subject-teacher").addEventListener("click", (event) => {
+        if (document.querySelector(".teacher-card")) {
+            document.querySelector(".teacher-card").remove()
+        }
+
+        var teacher = document.querySelector(".subject-teacher").getAttribute("teacher")
+
+        const curteacherlist = teachers[teacher];
+
+        var contactlist = "";
+
+        for (let i = 0; i < curteacherlist.contact.length; i++) {
+            contactlist += `<tr><td><b>${curteacherlist.contact[i].method}</b></td><td>${curteacherlist.contact[i].data}</td></tr>`
+        }
+
+        // <div style="position: fixed; top: ${event.clientY}px; left: ${event.clientX}px;" class="subject-card teacher-card">
+        document.querySelector("body").insertAdjacentHTML("beforeend", `
+            <div class="fixed-center subject-card teacher-card">
+                <div class="popup-content">
+                    <img class="teacher-card-img" src="${curteacherlist.img}">
+                    <div>
+                        <div class="teacher-card-contacts">
+                            <h2>คุณครู ${curteacherlist.name}</h2>
+                            <p>กลุ่มสาระการเรียนรู้ ${curteacherlist.subjgroup}</p>
+                        </div>
+                        <table class="teacher-card-table">
+                            <thead>
+                                <th colspan="2">ช่องทางการติดต่อสื่อสาร</th>
+                            </thead>
+                            <tbody class="teacher-card-table-tbody">
+                                ${contactlist}    
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="popup-buttons-box">
+                    <div class="popup-buttons-wrapper">
+                        <a class="popup-button" onclick="document.querySelector('.teacher-card').remove()">ปิด</a>
+                    </div>
+                </div>
+            </div>
+        `)
+    })
+</script>
+
+</html>
