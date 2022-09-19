@@ -10,6 +10,27 @@ window.addEventListener("load", () => {
     document.querySelector("html").setAttribute("theme", localStorage.getItem("theme"));
 });
 
+
+// Universal already-existing popup toggle
+function togglePopup(element) {
+    const elementSelected = document.querySelector(element)
+    const fullPageOverlay = document.querySelector(".full-page-overlay")
+
+    if (elementSelected.style.display == "block") {
+        fullPageOverlay.style.display = "none"
+        return elementSelected.style.display = "none"
+    } if (elementSelected.style.display != "block") {
+        fullPageOverlay.style.display = "block"
+        return elementSelected.style.display = "block"
+    }
+}
+
+// Toggle sidebar element
+function toggleSidebar() {
+    document.querySelector(".side-bar").classList.toggle("side-bar-hide")
+    document.querySelector(".main-content").classList.toggle("span-col-2")
+}
+
 // Settings
 function settings() {
     document.querySelectorAll("input[name='settings-theme']").forEach((element) => {
@@ -61,6 +82,20 @@ function loadNote() {
             "content": "We're unable to load your note, please try again later. 🙏<br><br>Error: Timed out while fetching note."
         }
     ]
+
+    const parameters = new URLSearchParams(window.location.search);
+    var noteid = parseInt(parameters.get("noteid") ?? 0)
+
+    if (noteid === "") {
+        noteid = 0
+        notes = [
+            {
+                "title": "Click on a note to start editing.",
+                "content": "It's that easy!"
+            }
+        ]
+        return insertContent()
+    }
     
     // Private function, insert notes content.
     function insertContent() {
@@ -77,49 +112,26 @@ function loadNote() {
         }
     }
 
-    // Load the note
-    fetch("./assets/json/templatenote.json")
-        .then((res) => res.json())
-        .then((data) => notes = data)
-        .then((content) => {
-            localStorage.setItem("notetaker-notesData", toString(notes))
-            localStorage.setItem("notetaker-firstRun", false)
-
-            insertContent()
-            insertNotesPanel()
-        })
-
-    // if (!localStorage.getItem("notetaker-firstRun")) {
-    //     // Load the note
-    //     fetch("./assets/json/templatenote.json")
-    //         .then((res) => res.json())
-    //         .then((data) => notes = data)
-    //         .then((data) => {
-    //             localStorage.setItem("notetaker-notesData", data)
-    //             localStorage.setItem("notetaker-firstRun", false)
-
-    //             insertContent()
-    //             insertNotesPanel()
-    //         })
-    // } if (localStorage.getItem("notetaker-firstRun") == false) {
-    //     notes = localStorage.getItem("notetaker-notesData")
-    //     insertContent()
-    //     insertNotesPanel()
-    // }
+    function insertNotesHandler() {
+        notes = JSON.parse(localStorage.getItem("notetaker-notesData"))
     
-    const parameters = new URLSearchParams(window.location.search);
+        insertContent()
+        insertNotesPanel()
+    }
 
-    var noteid = parameters.get("noteid") ?? 0
+    if (localStorage.getItem("notetaker-firstRun") === null) {
+        // Load the note
+        fetch("./assets/json/templatenote.json")
+            .then((res) => res.json())
+            .then((content) => {
+                localStorage.setItem("notetaker-notesData", JSON.stringify(content))
+                localStorage.setItem("notetaker-firstRun", false)
 
-    if (noteid === "") {
-        noteid = 0
-        notes = [
-            {
-                "title": "Click on a note to start editing.",
-                "content": "It's that easy!"
-            }
-        ]
-        return insertContent()
+                insertNotesHandler()
+            })
+        console.log("Notetaker detected that this session is your first time.")
+    } if (localStorage.getItem("notetaker-firstRun") === "false") {
+        insertNotesHandler()
     }
 
     let typingTimeout;
@@ -139,24 +151,4 @@ function loadNote() {
 
         elementFilePath.innerHTML = elementTitle.innerHTML
     }
-}
-
-// Universal already-existing popup toggle
-function togglePopup(element) {
-    const elementSelected = document.querySelector(element)
-    const fullPageOverlay = document.querySelector(".full-page-overlay")
-
-    if (elementSelected.style.display == "block") {
-        fullPageOverlay.style.display = "none"
-        return elementSelected.style.display = "none"
-    } if (elementSelected.style.display != "block") {
-        fullPageOverlay.style.display = "block"
-        return elementSelected.style.display = "block"
-    }
-}
-
-function toggleSidebar() {
-    document.querySelector(".side-bar").classList.toggle("side-bar-hide")
-    document.querySelector(".main-content").classList.toggle("span-col-2")
-
 }
