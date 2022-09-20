@@ -1,11 +1,10 @@
 var customclasses = undefined
 var classes = undefined
 
-const classTimetable = localStorage.getItem("classTimetable")
-const customClassJSON = JSON.parse(localStorage.getItem("customClassJSON"))
+const classTimetable = localStorage.getItem("timetable-classTimetable")
 
 window.addEventListener('load', () => {
-    if (localStorage.getItem("setupComplete") === "true") {
+    if (localStorage.getItem("timetable-setupComplete") === "true") {
         setClassVariables()
         fillClasses()
         classJoiningSystem()
@@ -44,6 +43,7 @@ function setTimetableSystemInformation() {
     }
 }
 
+var customClassJSON
 function setClassVariables() {
     if (classTimetable === "305") {
         classes = classes_305
@@ -56,6 +56,7 @@ function setClassVariables() {
         return skMarchDrip()
     }
     if (classTimetable === "custom") {
+        customClassJSON = JSON.parse(localStorage.getItem("timetable-customClassJSON"))
         classes = customClassJSON.customclass
         subj = customClassJSON.customlinks
         return document.querySelector(".elective-swapper").remove()
@@ -136,7 +137,7 @@ function fillClasses() {
         }
     }
 
-    if ((localStorage.getItem("electiveClass") === elective_secondary) && (classTimetable !== "custom")) {
+    if ((localStorage.getItem("timetable-electiveClass") === elective_secondary) && (classTimetable !== "custom")) {
         document.getElementById(electiveGrid).innerHTML = elective_secondary
     }
 }
@@ -152,16 +153,16 @@ function fillBookmarks() {
 
             bookmarkElement.setAttribute("href", bookmarkJSON.url)
             if (bookmarkJSON.gaiRequired == true) {
-                bookmarkElement.setAttribute("href", bookmarkJSON.url + localStorage.getItem("gaiTimetable") + bookmarkJSON.urlAfter)
+                bookmarkElement.setAttribute("href", bookmarkJSON.url + localStorage.getItem("timetable-gaiTimetable") + bookmarkJSON.urlAfter)
             }
         }
     }
 }
 
 function classJoiningSystem() {
-    var gaiNumber = localStorage.getItem("gaiTimetable")
+    var gaiNumber = localStorage.getItem("timetable-gaiTimetable")
 
-    if (localStorage.getItem("popupMode") === "true") {
+    if (localStorage.getItem("timetable-popupMode") === "true") {
         document.querySelector(".title-description").innerHTML = `<p>Tap - Show Options<br>Select Your Action</p>`
         document.querySelectorAll(".class-joinable").forEach(grid => {
             var subjText = grid.innerHTML;
@@ -197,7 +198,7 @@ function classJoiningSystem() {
             })
         })
     }
-    if (localStorage.getItem("popupMode") !== "true") {
+    if (localStorage.getItem("timetable-popupMode") !== "true") {
         document.querySelector(".title-description").innerHTML = `<p>Left Click - Video Call<br>Right Click - Classroom</p>`
         document.querySelectorAll(".class-joinable").forEach(grid => {
             var subjText = grid.innerHTML;
@@ -229,11 +230,11 @@ function swapElectiveClass() {
     if (electiveGrid != undefined) {
         var electiveGridContent = document.getElementById(electiveGrid)
         if (electiveGridContent.innerHTML == elective_primary) {
-            localStorage.setItem("electiveClass", elective_secondary)
+            localStorage.setItem("timetable-electiveClass", elective_secondary)
             return location.reload()
         }
         if (electiveGridContent.innerHTML == elective_secondary) {
-            localStorage.setItem("electiveClass", elective_primary)
+            localStorage.setItem("timetable-electiveClass", elective_primary)
             return location.reload()
         }
     }

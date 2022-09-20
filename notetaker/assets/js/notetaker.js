@@ -72,28 +72,30 @@ function settings() {
     })
 
     // Monospace Font
-    if (localStorage.getItem("notetaker-settings-monospace") == true) {
+    if (localStorage.getItem("notetaker-monospace") == "true") {
         document.querySelector(".settings-monospace").setAttribute("checked", "checked")
-    
+
         document.querySelector(".main-edit-title").classList = "main-edit-title main-edit-monospace"
         document.querySelector(".main-edit-content").classList = "main-edit-content main-edit-monospace"
     }
 
-    document.querySelector("input[name=settings-monospace]").addEventListener("click", function (event) {
-        if (event.target.name === "settings-monospace") {
-            if (event.target.checked) {
-                localStorage.setItem("notetaker-settings-monospace", true)
+    document.querySelectorAll(".settings-monospace").forEach((element) => {
+        element.addEventListener("click", function (event) {
+            if (event.target.name === "settings-monospace") {
+                if (event.target.checked) {
+                    localStorage.setItem("notetaker-monospace", true)
 
-                document.querySelector(".main-edit-title").classList = "main-edit-title main-edit-monospace"
+                    document.querySelector(".main-edit-title").classList = "main-edit-title main-edit-monospace"
                 document.querySelector(".main-edit-content").classList = "main-edit-content main-edit-monospace"
-            }
-            if (!event.target.checked) {
-                localStorage.setItem("notetaker-settings-monospace", false)
+                }
+                if (!event.target.checked) {
+                    localStorage.setItem("notetaker-monospace", false)
 
-                document.querySelector(".main-edit-title").classList = "main-edit-title"
-                document.querySelector(".main-edit-content").classList = "main-edit-content"
+                    document.querySelector(".main-edit-title").classList = "main-edit-title"
+                    document.querySelector(".main-edit-content").classList = "main-edit-content"
+                }
             }
-        }
+        })
     })
 }
 
@@ -128,7 +130,7 @@ function loadNote() {
         for (let i = 0; i < notes.length; i++) {
             document.querySelector(".notes-panel").insertAdjacentHTML("beforeend", `
                 <li noteid=${i} class="notes-list">
-                    <a href="?noteid=${i}">${notes[i].title}</a>
+                    <a class="notes-list-${i}" href="?noteid=${i}">${notes[i].title}</a>
                     <a onclick="deleteNote(${i})" class="material-symbols-outlined">delete</a>
                 </li>
             `)
@@ -140,6 +142,8 @@ function loadNote() {
     
         if (notes.length === 0) {
             newNote()
+        } if (noteid > (notes.length - 1)) {
+            location.href = "?noteid=0"
         }
 
         insertContent()
@@ -179,6 +183,8 @@ function loadNote() {
         notes[noteid].content = elementContent.innerHTML
 
         localStorage.setItem("notetaker-notesData", JSON.stringify(notes))
+
+        document.querySelector(`.notes-list-${noteid}`).innerHTML = elementTitle.innerHTML
         
         elementFilePath.innerHTML = elementTitle.innerHTML
     }

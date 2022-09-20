@@ -42,29 +42,29 @@ function setDefaultSettingsValue() {
     })
 
     // Google User Index
-    document.querySelector("input[name='gaiindex']").value = localStorage.getItem("gaiTimetable")
+    document.querySelector("input[name='gaiindex']").value = localStorage.getItem("timetable-gaiTimetable")
 
     // Class
     document.querySelectorAll("input[name='settings-class']").forEach((element) => {
-        if (element.value == localStorage.getItem("classTimetable")) {
+        if (element.value == localStorage.getItem("timetable-classTimetable")) {
             element.setAttribute("checked", "checked")
 
-            if (localStorage.getItem("classTimetable") == "custom") {
+            if (localStorage.getItem("timetable-classTimetable") == "custom") {
                 document.querySelector(".settings-class-custom-wrapper").style.display = "block"
             }
         }
     });
-    document.querySelector(".settings-class-custom-json").value = localStorage.getItem("customClassJSON")
+    document.querySelector(".settings-class-custom-json").value = localStorage.getItem("timetable-customClassJSON")
 
     // Pop-up Mode
-    if (localStorage.getItem("popupMode") == "true") {
+    if (localStorage.getItem("timetable-popupMode") == "true") {
         document.querySelector("input[name='popupmode']").setAttribute("checked", "checked")
     }
     // Time Remaining
-    if (localStorage.getItem("enableTimeRemaining") == "true") {
+    if (localStorage.getItem("timetable-enableTimeRemaining") == "true") {
         document.querySelector("input[name='timeremaining']").setAttribute("checked", "checked")
     }
-    if (localStorage.getItem("enableTimeRemainingSound") == "true") {
+    if (localStorage.getItem("timetable-enableTimeRemainingSound") == "true") {
         document.querySelector("input[name='timeremaining-sound']").setAttribute("checked", "checked")
     }
 }
@@ -80,7 +80,7 @@ function setListenersSettingsChange() {
 
     // Google User Index
     document.querySelector("input[name='gaiindex']").addEventListener("click", () => {
-        localStorage.setItem("gaiTimetable", document.querySelector("input[name='gaiindex']").value)
+        localStorage.setItem("timetable-gaiTimetable", document.querySelector("input[name='gaiindex']").value)
     })
 
     // Class
@@ -91,7 +91,7 @@ function setListenersSettingsChange() {
             }
             if (event.target.value != "custom") {
                 document.querySelector(".settings-class-custom-wrapper").style.display = "none"
-                localStorage.setItem("classTimetable", event.target.value)
+                localStorage.setItem("timetable-classTimetable", event.target.value)
                 location.reload()
             }
         })
@@ -102,20 +102,20 @@ function setListenersSettingsChange() {
         element.addEventListener("click", function (event) {
             if (event.target.name === "timeremaining") {
                 if (event.target.checked) {
-                    localStorage.setItem("enableTimeRemaining", true)
+                    localStorage.setItem("timetable-enableTimeRemaining", true)
                     timeRemaining()
                 } if (!event.target.checked) {
-                    localStorage.setItem("enableTimeRemaining", false)
+                    localStorage.setItem("timetable-enableTimeRemaining", false)
                     clearInterval(timeleftinterval)
                     document.querySelector(".timeremaining").remove()
                 }
             }
             if (event.target.name === "timeremaining-sound") {
                 if (event.target.checked) {
-                    localStorage.setItem("enableTimeRemainingSound", true)
+                    localStorage.setItem("timetable-enableTimeRemainingSound", true)
                 }
                 if (!event.target.checked) {
-                    localStorage.setItem("enableTimeRemainingSound", false)
+                    localStorage.setItem("timetable-enableTimeRemainingSound", false)
                 }
             }
         })
@@ -126,11 +126,11 @@ function setListenersSettingsChange() {
         element.addEventListener("click", function (event) {
             if (event.target.name === "popupmode") {
                 if (event.target.checked) {
-                    localStorage.setItem("popupMode", true)
+                    localStorage.setItem("timetable-popupMode", true)
                     location.reload()
                 }
                 if (!event.target.checked) {
-                    localStorage.setItem("popupMode", false)
+                    localStorage.setItem("timetable-popupMode", false)
                     location.reload()
                 }
             }
@@ -139,7 +139,7 @@ function setListenersSettingsChange() {
 }
 
 function saveCustomTimetable() {
-    localStorage.setItem("customClassJSON", document.querySelector(".settings-class-custom-json").value)
-    localStorage.setItem("classTimetable", "custom")
+    localStorage.setItem("timetable-customClassJSON", document.querySelector(".settings-class-custom-json").value)
+    localStorage.setItem("timetable-classTimetable", "custom")
     return location.reload()
 }

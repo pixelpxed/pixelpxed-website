@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
     // Check localStorage for setting Time Remaining
-    if ((localStorage.getItem("enableTimeRemaining") === "true")) {
+    if ((localStorage.getItem("timetable-enableTimeRemaining") === "true")) {
         timeRemaining()
     }
 });
@@ -51,7 +51,7 @@ function timeRemaining() {
             // Check if period ends (hour and minutes = 0)
             if ((rminutes == 0) && (rseconds == 0)) {
                 // If sound setting is enabled, play the sound.
-                if (localStorage.getItem("enableTimeRemainingSound") === "true") {
+                if (localStorage.getItem("timetable-enableTimeRemainingSound") === "true") {
                     bellChimes.play();
                 }
             }

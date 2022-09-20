@@ -73,6 +73,8 @@ th, td {
     
     align-items: center;
     justify-content: space-between;
+
+    gap: 0.5rem;
 }
 
 /* Specific Value */
@@ -225,6 +227,9 @@ th, td {
     display: flex;
 
     justify-content: space-between;
+    align-items: center;
+
+    gap: 0.5rem;
 }
 
 .notes-list .material-symbols-outlined {

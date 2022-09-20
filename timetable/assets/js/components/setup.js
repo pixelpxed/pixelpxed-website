@@ -1,9 +1,14 @@
 window.addEventListener('load', () => {
+    if (localStorage.getItem("setupComplete")) {
+        addNotification("<b>Your data seems to be older than the current system.</b><br><a onclick='migrateOldTimetableData()'>Click here to attempt with migration process.</a><br>Timetable might behave unexpectedly if you don't migrate.")
+    }
+
     fillSetup()
 });
 
 function fillSetup() {
-    if (localStorage.getItem("setupComplete") != "true") {
+
+    if (localStorage.getItem("timetable-setupComplete") != "true") {
         disableScrollbar()
 
         fetch('./assets/components/html/setup.html')
@@ -14,47 +19,49 @@ function fillSetup() {
             })
 
     }
-    if (localStorage.getItem("setupComplete") == "true") {
+    if (localStorage.getItem("timetable-setupComplete") == "true") {
         document.getElementById("full-page-overlay").style.display = "none"
     }
 }
 
 function setupEventListener() {
     document.querySelector(".setup-class-default").checked = true;
-    localStorage.setItem("classTimetable", document.querySelector(".setup-class-default").value)
+    localStorage.setItem("timetable-classTimetable", document.querySelector(".setup-class-default").value)
     document.querySelectorAll("input[name='setup-class']").forEach((element) => {
         element.addEventListener("change", function (event) {
             if (event.target.value == "custom") {
                 document.querySelector(".setup-class-custom-wrapper").style.display = "block"
-                localStorage.setItem("classTimetable", "custom")
+                localStorage.setItem("timetable-classTimetable", "custom")
             }
             if (event.target.value != "custom") {
                 document.querySelector(".setup-class-custom-wrapper").style.display = "none"
-                localStorage.setItem("classTimetable", event.target.value)
+                localStorage.setItem("timetable-classTimetable", event.target.value)
             }
         })
     })
 
     document.querySelector("input[name='setup-popupmode']").addEventListener("click", function (event) {
         if (event.target.checked) {
-            localStorage.setItem("popupMode", true)
+            localStorage.setItem("timetable-popupMode", true)
         }
         if (!event.target.checked) {
-            localStorage.setItem("popupMode", false)
+            localStorage.setItem("timetable-popupMode", false)
         }
     })
 
     document.querySelector("input[name='gaiindex']").addEventListener("click", () => {
-        localStorage.setItem("gaiTimetable", document.querySelector("input[name='gaiindex']").value)
+        localStorage.setItem("timetable-gaiTimetable", document.querySelector("input[name='gaiindex']").value)
     })
 }
 
 function completeSetup() {
-    if (localStorage.getItem("classTimetable") == "custom") {
-        localStorage.setItem("customClassJSON", document.querySelector(".setup-class-custom-json").value)
+    if (localStorage.getItem("timetable-classTimetable") == "custom") {
+        localStorage.setItem("timetable-customClassJSON", document.querySelector(".setup-class-custom-json").value)
     }
 
-    localStorage.setItem('setupComplete', true);
+    localStorage.setItem('timetable-setupComplete', true);
+    localStorage.setItem('timetable-localStorageDataVersion', 2)
+
     location.reload();
 }
 
@@ -65,7 +72,45 @@ function resetTimetable() {
         "returnNothing")
 }
 
+function migrateOldTimetableData() {
+    console.log("Starting Timetable Data Migrate...");
+
+    var listToMigrate = [
+        "setupComplete",
+        "classTimetable",
+        "gaiTimetable",
+        "popupMode",
+        "enableTimeRemaining",
+        "enableTimeRemainingSound",
+        "customClassJSON"
+    ]
+
+    for (i = 0; i < listToMigrate.length; i++) {
+        if (localStorage.getItem(listToMigrate[i])) {
+            localStorage.setItem(`timetable-${listToMigrate[i]}`, localStorage.getItem(listToMigrate[i]))
+            localStorage.removeItem(listToMigrate[i])
+            console.log(`Timetable Data Migrate: Migrated data - ${listToMigrate[i]}`);
+        }
+    }
+
+    localStorage.setItem('timetable-localStorageDataVersion', 2)
+    location.reload()
+}
+
 function resetTimetableTrue() {
-    localStorage.clear()
+    var listToDelete = [
+        "timetable-setupComplete",
+        "timetable-classTimetable",
+        "timetable-gaiTimetable",
+        "timetable-popupMode",
+        "timetable-enableTimeRemaining",
+        "timetable-enableTimeRemainingSound",
+        "timetable-customClassJSON"
+    ]
+
+    for (i = 0; i < listToDelete.length; i++) {
+        localStorage.removeItem(listToDelete[i])
+    }
+
     return location.reload()
 }
