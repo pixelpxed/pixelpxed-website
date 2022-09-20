@@ -2,6 +2,10 @@
 // I don't know what I wrote also, thank you,
 
 window.addEventListener("load", () => {
+    console.log("%cWarning!%c\n\nConsole is a very powerful tool.\n\nRunning codes you don't understand can break your Notetaker, or worse, steal your personal data.\n\nNever paste and run any code you don't understand.",
+        "font-family: sans-serif; font-weight: bold; font-size: 1.5em; color: var(--color-red);",
+        "font-family: sans-serif;")
+
     loadNote()
     settings()
 

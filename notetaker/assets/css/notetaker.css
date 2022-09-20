@@ -234,6 +234,8 @@ th, td {
 
 .notes-list .material-symbols-outlined {
     opacity: 0;
+
+    transition: 0.2s opacity;
 }
 
 .notes-list:hover .material-symbols-outlined {
