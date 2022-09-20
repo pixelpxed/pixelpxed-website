@@ -7,7 +7,6 @@ window.addEventListener('load', () => {
 });
 
 function fillSetup() {
-
     if (localStorage.getItem("timetable-setupComplete") != "true") {
         disableScrollbar()
 
