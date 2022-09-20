@@ -115,11 +115,22 @@
         <div class="contentbox-wrapper" id="help-wrapper">
             <div class="popup-content">
                 <p class="popup-title">Help</p>
-                <div class="settings-section-wrapper">
-                    Click on title to change title.<br>
-                    Click on note content to edit the content.<br>
-                    That's it ¯\_(ツ)_/¯, happy editing!
-                </div>
+                <table class="width-p100">
+                    <thead>
+                        <th>Action</th>
+                        <th>How?</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Edit Title</td>
+                            <td>Click on the title to edit.</td>
+                        </tr>
+                        <tr>
+                            <td>Edit Content</td>
+                            <td>Click on the content toe edit.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="popup-buttons-box">
                 <div class="popup-buttons-wrapper">
@@ -138,7 +149,7 @@
                 <a href="/notetaker/">Notetaker</a>
             </div>
             <div>
-                <a class="material-symbols-outlined" title="New Note">add</a>
+                <a class="material-symbols-outlined" title="New Note" onclick="newNote()">add</a>
                 <a class="material-symbols-outlined" title="Help" onclick="togglePopup('#help-wrapper')">help</a>
                 <a class="material-symbols-outlined" title="Settings" onclick="togglePopup('#settings-wrapper')">settings</a>
             </div>
@@ -147,8 +158,13 @@
             <div class="side-bar">
                 <div class="notes-panel-wrapper">
                     <div class="justify-content-between-center">
-                        <p><b>Notes</b></p>
-                        <a class="material-symbols-outlined" onclick="toggleSidebar()" title="Toggle Sidebar">menu_open</a>
+                        <div>
+                            <p><b>Notes</b></p>
+                        </div>
+                        <div>
+                            <a class="material-symbols-outlined" title="New Note" onclick="newNote()">add</a>
+                            <a class="material-symbols-outlined" onclick="toggleSidebar()" title="Toggle Sidebar">menu_open</a>
+                        </div>
                     </div>
                     <ul class="notes-panel"></ul>
                 </div>
@@ -168,8 +184,10 @@
                     </div>
                 </div>
                 <div class="main-edit">
+                    <p class="popup-description">T I T L E</p>
                     <h1 class="main-edit-title" contenteditable>Notetaker is loading...</h1>
                     <hr>
+                    <p class="popup-description" style="margin-bottom: 0.5rem;">C O N T E N T</p>
                     <p class="main-edit-content" contenteditable>We'll get ready in no time!</p>
                 </div>
             </div>
