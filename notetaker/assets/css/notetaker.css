@@ -85,7 +85,8 @@ th, td {
     grid-template-columns: 1fr;
     grid-template-rows: 41px calc(100vh - 41px);
     
-    min-height: 100vh;
+    height: 100vh;
+    max-height: -webkit-fill-available;
     
     overflow: hidden;
 }
@@ -119,7 +120,7 @@ th, td {
     
     transition: 0.2s background-color, 0.2s color, 0.2s border, 0.2s width;
     
-    width: 100vw;
+    width: 100%;
     max-width: 20rem;
     
     overflow-x: hidden;
@@ -189,6 +190,8 @@ th, td {
 
 .main-edit-content {
     flex-grow: 1;
+
+    padding-bottom: 8rem;
 }
 
 .main-edit-filepath {
@@ -220,7 +223,7 @@ th, td {
 }
 
 .notes-panel {
-    margin: 0.5rem 0 0.5rem 0.5rem;
+    margin: 0.5rem 0 9rem 0.5rem;
 }
 
 .notes-list {
