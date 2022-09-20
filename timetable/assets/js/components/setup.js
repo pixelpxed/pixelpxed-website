@@ -81,7 +81,8 @@ function migrateOldTimetableData() {
         "popupMode",
         "enableTimeRemaining",
         "enableTimeRemainingSound",
-        "customClassJSON"
+        "customClassJSON",
+        "electiveClass"
     ]
 
     for (i = 0; i < listToMigrate.length; i++) {
@@ -104,7 +105,8 @@ function resetTimetableTrue() {
         "timetable-popupMode",
         "timetable-enableTimeRemaining",
         "timetable-enableTimeRemainingSound",
-        "timetable-customClassJSON"
+        "timetable-customClassJSON",
+        "timetable-electiveClass"
     ]
 
     for (i = 0; i < listToDelete.length; i++) {
