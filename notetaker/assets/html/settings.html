@@ -1,0 +1,96 @@
+<div class="contentbox-wrapper" id="settings-wrapper">
+    <div class="popup-content">
+        <p class="popup-title">Settings</p>
+
+        <!-- Themes -->
+        <div class="settings-section-wrapper">
+            <p class="settings-section-title settings-option-label">
+                <span class="material-symbols-outlined">
+                    style
+                </span>
+                <span>
+                    <b>
+                        Themes
+                    </b><br>
+                    <span class="popup-description">
+                        Themes will be applied across updated pixelpxed pages.
+                    </span>
+                </span>
+            </p>
+            <div style="margin-left: 2em;">
+                <label class="settings-option-label">
+                    <input name="settings-theme" type="radio" value="sync-os" checked="checked">
+                    <span class="material-symbols-outlined">
+                        auto_mode
+                    </span>
+                    <span>
+                        Automatic<br>
+                        <span class="popup-description">
+                            Use your device system theme to adjust the theme.
+                        </span>
+                    </span>
+                </label>
+                <label class="settings-option-label">
+                    <input name="settings-theme" type="radio" value="dark">
+                    <span class="material-symbols-outlined">
+                        dark_mode
+                    </span>
+                    <span>
+                        Dark<br>
+                        <span class="popup-description">
+                            Best for night owls and might reduce eye strain.
+                        </span>
+                    </span>
+                </label>
+                <label class="settings-option-label">
+                    <input name="settings-theme" type="radio" value="light">
+                    <span class="material-symbols-outlined">
+                        light_mode
+                    </span>
+                    <span>
+                        Light<br>
+                        <span class="popup-description">
+                            More visible content, but might cause eye strain.
+                        </span>
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Monospace Editing -->
+        <div class="settings-section-wrapper">
+            <p class="settings-section-title settings-option-label">
+                <span class="material-symbols-outlined">
+                    edit_note
+                </span>
+                <span>
+                    <b>
+                        Editor
+                    </b><br>
+                    <span class="popup-description">
+                        Note editor settings.
+                    </span>
+                </span>
+            </p>
+            <div style="margin-left: 2em;">
+                <label class="settings-option-label">
+                    <input class="settings-monospace" name="settings-monospace" type="checkbox">
+                    <span class="material-symbols-outlined">
+                        abc
+                    </span>
+                    <span>
+                        Use  <span style="font-family: 'Roboto Mono', monospace; padding: 0.15em; background: var(--color-gray-4); border-radius: 0.2rem;">monospace</span> font<br>
+                        <span class="popup-description">
+                            Use a fixed-width font in editor.
+                        </span>
+                    </span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="popup-buttons-box">
+        <div class="popup-buttons-wrapper">
+            <a class="popup-button" onclick="toggleFetchPopup('#settings-wrapper')">Done</a>
+        </div>
+    </div>
+</div>

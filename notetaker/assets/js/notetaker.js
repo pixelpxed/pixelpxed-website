@@ -19,7 +19,7 @@ window.addEventListener("load", () => {
         "font-family: sans-serif;")
 
     loadNote()
-    settings()
+    applySettings()
     
     // Remove the full page loading blur
     fullPageOverlay.style.display = "none";
@@ -43,11 +43,24 @@ function toggleSidebarView() {
     document.querySelector(".main-content").classList.toggle("col-span-2")
 }
 
-function toggleExistingPopup(element) {
+function toggleFetchPopup(element, htmlfile) {
     // Element definition
     const selectedElement = document.querySelector(element)
 
-    // If element is not displayed, display as block, else display as none.
+    // If no element is present in page, fetch and display
+    if (!selectedElement) {
+        fetch(`./assets/html/${htmlfile}.html`)
+            .then((res) => res.text())
+            .then((html) => {
+                document.querySelector(".popup-zone").insertAdjacentHTML("afterbegin", html)
+                
+                fullPageOverlay.style.display = "block"
+                document.querySelector(element).style.display = "block"
+            })
+        return
+    }
+
+    // For existing element. If element is not displayed, display as block, else display as none.
     if (selectedElement.style.display == "block") {
         fullPageOverlay.style.display = "none"
         return selectedElement.style.display = "none"
@@ -55,6 +68,8 @@ function toggleExistingPopup(element) {
         fullPageOverlay.style.display = "block"
         return selectedElement.style.display = "block"
     }
+
+    return true
 }
 
 function loadNote() {
@@ -179,13 +194,38 @@ function deleteNote(id) {
     }
 }
 
-// Settings
-function settings() {
+function applySettings() {
     // Theme
     if (!localStorage.getItem("theme")) {
         localStorage.setItem("theme", "sync-os");
     } document.querySelector("html").setAttribute("theme", localStorage.getItem("theme"));
+
+    // Monospace Font
+    if (localStorage.getItem("notetaker-monospace") == "true") {
+        document.querySelector(".main-edit-title").classList = "main-edit-title main-edit-monospace"
+        document.querySelector(".main-edit-content").classList = "main-edit-content main-edit-monospace"
+    }
+}
+
+function openSettings() {
+    toggleFetchPopup('#settings-wrapper', 'settings')
     
+    function waitForSettingsFetchDone() {
+        if (document.querySelector('#settings-wrapper')) {
+            return settings()
+        } if (!document.querySelector('#settings-wrapper')) {
+            setTimeout(() => {
+                waitForSettingsFetchDone()
+            }, 1);
+        }
+    }
+
+    waitForSettingsFetchDone()
+}
+
+// Settings
+function settings() {
+    // Theme
     document.querySelectorAll("input[name='settings-theme']").forEach((element) => {
         if (element.value == localStorage.getItem("theme")) {
             element.setAttribute("checked", "checked")
@@ -196,15 +236,12 @@ function settings() {
             localStorage.setItem("theme", event.target.value)
         })
     })
-
-    // Monospace Font
+    
     if (localStorage.getItem("notetaker-monospace") == "true") {
         document.querySelector(".settings-monospace").setAttribute("checked", "checked")
-
-        document.querySelector(".main-edit-title").classList = "main-edit-title main-edit-monospace"
-        document.querySelector(".main-edit-content").classList = "main-edit-content main-edit-monospace"
     }
 
+    // Monospace Font
     document.querySelectorAll(".settings-monospace").forEach((element) => {
         element.addEventListener("click", function (event) {
             if (event.target.name === "settings-monospace") {
@@ -223,4 +260,18 @@ function settings() {
             }
         })
     })
+}
+
+function resetNotetaker() {
+    var listToDelete = [
+        "notetaker-monospace",
+        "notetaker-firstRun",
+        "notetaker-notesData",
+    ]
+
+    for (i = 0; i < listToDelete.length; i++) {
+        localStorage.removeItem(listToDelete[i])
+    }
+
+    return location.href = `?noteid=0`
 }
