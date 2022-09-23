@@ -4,7 +4,6 @@ window.addEventListener('load', () => {
         "font-family: sans-serif;")
 
     setNavigationOffset()
-    checkConnection()
 });
 
 function setNavigationOffset() {

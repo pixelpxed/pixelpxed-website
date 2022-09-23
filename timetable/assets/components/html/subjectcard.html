@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" theme="light">
+<html lang="en" theme="sync-os">
 
 <head>
     <meta charset="UTF-8">
@@ -13,6 +13,7 @@
     body {
         position: relative;
     }
+
     .subject-card {
         width: calc(100% - 2em);
         max-width: 25em;
@@ -54,17 +55,24 @@
         opacity: 0.5;
     }
 
-    .teacher-card-img {
-        display: block;
-
-        width: auto;
-        max-width: 100%;
-        height: auto;
-        max-height: 15em;
+    .teacher-card-img-wrapper {
+        width: 5rem;
+        height: 5rem;
 
         margin: auto;
 
-        border-radius: 0.3em;
+        overflow: hidden;
+
+        border-radius: 50%;
+
+        flex-shrink: 0;
+    }
+
+    .teacher-card-img {
+        width: auto;
+        max-width: 5rem;
+        height: auto;
+        max-height: max-content;
     }
 
     .teacher-card-table {
@@ -89,10 +97,6 @@
         border: 1px solid var(--color-gray-4);
     }
 
-    .teacher-card-contacts {
-        margin: 1em 0;
-    }
-
     .fixed-center {
         position: fixed;
 
@@ -100,6 +104,22 @@
         left: 50%;
 
         transform: translate(-50%, -50%);
+    }
+
+    .teacher-name-header {
+        display: flex;
+
+        align-items: center;
+
+        flex-wrap: nowrap;
+
+        gap: 1rem;
+
+        margin-bottom: 1rem;
+    }
+
+    .teacher-card-contacts {
+        flex-grow: 1;
     }
 </style>
 
@@ -120,7 +140,7 @@
 <script>
     const teachers = {
         "skt491": {
-            "img": "http://www.mysk.school/th/img/homeroom/skt491.jpg",
+            "img": "https://scontent.fbkk12-2.fna.fbcdn.net/v/t1.6435-1/60340276_1009297045912105_5759396181515960320_n.jpg?stp=dst-jpg_s480x480&_nc_cat=104&ccb=1-7&_nc_sid=7206a8&_nc_ohc=L9f0kODgLFAAX_oIvBC&_nc_ht=scontent.fbkk12-2.fna&oh=00_AT9AGrNXegugR3QVEW25BIta4dEKcnoLTdepaN2CZmxivA&oe=63531875",
             "name": "จิตรลดา รุ่งเรือง",
             "subjgroup": "สังคมศึกษา ศาสนา และวัฒนธรรม",
             "contact": [
@@ -132,7 +152,26 @@
                     "method": "อีเมล",
                     "data": "jitlada.r@sk.ac.th"
                 }
-            ]
+            ],
+        },
+        "skt419": {
+            "img": "http://www.mysk.school/th/img/homeroom/skt419.jpg",
+            "name": "นิภารัตน์ รูปไข่",
+            "subjgroup": "วิทยาศาสตร์ และเทคโนโลยี",
+            "contact": [
+                {
+                    "method": "มือถือ",
+                    "data": "086-785-7819"
+                },
+                {
+                    "method": "อีเมล",
+                    "data": "niparat.r@sk.ac.th"
+                },
+                {
+                    "method": "LINE",
+                    "data": "0867857819"
+                }
+            ],
         }
     }
 
@@ -155,12 +194,16 @@
         document.querySelector("body").insertAdjacentHTML("beforeend", `
             <div class="fixed-center subject-card teacher-card">
                 <div class="popup-content">
-                    <img class="teacher-card-img" src="${curteacherlist.img}">
-                    <div>
+                    <div class=teacher-name-header>
+                        <div class="teacher-card-img-wrapper">
+                            <img class="teacher-card-img" src="${curteacherlist.img}">
+                        </div>
                         <div class="teacher-card-contacts">
                             <h2>คุณครู ${curteacherlist.name}</h2>
-                            <p>กลุ่มสาระการเรียนรู้ ${curteacherlist.subjgroup}</p>
+                            <p>${curteacherlist.subjgroup}</p>
                         </div>
+                    </div>
+                    <div>
                         <table class="teacher-card-table">
                             <thead>
                                 <th colspan="2">ช่องทางการติดต่อสื่อสาร</th>
@@ -178,6 +221,10 @@
                 </div>
             </div>
         `)
+
+        if (curteacherlist.img === "" || curteacherlist.img === null || curteacherlist.img === undefined) {
+            document.querySelector(".teacher-card-img").src = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+        }
     })
 </script>
 
