@@ -14,7 +14,7 @@ const classes_305 = [
 
     // Tuesday
     "Homeroom",
-    "Webpage Creation   ",
+    "Webpage Creation",
     "DClass",
     "Core Maths",
     "Lunch",

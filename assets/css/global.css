@@ -290,6 +290,8 @@ th, td {
 .navigation-bar {
     display: flex;
 
+    gap: 0;
+
     position: relative;
 
     justify-content: space-between;
@@ -312,15 +314,23 @@ th, td {
     width: 100%;
 }
 
+.navigation-bar div {
+    display: flex;
+    
+    gap: 0;
+}
+
 .navigation-bar a,
 .navigation-bar p {
     display: inline-flex;
 
     align-items: center;
+    justify-content: center;
 
     gap: 0.25em;
 
     width: max-content;
+    height: 100%;
 
     padding: 0.5rem;
 

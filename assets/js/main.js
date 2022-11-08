@@ -18,30 +18,10 @@ window.onload = function () {
 }
 
 function setNavigationOffset() {
-    document.getElementById("main").style.marginTop = `${document.getElementById("navigation-bar").offsetHeight}px`
+    document.querySelector(".main").style.marginTop = `${document.querySelector(".navigation-bar").offsetHeight}px`
     window.addEventListener('resize', setNavigationOffset)
 }
 
-
-function setThemeIcon() {
-    if (localStorage.getItem("theme") == "dark") {
-        return document.getElementById("theme-switch").textContent = "light_mode"
-    }
-    if (localStorage.getItem("theme") == "light") {
-        return document.getElementById("theme-switch").textContent = "dark_mode"
-    }
-}
-
-// Function for swapping color themes.
-function swapTheme() {
-    if (document.documentElement.classList != 'dark') {
-        localStorage.setItem("theme", "dark")
-        document.getElementById("theme-switch").textContent = "light_mode"
-        return document.documentElement.className = 'dark';
-    }
-    if (document.documentElement.classList == 'dark') {
-        localStorage.setItem("theme", "light")
-        document.getElementById("theme-switch").textContent = "dark_mode"
-        return document.documentElement.className = 'light';
-    }
+function toggleThemeMenu() {
+    document.querySelector(".theme-option").classList.toggle("theme-option-shown")
 }

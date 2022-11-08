@@ -1,6 +1,6 @@
 // Basic Timetable information.
 var copyrightyear = "2022"
-var timetableversion = "3.5.0a"
+var timetableversion = "3.5.0b"
 
 // Elective classe (Is disabled in custom classes, since the user 
 // would put their data in by themselves, not requiring the feature.)
