@@ -1,6 +1,6 @@
 // Basic Timetable information.
 var copyrightyear = "2022"
-var timetableversion = "3.5.0b"
+var timetableversion = "3.5.0c"
 
 // Elective classe (Is disabled in custom classes, since the user 
 // would put their data in by themselves, not requiring the feature.)
@@ -10,7 +10,7 @@ var elective_secondary = "Japanese"
 
 // You can add custom timelist in classtimes variable, define it, 
 // and then put the time list into action with classtype_type.
-var classtime_type = "Regular"
+var classtime_type = "Special"
 var classtimes = {
     "Regular": {
         "notify": false,
