@@ -261,7 +261,7 @@ function about() {
     if (document.querySelector(".about-wrapper").style.display != "block") {
         disableScrollbar()
         if (changelogfetched === false) {
-            fetch('./assets/components/html/changelog.html')
+            fetch('/timetable/assets/components/html/changelog.html')
                 .then((response) => response.text())
                 .then((html) => {
                     document.querySelector(".changelog-list").innerHTML = html;

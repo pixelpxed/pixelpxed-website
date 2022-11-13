@@ -14,7 +14,7 @@ function openSettings() {
         document.querySelector('.settings-wrapper').style.display = "block"
     }
     if (settingsBoxFetched != true) {
-        fetch('./assets/components/html/settings.html')
+        fetch('/timetable/assets/components/html/settings.html')
             .then((response) => response.text())
             .then((html) => document.querySelector(".popup-center").innerHTML += html)
             .then(() => {

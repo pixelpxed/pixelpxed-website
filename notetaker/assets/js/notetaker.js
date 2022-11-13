@@ -49,7 +49,7 @@ function toggleFetchPopup(element, htmlfile) {
 
     // If no element is present in page, fetch and display
     if (!selectedElement) {
-        fetch(`./assets/html/${htmlfile}.html`)
+        fetch(`/notetaker/assets/html/${htmlfile}.html`)
             .then((res) => res.text())
             .then((html) => {
                 document.querySelector(".popup-zone").insertAdjacentHTML("afterbegin", html)
@@ -109,7 +109,7 @@ function loadNote() {
     // First time running
     if (localStorage.getItem("notetaker-firstRun") === null) {
         // Load template note from file templatenote.json
-        fetch("./assets/json/templatenote.json")
+        fetch("/notetaker/assets/json/templatenote.json")
             .then((res) => res.json())
             .then((data) => {
                 notesData = data
