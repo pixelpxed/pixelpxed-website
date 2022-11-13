@@ -125,6 +125,20 @@ function loadNote() {
         notesData = JSON.parse(localStorage.getItem("notetaker-notesData"))
         insertNotesData()
     }
+
+    wordCount()
+}
+
+// Adapted from: https://www.mediacollege.com/internet/javascript/text/count-words.html
+function wordCount() {
+    var contentInside = elementContent.innerHTML
+    
+    contentInside = contentInside.replace(/(^\s*)|(\s*$)/gi,"");
+    contentInside = contentInside.replace(/[ ]{2,}/gi," ");
+    contentInside = contentInside.replace(/\n /,"\n");
+    var wordCount = contentInside.split(' ').filter(function(str){return str!="";}).length;
+
+    document.querySelector(".word-count-text").textContent = wordCount
 }
 
 // If user stop typing in editor for 5 seconds, save the note.
@@ -132,6 +146,8 @@ function loadNote() {
 elementTitle.addEventListener("keyup", typingTimeoutSave);
 elementContent.addEventListener("keyup", typingTimeoutSave);
 function typingTimeoutSave() {
+    wordCount()
+
     // Do not display save indicator whe typing.
     saveIndicator.style.display = "none"
 
@@ -205,6 +221,11 @@ function applySettings() {
         document.querySelector(".main-edit-title").classList = "main-edit-title main-edit-monospace"
         document.querySelector(".main-edit-content").classList = "main-edit-content main-edit-monospace"
     }
+
+    // Word Count
+    if (localStorage.getItem("notetaker-wordcount") == "false") {
+        document.querySelector(".word-count").style.display = "none"
+    }
 }
 
 function openSettings() {
@@ -256,6 +277,28 @@ function settings() {
 
                     document.querySelector(".main-edit-title").classList = "main-edit-title"
                     document.querySelector(".main-edit-content").classList = "main-edit-content"
+                }
+            }
+        })
+    })
+
+    if (localStorage.getItem("notetaker-wordcount") == "true") {
+        document.querySelector(".settings-wordcount").setAttribute("checked", "checked")
+    }
+
+    // Word Count
+    document.querySelectorAll(".settings-wordcount").forEach((element) => {
+        element.addEventListener("click", function (event) {
+            if (event.target.name === "settings-wordcount") {
+                if (event.target.checked) {
+                    localStorage.setItem("notetaker-wordcount", true)
+
+                    document.querySelector(".word-count").style.display = "inline-flex"
+                }
+                if (!event.target.checked) {
+                    localStorage.setItem("notetaker-wordcount", false)
+
+                    document.querySelector(".word-count").style.display = "none"
                 }
             }
         })
