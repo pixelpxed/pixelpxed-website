@@ -162,7 +162,8 @@ body {
     border: 0.5px solid var(--color-gray-4);
 }
 
-.main-edit-monospace {
+.main-edit-monospace,
+.main-edit-monospace * {
     font-family: "Roboto Mono", monospace !important;
 }
 

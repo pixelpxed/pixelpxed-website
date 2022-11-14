@@ -223,7 +223,7 @@ function applySettings() {
     }
 
     // Word Count
-    if (localStorage.getItem("notetaker-wordcount") == "false") {
+    if (localStorage.getItem("notetaker-wordcount") != "true") {
         document.querySelector(".word-count").style.display = "none"
     }
 }
@@ -305,11 +305,16 @@ function settings() {
     })
 }
 
+function resetNotetakerSettings() {
+    return popupConfirm("Reset Notetaker?", "Are you sure you want to reset Notetaker, your notes data will also be deleted. This action can't be undone!", "resetNotetaker", "returnNothing")
+}
+
 function resetNotetaker() {
     var listToDelete = [
         "notetaker-monospace",
         "notetaker-firstRun",
         "notetaker-notesData",
+        "notetaker-wordcount",
     ]
 
     for (i = 0; i < listToDelete.length; i++) {
