@@ -155,6 +155,7 @@ body {
     pointer-events: none;
 
     transition: 0.5s opacity;
+    -webkit-transition: 0.5s opacity;
 }
 
 @media screen and (max-width: 40rem) {
