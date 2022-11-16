@@ -156,6 +156,8 @@ body {
 
     transition: 0.5s opacity;
     -webkit-transition: 0.5s opacity;
+
+    visibility: visible;
 }
 
 @media screen and (max-width: 40rem) {
