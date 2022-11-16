@@ -23,6 +23,19 @@ window.addEventListener("load", () => {
     
     // Remove the full page loading blur
     fullPageOverlay.style.display = "none";
+
+    // UI Style
+    // 0 = Regular UI
+    // 1 = Sidebar hidden by default.
+    // 2 = Sidebar hidden by default, navigation bar hidden.
+    if (parameters.get("uistyle") === "1" || parameters.get("uistyle") === "2") {
+        toggleSidebarView()
+    } if (parameters.get("uistyle") === "2") {
+        document.querySelector("nav").style.display = "none"
+
+        document.querySelector(".application-root").style.gridTemplateRows = "100vh"
+        document.querySelector(".main-content").style.gridTemplateRows = "max-content calc(100vh - 36.5px)"
+    }
 });
 
 // Multiuse code.
@@ -30,7 +43,7 @@ function saveNoteToLocalStorage() {
     localStorage.setItem("notetaker-notesData", JSON.stringify(notesData))
 }
 
-// Compatibility function.
+// Compatibility functions.
 function toggleSidebar() {
     toggleSidebarView()
 } function togglePopup(element) {

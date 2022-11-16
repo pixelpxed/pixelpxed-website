@@ -134,6 +134,43 @@ body {
     grid-template-rows: max-content calc(100vh - 41px - 36.5px);
     
     width: 100%;
+    min-width: 20rem;
+}
+
+.side-bar-open-overlay {
+    position: fixed;
+
+    display: block;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: var(--background-html);
+
+    opacity: 0;
+
+    z-index: 2;
+
+    user-select: none;
+    pointer-events: none;
+
+    transition: 0.5s opacity;
+}
+
+@media screen and (max-width: 40rem) {
+    .main-content .side-bar-open-overlay {
+        opacity: 0.8;
+
+        user-select: all;
+        pointer-events: all;
+    }
+
+    .col-span-2 .side-bar-open-overlay {
+        opacity: 0;
+
+        user-select: none;
+        pointer-events: none;
+    }
 }
 
 .main-edit {
