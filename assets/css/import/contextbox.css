@@ -1,0 +1,42 @@
+.contentbox-wrapper {
+    position: fixed;
+    display: none;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: calc(100vw - 2em);
+    max-width: 30em;
+    height: max-content;
+    max-height: 80vh;
+
+    background: var(--color-gray-6);
+    border: 1px solid var(--color-gray-4);
+
+    border-radius: 0.5em;
+
+    overflow: auto;
+
+    z-index: 999;
+}
+
+.contentbox-shown {
+    display: block;
+}
+
+.contentbox-title-wrapper {
+    padding-bottom: 0.5em;
+}
+
+.contentbox-option-wrapper {
+    padding-top: 0.5em;
+}
+
+.contentbox-option-title {
+    font-weight: var(--font-weight-bold) !important;
+}
+
+.contentbox-option-title abbr>span {
+    font-size: 1em;
+}

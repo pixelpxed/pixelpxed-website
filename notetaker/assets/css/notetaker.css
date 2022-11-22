@@ -209,6 +209,8 @@ body {
 }
 
 .main-edit-filepath {
+    justify-content: start !important;
+
     white-space: nowrap;
 
     text-overflow: ellipsis;
