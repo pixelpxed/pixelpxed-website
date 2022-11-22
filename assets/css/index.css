@@ -3,12 +3,12 @@
 
     grid-template-columns: max-content 1fr;
 
-    gap: 2em;
+    gap: 2rem;
 
-    padding: 2em;
+    padding: 2rem;
 
     width: 100%;
-    max-width: 60em;
+    max-width: 60rem;
 
     margin: auto;
 }
@@ -22,8 +22,8 @@
 .intro img {
     display: block;
 
-    width: 10em;
-    height: 10em;
+    width: 10rem;
+    height: 10rem;
 
     margin: auto;
 
@@ -37,25 +37,25 @@
 }
 
 .intro ul {
-    margin-left: 1.5em;
+    margin-left: 1.5rem;
 }
 
 .projects {
     width: 100%;
-    max-width: 80em;
+    max-width: 80rem;
 
-    padding: 1em;
+    padding: 1rem;
     margin: auto;
 }
 
 .projects>p {
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
 }
 
 .projects-wrapper {
     width: 100%;
 
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
 
     overflow: auto;
 }
@@ -67,16 +67,16 @@
 .projects-card {
     display: inline-block;
 
-    width: 20em;
-    max-width: calc(100vw - 4em);
-    height: 25em;
+    width: 20rem;
+    max-width: calc(100vw - 4rem);
+    height: 25rem;
 
-    padding: 1em;
-    margin: 0 0.5em;
+    padding: 1rem;
+    margin: 0 0.5rem;
 
     background: var(--color-gray-5);
     border: 1px solid var(--color-gray-4);
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
 
     overflow: auto;
 }
@@ -84,9 +84,9 @@
 .projects-card img {
     width: 100%;
 
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
 
-    border-radius: 0.2em;
+    border-radius: 0.2rem;
 }
 
 .projects-title {
@@ -96,6 +96,6 @@
 
     color: var(--color-main-text);
 
-    font-size: 1.2em;
+    font-size: 1.2rem;
     font-weight: var(--font-weight-bold);
 }

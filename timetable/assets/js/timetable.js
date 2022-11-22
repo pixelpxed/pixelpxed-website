@@ -298,11 +298,11 @@ function updateChecker() {
 
 function checkConnection() {
     window.addEventListener('online', () => {
-        addNotification("You're now back online, you can now use Timetable normally.")
+        addNotification("Online: You're back online.")
         updateChecker()
     });
     window.addEventListener('offline', () => {
-        addNotification("It seems like you're offline, it might be our end. But please check your internet connection.")
+        addNotification("Offline: Try checkng your connection.")
         clearInterval(checkupdates)
     });
 }

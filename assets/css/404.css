@@ -1,0 +1,48 @@
+.error-content-txt p {
+    margin: 1em 0;
+}
+
+.error-wrapper {
+    display: grid;
+    grid-template-columns: max-content max-content;
+
+    width: 100%;
+    max-width: max-content;
+
+    margin: auto;
+    padding: 1em 0 0 0;
+
+    overflow: auto;
+}
+
+.error-content {
+    width: 100%;
+    max-width: 30em;
+
+    padding: 1em;
+}
+
+.error-picture span {
+    display: block;
+
+    width: max-content;
+
+    margin: auto;
+
+    font-size: 10em;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.8em;
+
+    opacity: 0.5;
+
+    padding-top: 1em;
+}
+
+@media screen and (max-width: 50em) {
+    .error-wrapper {
+        grid-template-columns: 1fr;
+    }
+}

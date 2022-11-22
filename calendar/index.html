@@ -31,7 +31,7 @@
     </div>
     <div id="new-calendar-wrapper" class="new-calendar-wrapper">
         <div class="new-calendar">
-            <p>Make a New Calendar</p>
+            <p>Create a New Calendar</p>
 
             <label for="new-calendar-title">Calendar Title</label>
 
@@ -55,12 +55,12 @@
             <input id="new-calendar-offset" type="number" placeholder="Numbers only." min="0" max="6">
 
             <abbr title="Create New Calendar">
-                <a class="button button-icons" onclick="newCalendar()">
+                <a class="icon-button icon-button-inline" onclick="newCalendar()">
                     <span class="material-symbols-outlined">add</span>
                 </a>
             </abbr>
             <abbr title="Cancel">
-                <a class="button button-icons" onclick="closeNewCalendar()">
+                <a class="icon-button icon-button-inline" onclick="closeNewCalendar()">
                     <span class="material-symbols-outlined">close</span>
                 </a>
             </abbr>
@@ -70,23 +70,23 @@
         <h1 id="calendar-title" class="calendar-title">Calendar</h1>
         <div id="calendar-table" class="calendar-table"></div>
         <div class="calendar-button-wrapper">
-            <abbr title="Backt to Home">
-                <a href="../" class="button button-icons"><abbr title="Back to Home">
-                        <span class="material-symbols-outlined">home</span>
+            <abbr title="Back to Home">
+                <a class="icon-button icon-button-inline" href="/"><abbr title="Back to Home">
+                    <span class="material-symbols-outlined">home</span>
                 </a>
             </abbr>
             <abbr title="Switch Theme">
-                <a class="button button-icons" onclick="theme()">
+                <a class="icon-button icon-button-inline" onclick="theme()">
                     <span id="themeswitch" class="material-symbols-outlined">dark_mode</span>
                 </a>
             </abbr>
             <abbr title="Print Calendar">
-                <a class="button button-icons" onclick="window.print()">
+                <a class="icon-button icon-button-inline" onclick="window.print()">
                     <span class="material-symbols-outlined">print</span>
                 </a>
             </abbr>
             <abbr title="New Calendar">
-                <a class="button button-icons" onclick="openNewCalendar()">
+                <a class="icon-button icon-button-inline" onclick="openNewCalendar()">
                     <span class="material-symbols-outlined">add</span>
                 </a>
             </abbr>
