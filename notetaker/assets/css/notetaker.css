@@ -2,37 +2,37 @@ body {
     overflow: hidden;
 }
 
-::-webkit-scrollbar {
+.main-edit::-webkit-scrollbar {
     width: 1rem;
     height: 1rem;
 }
 
-::-webkit-scrollbar-track {
+.main-edit::-webkit-scrollbar-track {
     background: var(--background-html);
 }
 
-::-webkit-scrollbar-track:vertical {
+.main-edit::-webkit-scrollbar-track:vertical {
     border-left: 1px solid var(--color-gray-4);
 }
 
-::-webkit-scrollbar-track:horizontal {
+.main-edit::-webkit-scrollbar-track:horizontal {
     border-top: 1px solid var(--color-gray-4);
 }
 
-::-webkit-scrollbar-track:hover {
+.main-edit::-webkit-scrollbar-track:hover {
     background: var(--color-gray-6);
 }
 
-::-webkit-scrollbar-thumb {
+.main-edit::-webkit-scrollbar-thumb {
     background: var(--color-gray-5);
     border-left: 1px solid var(--color-gray-4);
 }
 
-::-webkit-scrollbar-thumb:hover {
+.main-edit::-webkit-scrollbar-thumb:hover {
     background: var(--color-gray-3);
 }
 
-::-webkit-scrollbar-corner {
+.main-edit::-webkit-scrollbar-corner {
     background: var(--background-html);
 
     border: 1px solid var(--color-gray-4);
@@ -240,22 +240,6 @@ body {
     z-index: 1 !important;
 }
 
-.settings-section-wrapper {
-    margin: 0.5rem 0;
-}
-
-.settings-section-title {
-    margin-bottom: 0.5rem;
-}
-
-.settings-option-label {
-    display: flex;
-
-    gap: 0.5rem;
-
-    align-items: center;
-}
-
 .notes-panel-wrapper {
     flex-grow: 1;
 
@@ -317,4 +301,8 @@ body {
 
 .file-path-bar-menu {
     border-right: 1px solid var(--color-gray-4);
+}
+
+.copyrightyear {
+    padding: 0 1rem 1rem 1rem;
 }

@@ -1,6 +1,14 @@
 // Basic Timetable information.
-var copyrightyear = "2022"
-var timetableversion = "3.5.2"
+var timetableversion = "3.6.0"
+
+// Timetable class fetch folder
+// Timetable will require a <classno>.json file in the folder
+// to be exact, for example 305.json, 306.json
+var classdatafetchpath = `/timetable/assets/js/config/classinfo/2_2022`
+
+// Copyright year settings
+var fetchcopyrightyear = true
+var copyrightyear = "2023"
 
 // Elective classe (Is disabled in custom classes, since the user 
 // would put their data in by themselves, not requiring the feature.)

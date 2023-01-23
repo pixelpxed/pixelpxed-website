@@ -18,7 +18,13 @@
 
     overflow: auto;
 
+    /* animation: contentbox-animation 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28); */
+
     z-index: 999;
+}
+
+.contentbox-close {
+    /* animation: contentbox-animation-reverse 0.5s cubic-bezier(0.6, -0.28, 0.74, 0.05); */
 }
 
 .contentbox-shown {
@@ -39,4 +45,38 @@
 
 .contentbox-option-title abbr>span {
     font-size: 1em;
+}
+
+@keyframes contentbox-animation {
+    0% {
+        opacity: 0;
+        transform: 
+            translate(-50%, -50%)
+            scale(0.5)
+        ;
+    }
+    100% {
+        opacity: 1;
+        transform: 
+            translate(-50%, -50%)
+            scale(1)
+        ;
+    }
+}
+
+@keyframes contentbox-animation-reverse {
+    0% {
+        opacity: 1;
+        transform: 
+            translate(-50%, -50%)
+            scale(1)
+        ;
+    }
+    100% {
+        opacity: 0;
+        transform: 
+            translate(-50%, -50%)
+            scale(0.5)
+        ;
+    }
 }

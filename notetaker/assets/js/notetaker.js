@@ -36,6 +36,12 @@ window.addEventListener("load", () => {
         document.querySelector(".application-root").style.gridTemplateRows = "100vh"
         document.querySelector(".main-content").style.gridTemplateRows = "max-content calc(100vh - 36.5px)"
     }
+
+    fetch("/assets/json/common.json")
+        .then((res) => res.json())
+        .then((json) => {
+            document.getElementById("copyrightyear").innerHTML = json.copyrightyear
+        })
 });
 
 // Multiuse code.

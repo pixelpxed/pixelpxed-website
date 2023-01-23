@@ -29,8 +29,9 @@
 <body>
     <div id="navigation-bar" class="navigation-bar navigation-bar-fixed">
         <div>
-            <a href="./" style="opacity: 1;">Home</a>
-            <a href="./timetable/">Timetable</a>
+            <a href="/">Home</a>
+            <a href="/timetable/">Timetable</a>
+            <a href="/notetaker/">Notetaker</a>
             <div class="navigation-theme-temp" style="display: none;">
                 <a onclick="setTheme('sync-os')">Automatic</a>
                 <a onclick="setTheme('dark')">Dark</a>
@@ -91,12 +92,82 @@
         </div>
         <div>
             <abbr title="Change Theme">
-                <a onclick="themeSelector()">
-                    Theme
+                <a class="material-symbols-outlined" onclick="toggleFetchPopup('#settings-wrapper')">
+                    settings
                 </a>
             </abbr>
         </div>
     </div>
+
+    <div class="popup-center" id="popup-center">
+        <div class="contentbox-wrapper" id="settings-wrapper">
+            <div class="popup-content">
+                <p class="popup-title">Settings</p>
+        
+                <!-- Themes -->
+                <div class="settings-section-wrapper">
+                    <p class="settings-section-title settings-option-label">
+                        <span class="material-symbols-outlined">
+                            style
+                        </span>
+                        <span>
+                            <b>
+                                Themes
+                            </b><br>
+                            <span class="popup-description">
+                                Themes will be applied across updated pixelpxed pages.
+                            </span>
+                        </span>
+                    </p>
+                    <div style="margin-left: 2em;">
+                        <label class="settings-option-label">
+                            <input name="settings-theme" type="radio" value="sync-os" checked="checked">
+                            <span class="material-symbols-outlined">
+                                auto_mode
+                            </span>
+                            <span>
+                                Automatic<br>
+                                <span class="popup-description">
+                                    Use your device system theme to adjust the theme.
+                                </span>
+                            </span>
+                        </label>
+                        <label class="settings-option-label">
+                            <input name="settings-theme" type="radio" value="dark">
+                            <span class="material-symbols-outlined">
+                                dark_mode
+                            </span>
+                            <span>
+                                Dark<br>
+                                <span class="popup-description">
+                                    Best for night owls and might reduce eye strain.
+                                </span>
+                            </span>
+                        </label>
+                        <label class="settings-option-label">
+                            <input name="settings-theme" type="radio" value="light">
+                            <span class="material-symbols-outlined">
+                                light_mode
+                            </span>
+                            <span>
+                                Light<br>
+                                <span class="popup-description">
+                                    More visible content, but might cause eye strain.
+                                </span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-buttons-box">
+                <div class="popup-buttons-wrapper">
+                    <a class="popup-button" onclick="toggleFetchPopup('#settings-wrapper')">Done</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="full-page-overlay" id="full-page-overlay"></div>
+
     <div id="main" class="main">
         <div class="intro">
             <div>
@@ -171,7 +242,7 @@
                     </div>
                     <div class="projects-card">
                         <img src="./assets/img/projects/isk.png">
-                        <a href="https://isk.pixelpxed.xyz/" class="projects-title">iSK</a>
+                        <a href="https://isk-ui.vercel.app/" class="projects-title">iSK</a>
                         <p class="projects-description">
                             Professional looking <a href="http://www.mysk.school/" target="_blank">MySK</a>.<br><br>
 

@@ -39,9 +39,6 @@
     <script defer src="/timetable/assets/js/components/setup.js"></script>
     <script defer src="/timetable/assets/js/components/timeremaining.js"></script>
 
-    <script defer src="/timetable/assets/js/config/classinfo/2_2022/305.js"></script>
-    <script defer src="/timetable/assets/js/config/classinfo/2_2022/306.js"></script>
-
     <script defer src="/timetable/assets/js/timetable.js"></script>
 </head>
 
@@ -49,10 +46,14 @@
     <!-- Navigation Bar -->
     <nav id="navigation-bar" class="navigation-bar navigation-bar-fixed">
         <div>
-            <div>
-                <a href="../">Home</a>
-                <a href="./">Timetable</a>
-            </div>
+            <a href="/">Home</a>
+            <a href="/timetable/">Timetable</a>
+            <a href="/notetaker/">Notetaker</a>
+        </div>
+        <div>
+            <a class="material-symbols-outlined elective-swapper" title="Swap Elective Class (Reload Required)" onclick="swapElectiveClass()">sync_alt</a>
+            <a class="material-symbols-outlined" title="About Timetable" onclick="about()">info</a>
+            <a class="material-symbols-outlined" title="Settings" onclick="openSettings()">settings</a>
         </div>
     </nav>
 
@@ -231,13 +232,12 @@
                 </div>
             </div>
         </div>
-
         <div class="setting-icons-buttons-wrapper">
-            <a class="elective-swapper" title="Swap Elective Class (Reload Required)" onclick="swapElectiveClass()">
+            <a class="elective-swapper" title="Swap Elective Class (Reload Required)" onclick="swapElectiveClass()" style="display: inline-flex;">
                 <span class="icon-button icon-button-inline material-symbols-outlined">
                     sync_alt
                 </span>
-                <a title="About Timetable" onclick="about()">
+                </a><a title="About Timetable" onclick="about()">
                     <span class="icon-button icon-button-inline material-symbols-outlined">
                         info
                     </span>
@@ -247,8 +247,7 @@
                         settings
                     </span>
                 </a>
-        </div>
-        
+        </div>  
         <footer class="footer-wrapper">
             <p>
                 © <span class="js-fill-year">----</span> PixelEdition. All rights reserved<br>

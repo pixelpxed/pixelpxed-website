@@ -50,29 +50,6 @@
     color: var(--color-red);
 }
 
-.settings-section-wrapper {
-    margin: 0.5em 0;
-}
-
-.settings-section-title {
-    margin-bottom: 0.5em;
-}
-
-.settings-option-label {
-    display: flex;
-
-    gap: 0.5em;
-
-    align-items: center;
-}
-
-.setting-icons-buttons-wrapper {
-    width: max-content;
-    max-width: calc(100% - 2em);
-
-    margin: 0 auto;
-}
-
 .title-wrapper {
     padding-top: 1em;
 

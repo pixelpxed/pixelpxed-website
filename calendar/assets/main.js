@@ -13,6 +13,12 @@ window.onload = function () {
 
     fillCalender();
     setDefaultValues();
+
+    fetch("/assets/json/common.json")
+        .then((res) => res.json())
+        .then((json) => {
+            document.getElementById("year").innerHTML = json.copyrightyear
+        })
 }
 
 function setDefaultValues() {

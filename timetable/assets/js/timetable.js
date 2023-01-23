@@ -6,8 +6,6 @@ const classTimetable = localStorage.getItem("timetable-classTimetable")
 window.addEventListener('load', () => {
     if (localStorage.getItem("timetable-setupComplete") === "true") {
         setClassVariables()
-        fillClasses()
-        classJoiningSystem()
         fillBookmarks()
         setTimetableSystemInformation()
         updateChecker()
@@ -34,9 +32,20 @@ function setTimetableSystemInformation() {
     document.querySelectorAll(".js-fill-timetype").forEach(element => {
         element.innerHTML = classtime_type
     })
-    document.querySelectorAll(".js-fill-year").forEach(element => {
-        element.innerHTML = copyrightyear
-    })
+    if (fetchcopyrightyear == true) {
+        fetch("/assets/json/common.json")
+            .then((res) => res.json())
+            .then((json) => {
+                document.querySelectorAll(".js-fill-year").forEach(element => {
+                    element.innerHTML = json.copyrightyear
+                })
+            })
+    } else {
+        document.querySelectorAll(".js-fill-year").forEach(element => {
+            element.innerHTML = copyrightyear
+        })
+    }
+    
     if (classTimetable !== "custom") {
         if (classtimes[classtime_type]["notify"] == true) {
             addNotification(`${classtime_type} class time is enabled by your Timetable provider.`)
@@ -46,39 +55,32 @@ function setTimetableSystemInformation() {
 
 var customClassJSON
 function setClassVariables() {
-    if (classTimetable === "305") {
-        classes = classes_305
-        subj = subj_305
-        return skMarchDrip()
-    }
-    if (classTimetable === "306") {
-        classes = classes_306
-        subj = subj_306
-        return skMarchDrip()
+    if (classTimetable === "305" || classTimetable === "306") {
+        fetch(`${classdatafetchpath}/${classTimetable}.json`)
+            .then((res) => res.json())
+            .then((data) => {
+                classes = data.class
+                subj = data.links
+
+                fillClasses()
+                classJoiningSystem()
+            })
+        return
     }
     if (classTimetable === "custom") {
         customClassJSON = JSON.parse(localStorage.getItem("timetable-customClassJSON"))
         classes = customClassJSON.customclass
         subj = customClassJSON.customlinks
-        return document.querySelector(".elective-swapper").remove()
+
+        fillClasses()
+        classJoiningSystem()
+
+        return document.querySelectorAll(".elective-swapper").forEach((item) => {
+            item.remove()
+        })
     } else {
         popupConfirm("An error occured.", "Your Timetable data doesn't seem to be correct, click 'Yes' to setup your Timetable again.", "resetTimetable", "returnNothing")
     }
-}
-
-function skMarchDrip() {
-    var skMarchDrip = new Audio("./assets/sound/skMarchDrip.mp3")
-    window.addEventListener("keydown", (event) => {
-        if (event.altKey && event.key === "Shift") {
-            addNotification(`Drippy SK March: <a href="https://www.youtube.com/watch?v=ZXfu4XMnd_g" target="_blank">https://www.youtube.com/watch?v=ZXfu4XMnd_g</a>`)
-            skMarchDrip.play()
-
-            document.querySelector("html").classList.add("drip-timetable")
-            setTimeout(() => {
-                document.querySelector("html").classList.remove("drip-timetable")
-            }, 81873)
-        }
-    })
 }
 
 // Timetable grid filling system.
@@ -90,16 +92,14 @@ function fillClasses() {
         event.preventDefault();
     })
 
-    if (classTimetable !== "custom") {
-        for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
+    for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
+        if (classTimetable !== "custom") {
             document.getElementById(`time${timeFilled + 1}`).innerHTML = classtimes[classtime_type]["list"][timeFilled]
         }
-    }
-    if (classTimetable === "custom") {
-        for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
+        if (classTimetable === "custom") {
             document.getElementById(`time${timeFilled + 1}`).innerHTML = (customClassJSON.customtimes)[timeFilled]
+            classtime_type = "Custom"
         }
-        classtime_type = "Custom"
     }
 
     // Fill class names and styling.
@@ -167,7 +167,6 @@ function classJoiningSystem() {
         document.querySelector(".title-description").innerHTML = `<p>Tap - Show Options<br>Select Your Action</p>`
         document.querySelectorAll(".class-joinable").forEach(grid => {
             var subjText = grid.innerHTML;
-
             grid.addEventListener("click", () => {
                 var subjVdo = subj[subjText].videocall
                 var subjCls = subj[subjText].classroom
@@ -180,7 +179,7 @@ function classJoiningSystem() {
                                 <span class="popup-description">The link doesn't exist if there's no button for the action.</span>
                             </div>
                             <div class="popup-buttons-box">
-                                <div class="popup-buttons-wrapper">
+                                <div class="popup-buttons-wrapper popup-buttons-wrapper-${popupid}">
                                     <a class="popup-button popup-button-danger" onclick="popupDone(${popupid})">Cancel</a>
                                 </div>
                             </div>
@@ -188,11 +187,13 @@ function classJoiningSystem() {
                     </div>
                 `)
 
+                const popupelement = document.querySelector(`.popup-buttons-wrapper-${popupid}`)
+
                 if (subjCls != "") {
-                    document.querySelector(".popup-buttons-wrapper").insertAdjacentHTML("afterbegin", `<a target="_blank" class="popup-button" onclick="popupDone(${popupid})" href="https://classroom.google.com/u/${gaiNumber}/c/${subjCls}">Classroom</a>`)
+                    popupelement.insertAdjacentHTML("afterbegin", `<a target="_blank" class="popup-button" onclick="popupDone(${popupid})" href="https://classroom.google.com/u/${gaiNumber}/c/${subjCls}">Classroom</a>`)
                 }
                 if (subjVdo != "") {
-                    document.querySelector(".popup-buttons-wrapper").insertAdjacentHTML("afterbegin", `<a target="_blank" class="popup-button" onclick="popupDone(${popupid})" href="https://meet.google.com/${subjVdo}?authuser=${gaiNumber}">Video Call</a>`)
+                    popupelement.insertAdjacentHTML("afterbegin", `<a target="_blank" class="popup-button" onclick="popupDone(${popupid})" href="https://meet.google.com/${subjVdo}?authuser=${gaiNumber}">Video Call</a>`)
                 }
 
                 popupOpen()
@@ -283,7 +284,7 @@ var checkupdates = undefined
 
 function updateChecker() {
     checkupdates = setInterval(() => {
-        fetch('https://www.pixelpxed.xyz/timetable/assets/components/json/fetchresources.json')
+        fetch('/timetable/assets/components/json/fetchresources.json')
             .then((respond) => respond.json())
             .then((data) => fetchedversion = data)
             .then(() => {
