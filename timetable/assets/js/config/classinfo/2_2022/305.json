@@ -1,63 +1,63 @@
 {
     "class": [
         "Homeroom",
-        "P.E.",
+        "Thai",
         "Core Maths",
-        "Guidance",
+        "P.E.",
         "Lunch",
         "Social",
-        "History",
+        "Core Science",
         "Health",
         "M3 Meeting",
         "Club",
         "",
-
+    
         "Homeroom",
-        "Technology",
+        "Webpage Creation",
         "DClass",
         "Core Maths",
         "Lunch",
         "R+W",
-        "Thai",
-        "Core English",
         "Buddhism",
-        "Music",
+        "Core English",
+        "Thai",
         "",
-
+        "",
+    
         "Homeroom",
         "Core English",
         "Add Maths",
         "R+W",
         "Lunch",
         "Social",
-        "Thai",
-        "Art",
+        "Music",
+        "History",
         "Scout",
         "Tutor",
         "DClass",
-
+    
         "Homeroom",
-        "Technology",
-        "Thai",
+        "Core English",
+        "Career",
         "Core Maths",
         "Lunch",
         "R+W",
-        "Core English",
+        "Art",
         "Core Science",
         "DClass",
         "Tutor",
         "DClass",
-
+    
         "Homeroom",
-        "Core Science",
-        "Add Maths",
-        "Webpage Creation",
-        "DClass",
-        "Lunch",
-        "Chinese",
-        "DClass",
+        "Thai",
         "Additional Science",
         "DClass",
+        "Lunch",
+        "Guidance",
+        "Chinese",
+        "DClass",
+        "Add Maths",
+        "",
         ""
     ],
     "links": {
@@ -96,6 +96,10 @@
         "Technology": {
             "videocall": "tre-itna-eyx",
             "classroom": "NDg1MTY1NjA4MjE2"
+        },
+        "Career": {
+            "videocall": "",
+            "classroom": ""
         },
         "Social": {
             "videocall": "gru-xkdz-rrk",
