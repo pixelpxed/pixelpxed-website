@@ -48,8 +48,17 @@
     margin: auto;
 }
 
-.projects>p {
+.projects > h2, .projects > p {
+    animation: slide-in 0.5s ease-out;
+    animation-fill-mode: forwards;
+
+    opacity: 0;
+}
+
+.projects > p {
     margin-bottom: 1rem;
+
+    animation-delay: 0.1s;
 }
 
 .projects-wrapper {
@@ -79,6 +88,26 @@
     border-radius: 0.5rem;
 
     overflow: auto;
+
+    animation: slide-in 0.5s ease-out;
+    animation-fill-mode: forwards;
+
+    opacity: 0;
+}
+
+.projects-card:not([style="--count: 1;"]) {
+    animation-delay: calc(0.1s * var(--count) - 0.1s);
+}
+
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .projects-card img {

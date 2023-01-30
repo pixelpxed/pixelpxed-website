@@ -32,63 +32,6 @@
             <a href="/">Home</a>
             <a href="/timetable/">Timetable</a>
             <a href="/notetaker/">Notetaker</a>
-            <div class="navigation-theme-temp" style="display: none;">
-                <a onclick="setTheme('sync-os')">Automatic</a>
-                <a onclick="setTheme('dark')">Dark</a>
-                <a onclick="setTheme('light')">Light</a>
-            </div>
-            <style>
-                .navigation-theme-temp {
-                    display: none;
-
-                    position: absolute;
-
-                    top: 100%;
-                    right: 0;
-
-                    background: var(--color-gray-6);
-
-                    border: 1px solid var(--color-gray-4);
-                    border-top: none;
-                    border-right: none;
-
-                    overflow: hidden;
-
-                    z-index: 100000;
-                }
-
-                .navigation-theme-temp a {
-                    display: block;
-
-                    width: 100%;
-
-                    text-align: right;
-
-                    transition: 0.2s;
-                }
-
-                .navigation-theme-temp a:hover {
-                    color: var(--color-white);
-                    background: var(--color-blue);
-                }
-            </style>
-            <script defer>
-                function themeSelector() {
-                    if (document.querySelector(".navigation-theme-temp").style.display != "block") {
-                        return document.querySelector(".navigation-theme-temp").style.display = "block"
-                    }
-                    if (document.querySelector(".navigation-theme-temp").style.display == "block") {
-                        return document.querySelector(".navigation-theme-temp").style.display = "none"
-                    }
-                }
-
-                function setTheme(theme) {
-                    localStorage.setItem("theme", theme)
-                    document.documentElement.className = theme
-
-                    document.querySelector(".navigation-theme-temp").style.display = "none"
-                }
-            </script>
         </div>
         <div>
             <abbr title="Change Theme">
@@ -202,7 +145,7 @@
             <p>These are the projects I'm maintaining and updating.</p>
             <div class="projects-wrapper">
                 <div class="projects-scroll">
-                    <div class="projects-card">
+                    <div class="projects-card" style="--count: 1;">
                         <img src="./assets/img/projects/timetable.png">
                         <a href="./timetable/" class="projects-title">Timetable</a>
                         <p class="projects-description">
@@ -212,7 +155,7 @@
                             video calls with a click.
                         </p>
                     </div>
-                    <div class="projects-card">
+                    <div class="projects-card" style="--count: 2;">
                         <img src="./assets/img/projects/notetaker.png">
                         <a href="./notetaker/" class="projects-title">Notetaker</a>
                         <p class="projects-description">
@@ -221,7 +164,7 @@
                             Notetaker is a simple noting web application hobby. You should not store any sensitive data in Notetaker, your data is not encrypted.
                         </p>
                     </div>
-                    <div class="projects-card">
+                    <div class="projects-card" style="--count: 3;">
                         <img src="./assets/img/projects/calendar.png">
                         <a href="./calendar/" class="projects-title">Calendar</a>
                         <p class="projects-description">
@@ -230,7 +173,7 @@
                             Great design and usability. Add notes and save as a PDF or print as a paper.
                         </p>
                     </div>
-                    <div class="projects-card">
+                    <div class="projects-card" style="--count: 4;">
                         <img src="./assets/img/projects/pixelpxedwebsite.png">
                         <a href="./" class="projects-title">pixelpxed Website</a>
                         <p class="projects-description">
@@ -240,7 +183,7 @@
                             project's information and downloads.
                         </p>
                     </div>
-                    <div class="projects-card">
+                    <div class="projects-card" style="--count: 5;">
                         <img src="./assets/img/projects/isk.png">
                         <a href="https://isk-ui.vercel.app/" class="projects-title">iSK</a>
                         <p class="projects-description">
@@ -260,7 +203,7 @@
             <p>These are the projects I'm no longer maintaining and will no longer recieve any new features.</p>
             <div class="projects-wrapper">
                 <div class="projects-scroll">
-                    <div class="projects-card">
+                    <div class="projects-card" style="--count: 1;">
                         <img src="./assets/img/projects/timetablemobile.png">
                         <a class="projects-title">Timetable (Mobile)</a>
                         <p class="projects-description">
@@ -270,7 +213,7 @@
                             video calls with a tap. Discontinued by class popup mode in Timetable.
                         </p>
                     </div>
-                    <div class="projects-card">
+                    <div class="projects-card" style="--count: 2;">
                         <a class="projects-title">Timetable-M</a>
                         <p class="projects-description">
                             Join classes with a tap similar to <a href="./timetable/mobile/">Timetable (Mobile)</a> but
@@ -278,14 +221,14 @@
                             replaced it for maintaining purposes.
                         </p>
                     </div>
-                    <div class="projects-card">
+                    <div class="projects-card" style="--count: 3;">
                         <a class="projects-title">PixelBot</a>
                         <p class="projects-description">
                             A Discord bot written in Python, for fun and administrative purposes. This is also my first
                             ever project. Discontinued from it's dying popularity.
                         </p>
                     </div>
-                    <div class="projects-card">
+                    <div class="projects-card" style="--count: 4;">
                         <a class="projects-title">BadCalculator</a>
                         <p class="projects-description">
                             Simple console based calculator. Can add, aubtract, multiply, and divide only. Discontinued

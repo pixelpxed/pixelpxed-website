@@ -14,6 +14,8 @@ window.onload = function () {
     fillCalender();
     setDefaultValues();
 
+    document.querySelector(".watermark").innerHTML = `${window.location.hostname}${window.location.pathname}`;
+
     fetch("/assets/json/common.json")
         .then((res) => res.json())
         .then((json) => {
@@ -106,15 +108,15 @@ function closeNewCalendar() {
 // Usage: closeribbon([Element to close in CSS style writing.], [Direction: up, left, right, down], [Duration (In seconds, numbers only.)])
 function close_slide(element, direction) {
     if (direction == "up") {
-        document.querySelector(element).style.top = `-${document.querySelector(element).offsetHeight}px`;
+        document.querySelector(element).style.top = `-${document.querySelector(element).offsetHeight + 60}px`;
     }
     if (direction == "down") {
-        document.querySelector(element).style.bottom = `-${document.querySelector(element).offsetHeight}px`;
+        document.querySelector(element).style.bottom = `-${document.querySelector(element).offsetHeight + 60}px`;
     }
     if (direction == "left") {
-        document.querySelector(element).style.left = `-${document.querySelector(element).offsetWidth}px`;
+        document.querySelector(element).style.left = `-${document.querySelector(element).offsetWidth + 60}px`;
     }
     if (direction == "right") {
-        document.querySelector(element).style.right = `-${document.querySelector(element).offsetWidth}px`;
+        document.querySelector(element).style.right = `-${document.querySelector(element).offsetWidth + 60}px`;
     }
 }

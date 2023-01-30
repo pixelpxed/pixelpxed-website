@@ -14,17 +14,6 @@ window.addEventListener('load', () => {
     }
 });
 
-function checkConnection() {
-    window.addEventListener('online', () => {
-        addNotification("You're now back online.")
-        updateChecker()
-    });
-    window.addEventListener('offline', () => {
-        addNotification("You're not connected to the internet.", "error")
-        clearInterval(checkupdates)
-    });
-}
-
 function setTimetableSystemInformation() {
     document.querySelectorAll(".js-fill-version").forEach(element => {
         element.innerHTML = timetableversion
@@ -303,7 +292,7 @@ function checkConnection() {
         updateChecker()
     });
     window.addEventListener('offline', () => {
-        addNotification("Offline: Try checkng your connection.")
+        addNotification("Offline: Try checking your connection.")
         clearInterval(checkupdates)
     });
 }
