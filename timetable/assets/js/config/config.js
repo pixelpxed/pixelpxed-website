@@ -1,5 +1,5 @@
 // Basic Timetable information.
-var timetableversion = "3.6.1"
+var timetableversion = "3.6.1a"
 
 // Timetable class fetch folder
 // Timetable will require a <classno>.json file in the folder
@@ -18,7 +18,7 @@ var elective_secondary = "Japanese"
 
 // You can add custom timelist in classtimes variable, define it, 
 // and then put the time list into action with classtype_type.
-var classtime_type = "Regular"
+var classtime_type = "Special"
 var classtimes = {
     "Regular": {
         "notify": false,
