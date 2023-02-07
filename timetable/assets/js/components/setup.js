@@ -60,7 +60,8 @@ function completeSetup() {
 
     localStorage.setItem('timetable-setupComplete', true);
     localStorage.setItem('timetable-localStorageDataVersion', 2)
-
+    localStorage.setItem("timetable-overrideTimeList", "auto")
+    
     location.reload();
 }
 
@@ -105,6 +106,7 @@ function resetTimetableTrue() {
         "timetable-popupMode",
         "timetable-enableTimeRemaining",
         "timetable-enableTimeRemainingSound",
+        "timetable-overrideTimeList",
         "timetable-customClassJSON",
         "timetable-electiveClass"
     ]

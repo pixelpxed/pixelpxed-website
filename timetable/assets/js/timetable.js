@@ -1,5 +1,6 @@
 var customclasses = undefined
 var classes = undefined
+var overrideTimeList = "Regular"
 
 const classTimetable = localStorage.getItem("timetable-classTimetable")
 
@@ -35,10 +36,20 @@ function setTimetableSystemInformation() {
         })
     }
     
-    if (classTimetable !== "custom") {
-        if (classtimes[classtime_type]["notify"] == true) {
-            addNotification(`${classtime_type} class time is enabled by your Timetable provider.`)
+    if (localStorage.getItem("timetable-overrideTimeList") === "auto") {
+        if (classTimetable !== "custom") {
+            if (classtimes[classtime_type]["notify"] == true) {
+                addNotification(`${classtime_type} class time is enabled by your Timetable provider.`)
+            }
         }
+    } if (localStorage.getItem("timetable-overrideTimeList") !== "auto") {
+        if (localStorage.getItem("timetable-overrideTimeList") === "regular") {
+            overrideTimeList = "Regular"
+        } if (localStorage.getItem("timetable-overrideTimeList") === "special") {
+            overrideTimeList = "Special"
+        } if (localStorage.getItem("timetable-overrideTimeList") === "online") {
+            overrideTimeList = "Online"
+        } document.querySelector(".about-timelist").innerHTML += ` / <b>Override:</b> ${overrideTimeList}`
     }
 }
 
@@ -83,7 +94,11 @@ function fillClasses() {
 
     for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
         if (classTimetable !== "custom") {
-            document.getElementById(`time${timeFilled + 1}`).innerHTML = classtimes[classtime_type]["list"][timeFilled]
+            if (localStorage.getItem("timetable-overrideTimeList") === "auto") {
+                document.getElementById(`time${timeFilled + 1}`).innerHTML = classtimes[classtime_type]["list"][timeFilled]
+            } if (localStorage.getItem("timetable-overrideTimeList") !== "auto") {
+                document.getElementById(`time${timeFilled + 1}`).innerHTML = classtimes[overrideTimeList]["list"][timeFilled]
+            }
         }
         if (classTimetable === "custom") {
             document.getElementById(`time${timeFilled + 1}`).innerHTML = (customClassJSON.customtimes)[timeFilled]

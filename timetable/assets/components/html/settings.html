@@ -4,6 +4,9 @@
 
         <div class="settings-section-wrapper">
             <p class="settings-section-title settings-option-label">
+                <span class="material-symbols-outlined settings-section-drop" data-togglesection="section-theme" onclick="toggleSettingsSection('section-theme')">
+                    arrow_drop_down
+                </span>
                 <span class="material-symbols-outlined">
                     style
                 </span>
@@ -16,17 +19,14 @@
                     </span>
                 </span>
             </p>
-            <div style="margin-left: 2em;">
+            <div class="settings-section-hide" data-dropsection="section-theme" style="margin-left: 2em;">
                 <label class="settings-option-label">
                     <input name="settings-theme" type="radio" value="sync-os">
                     <span class="material-symbols-outlined">
-                        auto_mode
+                        astrophotography_auto
                     </span>
                     <span>
-                        Automatic<br>
-                        <span class="popup-description">
-                            Use your device system theme to adjust the theme.
-                        </span>
+                        Automatic
                     </span>
                 </label>
                 <label class="settings-option-label">
@@ -35,10 +35,7 @@
                         dark_mode
                     </span>
                     <span>
-                        Dark<br>
-                        <span class="popup-description">
-                            Best for night owls and might reduce eye strain.
-                        </span>
+                        Dark
                     </span>
                 </label>
                 <label class="settings-option-label">
@@ -47,10 +44,7 @@
                         light_mode
                     </span>
                     <span>
-                        Light<br>
-                        <span class="popup-description">
-                            More visible content, but might cause eye strain.
-                        </span>
+                        Light
                     </span>
                 </label>
             </div>
@@ -58,6 +52,9 @@
 
         <div class="settings-section-wrapper">
             <p class="settings-section-title settings-option-label">
+                <span class="material-symbols-outlined settings-section-drop" data-togglesection="section-info" onclick="toggleSettingsSection('section-info')">
+                    arrow_drop_down
+                </span>
                 <span class="material-symbols-outlined">
                     info
                 </span>
@@ -71,9 +68,9 @@
                 </span>
             </p>
 
-            <div style="margin-left: 2em;">
+            <div class="settings-section-hide" data-dropsection="section-info" style="margin-left: 2em;">
                 <div>
-                    <p class="settings-option-label">
+                    <div class="settings-option-label">
                         <span class="material-symbols-outlined">
                             login
                         </span>
@@ -83,14 +80,19 @@
                                 Google account to sign into.
                             </span>
                         </span>
-                    </p>
-                    <input type="number" name="gaiindex" id="setings-gaiindex" min="0" value="0">
-                    <a style="margin-bottom: 0.5em;" onclick="location.reload()"
-                        class="popup-button popup-button-full">Reload</a>
+                        <div style="margin: 0 0 0 auto; display: flex; align-items: center; gap: 0.5rem;">
+                            <input type="number" name="gaiindex" id="setings-gaiindex" min="0" value="0" style="min-width: 3rem; max-width: 5rem; height: 28px;">
+                            <a onclick="location.reload()"
+                                class="popup-button">Reload</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div>
                     <p class="settings-option-label">
+                        <span class="material-symbols-outlined settings-section-drop" data-togglesection="class" onclick="toggleSettingsSection('class')">
+                            arrow_drop_down
+                        </span>
                         <span class="material-symbols-outlined">
                             school
                         </span>
@@ -101,48 +103,28 @@
                             </span>
                         </span>
                     </p>
-                    <div style="margin: 0.5em 0;">
+                    <div class="settings-section-hide" data-dropsection="class" style="margin: 0.5em 0;">
                         <label class="settings-option-label">
                             <input name="settings-class" type="radio" value="305">
-                            <span class="material-symbols-outlined">
-                                notes
-                            </span>
                             <span>
-                                305<br>
-                                <span class="popup-description">
-                                    Updated by your Timetable provider.
-                                </span>
+                                305
                             </span>
                         </label>
                         <label class="settings-option-label">
                             <input name="settings-class" type="radio" value="306">
-                            <span class="material-symbols-outlined">
-                                notes
-                            </span>
                             <span>
-                                306<br>
-                                <span class="popup-description">
-                                    Updated by your Timetable provider.
-                                </span>
+                                306
                             </span>
                         </label>
                         <label class="settings-option-label">
                             <input name="settings-class" type="radio" value="custom">
-                            <span class="material-symbols-outlined">
-                                edit_note
-                            </span>
                             <span>
                                 Custom Class
                                 <a target="_blank" href="./templates/custom.json">(Format)</a>
-                                <br>
-                                <span class="popup-description">
-                                    Create your personal class.
-                                </span>
                             </span>
                         </label>
                     </div>
                 </div>
-
                 <div class="settings-class-custom-wrapper"
                     style="display: none; overflow: hidden; transition: 0.2s ease-in-out; margin: 0 0 0.5em 2em;">
                     <div>
@@ -162,11 +144,81 @@
                     </div>
                     <a class="popup-button popup-button-full" onclick="saveCustomTimetable()">Save Change</a>
                 </div>
+
+                <div>
+                    <p class="settings-option-label">
+                        <span class="material-symbols-outlined settings-section-drop" data-togglesection="timelistoverride" onclick="toggleSettingsSection('timelistoverride')">
+                            arrow_drop_down
+                        </span>
+                        <span class="material-symbols-outlined">
+                            schedule
+                        </span>
+                        <span>
+                            Override Time List<br>
+                            <span class="popup-description">
+                                Overrides your Timetable provider time list setting.
+                            </span>
+                        </span>
+                    </p>
+                    <div class="settings-section-hide" data-dropsection="timelistoverride" style="margin: 0.5em 0;">
+                        <label class="settings-option-label">
+                            <input name="settings-timelistoverride" type="radio" value="auto">
+                            <span class="material-symbols-outlined">
+                                language
+                            </span>
+                            <span>
+                                Timetable provider<br>
+                                <span class="popup-description">
+                                    Use your Timetable provider setting.
+                                </span>
+                            </span>
+                        </label>
+                        <label class="settings-option-label">
+                            <input name="settings-timelistoverride" type="radio" value="regular">
+                            <span class="material-symbols-outlined">
+                                notes
+                            </span>
+                            <span>
+                                Regular<br>
+                                <span class="popup-description">
+                                    10 classes, 50 minutes, no breaks in between.
+                                </span>
+                            </span>
+                        </label>
+                        <label class="settings-option-label">
+                            <input name="settings-timelistoverride" type="radio" value="special">
+                            <span class="material-symbols-outlined">
+                                notes
+                            </span>
+                            <span>
+                                Special<br>
+                                <span class="popup-description">
+                                    10 classes, 40 minutes, no breaks in between.
+                                </span>
+                            </span>
+                        </label>
+                        <label class="settings-option-label">
+                            <input name="settings-timelistoverride" type="radio" value="online">
+                            <span class="material-symbols-outlined">
+                                notes
+                            </span>
+                            <span>
+                                Online<br>
+                                <span class="popup-description">
+                                    10 classes, 40 minutes, 20 minutes every other classes.
+                                </span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="settings-section-wrapper">
             <p class="settings-section-title settings-option-label">
+                <span class="material-symbols-outlined settings-section-drop" data-togglesection="section-optional" onclick="toggleSettingsSection('section-optional')">
+                    arrow_drop_down
+                </span>
                 <span class="material-symbols-outlined">
                     checklist
                 </span>
@@ -179,16 +231,16 @@
                     </span>
                 </span>
             </p>
-            <div style="margin-left: 2em;">
+            <div class="settings-section-hide" data-dropsection="section-optional" style="margin-left: 2em;">
                 <label class="settings-option-label">
                     <input class="settings-popupmode" type="checkbox" name="popupmode" value="enable-popupmode">
                     <span class="material-symbols-outlined">
                         open_in_new
                     </span>
                     <span>
-                        Class Pop-up Mode (Reload Required)<br>
+                        Class pop-up mode (reload required)<br>
                         <span class="popup-description">
-                            (Mobile Friendly) Show links window when click on a class.
+                            (Mobile friendly) Show links window when click on a class.
                         </span>
                     </span>
                 </label>

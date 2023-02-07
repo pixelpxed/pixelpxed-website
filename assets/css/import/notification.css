@@ -8,6 +8,8 @@
     max-width: 30em;
     height: max-content;
 
+    transition: 0.2s color, 0.2s background-color, 0.2s border-color;
+
     z-index: 1000;
 }
 

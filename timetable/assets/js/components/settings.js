@@ -5,6 +5,13 @@ window.addEventListener('load', () => {
     document.querySelector("html").setAttribute("theme", localStorage.getItem("theme"));
 })
 
+document.querySelectorAll(".settings-section-drop").forEach(element => {
+    element.addEventListener("click", () => {
+        document.querySelector(`div[dropsection-name="${element.getAttribute('dropsection-name')}"]`).classList.toggle("settings-section-hide")
+    })
+    console.log(element.getAttribute('dropsection-name'))
+})
+
 var settingsBoxFetched = false
 
 function openSettings() {
@@ -56,6 +63,15 @@ function setDefaultSettingsValue() {
     });
     document.querySelector(".settings-class-custom-json").value = localStorage.getItem("timetable-customClassJSON")
 
+    // Override Time List
+    document.querySelectorAll("input[name='settings-timelistoverride']").forEach((element) => {
+        if (localStorage.getItem("timetable-overrideTimeList")) {
+            if (element.value == localStorage.getItem("timetable-overrideTimeList")) {
+                element.setAttribute("checked", "checked")
+            }
+        }
+    });
+
     // Pop-up Mode
     if (localStorage.getItem("timetable-popupMode") == "true") {
         document.querySelector("input[name='popupmode']").setAttribute("checked", "checked")
@@ -94,6 +110,14 @@ function setListenersSettingsChange() {
                 localStorage.setItem("timetable-classTimetable", event.target.value)
                 location.reload()
             }
+        })
+    })
+
+    // Override Time List
+    document.querySelectorAll("input[name='settings-timelistoverride']").forEach((element) => {
+        element.addEventListener("change", function (event) {
+            localStorage.setItem("timetable-overrideTimeList", event.target.value)
+            location.reload()
         })
     })
 
@@ -142,4 +166,9 @@ function saveCustomTimetable() {
     localStorage.setItem("timetable-customClassJSON", document.querySelector(".settings-class-custom-json").value)
     localStorage.setItem("timetable-classTimetable", "custom")
     return location.reload()
+}
+
+function toggleSettingsSection(section) {
+    document.querySelector(`[data-dropsection="${section}"]`).classList.toggle("settings-section-hide")
+    document.querySelector(`[data-togglesection="${section}"]`).classList.toggle("settings-drop-down")
 }
