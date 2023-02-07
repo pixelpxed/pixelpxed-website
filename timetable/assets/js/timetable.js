@@ -35,8 +35,10 @@ function setTimetableSystemInformation() {
             element.innerHTML = copyrightyear
         })
     }
-    
-    if (localStorage.getItem("timetable-overrideTimeList") === "auto") {
+
+    if (!localStorage.getItem("timetable-overrideTimeList")) {
+        localStorage.setItem("timetable-overrideTimeList", "auto")
+    } if (localStorage.getItem("timetable-overrideTimeList") === "auto") {
         if (classTimetable !== "custom") {
             if (classtimes[classtime_type]["notify"] == true) {
                 addNotification(`${classtime_type} class time is enabled by your Timetable provider.`)
