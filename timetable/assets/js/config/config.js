@@ -16,9 +16,10 @@ var elective_toggle = true
 var elective_primary = "Chinese"
 var elective_secondary = "Japanese"
 
-// You can add custom timelist in classtimes variable, define it, 
-// and then put the time list into action with classtype_type.
-var classtime_type = "Special"
+// - You can add custom timelist in classtimes variable, define it, 
+//   and then put the time list into action with classtype_type.
+// - This is default time list, except for user who override this information in settings.
+var classtime_type = "Regular"
 var classtimes = {
     "Regular": {
         "notify": false,
