@@ -7,10 +7,9 @@ window.onload = function () {
         localStorage.setItem("theme", "sync-os")
     }
 
-    setNavigationOffset()
-}
-
-function setNavigationOffset() {
-    document.querySelector(".main").style.marginTop = `${document.querySelector(".navigation-bar").offsetHeight}px`
-    window.addEventListener('resize', setNavigationOffset)
+    fetch("/assets/json/common.json")
+        .then((res) => res.json())
+        .then((json) => {
+            document.querySelector(".year").innerHTML = json.copyrightyear
+        })
 }

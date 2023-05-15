@@ -43,19 +43,7 @@
     font-family: 'Roboto Mono', 'Sarabun', monospace;
 }
 
-.setup-error {
-    text-align: center;
-    font-size: 0.8em;
-
-    color: var(--color-red);
-}
-
-.title-wrapper {
-    padding-top: 1em;
-
-    text-align: center;
-}
-
+.title-wrapper,
 .clock-wrapper {
     margin: 1em;
 
@@ -246,6 +234,3 @@
     font-weight: var(--font-weight-bold);
 }
 
-.drip-timetable {
-    background: linear-gradient(-15deg, var(--color-tuesday), var(--color-friday)) no-repeat center center fixed;
-}

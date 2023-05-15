@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" theme="sync-os">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/etc/favicon.ico">
+    <title>404 (Not Found) - PixelEdition</title>
+
+    <meta name="title" content="404 (Not Found) - PixelEdition" />
+    <meta property="og:title" content="404 (Not Found) - PixelEdition" />
+    <meta name="twitter:title" content="404 (Not Found) - PixelEdition">
+
+    <meta name="description" content="This URL doesn't exist, you're lost?" />
+    <meta property="og:description" content="This URL doesn't exist, you're lost?" />
+    <meta name="twitter:description" content="This URL doesn't exist, you're lost?">
+
+    <meta property="og:type" content="website" />
+
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/htmlerror.css">
+
+    <script defer src="/assets/js/404.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav id="navigation-bar" class="navigation-bar navigation-bar-fixed">
+        <div>
+            <a href="/">Home</a>
+            <a href="/timetable/">Timetable</a>
+            <a href="/notetaker/">Notetaker</a>
+        </div>
+    </nav>
+
+    <!-- Popup Elements -->
+    <div id="popup-center" class="popup-center"></div>
+    <div id="notification-center" class="notification-wrapper"></div>
+
+    <div id="main" class="main">
+        <div class="error-wrapper">
+            <div class="error-picture">
+                <span class="material-symbols-outlined">
+                    settings_b_roll
+                </span>
+            </div>
+            <div class="error-content">
+                <div class="error-content-txt">
+                    <h1>Woah, hi? Stranger!</h1>
+                    <p>
+                        If you ended up in this page, it seems like JavaScript is disabled in your browser.
+                        <br><br>
+                        JavaScript is required to be enabled for all pixelpxed services and applications to properly run.
+                        To change JavaScript settings, please check your browser settings.
+                        <br>
+                        <table style="width: 100%">
+                            <thead>
+                                <th>Browser</th>
+                                <th>Steps</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align: center;">
+                                        Google Chrome<br>
+                                        <span class="popup-description">
+                                            (Windows/macOS/Linux)
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>Chrome Settings</li>
+                                            <li>Privacy and security</li>
+                                            <li>Site settings</li>
+                                            <li>JavaScript</li>
+                                        </ul>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">
+                                        Safari<br>
+                                        <span class="popup-description">
+                                            (macOS)
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>Safari Settings</li>
+                                            <li>Secuity Tab</li>
+                                            <li>Enable JavaScript</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">Other Browsers</td>
+                                    <td>
+                                        Please check your browser settings. If search is avalible, try searching: "JavaScript" in the search box.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        Pages, Services, and Applications below will work properly when you enable JavaScript, otherwise they with redirect you back to this page.
+                    </p>                    
+                </div>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/timetable/">Timetable</a></li>
+                    <li><a href="/notetaker/">Notetaker</a></li>
+                </ul>
+                <div class="error-content-txt">
+                    <p><b>JS1</b> | <span style="opacity: 0.5;">No JavaScript detected.</span></p>
+                </div>
+                <p class="copyright">
+                    © <span class="year"></span> PixelEdition. All rights reserved
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

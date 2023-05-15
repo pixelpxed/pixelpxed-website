@@ -294,6 +294,10 @@ th, td {
 }
 
 .full-page-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     position: fixed;
 
     top: 0;

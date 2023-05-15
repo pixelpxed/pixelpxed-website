@@ -20,11 +20,9 @@
 }
 
 .navigation-bar-fixed {
-    position: fixed;
+    position: sticky;
 
     top: 0;
-
-    width: 100%;
 }
 
 .navigation-bar div {

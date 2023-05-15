@@ -15,17 +15,11 @@ window.onload = function () {
     }
     document.querySelector("html").setAttribute("theme", localStorage.getItem("theme"));
 
-    setNavigationOffset()
     addTitleNavigationIcon()
 
     settings()
 
     document.querySelector(".full-page-overlay").style.display = "none"
-}
-
-function setNavigationOffset() {
-    document.querySelector(".main").style.marginTop = `${document.querySelector(".navigation-bar").offsetHeight}px`
-    window.addEventListener('resize', setNavigationOffset)
 }
 
 function toggleThemeMenu() {
