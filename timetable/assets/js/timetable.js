@@ -213,9 +213,9 @@ function classJoiningSystem() {
                     <div id="popup-id-${popupid}" class="class-popupmode popup">
                         <div class="popup-wrapper">
                             <div class="popup-content">
-                                <div style="display: grid; grid-template-columns: 1fr min-content; align-items: center; gap: 0.5rem;>">
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.5rem;>">
                                     <span class="popup-title">${subjTitle}</span>
-                                    <span class="info-chipbox">Class Code: <span style="font-family: 'Roboto Mono', 'Sarabun', sans-serif;w">${subjClassCode}</span></span>
+                                    <span class="info-chipbox">Class Code: <span style="font-family: 'Roboto Mono', 'Sarabun', sans-serif;">${subjClassCode}</span></span>
                                 </div>
                                 <span class="popup-description">${subjTeacher} · ${subjCode}<br></span>
                             </div>
