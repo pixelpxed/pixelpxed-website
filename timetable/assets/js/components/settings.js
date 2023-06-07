@@ -5,13 +5,6 @@ window.addEventListener('load', () => {
     document.querySelector("html").setAttribute("theme", localStorage.getItem("theme"));
 })
 
-document.querySelectorAll(".settings-section-drop").forEach(element => {
-    element.addEventListener("click", () => {
-        document.querySelector(`div[dropsection-name="${element.getAttribute('dropsection-name')}"]`).classList.toggle("settings-section-hide")
-    })
-    console.log(element.getAttribute('dropsection-name'))
-})
-
 var settingsBoxFetched = false
 
 function openSettings() {
@@ -82,6 +75,11 @@ function setDefaultSettingsValue() {
     }
     if (localStorage.getItem("timetable-enableTimeRemainingSound") == "true") {
         document.querySelector("input[name='timeremaining-sound']").setAttribute("checked", "checked")
+    }
+
+    // Subject Cards
+    if (localStorage.getItem("timetable-subjectCard") == "true") {
+        document.querySelector("input[name='subjectcard']").setAttribute("checked", "checked")
     }
 }
 
@@ -160,15 +158,26 @@ function setListenersSettingsChange() {
             }
         })
     })
+
+    // Subject Cards
+    document.querySelectorAll(".settings-subjectcard").forEach((element) => {
+        element.addEventListener("click", function (event) {
+            if (event.target.name === "subjectcard") {
+                if (event.target.checked) {
+                    localStorage.setItem("timetable-subjectCard", true)
+                    location.reload()
+                }
+                if (!event.target.checked) {
+                    localStorage.setItem("timetable-subjectCard", false)
+                    location.reload()
+                }
+            }
+        })
+    })
 }
 
 function saveCustomTimetable() {
     localStorage.setItem("timetable-customClassJSON", document.querySelector(".settings-class-custom-json").value)
     localStorage.setItem("timetable-classTimetable", "custom")
     return location.reload()
-}
-
-function toggleSettingsSection(section) {
-    document.querySelector(`[data-dropsection="${section}"]`).classList.toggle("settings-section-hide")
-    document.querySelector(`[data-togglesection="${section}"]`).classList.toggle("settings-drop-down")
 }

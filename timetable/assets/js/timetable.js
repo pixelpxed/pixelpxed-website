@@ -47,17 +47,23 @@ function setTimetableSystemInformation() {
     } if (localStorage.getItem("timetable-overrideTimeList") !== "auto") {
         if (localStorage.getItem("timetable-overrideTimeList") === "regular") {
             overrideTimeList = "Regular"
+            classtime_type = "Regular"
+            timeRemaining()
         } if (localStorage.getItem("timetable-overrideTimeList") === "special") {
             overrideTimeList = "Special"
+            classtime_type = "Special"
+            timeRemaining()
         } if (localStorage.getItem("timetable-overrideTimeList") === "online") {
-            overrideTimeList = "Online"
+            overrideTimeList = "Special"
+            classtime_type = "Special"
+            timeRemaining()
         } document.querySelector(".about-timelist").innerHTML += ` / <b>Override:</b> ${overrideTimeList}`
     }
 }
 
 var customClassJSON
 function setClassVariables() {
-    if (classTimetable === "305" || classTimetable === "306") {
+    if (classTimetable === "405") {
         fetch(`${classdatafetchpath}/${classTimetable}.json`)
             .then((res) => res.json())
             .then((data) => {
@@ -77,9 +83,15 @@ function setClassVariables() {
         fillClasses()
         classJoiningSystem()
 
-        return document.querySelectorAll(".elective-swapper").forEach((item) => {
+        document.querySelectorAll(".icon-todo").forEach((item) => {
             item.remove()
         })
+
+        document.querySelectorAll(".elective-swapper").forEach((item) => {
+            item.remove()
+        })
+        
+        return 
     } else {
         popupConfirm("An error occured.", "Your Timetable data doesn't seem to be correct, click 'Yes' to setup your Timetable again.", "resetTimetable", "returnNothing")
     }
@@ -94,50 +106,49 @@ function fillClasses() {
         event.preventDefault();
     })
 
-    for (let timeFilled = 0; timeFilled <= 10; timeFilled++) {
+    for (let i = 0; i <= 10; i++) {
         if (classTimetable !== "custom") {
             if (localStorage.getItem("timetable-overrideTimeList") === "auto") {
-                document.getElementById(`time${timeFilled + 1}`).innerHTML = classtimes[classtime_type]["list"][timeFilled]
+                document.getElementById(`time${i + 1}`).innerHTML = classtimes[classtime_type]["list"][i]
             } if (localStorage.getItem("timetable-overrideTimeList") !== "auto") {
-                document.getElementById(`time${timeFilled + 1}`).innerHTML = classtimes[overrideTimeList]["list"][timeFilled]
+                document.getElementById(`time${i + 1}`).innerHTML = classtimes[overrideTimeList]["list"][i]
             }
         }
         if (classTimetable === "custom") {
-            document.getElementById(`time${timeFilled + 1}`).innerHTML = (customClassJSON.customtimes)[timeFilled]
+            document.getElementById(`time${i + 1}`).innerHTML = (customClassJSON.customtimes)[i]
             classtime_type = "Custom"
         }
     }
 
     // Fill class names and styling.
-    for (let classFilled = 0; classFilled <= 54; classFilled++) {
-        var gridBefore = document.getElementById(classFilled)
-        var grid = document.getElementById(classFilled + 1)
+    for (let i = 0; i <= 54; i++) {
+        var gridBefore = document.getElementById(i)
+        var grid = document.getElementById(i + 1)
 
         grid.className = "table-grid"
-        grid.style.display = "block"
 
 
-        grid.innerHTML = classes[classFilled]
+        grid.innerHTML = classes[i]
         grid.classList.add("class-joinable")
 
         if ((elective_toggle == true) && (classTimetable !== "custom")) {
             document.querySelector(".elective-swapper").style.display = "inline-flex"
-            if (classes[classFilled] == elective_primary) {
-                electiveGrid = classFilled + 1
+            if (classes[i] == elective_primary) {
+                electiveGrid = i + 1
             }
         }
 
-        if (classes[classFilled] == "DClass") {
-            if (classFilled == 0) {
+        if (classes[i] == "DClass") {
+            if (i == 0) {
                 console.error(`Setting a double class in the first grid is not possible, Timetable is ignoring the 'DClass' declairation for the grid.`)
                 addNotification("Setting a double class in the first grid is not possible, Timetable is ignoring the 'DClass' declairation for the grid.", `error`)
             }
-            if (classFilled != 0) {
+            if (i != 0) {
                 gridBefore.classList.add("table-double")
                 grid.style.display = "none"
             }
         }
-        if (classes[classFilled] == "" || classes[classFilled] == "Break" || classes[classFilled] == "Lunch") {
+        if (classes[i] == "" || classes[i] == "Break" || classes[i] == "Lunch") {
             grid.classList.add("table-grid-dark")
             grid.classList.remove("class-joinable")
             grid.classList.add("class-not-joinable")
@@ -150,11 +161,11 @@ function fillClasses() {
 }
 
 function fillBookmarks() {
-    for (let bookmarkRowFilled = 0; bookmarkRowFilled <= 1; bookmarkRowFilled++) {
-        document.getElementById(`bookmark-title-${bookmarkRowFilled}`).innerHTML = bookmarks[bookmarkRowFilled].title
+    for (let i = 0; i <= 1; i++) {
+        document.getElementById(`bookmark-title-${i}`).innerHTML = bookmarks[i].title
         for (let bookmarkFilled = 0; bookmarkFilled <= 4; bookmarkFilled++) {
-            const bookmarkElement = document.getElementById(`bookmark-${bookmarkRowFilled}-${bookmarkFilled}`)
-            const bookmarkJSON = bookmarks[bookmarkRowFilled]["bookmarks"][bookmarkFilled]
+            const bookmarkElement = document.getElementById(`bookmark-${i}-${bookmarkFilled}`)
+            const bookmarkJSON = bookmarks[i]["bookmarks"][bookmarkFilled]
 
             bookmarkElement.innerHTML = bookmarkJSON.title
 
@@ -172,21 +183,45 @@ function classJoiningSystem() {
     if (localStorage.getItem("timetable-popupMode") === "true") {
         document.querySelector(".title-description").innerHTML = `<p>Tap - Show Options<br>Select Your Action</p>`
         document.querySelectorAll(".class-joinable").forEach(grid => {
-            var subjText = grid.innerHTML;
+            var subjText = grid.innerHTML
+
             grid.addEventListener("click", () => {
                 var subjVdo = subj[subjText].videocall
                 var subjCls = subj[subjText].classroom
+
+                var subjTitle = subj[subjText].subjname;
+                if (subjTitle === "") {
+                    subjTitle = subjText
+                }   var subjContent = subj[subjText]
+
+                var subjTeacher = subjContent.teacher
+                if (subjTeacher === "") {
+                    subjTeacher = "<i style='opacity: 0.5;'>ไม่มีข้อมูลคุณครู</i>"
+                }
+
+                var subjCode = subjContent.subjcode
+                if (subjCode === "") {
+                    subjCode = "<i style='opacity: 0.5;'>ไม่มีข้อมูลรหัสวิชา</i>"
+                }
+
+                var subjClassCode = subjContent.classcode
+                if (subjClassCode === "") {
+                    subjClassCode = "<i style='opacity: 0.25;'>ไม่มีข้อมูล</i>"
+                }
+
                 document.querySelector(".popup-center").insertAdjacentHTML("beforeend", `
                     <div id="popup-id-${popupid}" class="class-popupmode popup">
                         <div class="popup-wrapper">
                             <div class="popup-content">
-                                <span class="popup-title">Class selected: ${subjText}</span>
-                                <span>Select your action with options below.</span><br>
-                                <span class="popup-description">The link doesn't exist if there's no button for the action.</span>
+                                <div style="display: grid; grid-template-columns: 1fr min-content; align-items: center; gap: 0.5rem;>">
+                                    <span class="popup-title">${subjTitle}</span>
+                                    <span class="info-chipbox">Class Code: <span style="font-family: 'Roboto Mono', 'Sarabun', sans-serif;w">${subjClassCode}</span></span>
+                                </div>
+                                <span class="popup-description">${subjTeacher} · ${subjCode}<br></span>
                             </div>
                             <div class="popup-buttons-box">
                                 <div class="popup-buttons-wrapper popup-buttons-wrapper-${popupid}">
-                                    <a class="popup-button popup-button-danger" onclick="popupDone(${popupid})">Cancel</a>
+                                    <a class="popup-button popup-button-danger" onclick="popupDone(${popupid})">Close</a>
                                 </div>
                             </div>
                         </div>
@@ -231,6 +266,10 @@ function classJoiningSystem() {
                     }
                 })
         })
+    }
+
+    if (localStorage.getItem("timetable-subjectCard") === "true") {
+        subjectCard()
     }
 }
 
@@ -312,6 +351,87 @@ function checkConnection() {
         addNotification("Offline: Try checking your connection.")
         clearInterval(checkupdates)
     });
+}
+
+function subjectCard() {
+    document.querySelectorAll(".class-joinable").forEach(grid => {
+        var timerIn;
+        var timerOut;
+        var subjText = grid.innerHTML
+
+        // Wait 2 seconds after hover on the grid element, if the cursor doesn't move or exit, add a subject card.
+        grid.addEventListener("mouseover", (event) => {
+            // timerIn = setTimeout(() => {
+                clearTimeout(timerOut);
+
+                var subjTitle = subj[subjText].subjname;
+                if (subjTitle === "") {
+                    subjTitle = subjText
+                } var subjContent = subj[subjText]
+
+                var subjTeacher = subjContent.teacher
+                if (subjTeacher === "") {
+                    subjTeacher = "<i style='opacity: 0.5;'>ไม่มีข้อมูลคุณครู</i>"
+                }
+
+                var subjCode = subjContent.subjcode
+                if (subjCode === "") {
+                    subjCode = "<i style='opacity: 0.5;'>ไม่มีข้อมูลรหัสวิชา</i>"
+                }
+
+                var subjClassCode = subjContent.classcode
+                if (subjClassCode === "") {
+                    subjClassCode = "<i style='opacity: 0.25;'>ไม่มีข้อมูล</i>"
+                }
+
+                var subjClassroomIcon = ""
+                if (subj[subjText].classroom !== "") {
+                    subjClassroomIcon = `
+                        <div class="info-chipbox"x>
+                            Classroom
+                        </div>
+                    `
+                }
+
+                var subjVideoIcon = ""
+                if (subj[subjText].videocall !== "") {
+                    subjVideoIcon = `
+                        <div class="info-chipbox"x>
+                            Video Call
+                        </div>
+                    `
+                }
+                grid.insertAdjacentHTML("beforeend", `
+                    <div class="subjcard">
+                        <p class="popup-title">${subjTitle}</p>
+                        <p class="popup-description" style="margin-bottom: 0.5rem;">${subjTeacher} · ${subjCode}</p>
+                        <div class="info-chipbox-wrapper">
+                            <div class="info-chipbox">
+                            <b>Class Code:</b> <span style="font-family: 'Roboto Mono', 'Sarabun', sans-serif;">${subjClassCode}</span>
+                            </div><br>
+                            ${subjClassroomIcon}
+                            ${subjVideoIcon}
+                        </div>
+                    </div>
+                `)
+
+                
+            // }, 2000);
+        })
+        // Clear the timeout wait when the cursor moves or exited the element.
+        grid.addEventListener("mouseout", (event) => {
+            // clearTimeout(timerIn);
+            document.querySelector(".subjcard").remove()
+        })
+    });
+
+    for (let i = 0; i < card_left_alterlist.length; i++) {
+        document.getElementById(card_left_alterlist[i]).classList.add("subjcard-alter-left")
+    }
+
+    for (let i = 0; i < card_bottom_alterlist.length; i++) {
+        document.getElementById(card_bottom_alterlist[i]).classList.add("subjcard-alter-bottom")
+    }
 }
 
 function reloadPage() {

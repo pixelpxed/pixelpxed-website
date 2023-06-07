@@ -28,13 +28,39 @@ window.addEventListener("load", () => {
     // 0 = Regular UI
     // 1 = Sidebar hidden by default.
     // 2 = Sidebar hidden by default, navigation bar hidden.
+    // 3 = Sidebar hidden, navigation bar hidden, file path bar hidden, insert open in new tab button.
     if (parameters.get("uistyle") === "1" || parameters.get("uistyle") === "2") {
         toggleSidebarView()
-    } if (parameters.get("uistyle") === "2") {
+    } if (parameters.get("uistyle") === "2" || parameters.get("uistyle") === "3") {
         document.querySelector("nav").style.display = "none"
 
         document.querySelector(".application-root").style.gridTemplateRows = "100vh"
         document.querySelector(".main-content").style.gridTemplateRows = "max-content calc(100vh - 36.5px)"
+    } if (parameters.get("uistyle") === "3") {
+        toggleSidebarView()
+        document.querySelector(".file-path-bar").style.display = "none"
+        document.querySelector(".main-edit").insertAdjacentHTML("beforeend", `
+            <a 
+                class="material-symbols-outlined" 
+                onclick="window.open((window.location.href).slice(0, -10), '_blank');"
+                title="Open Note in New Tab" 
+                style="
+                    position: fixed; 
+                    bottom: 1rem; 
+                    right: 1rem; 
+                    
+                    width: max-content;
+                    height: max-content; 
+
+                    padding: 0.5rem;
+
+                    background: var(--color-gray-6); 
+                    border: 1px solid var(--color-gray-4);
+                    border-radius: 0.5rem;"
+                >
+                open_in_new
+            </a>
+        `)
     }
 
     fetch("/assets/json/common.json")

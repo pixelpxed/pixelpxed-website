@@ -1,0 +1,43 @@
+{
+    "content": {
+        "homework": [
+            {
+                "subject": "Colors",
+                "item": "Update backend of to-do app",
+                "duedate": "2023-05-30",
+                "classroom": "https://classroom.google.com/somestuffhere",
+                "taskid": "001"
+            },
+            {
+                "subject": "To-do project",
+                "item": "Some other sample item",
+                "duedate": "2023-05-30",
+                "classroom": "https://cdn.discordapp.com/someimagescreenshotofwhiteboardhere",
+                "taskid": "002"
+            }
+        ],
+        "reminder": [
+            {
+                "subject": "To-do project",
+                "item": "Yayy!\r\n    - Multiline Items\r\n    - Hmm\r\n    - How would this turn out?",
+                "duedate": "2023-05-29",
+                "classroom": null,
+                "taskid": "001"
+            }
+        ],
+        "exam": [
+            {
+                "subject": "Subjhect",
+                "item": "NotAHomework",
+                "duedate": "2023-06-03",
+                "classroom": "https://classroom.google.com/definitelyArealGoogleClassroomLink",
+                "taskid": "001"
+            }
+        ]
+    },
+    "about": {
+        "lastupdate": "02/06/2023 @ 19:42",
+        "footertext": "Hallo, some footer text here.",
+        "dataversion": "0.1.2"
+    }
+}

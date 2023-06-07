@@ -1,0 +1,57 @@
+<div class="contentbox-wrapper contentbox-assignments">
+    <div class="popup-content assignments-wrapper">
+
+        <p class="popup-title">Reminders</p>
+        <table style="width: 100%; margin: 0.5rem 0 1rem 0;">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody class="table-todo-reminder"></tbody>
+        </table>
+
+        <p class="popup-title">Homeworks</p>
+        <table style="width: 100%; margin: 0.5rem 0 1rem 0;">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody class="table-todo-homework"></tbody>
+        </table>
+
+        <p class="popup-title">Exams</p>
+        <table style="width: 100%; margin: 0.5rem 0 1rem 0;">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody class="table-todo-exam"></tbody>
+        </table>
+
+        <p class="popup-description" style="text-align: center;">
+            Last update: <span class="todo-lastupdate">--:--:-- @ --:--</span>
+        </p>
+    </div>
+    <div class="popup-buttons-box">
+        <div class="popup-buttons-wrapper" style="display: grid; grid-template-columns: 1fr max-content; align-items: center; margin: 0; width: 100%;">
+            <p class="popup-description">
+                To-do is made possible with <a href="https://pawin.tk/" target="_blank">pawin.tk</a> API.
+            </p>
+            <div style="display: flex; gap: 0.5rem;">
+                <a class="popup-button" href="https://pawin.tk/to-do/" target="_blank">
+                    Add Work
+                </a>
+                <a class="popup-button" onclick="closeToDo()">Done</a>
+            </div>
+        </div>
+    </div>
+</div>

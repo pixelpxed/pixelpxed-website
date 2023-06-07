@@ -3,10 +3,7 @@
         <p class="popup-title">Settings</p>
 
         <div class="settings-section-wrapper">
-            <p class="settings-section-title settings-option-label">
-                <span class="material-symbols-outlined settings-section-drop" data-togglesection="section-theme" onclick="toggleSettingsSection('section-theme')">
-                    arrow_drop_down
-                </span>
+            <p class="settings-option-label">
                 <span class="material-symbols-outlined">
                     style
                 </span>
@@ -19,7 +16,7 @@
                     </span>
                 </span>
             </p>
-            <div class="settings-section-hide" data-dropsection="section-theme" style="margin-left: 2em;">
+            <div style="margin-left: 2em;">
                 <label class="settings-option-label">
                     <input name="settings-theme" type="radio" value="sync-os">
                     <span class="material-symbols-outlined">
@@ -51,10 +48,7 @@
         </div>
 
         <div class="settings-section-wrapper">
-            <p class="settings-section-title settings-option-label">
-                <span class="material-symbols-outlined settings-section-drop" data-togglesection="section-info" onclick="toggleSettingsSection('section-info')">
-                    arrow_drop_down
-                </span>
+            <p class="settings-option-label">
                 <span class="material-symbols-outlined">
                     info
                 </span>
@@ -68,7 +62,7 @@
                 </span>
             </p>
 
-            <div class="settings-section-hide" data-dropsection="section-info" style="margin-left: 2em;">
+            <div style="margin-left: 2em;">
                 <div>
                     <div class="settings-option-label">
                         <span class="material-symbols-outlined">
@@ -80,19 +74,16 @@
                                 Google account to sign into.
                             </span>
                         </span>
-                        <div style="margin: 0 0 0 auto; display: flex; align-items: center; gap: 0.5rem;">
-                            <input type="number" name="gaiindex" id="setings-gaiindex" min="0" value="0" style="min-width: 3rem; max-width: 5rem; height: 28px;">
-                            <a onclick="location.reload()"
-                                class="popup-button">Reload</a>
-                        </div>
+                    </div>
+                    <div style="margin: 0 0 0 auto; display: flex; align-items: center; gap: 0.5rem;">
+                        <input type="number" name="gaiindex" id="setings-gaiindex" min="0" value="0" style="height: 28px;">
+                        <a onclick="location.reload()"
+                            class="popup-button">Reload</a>
                     </div>
                 </div>
 
                 <div>
                     <p class="settings-option-label">
-                        <span class="material-symbols-outlined settings-section-drop" data-togglesection="class" onclick="toggleSettingsSection('class')">
-                            arrow_drop_down
-                        </span>
                         <span class="material-symbols-outlined">
                             school
                         </span>
@@ -103,17 +94,11 @@
                             </span>
                         </span>
                     </p>
-                    <div class="settings-section-hide" data-dropsection="class" style="margin: 0.5em 0;">
+                    <div style="margin: 0.5em 0;">
                         <label class="settings-option-label">
-                            <input name="settings-class" type="radio" value="305">
+                            <input name="settings-class" type="radio" value="405">
                             <span>
-                                305
-                            </span>
-                        </label>
-                        <label class="settings-option-label">
-                            <input name="settings-class" type="radio" value="306">
-                            <span>
-                                306
+                                405
                             </span>
                         </label>
                         <label class="settings-option-label">
@@ -147,9 +132,6 @@
 
                 <div>
                     <p class="settings-option-label">
-                        <span class="material-symbols-outlined settings-section-drop" data-togglesection="timelistoverride" onclick="toggleSettingsSection('timelistoverride')">
-                            arrow_drop_down
-                        </span>
                         <span class="material-symbols-outlined">
                             schedule
                         </span>
@@ -160,7 +142,7 @@
                             </span>
                         </span>
                     </p>
-                    <div class="settings-section-hide" data-dropsection="timelistoverride" style="margin: 0.5em 0;">
+                    <div style="margin: 0.5em 0;">
                         <label class="settings-option-label">
                             <input name="settings-timelistoverride" type="radio" value="auto">
                             <span class="material-symbols-outlined">
@@ -216,9 +198,6 @@
 
         <div class="settings-section-wrapper">
             <p class="settings-section-title settings-option-label">
-                <span class="material-symbols-outlined settings-section-drop" data-togglesection="section-optional" onclick="toggleSettingsSection('section-optional')">
-                    arrow_drop_down
-                </span>
                 <span class="material-symbols-outlined">
                     checklist
                 </span>
@@ -231,7 +210,7 @@
                     </span>
                 </span>
             </p>
-            <div class="settings-section-hide" data-dropsection="section-optional" style="margin-left: 2em;">
+            <div style="margin-left: 2em;">
                 <label class="settings-option-label">
                     <input class="settings-popupmode" type="checkbox" name="popupmode" value="enable-popupmode">
                     <span class="material-symbols-outlined">
@@ -267,6 +246,19 @@
                         Period end sound<br>
                         <span class="popup-description">
                             When the period ends, play virtual school bell sound.
+                        </span>
+                    </span>
+                </label>
+                <label class="settings-option-label">
+                    <input class="settings-subjectcard" type="checkbox" name="subjectcard"
+                        value="enable-subjectcard">
+                    <span class="material-symbols-outlined">
+                        tips_and_updates
+                    </span>
+                    <span>
+                        Subject Hover Cards<br>
+                        <span class="popup-description">
+                            Shows a little info card about the subject when hovered.
                         </span>
                     </span>
                 </label>

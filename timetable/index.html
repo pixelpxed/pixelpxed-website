@@ -38,6 +38,7 @@
     <script defer src="/timetable/assets/js/components/clock.js"></script>
     <script defer src="/timetable/assets/js/components/setup.js"></script>
     <script defer src="/timetable/assets/js/components/timeremaining.js"></script>
+    <script defer src="/timetable/assets/js/components/todo.js"></script>
 
     <script defer src="/timetable/assets/js/timetable.js"></script>
     
@@ -55,69 +56,73 @@
             <a href="/notetaker/">Notetaker</a>
         </div>
         <div>
-            <a class="material-symbols-outlined elective-swapper" title="Swap Elective Class (Reload Required)" onclick="swapElectiveClass()">sync_alt</a>
+            <a class="material-symbols-outlined icon-todo" title="Class To-do List" onclick="openToDo()">assignment</a>
             <a class="material-symbols-outlined" title="About Timetable" onclick="about()">info</a>
             <a class="material-symbols-outlined" title="Settings" onclick="openSettings()">settings</a>
         </div>
     </nav>
 
     <!-- Popup Elements -->
-    <div id="popup-center" class="popup-center"></div>
-    <div id="notification-center" class="notification-wrapper"></div>
-
-    <div id="about-wrapper" class="about-wrapper contentbox-wrapper">
-        <div class="popup-content">
-            <p class="popup-title">About</p>
-            <div class="about-content" style="padding-bottom: 1em;">
-                <div>
-                    <p>About Timetable</p>
-                    <ul>
-                        <li><b>Version:</b> v<span class="js-fill-version"></span></li>
-                        <li class="about-timelist"><b>Time List:</b> <span class="js-fill-timetype"></span></li>
-                        <li><b>Copyright:</b> © <span class="js-fill-year"></span></li>
-                    </ul>
-                </div>
-                <div>
-                    <p>Developer(s)</p>
-                    <ul>
-                        <li>@PixelEdition: Timetable</li>
+    <div id="popup-center" class="popup-center">
+        <div id="about-wrapper" class="about-wrapper contentbox-wrapper">
+            <div class="popup-content">
+                <p class="popup-title">About</p>
+                <div class="about-content" style="padding-bottom: 1em;">
+                    <div>
+                        <p>About Timetable</p>
                         <ul>
-                            <li>Discord: pixel#2899</li>
+                            <li><b>Version:</b> v<span class="js-fill-version"></span></li>
+                            <li class="about-timelist"><b>Time List:</b> <span class="js-fill-timetype"></span></li>
+                            <li><b>Copyright:</b> © <span class="js-fill-year"></span></li>
                         </ul>
-                    </ul>
-                </div>
-                <div>
-                    <p>Extra Feature Developer(s)</p>
-                    <ul>
-                        <li>@Pawin: Time Remaining</li>
+                    </div>
+                    <div>
+                        <p>Developer(s)</p>
                         <ul>
-                            <li>Discord: Pawin#5564</li>
-                            <li>This feature is modified from original code.</li>
+                            <li>@PixelEdition: Timetable</li>
+                            <ul>
+                                <li>Discord: pixel#2899</li>
+                            </ul>
                         </ul>
-                    </ul>
+                    </div>
+                    <div>
+                        <p>Extra Feature Developer(s)</p>
+                        <ul>
+                            <li>@Pawin: Time Remaining</li>
+                            <ul>
+                                <li>Discord: Pawin#5564</li>
+                                <li>This feature is modified from original code.</li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <p class="popup-title">Changelog</p>
+                <div id="about-content" class="about-content changelog-list">
+                    <span class="material-symbols-outlined animation-rotate-inf">
+                        autorenew
+                    </span>
                 </div>
             </div>
-            <p class="popup-title">Changelog</p>
-            <div id="about-content" class="about-content changelog-list">
-                <span class="material-symbols-outlined animation-rotate-inf">
-                    autorenew
-                </span>
-            </div>
-        </div>
-        <div class="popup-buttons-box">
-            <div class="popup-buttons-wrapper">
-                <a class="popup-button" onclick="about()">Done</a>
+            <div class="popup-buttons-box">
+                <div class="popup-buttons-wrapper">
+                    <a class="popup-button" onclick="about()">Done</a>
+                </div>
             </div>
         </div>
     </div>
-
+    <div id="notification-center" class="notification-wrapper"></div>
     <div id="full-page-overlay" class="full-page-overlay"></div>
 
     <!-- Main Content -->
     <div id="main" class="main">
 
         <div class="title-wrapper">
-            <h1 class="title-timetable">Timetable</h1>
+            <h1 class="title-timetable">
+                Timetable
+                <span class="timetable-glow">
+                    Timetable
+                </span>
+            </h1>
             <div class="title-description">
                 <p>Loading</p>
             </div>
@@ -242,16 +247,22 @@
                 <span class="icon-button icon-button-inline material-symbols-outlined">
                     sync_alt
                 </span>
-                </a><a title="About Timetable" onclick="about()">
-                    <span class="icon-button icon-button-inline material-symbols-outlined">
-                        info
-                    </span>
-                </a>
-                <a title="Settings" onclick="openSettings()">
-                    <span class="icon-button icon-button-inline material-symbols-outlined">
-                        settings
-                    </span>
-                </a>
+            </a>
+            <a title="Class To-do List" onclick="openToDo()" class="icon-todo">
+                <span class="icon-button icon-button-inline material-symbols-outlined">
+                    assignment
+                </span>
+            </a>
+            <a title="About Timetable" onclick="about()">
+                <span class="icon-button icon-button-inline material-symbols-outlined">
+                    info
+                </span>
+            </a>
+            <a title="Settings" onclick="openSettings()">
+                <span class="icon-button icon-button-inline material-symbols-outlined">
+                    settings
+                </span>
+            </a>
         </div>  
         <footer class="footer-wrapper">
             <p>

@@ -25,7 +25,6 @@
     --color-days: rgba(0, 0, 0, 0.8);
 }
 
-:root,
 :root.light,
 :root[theme="light"] {
     --background-html: rgb(255, 255, 255) no-repeat center center fixed;
@@ -59,6 +58,7 @@
     color-scheme: light;
 }
 
+:root,
 :root.dark,
 :root[theme="dark"] {
     --background-html: rgb(0, 0, 0) no-repeat center center fixed;

@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
     // Check localStorage for setting Time Remaining
-    if ((localStorage.getItem("timetable-enableTimeRemaining") === "true")) {
+    if (localStorage.getItem("timetable-enableTimeRemaining") === "true" && localStorage.getItem("timetable-overrideTimeList") === "auto") {
         timeRemaining()
     }
 });

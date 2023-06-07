@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
         "font-family: sans-serif;")
 });
 
-function addNotification(content, type) {
+function addNotification(content = "No information provided.", type = "normal") {
     if (type != "error") {
         var notificationType = "notification-normal"
     }
@@ -28,7 +28,7 @@ function addNotification(content, type) {
 
 var popupid = 0
 
-function popupConfirm(title, content, answerTrue, answerFalse) {
+function popupConfirm(title = "Confirm", content = "No information provided.", answerTrue = "returnNothing", answerFalse = "returnNothing") {
     document.querySelector(".popup-center").insertAdjacentHTML("beforeend", `
     <div id="popup-id-${popupid}" class="popup">
         <div class="popup-wrapper">
@@ -48,7 +48,7 @@ function popupConfirm(title, content, answerTrue, answerFalse) {
     popupOpen()
 }
 
-function popupOK(title, content, answer) {
+function popupOK(title = "Confirm", content = "No information provided.", answer = "returnNothing") {
     document.querySelector(".popup-center").insertAdjacentHTML("beforeend", `
     <div id="popup-id-${popupid}" class="popup">
         <div class="popup-wrapper">

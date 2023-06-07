@@ -1,10 +1,10 @@
 // Basic Timetable information.
-var timetableversion = "3.7.2"
+var timetableversion = "3.8.0"
 
 // Timetable class fetch folder
 // Timetable will require a <classno>.json file in the folder
 // to be exact, for example 305.json, 306.json
-var classdatafetchpath = `/timetable/assets/js/config/classinfo/2_2022`
+var classdatafetchpath = `/timetable/assets/js/config/classinfo/1_2023`
 
 // Copyright year settings
 var fetchcopyrightyear = true
@@ -162,3 +162,18 @@ var bookmarks = {
         }
     },
 }
+
+// For subject cards to appear on the left instead of the right side. (Hard-coded)
+var card_left_alterlist = [
+    9, 10, 11,
+    20, 21, 22,
+    31, 32, 33,
+    42, 43, 44,
+    53, 54, 55
+]
+
+// For subject cards to appear on the bottom instead of the top side. (Hard-coded)
+var card_bottom_alterlist = [
+    34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44,
+    45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55
+]

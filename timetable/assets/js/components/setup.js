@@ -58,6 +58,10 @@ function completeSetup() {
         localStorage.setItem("timetable-customClassJSON", document.querySelector(".setup-class-custom-json").value)
     }
 
+    if (!localStorage.getItem("timetable-gaiTimetable")) {
+        localStorage.setItem("timetable-gaiTimetable", 0)
+    }
+
     localStorage.setItem('timetable-setupComplete', true);
     localStorage.setItem('timetable-localStorageDataVersion', 2)
     localStorage.setItem("timetable-overrideTimeList", "auto")

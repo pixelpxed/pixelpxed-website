@@ -6,6 +6,9 @@
 
     transform: translate(-50%, -50%);
 
+    display: flex;
+    align-items: center;
+
     width: calc(100% - 2em);
     max-width: 25em;
 
@@ -20,6 +23,10 @@
     z-index: 1000;
 
     overflow: auto;
+}
+
+.popup-wrapper {
+    width: 100%;
 }
 
 .popup-header {
