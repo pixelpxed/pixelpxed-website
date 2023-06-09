@@ -1,15 +1,47 @@
 function openToDo() {
-    if (!document.querySelector(".contentbox-assignments")) {
+    if (document.querySelector(".contentbox-assignments")) {
+        handleShowToDo()
+    } if (!document.querySelector(".contentbox-assignments")) {
         fetch("/timetable/assets/components/html/todolist.html")
             .then((res) => res.text())
             .then((data) => {
                 document.querySelector(".popup-center").insertAdjacentHTML("beforeend", data)
-                fetchToDo()
-                handleShowToDo()
+                fetchToDo(data)
             })
-    } if (document.querySelector(".contentbox-assignments")) {
-        handleShowToDo()
+            .catch((error) => {
+                cannotGetPopupContentError("to-do", error)
+            })
+        return
     }
+}
+
+var cache_todolist;
+function fetchToDo() {
+    fetch("https://pawin.tk/to-do/tasks.json")
+    // fetch("/timetable/templates/homework.json")
+        .then((res) => {
+            if (res.ok) {
+                return res.json()
+            }
+        })
+        .then((data) => {
+            cache_todolist = data
+            console.log(cache_todolist);
+            getToDo()
+        })
+        .catch((error) => {
+            console.warn("Failed to fetch pawin.tk API, opening to-do failed.");
+            return popupOK(
+                `Can't connect to 'pawin.tk' API.`, 
+                `Timetable couldn't get an reponse from the server required for to-do to display information.<br><br>
+
+                If you're connected to the internet, this problem is <abbr style="color: var(--color-gray-1); text-decoration: underline;" title="likely Pawin's server loose Ethernet cable.">likely on our end</abbr>. Meanwhile please try again later.<br><br>
+                
+                <span class="popup-description">Error:</span><br>
+                ${error}`,
+                "resetToDo"
+            )
+        })
 }
 
 function handleShowToDo() {
@@ -26,15 +58,11 @@ function closeToDo() {
     document.querySelector(".full-page-overlay").style.display = "none"
 }
 
-var cache_todolist;
-function fetchToDo() {
-    fetch("https://pawin.tk/to-do/tasks.json")
-    // fetch("/timetable/templates/homework.json")
-        .then((res) => res.json())
-        .then((data) => {
-            cache_todolist = data
-            getToDo()
-        })
+function resetToDo() {
+    document.querySelector(".contentbox-assignments").remove()
+
+    enableScrollbar()
+    document.querySelector(".full-page-overlay").style.display = "none"
 }
 
 function getToDo() {
@@ -71,6 +99,8 @@ function getToDo() {
     }
 
     document.querySelector(".todo-lastupdate").innerHTML = cache_todolist.about.lastupdate
+
+    handleShowToDo()
 }
 
 function insertToDo(location, title, desc, url, due) {

@@ -5,23 +5,27 @@ window.addEventListener('load', () => {
     document.querySelector("html").setAttribute("theme", localStorage.getItem("theme"));
 })
 
-var settingsBoxFetched = false
-
 function openSettings() {
     disableScrollbar()
 
-    if (settingsBoxFetched == true) {
+    if (document.querySelector('.settings-wrapper')) {
         document.querySelector('.settings-wrapper').style.display = "block"
     }
-    if (settingsBoxFetched != true) {
+    if (!document.querySelector('.settings-wrapper')) {
         fetch('/timetable/assets/components/html/settings.html')
-            .then((response) => response.text())
-            .then((html) => document.querySelector(".popup-center").innerHTML += html)
-            .then(() => {
+            .then((res) => {
+                if (res.ok) {
+                    return res.text()
+                }
+            })
+            .then((html) => {
+                document.querySelector(".popup-center").innerHTML += html
                 setDefaultSettingsValue();
                 setListenersSettingsChange();
             })
-        settingsBoxFetched = true
+            .catch((error) => {
+                cannotGetPopupContentError("settings", error)
+            })
     }
 
     document.getElementById("full-page-overlay").style.display = "block"

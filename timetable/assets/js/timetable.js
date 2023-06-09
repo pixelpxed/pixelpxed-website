@@ -302,17 +302,24 @@ function searchGoogle() {
 }
 
 var changelogfetched = false
-
 function about() {
     if (document.querySelector(".about-wrapper").style.display != "block") {
         disableScrollbar()
         if (changelogfetched === false) {
+            console.log(false);
             fetch('/timetable/assets/components/html/changelog.html')
-                .then((response) => response.text())
+                .then((res) => {
+                    if (res.ok) {
+                        return res.text();
+                    }
+                    changelogfetched = true
+                })
                 .then((html) => {
                     document.querySelector(".changelog-list").innerHTML = html;
                 })
-            changelogfetched = true
+                .catch((error) => {
+                    return document.querySelector(".changelog-list").innerHTML = "<p class='popup-description' style='font-weight: var(--font-weight-normal); text-align: center; margin-top: 1rem;'>Cannot get changelog. Please check your connection!</p>";
+                })
         }
         document.querySelector(".about-wrapper").style.display = "block"
         return document.querySelector(".full-page-overlay").style.display = "block"
@@ -436,4 +443,18 @@ function subjectCard() {
 
 function reloadPage() {
     location.reload()
+}
+
+function cannotGetPopupContentError(location, error) {
+    console.warn(`Failed to get popup content for ${location}, opening to-do failed.`);
+    popupOK(
+        `Can't get content.`, 
+        `Timetable couldn't get the content for the page.<br><br>
+
+        Please check your internet connection, or try again later.<br><br>
+        
+        <span class="popup-description">Error:</span><br>
+        ${error}`,
+        "returnNothing"
+    )
 }

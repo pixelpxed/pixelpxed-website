@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendar - PixelEdition</title>
 
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/calendar/assets/style.css">
 
-    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/png">
+    <link rel="shortcut icon" href="/calendar/assets/favicon.ico" type="image/png">
 
-    <script defer src="./assets/main.js"></script>
+    <script defer src="/calendar/assets/main.js"></script>
 
     <noscript>
         <meta http-equiv="refresh" content="0; url=/htmlerror/noscript.html" />
@@ -32,12 +33,11 @@
             </a>
         </abbr>
     </div>
-    <div id="new-calendar-wrapper" class="new-calendar-wrapper">
-        <div class="new-calendar">
-            <p>Create a New Calendar</p>
-
-            <label for="new-calendar-title">Calendar Title</label>
-
+    <div class="contentbox-wrapper" id="new-calendar-wrapper">
+        <div class="popup-content">
+            <p class="popup-title">New Calendar</p>
+            
+            <label for="new-calendar-title" style="display: block; margin-top: 1rem;">Calendar Title</label>
             <select name="new-calendar-title" id="new-calendar-title">
                 <option value="0">January</option>
                 <option value="1">Febuary</option>
@@ -54,19 +54,14 @@
                 <option value="12">December</option>
             </select>
 
-            <label for="new-calendar-offset">Calendar Offset</label>
+            <label for="new-calendar-offset" style="display: block; margin-top: 0.5rem;">Calendar Offset</label>
             <input id="new-calendar-offset" type="number" placeholder="Numbers only." min="0" max="6">
-
-            <abbr title="Create New Calendar">
-                <a class="icon-button icon-button-inline" onclick="newCalendar()">
-                    <span class="material-symbols-outlined">add</span>
-                </a>
-            </abbr>
-            <abbr title="Cancel">
-                <a class="icon-button icon-button-inline" onclick="closeNewCalendar()">
-                    <span class="material-symbols-outlined">close</span>
-                </a>
-            </abbr>
+        </div>
+        <div class="popup-buttons-box">
+            <div class="popup-buttons-wrapper">
+                <a class="popup-button" onclick="newCalendar()">Create</a>
+                <a class="popup-button" onclick="closeNewCalendar()">Close</a>
+            </div>
         </div>
     </div>
     <div id="calendar-wrapper" class="calendar-wrapper">
