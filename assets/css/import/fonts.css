@@ -73,13 +73,13 @@
 /* Material Symbols Outlined */
 
 /* Icons */
-@font-face {
+/* @font-face {
     font-family: 'Material Symbols Outlined';
     src: url("/assets/fonts/Material_Symbols_Outlined/MaterialSymbolsOutlined_May2023-1.woff2") format('woff2');
     
     font-weight: 100 700;
     font-style: normal;
-}
+} */
 
 /* Class Declaring */
 .material-symbols-outlined {
