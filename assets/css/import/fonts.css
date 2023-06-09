@@ -6,6 +6,9 @@
     src: url("/assets/fonts/Outfit/Outfit-VariableFont_wght.ttf");
 
     font-weight: 100 900;
+
+        font-display: block;
+
 }
 
 /* Roboto Mono */
@@ -16,6 +19,9 @@
     src: url("/assets/fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf");
 
     font-weight: 100 700;
+
+        font-display: block;
+
 }
 
 /* Sarabun */
@@ -27,6 +33,9 @@
 
     font-weight: 300;
     font-style: normal;
+
+    font-display: block;
+
 }
 
 @font-face {
@@ -35,6 +44,9 @@
 
     font-weight: 500;
     font-style: normal;
+
+    font-display: block;
+
 }
 
 @font-face {
@@ -43,6 +55,8 @@
 
     font-weight: 700;
     font-style: normal;
+
+    font-display: block;
 }
 
 /* Italic */
@@ -52,6 +66,8 @@
 
     font-weight: 300;
     font-style: italic;
+
+    font-display: block;
 }
 
 @font-face {
@@ -60,6 +76,8 @@
 
     font-weight: 500;
     font-style: italic;
+
+    font-display: block;
 }
 
 @font-face {
@@ -68,6 +86,8 @@
 
     font-weight: 700;
     font-style: italic;
+
+    font-display: block;
 }
 
 /* Material Symbols Outlined */
@@ -104,6 +124,7 @@
 
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
+
 }
 
 /* Noto Color Emoji */
@@ -115,4 +136,6 @@
 
     font-weight: 400;
     font-style: normal;
+
+    font-display: block;
 }
