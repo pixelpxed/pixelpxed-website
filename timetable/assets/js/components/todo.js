@@ -26,7 +26,6 @@ function fetchToDo() {
         })
         .then((data) => {
             cache_todolist = data
-            console.log(cache_todolist);
             getToDo()
         })
         .catch((error) => {
@@ -111,8 +110,7 @@ function insertToDo(location, title, desc, url, due) {
 
     document.querySelector(location).insertAdjacentHTML("beforeend", `
         <tr>
-            <td class="assignments-subj">${title}</td>
-            <td class="assignments-desc">${formatteddesc}</td>
+            <td class="assignments-item"><b>${title}</b><br>${formatteddesc}</td>
             <td class="assignments-date">${due}</td>
         </tr>
     `)
