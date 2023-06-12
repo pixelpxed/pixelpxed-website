@@ -370,16 +370,13 @@
     border-radius: 0.2rem;
 }
 
-.assignments-wrapper tr {
-    display: grid;
-    grid-template-columns: 25% 1fr 25%;
-}
-
-.assignments-subj {
-    text-align: center;
-    font-weight: var(--font-weight-semibold);
+.assignments-wrapper td {
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .assignments-date {
     text-align: center;
+
+    width: 7rem;
 }

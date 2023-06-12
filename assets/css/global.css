@@ -291,6 +291,14 @@ th, td {
     padding: 0.25rem;
 }
 
+tr:nth-child(odd) {
+    background: var(--color-alt-text);
+}
+
+tr:nth-child(even) {
+    background: var(--color-gray-6);
+}
+
 .main {
     position: relative;
 }
