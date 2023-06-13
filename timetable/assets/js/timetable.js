@@ -306,7 +306,6 @@ function about() {
     if (document.querySelector(".about-wrapper").style.display != "block") {
         disableScrollbar()
         if (changelogfetched === false) {
-            console.log(false);
             fetch('/timetable/assets/components/html/changelog.html')
                 .then((res) => {
                     if (res.ok) {
