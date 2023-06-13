@@ -13,6 +13,16 @@ var daylist = [
     "Saturday"
 ]
 
+var shortdaylist = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat"
+]
+
 var monthlist = [
     "January",
     "February",

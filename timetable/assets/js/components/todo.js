@@ -108,10 +108,26 @@ function insertToDo(location, title, desc, url, due) {
         formatteddesc = `<a href="${url}" target="_blank">${desc}</a>`
     }
 
+    var rawtasktime = new Date(due)
+
+    var taskdayint = rawtasktime.getDay()
+    var taskdate = rawtasktime.getDate()
+    var taskmonth = rawtasktime.getMonth()
+    var taskyear = rawtasktime.getFullYear()
+
+    var duedateformatted = `${taskdate > 9 ? taskdate : "0" + taskdate}/${taskmonth > 9 ? taskmonth : "0" + taskmonth}/${taskyear}`
+
+    var dayname = daylist[taskdayint]
+
     document.querySelector(location).insertAdjacentHTML("beforeend", `
         <tr>
-            <td class="assignments-item"><b>${title}</b><br>${formatteddesc}</td>
-            <td class="assignments-date">${due}</td>
+            <td class="assignments-item">
+                <b>${title}</b><br>
+                ${formatteddesc}
+            </td>
+            <td class="assignments-date">
+                <b>${dayname}</b>, ${duedateformatted}
+            </td>
         </tr>
     `)
 }
