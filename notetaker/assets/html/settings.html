@@ -48,6 +48,62 @@
             </div>
         </div>
 
+        <div class="settings-section-wrapper">
+            <p class="settings-section-title settings-option-label">
+                <span class="material-symbols-outlined">
+                    text_format
+                </span>
+                <span>
+                    <b>
+                        Editor Font
+                    </b><br>
+                    <span class="popup-description">
+                        These actions can't be undone, proceed with caution.
+                    </span>
+                </span>
+            </p>
+            <div style="margin-left: 2em;">
+                <label class="settings-option-label">
+                    <input name="settings-font" type="radio" value="sansserif">
+                    <span class="material-symbols-outlined">
+                        abc
+                    </span>
+                    <span>
+                        Use <span style="padding: 0.25em; background: var(--color-gray-4); border-radius: 0.2rem;">sans-serif</span> font<br>
+                        
+                        <span class="popup-description">
+                            Modern reading. (Modern)
+                        </span>
+                    </span>
+                </label>
+                <label class="settings-option-label">
+                    <input name="settings-font" type="radio" value="serif">
+                    <span class="material-symbols-outlined">
+                        abc
+                    </span>
+                    <span>
+                        Use <span style="font-family: 'Noto Serif', serif; padding: 0.25em; background: var(--color-gray-4); border-radius: 0.2rem;">serif</span> font<br>
+                        
+                        <span class="popup-description">
+                            Professional reading. (Books)
+                        </span>
+                    </span>
+                </label>
+                <label class="settings-option-label">
+                    <input name="settings-font" type="radio" value="monospace" checked="checked">
+                    <span class="material-symbols-outlined">
+                        abc
+                    </span>
+                    <span>
+                        Use <span style="font-family: 'Roboto Mono', monospace; padding: 0.25em; background: var(--color-gray-4); border-radius: 0.2rem;">monospace</span> font<br>
+                        <span class="popup-description">
+                            Tabbed note reading. (Codes)
+                        </span>
+                    </span>
+                </label>
+            </div>
+        </div>
+
         <!-- Monospace Editing -->
         <div class="settings-section-wrapper">
             <p class="settings-section-title settings-option-label">
@@ -64,18 +120,6 @@
                 </span>
             </p>
             <div style="margin-left: 2em;">
-                <label class="settings-option-label">
-                    <input class="settings-monospace" name="settings-monospace" type="checkbox">
-                    <span class="material-symbols-outlined">
-                        abc
-                    </span>
-                    <span>
-                        Use  <span style="font-family: 'Roboto Mono', monospace; padding: 0.15em; background: var(--color-gray-4); border-radius: 0.2rem;">monospace</span> font<br>
-                        <span class="popup-description">
-                            Use a fixed-width font in editor.
-                        </span>
-                    </span>
-                </label>
                 <label class="settings-option-label">
                     <input class="settings-wordcount" name="settings-wordcount" type="checkbox">
                     <span class="material-symbols-outlined">

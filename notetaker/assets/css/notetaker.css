@@ -197,9 +197,19 @@ body {
     border: 0.5px solid var(--color-gray-4);
 }
 
+.main-edit-sansserif,
+.main-edit-sansserif * {
+    font-family: "Outfit", "Sarabun", sans-serif !important;
+}
+
+.main-edit-serif,
+.main-edit-serif * {
+    font-family: "Noto Serif", "Sarabun", serif !important;
+}
+
 .main-edit-monospace,
 .main-edit-monospace * {
-    font-family: "Roboto Mono", monospace !important;
+    font-family: "Roboto Mono", "Sarabun", monospace !important;
 }
 
 .main-edit-content {

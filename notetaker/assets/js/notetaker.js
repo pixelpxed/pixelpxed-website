@@ -255,17 +255,27 @@ function deleteNote(id) {
     }
 }
 
+function applyFontSettings() {
+    var fontstyle = localStorage.getItem("notetaker-font")
+
+    document.querySelector(".main-edit-title").classList = `main-edit-title main-edit-${fontstyle}`
+    document.querySelector(".main-edit-content").classList = `main-edit-content main-edit-${fontstyle}`
+}
+
 function applySettings() {
     // Theme
     if (!localStorage.getItem("theme")) {
         localStorage.setItem("theme", "sync-os");
     } document.querySelector("html").setAttribute("theme", localStorage.getItem("theme"));
 
-    // Monospace Font
-    if (localStorage.getItem("notetaker-monospace") == "true") {
-        document.querySelector(".main-edit-title").classList = "main-edit-title main-edit-monospace"
-        document.querySelector(".main-edit-content").classList = "main-edit-content main-edit-monospace"
+    if (localStorage.getItem("notetaker-monospace")) {
+        localStorage.removeItem("notetaker-monospace")
     }
+
+    // Monospace Font
+    if (!localStorage.getItem("notetaker-font")) {
+        localStorage.setItem("notetaker-font", "sansserif")
+    } applyFontSettings()
 
     // Word Count
     if (localStorage.getItem("notetaker-wordcount") != "true") {
@@ -302,28 +312,18 @@ function settings() {
             localStorage.setItem("theme", event.target.value)
         })
     })
-    
-    if (localStorage.getItem("notetaker-monospace") == "true") {
-        document.querySelector(".settings-monospace").setAttribute("checked", "checked")
-    }
 
-    // Monospace Font
-    document.querySelectorAll(".settings-monospace").forEach((element) => {
-        element.addEventListener("click", function (event) {
-            if (event.target.name === "settings-monospace") {
-                if (event.target.checked) {
-                    localStorage.setItem("notetaker-monospace", true)
+    // Font
+    document.querySelectorAll("input[name='settings-font']").forEach((element) => {
+        if (element.value == localStorage.getItem("notetaker-font")) {
+            element.setAttribute("checked", "checked")
+        }
+    })
 
-                    document.querySelector(".main-edit-title").classList = "main-edit-title main-edit-monospace"
-                document.querySelector(".main-edit-content").classList = "main-edit-content main-edit-monospace"
-                }
-                if (!event.target.checked) {
-                    localStorage.setItem("notetaker-monospace", false)
-
-                    document.querySelector(".main-edit-title").classList = "main-edit-title"
-                    document.querySelector(".main-edit-content").classList = "main-edit-content"
-                }
-            }
+    document.querySelectorAll("input[name='settings-font']").forEach((element) => {
+        element.addEventListener("change", function (event) {
+            localStorage.setItem("notetaker-font", event.target.value)
+            applyFontSettings()
         })
     })
 
@@ -356,7 +356,7 @@ function resetNotetakerSettings() {
 
 function resetNotetaker() {
     var listToDelete = [
-        "notetaker-monospace",
+        "notetaker-font",
         "notetaker-firstRun",
         "notetaker-notesData",
         "notetaker-wordcount",

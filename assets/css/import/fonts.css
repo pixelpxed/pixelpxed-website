@@ -7,8 +7,7 @@
 
     font-weight: 100 900;
 
-        font-display: block;
-
+    font-display: block;
 }
 
 /* Roboto Mono */
@@ -20,8 +19,41 @@
 
     font-weight: 100 700;
 
-        font-display: block;
+    font-display: block;
+}
 
+/* Noto Sans Mono */
+@font-face {
+    font-family: "Noto Sans Mono";
+    src: url("/assets/fonts/Noto_Sans_Mono/NotoSansMono-VariableFont.ttf");
+
+    font-weight: 100 900;
+    font-style: normal;
+
+    font-display: block;
+}
+
+/* Noto Serif */
+
+/* Normal */
+@font-face {
+    font-family: "Noto Serif";
+    src: url("/assets/fonts/Noto_Serif/NotoSerif-VariableFont.ttf");
+
+    font-weight: 100 900;
+    font-style: normal;
+
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Noto Serif";
+    src: url("/assets/fonts/Noto_Serif/NotoSerif-Italic-VariableFont.ttf");
+
+    font-weight: 100 900;
+    font-style: italic;
+
+    font-display: block;
 }
 
 /* Sarabun */
@@ -35,7 +67,6 @@
     font-style: normal;
 
     font-display: block;
-
 }
 
 @font-face {
@@ -46,7 +77,6 @@
     font-style: normal;
 
     font-display: block;
-
 }
 
 @font-face {
