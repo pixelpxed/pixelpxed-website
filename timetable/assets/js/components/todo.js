@@ -1,3 +1,5 @@
+todolist_datahandleversion = "0.1.4"
+
 function openToDo() {
     if (document.querySelector(".contentbox-assignments")) {
         handleShowToDo()
@@ -65,11 +67,38 @@ function resetToDo() {
 }
 
 function getToDo() {
+    if (cache_todolist.about.dataversion != todolist_datahandleversion) {
+        document.querySelector(".assignments-wrapper").insertAdjacentHTML(
+            "afterbegin",
+            `
+                <div style="
+                    display: flex; 
+                    gap: 0.5rem; 
+                    align-items: center; 
+                    
+                    padding: 0.5rem; 
+                    margin-bottom: 1rem; 
+                    
+                    background: var(--color-gray-5); 
+                    
+                    border-radius: 0.3rem; 
+                    border: 1px solid var(--color-gray-4);
+                ">
+                    <span class="material-symbols-outlined">info</span>
+                    <span>This data version recieved from Pawin's server seemed to be newer than what we're supporting, results displayed might be inaccurate.</span>
+                </div>
+            `
+        )
+    }
+
     var homework = cache_todolist.content.homework
     var reminder = cache_todolist.content.reminder
     var exam = cache_todolist.content.exam
 
     for (let i = 0; i < homework.length; i++) {
+        if (homework[i].status != "Active") {
+            continue
+        }
         insertToDo(
             ".table-todo-homework",
             homework[i].subject,
@@ -79,6 +108,9 @@ function getToDo() {
         )
     }
     for (let i = 0; i < reminder.length; i++) {
+        if (reminder[i].status != "Active") {
+            continue
+        }
         insertToDo(
             ".table-todo-reminder",
             reminder[i].subject,
@@ -88,6 +120,9 @@ function getToDo() {
         )
     }
     for (let i = 0; i < exam.length; i++) {
+        if (exam[i].status != "Active") {
+            continue
+        }
         insertToDo(
             ".table-todo-exam",
             exam[i].subject,
