@@ -260,6 +260,10 @@ function applyFontSettings() {
 
     document.querySelector(".main-edit-title").classList = `main-edit-title main-edit-${fontstyle}`
     document.querySelector(".main-edit-content").classList = `main-edit-content main-edit-${fontstyle}`
+    
+    if (fontstyle === "custom") {
+        return setCustomFont()
+    }
 }
 
 function applySettings() {
@@ -281,6 +285,11 @@ function applySettings() {
     if (localStorage.getItem("notetaker-wordcount") != "true") {
         document.querySelector(".word-count").style.display = "none"
     }
+
+    // Monospace Font
+    if (localStorage.getItem("notetaker-noContentMargins") == "true") {
+        document.querySelector(".editor-wrapper").classList = "editor-wrapper editor-wrapper-fullwidth"
+    }
 }
 
 function openSettings() {
@@ -297,6 +306,18 @@ function openSettings() {
     }
 
     waitForSettingsFetchDone()
+}
+
+function saveCustomFont() {
+    localStorage.setItem("notetaker-customFont", document.querySelector(".textfield-customfont").value)
+    setCustomFont()
+}
+
+function setCustomFont() {
+    var customfont = localStorage.getItem("notetaker-customFont", customfont)
+    
+    document.querySelector(".main-edit-title").style.fontFamily = `"${customfont}", "Outfit", "Sarabun", sans-serif`
+    document.querySelector(".main-edit-content").style.fontFamily = `"${customfont}", "Outfit", "Sarabun", sans-serif`
 }
 
 // Settings
@@ -327,17 +348,43 @@ function settings() {
         })
     })
 
+    if (localStorage.getItem("notetaker-font") === "custom" || (localStorage.getItem("notetaker-customFont") !== null)) {
+        document.querySelector(".textfield-customfont").value = localStorage.getItem("notetaker-customFont")
+    }
+    
+    // Word Count
+    if (localStorage.getItem("notetaker-noContentMargins") == "true") {
+        document.querySelector(".settings-nocontentmargins").setAttribute("checked", "checked")
+    }
+
+    document.querySelectorAll(".settings-nocontentmargins").forEach((element) => {
+        element.addEventListener("click", function (event) {
+            if (event.target.name === "settings-nocontentmargins") {
+                if (event.target.checked) {
+                    localStorage.setItem("notetaker-noContentMargins", true)
+                    
+                    document.querySelector(".editor-wrapper").classList = "editor-wrapper editor-wrapper-fullwidth"
+                }
+                if (!event.target.checked) {
+                    localStorage.setItem("notetaker-noContentMargins", false)
+
+                    document.querySelector(".editor-wrapper").classList = "editor-wrapper"
+                }
+            }
+        })
+    })
+    
+    // Word Count
     if (localStorage.getItem("notetaker-wordcount") == "true") {
         document.querySelector(".settings-wordcount").setAttribute("checked", "checked")
     }
 
-    // Word Count
     document.querySelectorAll(".settings-wordcount").forEach((element) => {
         element.addEventListener("click", function (event) {
             if (event.target.name === "settings-wordcount") {
                 if (event.target.checked) {
                     localStorage.setItem("notetaker-wordcount", true)
-
+                    
                     document.querySelector(".word-count").style.display = "inline-flex"
                 }
                 if (!event.target.checked) {
@@ -357,9 +404,11 @@ function resetNotetakerSettings() {
 function resetNotetaker() {
     var listToDelete = [
         "notetaker-font",
+        "notetaker-customFont",
         "notetaker-firstRun",
         "notetaker-notesData",
         "notetaker-wordcount",
+        "notetaker-noContentMargins"
     ]
 
     for (i = 0; i < listToDelete.length; i++) {

@@ -172,10 +172,6 @@ body {
 }
 
 .main-edit {
-    display: flex;
-    
-    flex-direction: column;
-    
     padding: 2rem;
     
     overflow: auto;
@@ -197,6 +193,11 @@ body {
     border: 0.5px solid var(--color-gray-4);
 }
 
+.main-edit-title *,
+.main-edit-content * {
+    font-family: inherit !important;
+}
+
 .main-edit-sansserif,
 .main-edit-sansserif * {
     font-family: "Outfit", "Sarabun", sans-serif !important;
@@ -215,7 +216,7 @@ body {
 .main-edit-content {
     flex-grow: 1;
 
-    padding-bottom: 8rem;
+    padding-bottom: 50vh;
 }
 
 .main-edit-filepath {
@@ -315,4 +316,13 @@ body {
 
 .copyrightyear {
     padding: 0 1rem 1rem 1rem;
+}
+
+.editor-wrapper {
+    max-width: 45rem;
+    margin: auto;
+}
+
+.editor-wrapper-fullwidth {
+    max-width: none !important;
 }

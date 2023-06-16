@@ -58,7 +58,7 @@
                         Editor Font
                     </b><br>
                     <span class="popup-description">
-                        These actions can't be undone, proceed with caution.
+                        Choose what font to use in Notetaker editor.
                     </span>
                 </span>
             </p>
@@ -82,7 +82,7 @@
                         abc
                     </span>
                     <span>
-                        Use <span style="font-family: 'Noto Serif', serif; padding: 0.25em; background: var(--color-gray-4); border-radius: 0.2rem;">serif</span> font<br>
+                        Use <span style="font-family: 'Noto Serif', serif; padding: 0.15rem 0.25rem; background: var(--color-gray-4); border-radius: 0.2rem;">serif</span> font<br>
                         
                         <span class="popup-description">
                             Professional reading. (Books)
@@ -95,12 +95,28 @@
                         abc
                     </span>
                     <span>
-                        Use <span style="font-family: 'Roboto Mono', monospace; padding: 0.25em; background: var(--color-gray-4); border-radius: 0.2rem;">monospace</span> font<br>
+                        Use <span style="font-family: 'Roboto Mono', monospace; padding: 0.15rem 0.25rem; background: var(--color-gray-4); border-radius: 0.2rem;">monospace</span> font<br>
                         <span class="popup-description">
                             Tabbed note reading. (Codes)
                         </span>
                     </span>
                 </label>
+                <label class="settings-option-label">
+                    <input name="settings-font" type="radio" value="custom" checked="checked">
+                    <span class="material-symbols-outlined">
+                        abc
+                    </span>
+                    <span>
+                        Use a custom font<br>
+                        <span class="popup-description">
+                            Use your own local font on your device.
+                        </span>
+                    </span>
+                </label>
+                <div style="margin-left: 2rem; width: calc(100% - 2rem); display: flex; align-items: center; gap: 0.5rem;">
+                    <input class="textfield-customfont" type="text" placeholder="ex. Comic Sans MS" style="height: 28px;">
+                    <a class="popup-button" onclick="saveCustomFont()">Save</a>
+                </div>
             </div>
         </div>
 
@@ -129,6 +145,18 @@
                         Word count<br>
                         <span class="popup-description">
                             Show word counts in note title bar.
+                        </span>
+                    </span>
+                </label>
+                <label class="settings-option-label">
+                    <input class="settings-nocontentmargins" name="settings-nocontentmargins" type="checkbox">
+                    <span class="material-symbols-outlined">
+                        width
+                    </span>
+                    <span>
+                        No content margins<br>
+                        <span class="popup-description">
+                            Remove the side page margins on big devices.
                         </span>
                     </span>
                 </label>

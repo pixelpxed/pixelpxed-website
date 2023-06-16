@@ -71,33 +71,6 @@
     margin: auto;
 }
 
-.timetable-glow {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    background: linear-gradient(130deg, 
-        var(--color-red) 16.66%,
-        var(--color-orange) 33.32%,
-        var(--color-yellow) 49.98%,
-        var(--color-green) 66.64%,
-        var(--color-blue) 83.3%,
-        var(--color-purple));
-   
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    width: max-content;
-    margin: auto;
-
-    opacity: 0.8;
-
-    filter: blur(0.2rem);
-    z-index: -1;
-}
-
 .clock {
     font-size: 2em;
     font-weight: var(--font-weight-bold);

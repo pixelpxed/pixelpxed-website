@@ -147,7 +147,7 @@ function insertToDo(location, title, desc, url, due) {
 
     var taskdayint = rawtasktime.getDay()
     var taskdate = rawtasktime.getDate()
-    var taskmonth = rawtasktime.getMonth()
+    var taskmonth = rawtasktime.getMonth() + 1
     var taskyear = rawtasktime.getFullYear()
 
     var duedateformatted = `${taskdate > 9 ? taskdate : "0" + taskdate}/${taskmonth > 9 ? taskmonth : "0" + taskmonth}/${taskyear}`
