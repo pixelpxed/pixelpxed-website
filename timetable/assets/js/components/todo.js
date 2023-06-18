@@ -1,4 +1,4 @@
-todolist_datahandleversion = "0.1.4"
+todolist_datahandleversion = "0.1.5"
 
 function openToDo() {
     if (document.querySelector(".contentbox-assignments")) {
@@ -143,16 +143,21 @@ function insertToDo(location, title, desc, url, due) {
         formatteddesc = `<a href="${url}" target="_blank">${desc}</a>`
     }
 
-    var rawtasktime = new Date(due)
+    var assignmentsdatedata = "<b style='color: var(--color-gray-1);'>None</b>"
+    if (due !== null) {
+        var rawtasktime = new Date(due)
+    
+        var taskdayint = rawtasktime.getDay()
+        var taskdate = rawtasktime.getDate()
+        var taskmonth = rawtasktime.getMonth() + 1
+        var taskyear = rawtasktime.getFullYear()
+    
+        var duedateformatted = `${taskdate > 9 ? taskdate : "0" + taskdate}/${taskmonth > 9 ? taskmonth : "0" + taskmonth}/${taskyear}`
+    
+        var dayname = daylist[taskdayint]
 
-    var taskdayint = rawtasktime.getDay()
-    var taskdate = rawtasktime.getDate()
-    var taskmonth = rawtasktime.getMonth() + 1
-    var taskyear = rawtasktime.getFullYear()
-
-    var duedateformatted = `${taskdate > 9 ? taskdate : "0" + taskdate}/${taskmonth > 9 ? taskmonth : "0" + taskmonth}/${taskyear}`
-
-    var dayname = daylist[taskdayint]
+        assignmentsdatedata = `<b>${dayname}</b>, ${duedateformatted}`
+    }
 
     document.querySelector(location).insertAdjacentHTML("beforeend", `
         <tr>
@@ -161,7 +166,7 @@ function insertToDo(location, title, desc, url, due) {
                 ${formatteddesc}
             </td>
             <td class="assignments-date">
-                <b>${dayname}</b>, ${duedateformatted}
+                ${assignmentsdatedata}
             </td>
         </tr>
     `)
