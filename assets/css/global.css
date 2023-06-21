@@ -99,12 +99,12 @@
     :root,
     :root.sync-os,
     :root[theme="sync-os"] {
-        --background-html: rgb(0, 0, 0);
-        --background-body: transparent;
-
+        --background-html: rgb(0, 0, 0) no-repeat center center fixed;
+        --background-body: transparent no-repeat center center fixed;
+    
         --color-main-text: rgb(255, 255, 255);
         --color-alt-text: rgb(0, 0, 0);
-
+    
         --color-red: rgb(255, 69, 58);
         --color-orange: rgb(255, 159, 10);
         --color-yellow: rgb(255, 214, 10);
@@ -117,16 +117,16 @@
         --color-purple: rgb(191, 90, 242);
         --color-pink: rgb(255, 55, 95);
         --color-brown: rgb(172, 142, 104);
-
+    
         --color-gray-1: rgb(142, 142, 147);
         --color-gray-2: rgb(99, 99, 102);
         --color-gray-3: rgb(72, 72, 74);
         --color-gray-4: rgb(58, 58, 60);
         --color-gray-5: rgb(44, 44, 46);
         --color-gray-6: rgb(28, 28, 30);
-
+    
         --color-selection: rgba(10, 133, 255, 0.3);
-
+    
         color-scheme: dark;
     }
 }

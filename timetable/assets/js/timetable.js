@@ -16,6 +16,15 @@ window.addEventListener('load', () => {
 });
 
 function setTimetableSystemInformation() {
+    if (localStorage.getItem("timetable-devMode") == "true") {
+        addNotification(`
+            <b>👋 Welcome to development mode!</b><br>
+            In this mode, everything is not guaranteed to work perfectly. You may see unexpected behavior in Timetable happening, please keep that in mind while using development mode.
+            <br><br>
+            To toggle this mode on or off, run <a onclick="toggleDevMode()">toggleDevMode()</a> in the console.
+        `)
+    }
+
     document.querySelectorAll(".js-fill-version").forEach(element => {
         element.innerHTML = timetableversion
     })
@@ -48,16 +57,18 @@ function setTimetableSystemInformation() {
         if (localStorage.getItem("timetable-overrideTimeList") === "regular") {
             overrideTimeList = "Regular"
             classtime_type = "Regular"
-            timeRemaining()
         } if (localStorage.getItem("timetable-overrideTimeList") === "special") {
             overrideTimeList = "Special"
             classtime_type = "Special"
-            timeRemaining()
         } if (localStorage.getItem("timetable-overrideTimeList") === "online") {
             overrideTimeList = "Special"
             classtime_type = "Special"
-            timeRemaining()
         } document.querySelector(".about-timelist").innerHTML += ` / <b>Override:</b> ${overrideTimeList}`
+    }
+
+    // Check localStorage for setting Time Remaining
+    if (localStorage.getItem("timetable-enableTimeRemaining") === "true") {
+        timeRemaining()
     }
 }
 
@@ -456,4 +467,19 @@ function cannotGetPopupContentError(location, error) {
         ${error}`,
         "returnNothing"
     )
+}
+
+function toggleDevMode() {
+    if (localStorage.getItem("timetable-devMode") == "true") {
+        localStorage.setItem("timetable-devMode", "false")
+        return location.reload()
+    } if (localStorage.getItem("timetable-devMode") == "false") {
+        localStorage.setItem("timetable-devMode", "true")
+        return location.reload()
+    }
+
+    if (!localStorage.getItem("timetable-devMode")) {
+        localStorage.setItem("timetable-devMode", "true")
+        return location.reload()
+    }
 }

@@ -18,8 +18,6 @@ window.onload = function () {
     addTitleNavigationIcon()
 
     settings()
-
-    document.querySelector(".full-page-overlay").style.display = "none"
 }
 
 function toggleThemeMenu() {

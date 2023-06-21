@@ -1,4 +1,4 @@
-todolist_datahandleversion = "0.1.5"
+todolist_datahandleversion = "0.1.6"
 
 function openToDo() {
     if (document.querySelector(".contentbox-assignments")) {
@@ -18,8 +18,13 @@ function openToDo() {
 }
 
 var cache_todolist;
+var fetchpath = "https://pawin.tk/to-do/tasks.json";
 function fetchToDo() {
-    fetch("https://pawin.tk/to-do/tasks.json")
+    if (localStorage.getItem("timetable-devMode") == "true") {
+        fetchpath = "https://dev.pawin.tk/to-do/tasks.json"
+    }
+
+    fetch(fetchpath)
     // fetch("/timetable/templates/homework.json")
         .then((res) => {
             if (res.ok) {
@@ -71,21 +76,21 @@ function getToDo() {
         document.querySelector(".assignments-wrapper").insertAdjacentHTML(
             "afterbegin",
             `
-                <div style="
-                    display: flex; 
-                    gap: 0.5rem; 
-                    align-items: center; 
-                    
-                    padding: 0.5rem; 
-                    margin-bottom: 1rem; 
-                    
-                    background: var(--color-gray-5); 
-                    
-                    border-radius: 0.3rem; 
-                    border: 1px solid var(--color-gray-4);
-                ">
+                <div class="todocontentbox-ribbon">
                     <span class="material-symbols-outlined">info</span>
                     <span>This data version recieved from Pawin's server seemed to be newer than what we're supporting, results displayed might be inaccurate.</span>
+                </div>
+            `
+        )
+    }
+
+    if (localStorage.getItem("timetable-devMode") == "true") {
+        document.querySelector(".assignments-wrapper").insertAdjacentHTML(
+            "afterbegin",
+            `
+                <div class="todocontentbox-ribbon">
+                    <span class="material-symbols-outlined">info</span>
+                    <span>Developer mode is turned on, data source: <a href="https://dev.pawin.tk/to-do/tasks.json" target="_blank">dev.pawin.tk</a></span>
                 </div>
             `
         )

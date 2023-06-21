@@ -19,8 +19,6 @@
 
     width: 100%;
 
-    aspect-ratio: 2/1;
-
     border: 1px solid var(--color-gray-4);
 
     border-radius: 0.3em;
@@ -50,25 +48,61 @@
     text-align: center;
 }
 
+/* .title-timetable {
+    position: relative;
+
+    color: var(--color-main-text);
+    background: var(--color-main-text);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    width: 100%;
+
+    max-width: max-content;
+    margin: auto;
+} */
+
 .title-timetable {
     position: relative;
 
     color: var(--color-black);
 
-    background: linear-gradient(130deg, 
-        var(--color-red) 16.66%,
-        var(--color-orange) 33.32%,
-        var(--color-yellow) 49.98%,
-        var(--color-green) 66.64%,
-        var(--color-blue) 83.3%,
-        var(--color-purple));
+    background: linear-gradient(to right,
+        var(--color-red),
+        var(--color-orange),
+        var(--color-yellow),
+        var(--color-green),
+        var(--color-mint),
+        var(--color-teal),
+        var(--color-cyan),
+        var(--color-blue),
+        var(--color-indigo),
+        var(--color-purple),
+        var(--color-pink),
+        var(--color-red)
+    );
+
+    background-size: 1000%;
    
 
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
     width: max-content;
     margin: auto;
+
+    animation: rollingbackground 300s linear infinite;
+}
+
+@keyframes rollingbackground {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 1000%;
+    }
 }
 
 .clock {
@@ -352,4 +386,18 @@
     text-align: center;
 
     width: 7rem;
+}
+
+.todocontentbox-ribbon {
+    display: flex; 
+    gap: 0.5rem; 
+    align-items: center; 
+    
+    padding: 0.5rem; 
+    margin-bottom: 1rem; 
+    
+    background: var(--color-gray-5); 
+    
+    border-radius: 0.3rem; 
+    border: 1px solid var(--color-gray-4);
 }

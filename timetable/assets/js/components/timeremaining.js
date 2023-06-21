@@ -1,13 +1,10 @@
 window.addEventListener('load', () => {
-    // Check localStorage for setting Time Remaining
-    if (localStorage.getItem("timetable-enableTimeRemaining") === "true" && localStorage.getItem("timetable-overrideTimeList") === "auto") {
-        timeRemaining()
-    }
+    
 });
 
 // Public variables
 var timeleftinterval = undefined
-var bellChimes = new Audio("./assets/sound/bellChimes.mp3")
+var bellChimes = new Audio("/timetable/assets/sound/bellChimes.mp3")
 
 function timeRemaining() {
     // Inserts the HTML code for time remaining after clock.
