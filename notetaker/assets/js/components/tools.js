@@ -60,7 +60,7 @@ function toolsAddLink() {
                     <span class="popup-title">Add Link</span>
                     <span>
                         <input type="text" class="data-toolslinkurl" placeholder="https://www.pixelpxed.me/notetaker/"></input>    
-                        <input type="text" class="data-toolslinktitle" style="margin-bottom: 1rem;" placeholder="Notetaker (Optional)"></input>    
+                        <input type="text" class="data-toolslinktitle" placeholder="Notetaker (Optional)" style="margin-bottom: 1rem;"></input>    
                     </span>
                 </div>
                 <div class="popup-buttons-box">
@@ -76,8 +76,8 @@ function toolsAddLink() {
 }
 
 function addLinkTrue() {
-    var urlToAdd = document.querySelector(".data-toolslinkurl").value
     var titleToAdd = document.querySelector(".data-toolslinktitle").value
+    var urlToAdd = document.querySelector(".data-toolslinkurl").value
 
     if (urlToAdd === "") {
         popupDone(popupid - 1);
@@ -92,7 +92,7 @@ function addLinkTrue() {
 
     addInCaret(`
         <a href="${urlToAdd}" onclick="window.open('${urlToAdd}')">
-            Link: ${urlToAdd}
+            ${titleToAdd}
         </a>
     `)
 
@@ -101,4 +101,24 @@ function addLinkTrue() {
 
 function toolsAddLinkOpenUrl(url) {
     window.open(url)
+}
+
+function toolsBoldText() {
+    document.execCommand("bold")
+}
+
+function toolsItalicText() {
+    document.execCommand("italic")
+}
+
+function toolsUnderlineText() {
+    document.execCommand("underline")
+}
+
+function toolsStrikethoughText() {
+    document.execCommand("strikethrough")
+}
+
+function toolsPrint() {
+    window.print()
 }

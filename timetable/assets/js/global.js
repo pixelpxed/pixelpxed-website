@@ -78,7 +78,7 @@ function popupOK(title = "Confirm", content = "No information provided.", answer
             </div>
             <div class="popup-buttons-box">
                 <div class="popup-buttons-wrapper">
-                    <a id="popup-confirm-true" class="popup-button" onclick="${answer}() popupDone(${popupid});;">OK</a>
+                    <a id="popup-confirm-true" class="popup-button" onclick="${answer}(); popupDone(${popupid});">OK</a>
                 </div>
             </div>
         </div>

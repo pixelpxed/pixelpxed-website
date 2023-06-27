@@ -54,7 +54,7 @@
                 </span>
                 <span>
                     <b>
-                        Timetable Info (Reload Required)
+                        Timetable Info
                     </b><br>
                     <span class="popup-description">
                         Data linked to your classes and video calls.
@@ -69,17 +69,16 @@
                             login
                         </span>
                         <span>
-                            Google Account Index<br>
+                            Google account index
+                            <a onclick="popupOK(`Google Account Index Help`, `<img src='/timetable/assets/img/googleindexno.svg' style='width: 100%; border: 1px solid var(--color-gray-4); border-radius: 0.3rem; margin-top: 1rem;'>`)">
+                                (Help)
+                            </a><br>
                             <span class="popup-description">
                                 Google account to sign into.
                             </span>
                         </span>
                     </div>
-                    <div style="margin: 0 0 0 auto; display: flex; align-items: center; gap: 0.5rem;">
-                        <input type="number" name="gaiindex" id="setings-gaiindex" min="0" value="0" style="height: 28px;">
-                        <a onclick="location.reload()"
-                            class="popup-button">Reload</a>
-                    </div>
+                    <input type="number" name="gaiindex" id="setings-gaiindex" min="0" value="0" style="height: 28px;">
                 </div>
 
                 <div>
@@ -212,6 +211,19 @@
             </p>
             <div style="margin-left: 2em;">
                 <label class="settings-option-label">
+                    <input class="settings-subjectcard" type="checkbox" name="subjectcard"
+                    value="enable-subjectcard">
+                    <span class="material-symbols-outlined">
+                        tips_and_updates
+                    </span>
+                    <span>
+                        Subject hover cards<br>
+                        <span class="popup-description">
+                            Shows a little info card about the subject when hovered.
+                        </span>
+                    </span>
+                </label>
+                <label class="settings-option-label">
                     <input class="settings-popupmode" type="checkbox" name="popupmode" value="enable-popupmode">
                     <span class="material-symbols-outlined">
                         open_in_new
@@ -249,19 +261,6 @@
                         </span>
                     </span>
                 </label>
-                <label class="settings-option-label">
-                    <input class="settings-subjectcard" type="checkbox" name="subjectcard"
-                        value="enable-subjectcard">
-                    <span class="material-symbols-outlined">
-                        tips_and_updates
-                    </span>
-                    <span>
-                        Subject hover cards<br>
-                        <span class="popup-description">
-                            Shows a little info card about the subject when hovered.
-                        </span>
-                    </span>
-                </label>
             </div>
         </div>
 
@@ -286,7 +285,7 @@
     </div>
     <div class="popup-buttons-box">
         <div class="popup-buttons-wrapper">
-            <a class="popup-button" onclick="closeSettings()">Done</a>
+            <a class="popup-button" onclick="closeSettings()">Save</a>
         </div>
     </div>
 </div>
