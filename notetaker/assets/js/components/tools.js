@@ -117,7 +117,7 @@ function toolsPrint() {
 
 function toolsDownload() {
     const element = document.createElement('a');
-    const blob = new Blob([JSON.stringify(notesData, null, '\t')], {'type': 'text/json'});
+    const blob = new Blob([JSON.stringify(notesData, null, '\t')], {'type': 'text/json', 'lastModified': new Date().getTime()});
 
     const curtime = new Date()
 
@@ -135,22 +135,65 @@ function toolsDownload() {
     element.click();
 }
 
-function toolsUpload(event) {
-    var file = event.target;
+var uploadnotesdata;
 
-    var filereader = new FileReader();
+function toolsUploadBrowseHandle() {
+    document.querySelector(".drop-handle-browse").click()
+}
+
+function toolsUploadBrowse() {
+    uploadnotesdata = document.querySelector(".drop-handle-browse").files[0]
+    toolsUploadConfirm()
+
+}
+
+function toolsUploadDropHandle(event) {
+    event.preventDefault()
     
+    if (event.dataTransfer.items) {
+        [...event.dataTransfer.items].forEach((item, i) => {
+            if (item.kind === "file") {
+                const file = item.getAsFile();
+                document.querySelector(".file-dropzone").innerHTML = file.name
+
+                uploadnotesdata = file
+                toolsUploadConfirm()
+            }
+        })
+    } else {
+        [...dataTransfer.files].forEach((file) => {
+            document.querySelector(".file-dropzone").innerHTML = file.name
+        })
+    }
+}
+
+function uploadReturnTrue() {
+    var filereader = new FileReader();
     filereader.addEventListener("load", () => {
-        try {
+        try {                        
             var uploaddata = filereader.result;
-            notesData = JSON.parse(uploaddata)
             
             localStorage.setItem("notetaker-notesData", uploaddata);
             location.reload()
-        } catch (e) {
-            console.log(e)
-            return popupOK("Unable to save data.", "Notetaker is unable to read the data in the file uploaded, the data might be corrupt, damanged, or invalid. Your current data is still not changed.")
+        } catch (error) {
+            return popupOK(
+                "Unable to save data.", 
+                `Please upload a valid file ended with a <b>.notetaker</b> extension.<br><br>If you're already uploading a <b>.notetaker</b> file, your file might be damaged or corrupted.<br><br>Please try again.<br><br><span class='popup-description'>Error:</span><br>${error}`
+            )
         }
     });
-    filereader.readAsText(file.files[0])
+    filereader.readAsText(uploadnotesdata)
+}
+
+function toolsUploadConfirm() {
+    popupConfirm(
+        "Important information.",
+        "By pressing 'Yes', you acknowledge that the current notes data present the editor will be lost, and replaced with the new data. <u>This action can't be undone!</u>",
+        "uploadReturnTrue",
+        "returnNothing"
+    )
+}
+
+function toolsUploadDragOverHandle(event) {
+    event.preventDefault()
 }

@@ -70,10 +70,6 @@ window.addEventListener("load", () => {
         })
 });
 
-window.addEventListener("unload", () => {
-    saveNote()
-});
-
 // Multiuse code.
 function saveNoteToLocalStorage() {
     localStorage.setItem("notetaker-notesData", JSON.stringify(notesData))

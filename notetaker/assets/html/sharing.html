@@ -1,13 +1,29 @@
 <div class="contentbox-wrapper" id="sharing-wrapper">
     <div class="popup-content">
-        <p class="popup-title">Export Notes</p>
-        <p>Export a .notetaker file to backup or share with other devices.</p>
-        <a class="popup-button popup-button-full" onclick="toolsDownload()" style="margin: 1rem 0;">Download Notes</a>
+        <div>
+            <p class="popup-title">Export All Notes</p>
+            <p>Export a .notetaker file to backup or share with other devices.</p>
+            <a class="popup-button popup-button-full" onclick="toolsDownload()" style="margin: 1rem 0;">Download All Notes</a>
+        </div>
+        <div>
+            <p class="popup-title">Import All Notes</p>
+            <p>Upload a .notetaker file and replaces the current data with the uploaded one.</p>
+            <!-- <input type="file" accept=".notetaker" name="tools-upload" id="tools-upload" class="tools-upload"> -->
+            <div 
+                class="file-dropzone"
+                ondrop="toolsUploadDropHandle(event);"
+                ondragover="toolsUploadDragOverHandle(event);"
+                onclick="toolsUploadBrowseHandle();"   
+            >
+                <div>
+                    <p>
+                        Click here to browse files, or drag a .notetaker file here.
+                    </p>
 
-        <p class="popup-title">Import Notes</p>
-        <p>Upload a .notetaker file and replaces the current data with the uploaded one.</p>
-        <input type="file" accept=".notetaker" name="tools-upload" id="tools-upload" onchange="toolsUpload(event)" style="display: block; margin: 1rem 0;">
-        <a class="popup-button popup-button-full">Upload Notes</a>
+                    <input type="file" onchange="toolsUploadBrowse()" class="drop-handle-browse" style="display: none;">
+                </div>
+            </div>
+        </div>
     </div>
     <div class="popup-buttons-box">
         <div class="popup-buttons-wrapper">
