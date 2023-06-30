@@ -29,9 +29,13 @@
     <link rel="stylesheet" href="/assets/css/global.css">
     <link rel="stylesheet" href="/notetaker/assets/css/notetaker.css">
 
-    <script defer src="/notetaker/assets/js/popup.js"></script>
+    <script defer src="/notetaker/assets/js/global.js"></script>
     <script defer src="/notetaker/assets/js/notetaker.js"></script>
 
+    <!-- Components -->
+    <script defer src="/notetaker/assets/js/components/tools.js"></script>
+
+    <!-- Library Files -->
     <script defer src="/_vercel/insights/script.js"></script>
 
     <noscript>
@@ -71,8 +75,9 @@
                             <p><b>Notes</b></p>
                         </div>
                         <div>
+                            <a class="material-symbols-outlined" title="Export/Import Notes" onclick="toggleFetchPopup('#sharing-wrapper', 'sharing')">export_notes</a>
                             <a class="material-symbols-outlined" title="New Note" onclick="newNote()">add</a>
-                            <a class="material-symbols-outlined" onclick="toggleSidebar()" title="Toggle Sidebar">menu_open</a>
+                            <a class="material-symbols-outlined" title="Toggle Sidebar" onclick="toggleSidebar()">menu_open</a>
                         </div>
                     </div>
                     <ul class="notes-panel"></ul>
@@ -84,13 +89,36 @@
                     <a class="file-path-bar-menu material-symbols-outlined" onclick="toggleSidebar()" title="Toggle Sidebar">menu_open</a>
                     <p class="main-edit-filepath">&nbsp;</p>
                     <p class="save-indicator material-symbols-outlined" title="Saved">check_circle</p>
-                    <p class="word-count"><span class="word-count-text">0</span> word(s)</p>
                 </div>
                 <div class="main-edit">
                     <div class="editor-wrapper">
                         <h1 class="main-edit-title" contenteditable>Notetaker is loading...</h1>
                         <hr>
                         <p class="main-edit-content" contenteditable>We'll get ready in no time!</p>
+                    </div>
+                </div>
+                <div class="navigation-bar statusbar-wrapper">
+                    <div>
+                        <p class="word-count"><span class="word-count-text">0</span> word(s)</p>
+                    </div>
+                    <div class="tools-wrapper">
+                        <div class="tools-content-wrapper">
+                            <div class="tools-wrapper-category">
+                                <a class="material-symbols-outlined tools" title="Add Image" onclick="toolsAddImage()">image</a>
+                                <a class="material-symbols-outlined tools" title="Add Link" onclick="toolsAddLink()">link</a>
+                                <a class="material-symbols-outlined tools" title="Print Note" onclick="toolsPrint()">print</a>
+                            </div>
+                            <div class="tools-wrapper-category" style="display: none;">
+                                <a class="material-symbols-outlined tools" title="Bulleted List">format_list_bulleted</a>
+                                <a class="material-symbols-outlined tools" title="Numbered List">format_list_numbered</a>
+                            </div>
+                            <div class="tools-wrapper-category">
+                                <a class="material-symbols-outlined tools" title="Bold" onclick="toolsBoldText()">format_bold</a>
+                                <a class="material-symbols-outlined tools" title="Italic" onclick="toolsItalicText()">format_italic</a>
+                                <a class="material-symbols-outlined tools" title="Underline" onclick="toolsUnderlineText()">format_underlined</a>
+                                <a class="material-symbols-outlined tools" title="Strikethrough" onclick="toolsStrikethoughText()">strikethrough_s</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

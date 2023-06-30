@@ -70,6 +70,10 @@ window.addEventListener("load", () => {
         })
 });
 
+window.addEventListener("unload", () => {
+    saveNote()
+});
+
 // Multiuse code.
 function saveNoteToLocalStorage() {
     localStorage.setItem("notetaker-notesData", JSON.stringify(notesData))
@@ -132,19 +136,21 @@ function loadNote() {
         elementTitle.innerHTML = notesData[currentNoteId].title
         elementContent.innerHTML = notesData[currentNoteId].content
 
+        document.title = `${notesData[currentNoteId].title}`
+
         for (let i = 0; i < notesData.length; i++) {
             if (i == currentNoteId) {
                 document.querySelector(".notes-panel").insertAdjacentHTML("beforeend", `
                     <li class="notes-list notes-list-active" noteid="${i}">
-                        <a class="notes-list-${i}" href="?noteid=${i}">${notesData[i].title}</a>
-                        <a class="material-symbols-outlined" onclick="deleteNote(${i})">delete</a>
+                        <a class="notes-list-${i}">${notesData[i].title}</a>
+                        <a class="material-symbols-outlined note-panel-delete" onclick="deleteNote(${i})">delete</a>
                     </li>
                 `)
             } if (i != currentNoteId) {
                 document.querySelector(".notes-panel").insertAdjacentHTML("beforeend", `
-                    <li class="notes-list" noteid="${i}">
-                        <a class="notes-list-${i}" href="?noteid=${i}">${notesData[i].title}</a>
-                        <a class="material-symbols-outlined" onclick="deleteNote(${i})">delete</a>
+                    <li class="notes-list" noteid="${i}" onclick="location.href='?noteid=${i}'">
+                        <a class="notes-list-${i}">${notesData[i].title}</a>
+                        <a class="material-symbols-outlined note-panel-delete" onclick="deleteNote(${i})">delete</a>
                     </li>
                 `)
             }

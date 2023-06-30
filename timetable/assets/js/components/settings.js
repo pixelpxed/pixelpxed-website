@@ -35,6 +35,8 @@ function closeSettings() {
     enableScrollbar()
     document.querySelector('.settings-wrapper').style.display = "none"
     document.querySelector(".full-page-overlay").style.display = "none"
+
+    location.reload()
 }
 
 function setDefaultSettingsValue() {
@@ -110,7 +112,6 @@ function setListenersSettingsChange() {
             if (event.target.value != "custom") {
                 document.querySelector(".settings-class-custom-wrapper").style.display = "none"
                 localStorage.setItem("timetable-classTimetable", event.target.value)
-                location.reload()
             }
         })
     })
@@ -119,7 +120,6 @@ function setListenersSettingsChange() {
     document.querySelectorAll("input[name='settings-timelistoverride']").forEach((element) => {
         element.addEventListener("change", function (event) {
             localStorage.setItem("timetable-overrideTimeList", event.target.value)
-            location.reload()
         })
     })
 
@@ -153,11 +153,9 @@ function setListenersSettingsChange() {
             if (event.target.name === "popupmode") {
                 if (event.target.checked) {
                     localStorage.setItem("timetable-popupMode", true)
-                    location.reload()
                 }
                 if (!event.target.checked) {
                     localStorage.setItem("timetable-popupMode", false)
-                    location.reload()
                 }
             }
         })
@@ -169,11 +167,9 @@ function setListenersSettingsChange() {
             if (event.target.name === "subjectcard") {
                 if (event.target.checked) {
                     localStorage.setItem("timetable-subjectCard", true)
-                    location.reload()
                 }
                 if (!event.target.checked) {
                     localStorage.setItem("timetable-subjectCard", false)
-                    location.reload()
                 }
             }
         })
@@ -183,5 +179,4 @@ function setListenersSettingsChange() {
 function saveCustomTimetable() {
     localStorage.setItem("timetable-customClassJSON", document.querySelector(".settings-class-custom-json").value)
     localStorage.setItem("timetable-classTimetable", "custom")
-    return location.reload()
 }
