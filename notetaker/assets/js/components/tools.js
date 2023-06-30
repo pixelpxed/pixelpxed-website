@@ -60,7 +60,6 @@ function toolsAddLink() {
                     <span class="popup-title">Add Link</span>
                     <span>
                         <input type="text" class="data-toolslinkurl" placeholder="https://www.pixelpxed.me/notetaker/"></input>    
-                        <input type="text" class="data-toolslinktitle" placeholder="Notetaker (Optional)" style="margin-bottom: 1rem;"></input>    
                     </span>
                 </div>
                 <div class="popup-buttons-box">
@@ -76,23 +75,16 @@ function toolsAddLink() {
 }
 
 function addLinkTrue() {
-    var titleToAdd = document.querySelector(".data-toolslinktitle").value
     var urlToAdd = document.querySelector(".data-toolslinkurl").value
 
     if (urlToAdd === "") {
         popupDone(popupid - 1);
         return popupOK("Cannot Insert Link", "You must provide a URL to add a link.")
     }
-    if (titleToAdd = "") {
-        titleToAdd = urlToAdd
-    }
-
-    console.log(urlToAdd);
-    console.log(titleToAdd);
 
     addInCaret(`
         <a href="${urlToAdd}" onclick="window.open('${urlToAdd}')">
-            ${titleToAdd}
+            ${urlToAdd}
         </a>
     `)
 
@@ -121,4 +113,44 @@ function toolsStrikethoughText() {
 
 function toolsPrint() {
     window.print()
+}
+
+function toolsDownload() {
+    const element = document.createElement('a');
+    const blob = new Blob([JSON.stringify(notesData, null, '\t')], {'type': 'text/json'});
+
+    const curtime = new Date()
+
+    const date = curtime.getDate()
+    const month = curtime.getMonth() + 1
+    const year = curtime.getFullYear()
+
+    const hour = curtime.getHours()
+    const minute = curtime.getMinutes()
+    const second = curtime.getSeconds()
+
+    element.href = window.URL.createObjectURL(blob);
+    element.download = `${date > 9 ? date : "0" + date}-${month > 9 ? month : "0" + month}-${year}_${hour > 9 ? hour : "0" + hour}-${minute >= 10 ? minute : "0" + minute}-${second >= 10 ? second : "0" + second}_v1.notetaker`;
+    
+    element.click();
+}
+
+function toolsUpload(event) {
+    var file = event.target;
+
+    var filereader = new FileReader();
+    
+    filereader.addEventListener("load", () => {
+        try {
+            var uploaddata = filereader.result;
+            notesData = JSON.parse(uploaddata)
+            
+            localStorage.setItem("notetaker-notesData", uploaddata);
+            location.reload()
+        } catch (e) {
+            console.log(e)
+            return popupOK("Unable to save data.", "Notetaker is unable to read the data in the file uploaded, the data might be corrupt, damanged, or invalid. Your current data is still not changed.")
+        }
+    });
+    filereader.readAsText(file.files[0])
 }

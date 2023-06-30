@@ -136,6 +136,8 @@ function loadNote() {
         elementTitle.innerHTML = notesData[currentNoteId].title
         elementContent.innerHTML = notesData[currentNoteId].content
 
+        document.title = `${notesData[currentNoteId].title}`
+
         for (let i = 0; i < notesData.length; i++) {
             if (i == currentNoteId) {
                 document.querySelector(".notes-panel").insertAdjacentHTML("beforeend", `

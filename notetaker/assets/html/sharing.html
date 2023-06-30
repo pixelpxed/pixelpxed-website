@@ -1,0 +1,17 @@
+<div class="contentbox-wrapper" id="sharing-wrapper">
+    <div class="popup-content">
+        <p class="popup-title">Export Notes</p>
+        <p>Export a .notetaker file to backup or share with other devices.</p>
+        <a class="popup-button popup-button-full" onclick="toolsDownload()" style="margin: 1rem 0;">Download Notes</a>
+
+        <p class="popup-title">Import Notes</p>
+        <p>Upload a .notetaker file and replaces the current data with the uploaded one.</p>
+        <input type="file" accept=".notetaker" name="tools-upload" id="tools-upload" onchange="toolsUpload(event)" style="display: block; margin: 1rem 0;">
+        <a class="popup-button popup-button-full">Upload Notes</a>
+    </div>
+    <div class="popup-buttons-box">
+        <div class="popup-buttons-wrapper">
+            <a class="popup-button" onclick="toggleFetchPopup('#sharing-wrapper')">Save</a>
+        </div>
+    </div>
+</div>
