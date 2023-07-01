@@ -156,6 +156,14 @@ function toolsUploadDropHandle(event) {
                 const file = item.getAsFile();
                 document.querySelector(".file-dropzone").innerHTML = file.name
 
+                var fileextension = file.name.split('.').pop()
+                if (fileextension !== "notetaker") {
+                    return popupOK(
+                        "Invalid file.",
+                        `The file you uploaded ended with '.${fileextension}' which is not valid. Notetaker only accepts files with '.notetaker' file extension only.<br><br>Please try again with a different file.`
+                    )
+                }
+
                 uploadnotesdata = file
                 toolsUploadConfirm()
             }
@@ -170,7 +178,7 @@ function toolsUploadDropHandle(event) {
 function uploadReturnTrue() {
     var filereader = new FileReader();
     filereader.addEventListener("load", () => {
-        try {                        
+        try {
             var uploaddata = filereader.result;
             
             localStorage.setItem("notetaker-notesData", uploaddata);

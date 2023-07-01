@@ -58,8 +58,8 @@ function popupChoice(title = "Confirm", content = "No information provided.", an
             </div>
             <div class="popup-buttons-box">
                 <div class="popup-buttons-wrapper">
-                    <a id="popup-confirm-true" class="popup-button" onclick="popupDone(${popupid}); ${answerTrue}();">${altChoice}</a>
-                    <a id="popup-confirm-false" class="popup-button" onclick="popupDone(${popupid}); ${answerFalse}();">${mainChoice}</a>
+                    <a id="popup-confirm-true" class="popup-button" onclick="popupDone(${popupid}); ${answerTrue}();">${mainChoice}</a>
+                    <a id="popup-confirm-false" class="popup-button" onclick="popupDone(${popupid}); ${answerFalse}();">${altChoice}</a>
                 </div>
             </div>
         </div>

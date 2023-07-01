@@ -18,12 +18,23 @@ window.addEventListener("load", () => {
         "font-family: sans-serif; font-weight: bold; font-size: 1.5em; color: var(--color-red);",
         "font-family: sans-serif;")
 
-    loadNote()
-    applySettings()
+    try {
+        loadNote()
+        applySettings()
+        
+        // Remove the full page loading blur
+        fullPageOverlay.style.display = "none";
+    } catch (error) {
+        popupChoice(
+            "An error occured.",
+            `Notetaker is unable to read the notes data, it may be corrupt, or damaged. You can try refreshing this page, or reset Notetaker.<br><br><span class='popup-description'>Error:</span><br>${error}`,
+            "resetNotetakerSettings",
+            "reloadNotetaker",
+            "Reset",
+            "Reload"
+        )
+    }
     
-    // Remove the full page loading blur
-    fullPageOverlay.style.display = "none";
-
     // UI Style
     // 0 = Regular UI
     // 1 = Sidebar hidden by default.
@@ -418,4 +429,8 @@ function resetNotetaker() {
     }
 
     return location.href = `?noteid=0`
+}
+
+function reloadNotetaker() {
+    location.reload()
 }
