@@ -96,6 +96,8 @@
     background: var(--color-blue);
 
     border-radius: 0.3em;
+
+    transition: 0.2s background-color;
 }
 
 .popup-button-transparent {

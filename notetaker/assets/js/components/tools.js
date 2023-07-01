@@ -154,7 +154,7 @@ function toolsUploadDropHandle(event) {
         [...event.dataTransfer.items].forEach((item, i) => {
             if (item.kind === "file") {
                 const file = item.getAsFile();
-                document.querySelector(".file-dropzone").innerHTML = file.name
+                document.querySelector(".uploading-file").innerHTML = file.name
 
                 var fileextension = file.name.split('.').pop()
                 if (fileextension !== "notetaker") {

@@ -8,7 +8,6 @@
         <div>
             <p class="popup-title">Import All Notes</p>
             <p>Upload a .notetaker file and replaces the current data with the uploaded one.</p>
-            <!-- <input type="file" accept=".notetaker" name="tools-upload" id="tools-upload" class="tools-upload"> -->
             <div 
                 class="file-dropzone"
                 ondrop="toolsUploadDropHandle(event);"
@@ -16,7 +15,7 @@
                 onclick="toolsUploadBrowseHandle();"   
             >
                 <div>
-                    <p>
+                    <p class="uploading-file">
                         Click here to browse files, or drag a .notetaker file here.
                     </p>
 
