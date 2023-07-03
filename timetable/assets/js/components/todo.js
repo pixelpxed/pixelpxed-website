@@ -143,9 +143,8 @@ function getToDo() {
 }
 
 function insertToDo(location, title, desc, url, due) {
-    var formatteddesc = desc
     if (url !== null) {
-        formatteddesc = `<a href="${url}" target="_blank">${desc}</a>`
+        title = `<a href="${url}" target="_blank">${title}</a>`
     }
 
     var assignmentsdatedata = "<b style='color: var(--color-gray-1);'>None</b>"
@@ -168,7 +167,7 @@ function insertToDo(location, title, desc, url, due) {
         <tr>
             <td class="assignments-item">
                 <b>${title}</b><br>
-                ${formatteddesc}
+                ${desc}
             </td>
             <td class="assignments-date">
                 ${assignmentsdatedata}
