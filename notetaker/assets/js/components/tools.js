@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-
+    addEventLink()
 })
 
 function addInCaret(content) {
@@ -7,10 +7,9 @@ function addInCaret(content) {
     var selectionTextEnd = elementContent.selectionEnd
     
     if (elementContent.selectionTextStart || elementContent.selectionTextStart == '0') {
-        elementContent.innerHTML = elementContent.textContent.substring(0, selectionTextStart) + `<img src="${imageToAdd}">` + elementContent.textContent.substring(selectionTextEnd, elementContent.textContent.length)
+        return elementContent.innerHTML = elementContent.textContent.substring(0, selectionTextStart) + content + elementContent.textContent.substring(selectionTextEnd, elementContent.textContent.length)
     } else {
-        elementContent.innerHTML += content
-        console.log("Added to bottom");
+        return elementContent.innerHTML += content
     }
 }
 
@@ -58,6 +57,24 @@ function toolsAddNumberList() {
     addInCaret(`<ol><li>Ordered List</li></ol>`)
 }
 
+function addEventLink() {
+    document.querySelectorAll(".main-edit-content a").forEach((element) => {
+        element.removeEventListener("click", () => {
+            popupOK(
+                "Open Link",
+                `<a href="${element.href}">${element.href}</a>`
+            )
+        })
+
+        element.addEventListener("click", () => {
+            popupOK(
+                "Open Link",
+                `<a href="${element.href}">${element.href}</a>`
+            )
+        })
+    })
+}
+
 // Tools: Add link
 function toolsAddLink() {
     document.querySelector(".popup-center").insertAdjacentHTML("beforeend", `
@@ -90,10 +107,12 @@ function addLinkTrue() {
     }
 
     addInCaret(`
-        <a href="${urlToAdd}" onclick="window.open('${urlToAdd}')">
+        <a href="${urlToAdd}">
             ${urlToAdd}
         </a>
     `)
+
+    addEventLink()
 
     popupDone(popupid - 1);
 }
@@ -102,20 +121,8 @@ function toolsAddLinkOpenUrl(url) {
     window.open(url)
 }
 
-function toolsBoldText() {
-    document.execCommand("bold")
-}
-
-function toolsItalicText() {
-    document.execCommand("italic")
-}
-
-function toolsUnderlineText() {
-    document.execCommand("underline")
-}
-
-function toolsStrikethoughText() {
-    document.execCommand("strikethrough")
+function toolsExec(cmd) {
+    document.execCommand(cmd)
 }
 
 function toolsPrint() {
@@ -187,6 +194,8 @@ function uploadReturnTrue() {
     filereader.addEventListener("load", () => {
         try {
             var uploaddata = filereader.result;
+
+            triggerUnloadSave = false
             
             localStorage.setItem("notetaker-notesData", uploaddata);
             location.reload()

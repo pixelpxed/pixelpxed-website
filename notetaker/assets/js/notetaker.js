@@ -81,6 +81,13 @@ window.addEventListener("load", () => {
         })
 });
 
+var triggerUnloadSave = true;
+window.addEventListener("unload", () => {
+    if (triggerUnloadSave == true) {
+        saveNote()
+    }
+})
+
 // Multiuse code.
 function saveNoteToLocalStorage() {
     localStorage.setItem("notetaker-notesData", JSON.stringify(notesData))
@@ -324,6 +331,7 @@ function openSettings() {
 function saveCustomFont() {
     localStorage.setItem("notetaker-customFont", document.querySelector(".textfield-customfont").value)
     setCustomFont()
+    applyFontSettings()
 }
 
 function setCustomFont() {
@@ -363,6 +371,7 @@ function settings() {
 
     if (localStorage.getItem("notetaker-font") === "custom" || (localStorage.getItem("notetaker-customFont") !== null)) {
         document.querySelector(".textfield-customfont").value = localStorage.getItem("notetaker-customFont")
+        applyFontSettings()
     }
     
     // Word Count

@@ -220,7 +220,7 @@
 }
 
 .bookmarks-links {
-    padding: 0.125em;
+    padding: 0.25em;
 }
 
 .bookmarks-links a {
@@ -228,7 +228,6 @@
 
     width: max-content;
 
-    padding: 0.125em;
     margin: auto;
 }
 

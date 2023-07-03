@@ -90,35 +90,48 @@
                     <p class="main-edit-filepath">&nbsp;</p>
                     <p class="save-indicator material-symbols-outlined" title="Saved">check_circle</p>
                 </div>
-                <div class="main-edit">
-                    <div class="editor-wrapper">
-                        <h1 class="main-edit-title" contenteditable>Notetaker is loading...</h1>
-                        <hr>
-                        <p class="main-edit-content" contenteditable>We'll get ready in no time!</p>
-                    </div>
-                </div>
                 <div class="navigation-bar statusbar-wrapper">
-                    <div>
-                        <p class="word-count"><span class="word-count-text">0</span> word(s)</p>
-                    </div>
                     <div class="tools-wrapper">
                         <div class="tools-content-wrapper">
                             <div class="tools-wrapper-category">
-                                <a class="material-symbols-outlined tools" title="Add Image" onclick="toolsAddImage()">image</a>
-                                <a class="material-symbols-outlined tools" title="Add Link" onclick="toolsAddLink()">link</a>
-                                <a class="material-symbols-outlined tools" title="Print Note" onclick="toolsPrint()">print</a>
+                                <a class="material-symbols-outlined tools" title="Undo" onclick="toolsExec('undo')">undo</a>
+                                <a class="material-symbols-outlined tools" title="Redo" onclick="toolsExec('redo')">redo</a>
+                                <a class="material-symbols-outlined tools" title="Print" onclick="toolsPrint()">print</a>
+                            </div>
+                            <div class="tools-wrapper-category">
+                                <a class="material-symbols-outlined tools" title="Bold" onclick="toolsExec('bold')">format_bold</a>
+                                <a class="material-symbols-outlined tools" title="Italic" onclick="toolsExec('italic')">format_italic</a>
+                                <a class="material-symbols-outlined tools" title="Underline" onclick="toolsExec('underline')">format_underlined</a>
+                                <a class="material-symbols-outlined tools" title="Strikethrough" onclick="toolsExec('strikeThrough')">strikethrough_s</a>
+                                <a class="material-symbols-outlined tools" title="Clear Format" onclick="toolsExec('removeFormat')">format_clear</a>
+                            </div>
+                            <div class="tools-wrapper-category">
+                                <a class="material-symbols-outlined tools" title="Superscript" onclick="toolsExec('superscript')">superscript</a>
+                                <a class="material-symbols-outlined tools" title="Subscript" onclick="toolsExec('subscript')">subscript</a>
+                            </div>
+                            <div class="tools-wrapper-category">
+                                <a class="material-symbols-outlined tools" title="Left Align" onclick="toolsExec('justifyLeft')">format_align_left</a>
+                                <a class="material-symbols-outlined tools" title="Center Align" onclick="toolsExec('justifyCenter')">format_align_center</a>
+                                <a class="material-symbols-outlined tools" title="Right Align" onclick="toolsExec('justifyRight')">format_align_right</a>
+                                <a class="material-symbols-outlined tools" title="Justify" onclick="toolsExec('justifyFull')">format_align_justify</a>
                             </div>
                             <div class="tools-wrapper-category">
                                 <a class="material-symbols-outlined tools" title="Bulleted List" onclick="toolsAddBulletList()">format_list_bulleted</a>
                                 <a class="material-symbols-outlined tools" title="Numbered List" onclick="toolsAddNumberList()">format_list_numbered</a>
                             </div>
                             <div class="tools-wrapper-category">
-                                <a class="material-symbols-outlined tools" title="Bold" onclick="toolsBoldText()">format_bold</a>
-                                <a class="material-symbols-outlined tools" title="Italic" onclick="toolsItalicText()">format_italic</a>
-                                <a class="material-symbols-outlined tools" title="Underline" onclick="toolsUnderlineText()">format_underlined</a>
-                                <a class="material-symbols-outlined tools" title="Strikethrough" onclick="toolsStrikethoughText()">strikethrough_s</a>
+                                <a class="material-symbols-outlined tools" title="Add Image" onclick="toolsAddImage()">image</a>
+                                <a class="material-symbols-outlined tools" title="Add Link" onclick="toolsAddLink()">add_link</a>
                             </div>
                         </div>
+                    </div>
+                    <p class="word-count"><span class="word-count-text">0</span> word(s)</p>
+                </div>
+                <div class="main-edit">
+                    <div class="editor-wrapper">
+                        <h1 class="main-edit-title" contenteditable>Notetaker is loading...</h1>
+                        <hr>
+                        <p class="main-edit-content" contenteditable>We'll get ready in no time!</p>
                     </div>
                 </div>
             </div>
