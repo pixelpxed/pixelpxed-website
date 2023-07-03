@@ -120,6 +120,25 @@
     font-display: block;
 }
 
+@font-face {
+    font-family: "Noto Serif Thai";
+    src: url("/assets/fonts/Noto_Serif_Thai/NotoSerifThai-VariableFont.ttf");
+
+    font-weight: 100 900;
+
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Monomon";
+    src: url("/assets/fonts/SOV_Monomon/SOV_monomon-hinted.ttf");
+
+    font-weight: 100 900;
+    font-style: normal;
+
+    font-display: block;
+}
+
 /* Material Symbols Outlined */
 
 /* Icons */

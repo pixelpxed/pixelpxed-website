@@ -208,12 +208,17 @@ body {
 
 .main-edit-serif,
 .main-edit-serif * {
-    font-family: "Noto Serif", "Sarabun", serif !important;
+    font-family: "Noto Serif", "Noto Serif Thai", serif !important;
 }
 
 .main-edit-monospace,
 .main-edit-monospace * {
-    font-family: "Roboto Mono", "Sarabun", monospace !important;
+    font-family: "Roboto Mono", "Sarabun" monospace !important;
+}
+
+.main-edit-thaimonospace,
+.main-edit-thaimonospace * {
+    font-family: "Monomon", monospace !important;
 }
 
 .main-edit-content {

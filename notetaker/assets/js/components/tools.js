@@ -3,14 +3,15 @@ window.addEventListener("load", () => {
 })
 
 function addInCaret(content) {
-    // if (elementContent.selectionTextStart || elementContent.selectionTextStart == '0') {
-    //     var selectionTextStart = elementContent.selectionStart
-    //     var selectionTextEnd = elementContent.selectionEnd
-
-    //     elementContent.innerHTML = elementContent.textContent.substring(0, selectionTextStart) + `<img src="${imageToAdd}">` + elementContent.textContent.substring(selectionTextEnd, elementContent.textContent.length)
-    // } else {
+    var selectionTextStart = elementContent.selectionStart
+    var selectionTextEnd = elementContent.selectionEnd
+    
+    if (elementContent.selectionTextStart || elementContent.selectionTextStart == '0') {
+        elementContent.innerHTML = elementContent.textContent.substring(0, selectionTextStart) + `<img src="${imageToAdd}">` + elementContent.textContent.substring(selectionTextEnd, elementContent.textContent.length)
+    } else {
         elementContent.innerHTML += content
-    // }
+        console.log("Added to bottom");
+    }
 }
 
 // Tools: Add image
@@ -49,7 +50,13 @@ function addImageTrue() {
     popupDone(popupid - 1);
 }
 
+function toolsAddBulletList() {
+    addInCaret(`<ul><li>Unordered List</li></ul>`)
+}
 
+function toolsAddNumberList() {
+    addInCaret(`<ol><li>Ordered List</li></ol>`)
+}
 
 // Tools: Add link
 function toolsAddLink() {
