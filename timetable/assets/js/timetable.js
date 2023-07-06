@@ -15,6 +15,35 @@ window.addEventListener('load', () => {
     }
 });
 
+function toggleFetchPopup(element, htmlfile) {
+    // Element definition
+    const selectedElement = document.querySelector(element)
+
+    // If no element is present in page, fetch and display
+    if (!selectedElement) {
+        fetch(`/timetable/assets/components/html/${htmlfile}.html`)
+            .then((res) => res.text())
+            .then((html) => {
+                document.querySelector(".popup-center").insertAdjacentHTML("afterbegin", html)
+                
+                document.querySelector(".full-page-overlay").style.display = "block"
+                document.querySelector(element).style.display = "block"
+            })
+        return
+    }
+
+    // For existing element. If element is not displayed, display as block, else display as none.
+    if (selectedElement.style.display == "block") {
+        document.querySelector(".full-page-overlay").style.display = "none"
+        return selectedElement.style.display = "none"
+    } if (selectedElement.style.display != "block") {
+        document.querySelector(".full-page-overlay").style.display = "block"
+        return selectedElement.style.display = "block"
+    }
+
+    return true
+}
+
 function setTimetableSystemInformation() {
     if (localStorage.getItem("timetable-devMode") == "true") {
         addNotification(`

@@ -2,42 +2,6 @@ body {
     overflow: hidden;
 }
 
-/* .main-edit::-webkit-scrollbar {
-    width: 1rem;
-    height: 1rem;
-}
-
-.main-edit::-webkit-scrollbar-track {
-    background: var(--background-html);
-}
-
-.main-edit::-webkit-scrollbar-track:vertical {
-    border-left: 1px solid var(--color-gray-4);
-}
-
-.main-edit::-webkit-scrollbar-track:horizontal {
-    border-top: 1px solid var(--color-gray-4);
-}
-
-.main-edit::-webkit-scrollbar-track:hover {
-    background: var(--color-gray-6);
-}
-
-.main-edit::-webkit-scrollbar-thumb {
-    background: var(--color-gray-5);
-    border-left: 1px solid var(--color-gray-4);
-}
-
-.main-edit::-webkit-scrollbar-thumb:hover {
-    background: var(--color-gray-3);
-}
-
-.main-edit::-webkit-scrollbar-corner {
-    background: var(--background-html);
-
-    border: 1px solid var(--color-gray-4);
-} */
-
 .material-symbols-outlined {
     color: var(--color-main-text);
 }
@@ -368,6 +332,10 @@ body {
     border-right: 1px solid var(--color-gray-4);
 }
 
+.file-path-bar-menu:hover {
+    background: var(--color-gray-5);
+}
+
 .copyrightyear {
     padding: 0 1rem 1rem 1rem;
 }
@@ -387,6 +355,10 @@ body {
 }
 
 @media print {
+    @page {
+        size: A4 portrait;
+    }
+
     :root,
     :root.light,
     :root[theme="light"],
@@ -529,4 +501,8 @@ body {
 
 .file-dropzone:hover {
     border: 1px solid var(--color-gray-1);
+}
+
+.tools-selected-color {
+    margin: 0.5rem;
 }

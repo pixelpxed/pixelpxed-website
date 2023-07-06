@@ -1,16 +1,71 @@
 window.addEventListener("load", () => {
     addEventLink()
+
+    elementContent.addEventListener("keydown", (event) => {
+        const ctrlcmd = (event.ctrlKey || event.metaKey)
+
+        // Indent
+        if (event.key == "Tab") {
+            event.preventDefault()
+            toolsExec("indent")
+        }
+        if ((ctrlcmd) & event.key == "]") {
+            event.preventDefault()
+            toolsExec("indent")
+        }
+
+        // Outdent
+        if ((ctrlcmd) & event.key == "[") {
+            event.preventDefault()
+            toolsExec("outdent")
+        }
+
+        // Superscript
+        if ((ctrlcmd) & event.key == ".") {
+            event.preventDefault()
+            toolsExec("superscript")
+        }
+
+        // Subscript
+        if ((ctrlcmd) & event.key == ",") {
+            event.preventDefault()
+            toolsExec("subscript")
+        }
+
+        // Unordered List
+        if ((ctrlcmd) & event.key == "-") {
+            event.preventDefault()
+            toolsExec("insertUnorderedList")
+        }
+
+        // Ordered List
+        if ((ctrlcmd) & event.key == "=") {
+            event.preventDefault()
+            toolsExec("insertOrderedList")
+        }
+
+        // Create Link from Selection
+        if ((ctrlcmd) & event.key == "k") {
+            event.preventDefault()
+            document.execCommand("createLink", false, document.getSelection())
+            addEventLink()
+        }
+
+        // Create Link from Selection
+        if ((ctrlcmd) & event.shiftKey & event.key == "k") {
+            event.preventDefault()
+            document.execCommand("unlink", false, document.getSelection())
+            addEventLink()
+        }
+    })
 })
 
 function addInCaret(content) {
-    var selectionTextStart = elementContent.selectionStart
-    var selectionTextEnd = elementContent.selectionEnd
-    
-    if (elementContent.selectionTextStart || elementContent.selectionTextStart == '0') {
-        return elementContent.innerHTML = elementContent.textContent.substring(0, selectionTextStart) + content + elementContent.textContent.substring(selectionTextEnd, elementContent.textContent.length)
-    } else {
-        return elementContent.innerHTML += content
-    }
+    document.execCommand("insertHTML", false, content)
+}
+
+function addInBottom(content) {
+    elementContent.innerHTML += content
 }
 
 // Tools: Add image
@@ -44,7 +99,7 @@ function addImageTrue() {
         return popupOK("Cannot Insert Image", "You must provide a URL to add an image.")
     }
     
-    addInCaret(`<img src="${imageToAdd}">`)
+    addInBottom(`<img src="${imageToAdd}">`)
 
     popupDone(popupid - 1);
 }
@@ -62,63 +117,39 @@ function addEventLink() {
         element.removeEventListener("click", () => {
             popupOK(
                 "Open Link",
-                `<a href="${element.href}">${element.href}</a>`
+                `<a href="${element.href}" style="line-break: anywhere;" target="_blank">${element.href}</a>`
             )
         })
 
         element.addEventListener("click", () => {
             popupOK(
                 "Open Link",
-                `<a href="${element.href}">${element.href}</a>`
+                `<a href="${element.href}" style="line-break: anywhere;" target="_blank">${element.href}</a>`
             )
         })
     })
 }
 
-// Tools: Add link
-function toolsAddLink() {
-    document.querySelector(".popup-center").insertAdjacentHTML("beforeend", `
-        <div id="popup-id-${popupid}" class="popup">
-            <div class="popup-wrapper">
-                <div class="popup-content">
-                    <span class="popup-title">Add Link</span>
-                    <span>
-                        <input type="text" class="data-toolslinkurl" placeholder="https://www.pixelpxed.me/notetaker/"></input>    
-                    </span>
-                </div>
-                <div class="popup-buttons-box">
-                    <div class="popup-buttons-wrapper">
-                        <a id="popup-confirm-true" class="popup-button" onclick="addLinkTrue();">Add</a>
-                        <a id="popup-confirm-false" class="popup-button" onclick="popupDone(${popupid}); returnNothing();">Cancel</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `)
-    popupOpen()
-}
-
-function addLinkTrue() {
-    var urlToAdd = document.querySelector(".data-toolslinkurl").value
-
-    if (urlToAdd === "") {
-        popupDone(popupid - 1);
-        return popupOK("Cannot Insert Link", "You must provide a URL to add a link.")
-    }
-
-    addInCaret(`
-        <a href="${urlToAdd}">
-            ${urlToAdd}
-        </a>
-    `)
-
+// Tools: Create link
+function toolsCreateLink() {
+    document.execCommand("createLink", false, document.getSelection())
     addEventLink()
-
-    popupDone(popupid - 1);
 }
 
-function toolsAddLinkOpenUrl(url) {
-    window.open(url)
+// Tools: Remove link
+function toolsRemoveLink() {
+    document.execCommand("unlink", false, document.getSelection())
+    addEventLink()
+}
+
+// Tools: Text Color
+function toolsTextColor() {
+    document.execCommand("foreColor", false, document.querySelector(".tools-selected-color").value)
+}
+
+// Tools: Text Color
+function toolsHiliteColor() {
+    document.execCommand("hiliteColor", false, document.querySelector(".tools-selected-color").value)
 }
 
 function toolsExec(cmd) {

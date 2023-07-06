@@ -97,7 +97,16 @@
 
     border-radius: 0.3em;
 
-    transition: 0.2s background-color;
+    transition: 0.2s background-color, 0.1s transform, 0.2s filter;
+}
+
+.popup-button:hover {
+    filter: brightness(0.9);
+}
+
+.popup-button:active {
+    transform: scale(0.95);
+    filter: brightness(0.9);
 }
 
 .popup-button-transparent {

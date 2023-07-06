@@ -1,0 +1,29 @@
+<div class="addtodolist-wrapper contentbox-wrapper" style="display: block; z-index: 100000;">
+    <div class="popup-content">
+        <p class="popup-title">Add Work (Alpha)</p>
+        <p>Clicking 'Add Work' will redirect you to pawin.tk to-do.</p>
+        <form action="https://pawin.tk/to-do/secure" method="post">
+            <div class="assignments-add-wrapper">
+                <input style="grid-column: span 2;" type="text" name="item-input" id="item-input" pattern=".*-.*" placeholder="Subject - Details (Required)">
+                <select name="itemtype-input" id="itemtype-input">
+                    <option value="reminder">Reminder</option>
+                    <option value="homework">Homework</option>
+                    <option value="exam">Exam</option>
+                </select>
+                <input type="date" name="duedate-input" id="duedate-input" class="height-important">
+                <input style="grid-column: span 2;" type="url" name="gc-input" id="gc-input" placeholder="Resources Link (Optional)">
+            </div>
+            <button type="submit">Add Work</button>
+        </form>
+    </div>
+    <div class="popup-buttons-box">
+        <div class="popup-buttons-wrapper" style="display: grid; grid-template-columns: 1fr max-content; align-items: center; margin: 0; width: 100%;">
+            <p class="popup-description">
+                For the full experience, please visit <a href="https://pawin.tk/to-do/secure/">pawin.tk</a>
+            </p>
+            <div style="display: flex; gap: 0.5rem;">
+                <a class="popup-button popup-button-danger" onclick="toggleFetchPopup('.addtodolist-wrapper', 'addtodolist')">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -34,16 +34,16 @@
         </table>
 
         <p class="popup-description" style="text-align: center;">
-            Last update: <span class="todo-lastupdate">--:--:-- @ --:--</span>
+            Last Update: <span class="todo-lastupdate">--:--:-- @ --:--</span> / Data Version: v<span class="todo-dataver">-.-.-</span>
         </p>
     </div>
     <div class="popup-buttons-box">
         <div class="popup-buttons-wrapper" style="display: grid; grid-template-columns: 1fr max-content; align-items: center; margin: 0; width: 100%;">
             <p class="popup-description">
-                To-do is made possible with <a href="https://pawin.tk/" target="_blank">pawin.tk</a> API.
+                To-do is made possible with <a href="https://pawin.tk/to-do/" target="_blank">pawin.tk</a> API.
             </p>
             <div style="display: flex; gap: 0.5rem;">
-                <a class="popup-button" href="https://pawin.tk/to-do/" target="_blank">
+                <a class="popup-button" onclick="toggleFetchPopup('.addtodolist-wrapper', 'addtodolist')">
                     Add Work
                 </a>
                 <a class="popup-button" onclick="closeToDo()">Done</a>

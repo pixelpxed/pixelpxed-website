@@ -96,7 +96,7 @@
                             <div class="tools-wrapper-category">
                                 <a class="material-symbols-outlined tools" title="Undo" onclick="toolsExec('undo')">undo</a>
                                 <a class="material-symbols-outlined tools" title="Redo" onclick="toolsExec('redo')">redo</a>
-                                <a class="material-symbols-outlined tools" title="Print" onclick="toolsPrint()">print</a>
+                                <a class="material-symbols-outlined tools" title="Print" onclick="toolsExec('print')">print</a>
                             </div>
                             <div class="tools-wrapper-category">
                                 <a class="material-symbols-outlined tools" title="Bold" onclick="toolsExec('bold')">format_bold</a>
@@ -104,6 +104,11 @@
                                 <a class="material-symbols-outlined tools" title="Underline" onclick="toolsExec('underline')">format_underlined</a>
                                 <a class="material-symbols-outlined tools" title="Strikethrough" onclick="toolsExec('strikeThrough')">strikethrough_s</a>
                                 <a class="material-symbols-outlined tools" title="Clear Format" onclick="toolsExec('removeFormat')">format_clear</a>
+                            </div>
+                            <div class="tools-wrapper-category">
+                                <input type="color" class="tools-selected-color">
+                                <a class="material-symbols-outlined tools" title="Apply Font Color" onclick="toolsTextColor()">format_color_text</a>
+                                <a class="material-symbols-outlined tools" title="Apply Highlight Color" onclick="toolsHiliteColor()">format_ink_highlighter</a>
                             </div>
                             <div class="tools-wrapper-category">
                                 <a class="material-symbols-outlined tools" title="Superscript" onclick="toolsExec('superscript')">superscript</a>
@@ -116,12 +121,19 @@
                                 <a class="material-symbols-outlined tools" title="Justify" onclick="toolsExec('justifyFull')">format_align_justify</a>
                             </div>
                             <div class="tools-wrapper-category">
-                                <a class="material-symbols-outlined tools" title="Bulleted List" onclick="toolsAddBulletList()">format_list_bulleted</a>
-                                <a class="material-symbols-outlined tools" title="Numbered List" onclick="toolsAddNumberList()">format_list_numbered</a>
+                                <a class="material-symbols-outlined tools" title="Bulleted List" onclick="toolsExec('insertUnorderedList')">format_list_bulleted</a>
+                                <a class="material-symbols-outlined tools" title="Numbered List" onclick="toolsExec('insertOrderedList')">format_list_numbered</a>
+                            </div>
+                            <div class="tools-wrapper-category">
+                                <a class="material-symbols-outlined tools" title="Subscript" onclick="toolsExec('indent')">format_indent_increase</a>
+                                <a class="material-symbols-outlined tools" title="Subscript" onclick="toolsExec('outdent')">format_indent_decrease</a>
+                            </div>
+                            <div class="tools-wrapper-category">
+                                <a class="material-symbols-outlined tools" title="Add Link" onclick="toolsCreateLink()">link</a>
+                                <a class="material-symbols-outlined tools" title="Remove Link" onclick="toolsRemoveLink()">link_off</a>
                             </div>
                             <div class="tools-wrapper-category">
                                 <a class="material-symbols-outlined tools" title="Add Image" onclick="toolsAddImage()">image</a>
-                                <a class="material-symbols-outlined tools" title="Add Link" onclick="toolsAddLink()">add_link</a>
                             </div>
                         </div>
                     </div>

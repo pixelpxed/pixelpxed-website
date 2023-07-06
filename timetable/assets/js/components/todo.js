@@ -136,15 +136,22 @@ function getToDo() {
             exam[i].duedate
         )
     }
-
     document.querySelector(".todo-lastupdate").innerHTML = cache_todolist.about.lastupdate
+    document.querySelector(".todo-dataver").innerHTML = cache_todolist.about.dataversion 
 
     handleShowToDo()
 }
 
 function insertToDo(location, title, desc, url, due) {
+    title = `${title}`
     if (url !== null) {
-        title = `<a href="${url}" target="_blank">${title}</a>`
+        title = `
+            <a href="${url}" target="_blank" class="todo-item-title">
+                ${title}
+                <span class="material-symbols-outlined">
+                    attachment
+                </span>
+            </a>`
     }
 
     var assignmentsdatedata = "<b style='color: var(--color-gray-1);'>None</b>"
@@ -166,8 +173,8 @@ function insertToDo(location, title, desc, url, due) {
     document.querySelector(location).insertAdjacentHTML("beforeend", `
         <tr>
             <td class="assignments-item">
-                <b>${title}</b><br>
-                ${desc}
+                <b style="display: block;">${title}</b>
+                <span style="display: block; padding-left: 0.5rem;">${desc}</span>
             </td>
             <td class="assignments-date">
                 ${assignmentsdatedata}
