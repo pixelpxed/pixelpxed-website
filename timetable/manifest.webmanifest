@@ -1,0 +1,29 @@
+{
+    "short_name": "Timetable",
+    "name": "Timetable",
+    "icons": [
+        {
+            "src": "/assets/webapp/timetable/SiteLogo@svg.svg",
+            "type": "image/svg+xml",
+            "sizes": "256x256"
+        },
+        {
+            "src": "/assets/webapp/timetable/SiteLogo@0.75x.png",
+            "type": "image/png",
+            "sizes": "193x193"
+        },
+        {
+            "src": "/assets/webapp/timetable/SiteLogo@2x.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "id": "/timetable/",
+    "start_url": "/timetable/",
+    "background_color": "#000000",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#000000",
+    "description": "Join classes with a click/tap.",
+    "prefer_related_applications": false
+}

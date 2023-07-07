@@ -40,13 +40,14 @@ window.addEventListener("load", () => {
     // 1 = Sidebar hidden by default.
     // 2 = Sidebar hidden by default, navigation bar hidden.
     // 3 = Sidebar hidden, navigation bar hidden, file path bar hidden, insert open in new tab button.
+    // 4 = Navigation bar hidden, added settings page, and info to filepath-bars
     if (parameters.get("uistyle") === "1" || parameters.get("uistyle") === "2") {
         toggleSidebarView()
-    } if (parameters.get("uistyle") === "2" || parameters.get("uistyle") === "3") {
+    } if (parameters.get("uistyle") === "2" || parameters.get("uistyle") === "3" || parameters.get("uistyle") === "4") {
         document.querySelector("nav").style.display = "none"
 
         document.querySelector(".application-root").style.gridTemplateRows = "100vh"
-        document.querySelector(".main-content").style.gridTemplateRows = "max-content calc(100vh - 36.5px)"
+        document.querySelector(".main-content").style.gridTemplateRows = "max-content max-content calc(100vh - 36.5px)"
     } if (parameters.get("uistyle") === "3") {
         toggleSidebarView()
         document.querySelector(".file-path-bar").style.display = "none"
@@ -71,6 +72,13 @@ window.addEventListener("load", () => {
                 >
                 open_in_new
             </a>
+        `)
+    } if (parameters.get("uistyle") === "4") {
+        document.querySelector(".file-path-bar").insertAdjacentHTML("beforeend", `
+            <div style="border-left: 1px solid var(--color-gray-4)">
+                <a class="material-symbols-outlined" title="Help" onclick="toggleFetchPopup('#info-wrapper', 'info')">info</a>
+                <a class="material-symbols-outlined" title="Settings" onclick="openSettings()">settings</a>
+            </div>
         `)
     }
 
@@ -152,6 +160,13 @@ function loadNote() {
 
         document.title = `${notesData[currentNoteId].title}`
 
+        console.log(parameters.get("uistyle"));
+
+        var uistyle = ""
+        if (parameters.get("uistyle") !== null) {
+
+        }
+
         for (let i = 0; i < notesData.length; i++) {
             if (i == currentNoteId) {
                 document.querySelector(".notes-panel").insertAdjacentHTML("beforeend", `
@@ -162,7 +177,7 @@ function loadNote() {
                 `)
             } if (i != currentNoteId) {
                 document.querySelector(".notes-panel").insertAdjacentHTML("beforeend", `
-                    <li class="notes-list" noteid="${i}" onclick="location.href='?noteid=${i}'">
+                    <li class="notes-list" noteid="${i}" onclick="location.href='?noteid=${i}${uistyle}'">
                         <a class="notes-list-${i}">${notesData[i].title}</a>
                         <a class="material-symbols-outlined note-panel-delete" onclick="deleteNote(${i})">delete</a>
                     </li>
