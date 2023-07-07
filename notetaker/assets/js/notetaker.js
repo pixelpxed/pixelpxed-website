@@ -231,8 +231,9 @@ function saveNote() {
     notesData[currentNoteId].title = elementTitle.innerHTML
     notesData[currentNoteId].content = elementContent.innerHTML
 
-    // Change UI note title in notes list and file path bar.
+    // Change UI note title in notes list, window title and file path bar.
     document.querySelector(`.notes-list-${currentNoteId}`).innerHTML = elementTitle.innerHTML
+    document.title = elementTitle.innerHTML
     elementFilePath.innerHTML = elementTitle.innerHTML
 
     // Saves note to localStorage
