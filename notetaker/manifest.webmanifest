@@ -19,7 +19,7 @@
         }
     ],
     "id": "/notetaker/",
-    "start_url": "/notetaker/?uistyle=4",
+    "start_url": "/notetaker/",
     "background_color": "#000000",
     "display": "standalone",
     "scope": "/",

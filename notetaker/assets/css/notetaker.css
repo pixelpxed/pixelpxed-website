@@ -511,3 +511,29 @@ body {
 .tools-selected-color {
     margin: 0.5rem;
 }
+
+.pwa-navsettings {
+    display: none;
+
+    border-left: 1px solid var(--color-gray-4);
+}
+
+@media screen and (display-mode: standalone) {
+    nav {
+        display: none !important;
+    }
+
+    .application-root {
+        grid-template-rows: 100vh;
+
+        border-top: 1px solid var(--color-gray-4);
+    }
+
+    .main-content {
+        grid-template-rows: max-content max-content calc(100vh - 36.5px);
+    }
+
+    .pwa-navsettings {
+        display: block !important;
+    }
+}

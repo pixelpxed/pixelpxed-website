@@ -3,6 +3,7 @@ var classes = undefined
 var overrideTimeList = "Regular"
 
 const classTimetable = localStorage.getItem("timetable-classTimetable")
+const parameters = new URLSearchParams(window.location.search);
 
 window.addEventListener('load', () => {
     if (localStorage.getItem("timetable-setupComplete") === "true") {

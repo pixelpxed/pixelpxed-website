@@ -75,7 +75,7 @@ window.addEventListener("load", () => {
         `)
     } if (parameters.get("uistyle") === "4") {
         document.querySelector(".file-path-bar").insertAdjacentHTML("beforeend", `
-            <div style="border-left: 1px solid var(--color-gray-4)">
+            <div style="border-left: 1px solid var(--color-gray-4); display: none;">
                 <a class="material-symbols-outlined" title="Help" onclick="toggleFetchPopup('#info-wrapper', 'info')">info</a>
                 <a class="material-symbols-outlined" title="Settings" onclick="openSettings()">settings</a>
             </div>

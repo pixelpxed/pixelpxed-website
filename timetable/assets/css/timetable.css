@@ -420,3 +420,13 @@
     gap: 0.25rem;
     align-items: center;
 }
+
+@media screen and (display-mode: standalone) {
+    .navigation-bar {
+        display: none;
+    }
+
+    .title-wrapper {
+        display: none;
+    }
+}
