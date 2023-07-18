@@ -125,6 +125,7 @@ function toggleFetchPopup(element, htmlfile) {
             .then((html) => {
                 document.querySelector(".popup-zone").insertAdjacentHTML("afterbegin", html)
                 
+                popupid = popupid + 1
                 fullPageOverlay.style.display = "block"
                 document.querySelector(element).style.display = "block"
             })
@@ -133,13 +134,16 @@ function toggleFetchPopup(element, htmlfile) {
 
     // For existing element. If element is not displayed, display as block, else display as none.
     if (selectedElement.style.display == "block") {
-        fullPageOverlay.style.display = "none"
+        popupid = popupid - 1
+        if (popupid == 0) {
+            fullPageOverlay.style.display = "none"
+        }
         return selectedElement.style.display = "none"
     } if (selectedElement.style.display != "block") {
+        popupid = popupid + 1
         fullPageOverlay.style.display = "block"
         return selectedElement.style.display = "block"
     }
-
     return true
 }
 

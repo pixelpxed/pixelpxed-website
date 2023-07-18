@@ -27,6 +27,7 @@ function toggleFetchPopup(element, htmlfile) {
             .then((html) => {
                 document.querySelector(".popup-center").insertAdjacentHTML("afterbegin", html)
                 
+                popupid = popupid + 1
                 document.querySelector(".full-page-overlay").style.display = "block"
                 document.querySelector(element).style.display = "block"
             })
@@ -35,9 +36,13 @@ function toggleFetchPopup(element, htmlfile) {
 
     // For existing element. If element is not displayed, display as block, else display as none.
     if (selectedElement.style.display == "block") {
-        document.querySelector(".full-page-overlay").style.display = "none"
+        popupid = popupid - 1
+        if (popupid == 0) {
+            document.querySelector(".full-page-overlay").style.display = "none"
+        }
         return selectedElement.style.display = "none"
     } if (selectedElement.style.display != "block") {
+        popupid = popupid + 1
         document.querySelector(".full-page-overlay").style.display = "block"
         return selectedElement.style.display = "block"
     }
@@ -361,13 +366,18 @@ function about() {
                     return document.querySelector(".changelog-list").innerHTML = "<p class='popup-description' style='font-weight: var(--font-weight-normal); text-align: center; margin-top: 1rem;'>Cannot get changelog. Please check your connection!</p>";
                 })
         }
+        popupid = popupid + 1
         document.querySelector(".about-wrapper").style.display = "block"
         return document.querySelector(".full-page-overlay").style.display = "block"
     }
     if (document.querySelector(".about-wrapper").style.display == "block") {
         enableScrollbar()
         document.querySelector(".about-wrapper").style.display = "none"
-        return document.querySelector(".full-page-overlay").style.display = "none"
+        popupid = popupid - 1
+        if (popupid == 0) {
+            document.querySelector(".full-page-overlay").style.display = "none"
+        }
+        return 
     }
 }
 

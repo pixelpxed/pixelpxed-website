@@ -8,8 +8,10 @@ window.addEventListener('load', () => {
 function openSettings() {
     disableScrollbar()
 
+    popupid = popupid + 1
     if (document.querySelector('.settings-wrapper')) {
         document.querySelector('.settings-wrapper').style.display = "block"
+        document.getElementById("full-page-overlay").style.display = "block"
     }
     if (!document.querySelector('.settings-wrapper')) {
         fetch('/timetable/assets/components/html/settings.html')
@@ -20,6 +22,7 @@ function openSettings() {
             })
             .then((html) => {
                 document.querySelector(".popup-center").innerHTML += html
+                document.getElementById("full-page-overlay").style.display = "block"
                 setDefaultSettingsValue();
                 setListenersSettingsChange();
             })
@@ -27,14 +30,16 @@ function openSettings() {
                 cannotGetPopupContentError("settings", error)
             })
     }
-
-    document.getElementById("full-page-overlay").style.display = "block"
 }
 
 function closeSettings() {
     enableScrollbar()
     document.querySelector('.settings-wrapper').style.display = "none"
-    document.querySelector(".full-page-overlay").style.display = "none"
+
+    popupid = popupid - 1
+    if (popupid === 0) {
+        document.querySelector(".full-page-overlay").style.display = "none"
+    }
 
     location.reload()
 }

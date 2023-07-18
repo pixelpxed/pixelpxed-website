@@ -52,8 +52,9 @@ function fetchToDo() {
 
 function handleShowToDo() {
     document.querySelector(".contentbox-assignments").style.display = "block"
-
+    
     disableScrollbar()
+    popupid = popupid + 1
     document.querySelector(".full-page-overlay").style.display = "block"
 }
 
@@ -61,7 +62,10 @@ function closeToDo() {
     document.querySelector(".contentbox-assignments").style.display = "none"
 
     enableScrollbar()
-    document.querySelector(".full-page-overlay").style.display = "none"
+    popupid = popupid - 1
+    if (popupid === 0) {
+        document.querySelector(".full-page-overlay").style.display = "none"
+    }
 }
 
 function resetToDo() {
