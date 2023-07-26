@@ -1,0 +1,47 @@
+[
+    {
+        "type": "note",
+        "title": "Lorem ipsum.",
+        "content": "Lorem ipsum si dolor."
+    },
+    {
+        "type": "note",
+        "title": "Lorem ipsum.",
+        "content": "Lorem ipsum si dolor."
+    },
+    {
+        "type": "folder",
+        "content": [
+            {
+                "type": "note",
+                "title": "Lorem ipsum.",
+                "content": "Lorem ipsum si dolor."
+            },
+            {
+                "type": "folder",
+                "content": [
+                    {
+                        "type": "note",
+                        "title": "Lorem ipsum.",
+                        "content": "Lorem ipsum si dolor."
+                    },
+                    {
+                        "type": "note",
+                        "title": "Lorem ipsum.",
+                        "content": "Lorem ipsum si dolor."
+                    }
+                ]
+            },
+            {
+                "type": "note",
+                "title": "Lorem ipsum.",
+                "content": "Lorem ipsum si dolor."
+            }
+        ]
+    },
+    {
+        "type": "note",
+        "title": "Lorem ipsum.",
+        "content": "Lorem ipsum si dolor."
+    }
+]
