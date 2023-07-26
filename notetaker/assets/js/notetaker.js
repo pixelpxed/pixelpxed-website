@@ -12,18 +12,73 @@ const fullPageOverlay = document.querySelector(".full-page-overlay")
 const parameters = new URLSearchParams(window.location.search);
 var currentNoteId = parseInt(parameters.get("noteid") ?? 0)
 
+var triggerUnloadSave = true;
+var anotherInstanceOpened = false;
+
+var firstInstance = true;
+
+const bc = new BroadcastChannel("notetaker");
+bc.onmessage = (event) => {
+    if (event.data === `first`) {
+        bc.postMessage(`notFirst`);
+
+        saveNote();
+
+        triggerUnloadSave = false;
+        firstInstance = true;
+
+        multipleInstanceError()
+    }
+    if (event.data === `notFirst`) {
+        firstInstance = false;
+
+        multipleInstanceError()
+    }
+};
+bc.postMessage(`first`);
+
+function multipleInstanceError() {
+    document.title = "Multiple Instances Running!";
+    popupOK(
+        `Another instance of Notetaker is running.`,
+        `Notetaker has <a href="/notetaker/assets/etc/instanceWar.txt" target="_blank">checked</a> and detected that multiple instance of Notetaker is already running. Notetaker can only run one instance at a time, to prevent data loss.<br><br>Please choose to close the tabs/windows until only one Notetaker tab/window is running, and then click the OK button below.<br><br>Don't worry, the current data you have is saved.`,
+        `reloadNotetaker`
+    );
+}
+
 window.addEventListener("load", () => {
+    if (firstInstance == true) {
+        onInstanceCheckPass()
+    } if (firstInstance != false) {
+        return
+    }
+})
+
+window.addEventListener("unload", () => {
+    if (triggerUnloadSave == true) {
+        saveNote()
+    }
+})
+
+function onInstanceCheckPass() {
     // Log warning message when using console.
     console.log("%cWarning!%c\n\nConsole is a very powerful tool.\n\nRunning codes you don't understand can break your Notetaker, or worse, steal your personal data.\n\nNever paste and run any code you don't understand.",
         "font-family: sans-serif; font-weight: bold; font-size: 1.5em; color: var(--color-red);",
         "font-family: sans-serif;")
 
     try {
-        loadNote()
-        applySettings()
-        
-        // Remove the full page loading blur
-        fullPageOverlay.style.display = "none";
+        if (anotherInstanceOpened == true) {
+            return
+        }
+        if (anotherInstanceOpened != true) {
+            loadNote()
+            applySettings()
+            
+            // Remove the full page loading blur
+            fullPageOverlay.style.display = "none";
+            
+            setTimeout(saveNote, 60000)
+        }
     } catch (error) {
         popupChoice(
             "An error occured.",
@@ -87,14 +142,7 @@ window.addEventListener("load", () => {
         .then((json) => {
             document.getElementById("copyrightyear").innerHTML = json.copyrightyear
         })
-});
-
-var triggerUnloadSave = true;
-window.addEventListener("unload", () => {
-    if (triggerUnloadSave == true) {
-        saveNote()
-    }
-})
+};
 
 // Multiuse code.
 function saveNoteToLocalStorage() {
@@ -163,8 +211,6 @@ function loadNote() {
         elementContent.innerHTML = notesData[currentNoteId].content
 
         document.title = `${notesData[currentNoteId].title}`
-
-        console.log(parameters.get("uistyle"));
 
         var uistyle = ""
         if (parameters.get("uistyle") !== null) {
@@ -238,8 +284,6 @@ function typingTimeoutSave() {
     // Clear existing typing timeout to start clock again.
     clearTimeout(typingTimeout)
     typingTimeout = setTimeout(saveNote, 5000);
-
-    setTimeout(saveNote, 60000)
 }
 
 function saveNote() {
