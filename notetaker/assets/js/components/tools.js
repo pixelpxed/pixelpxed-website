@@ -160,9 +160,21 @@ function toolsPrint() {
     window.print()
 }
 
+function base64ToBytes(base64) {
+    const binString = atob(base64);
+    return Uint8Array.from(binString, (m) => m.codePointAt(0));
+}
+  
+function bytesToBase64(bytes) {
+    const binString = Array.from(bytes, (x) => String.fromCodePoint(x)).join("");
+    return btoa(binString);
+}
+
 function toolsDownload() {
+    const encodedString = bytesToBase64(new TextEncoder().encode(JSON.stringify(notesData, null)))
+
     const element = document.createElement('a');
-    const blob = new Blob([JSON.stringify(notesData, null, '\t')], {'type': 'text/json', 'lastModified': new Date().getTime()});
+    const blob = new Blob([encodedString], {'type': 'text/json', 'lastModified': new Date().getTime()});
 
     const curtime = new Date()
 
@@ -175,7 +187,7 @@ function toolsDownload() {
     const second = curtime.getSeconds()
 
     element.href = window.URL.createObjectURL(blob);
-    element.download = `${date > 9 ? date : "0" + date}-${month > 9 ? month : "0" + month}-${year}_${hour > 9 ? hour : "0" + hour}-${minute >= 10 ? minute : "0" + minute}-${second >= 10 ? second : "0" + second}_v1.notetaker`;
+    element.download = `${date > 9 ? date : "0" + date}-${month > 9 ? month : "0" + month}-${year}_${hour > 9 ? hour : "0" + hour}-${minute >= 10 ? minute : "0" + minute}-${second >= 10 ? second : "0" + second}_v2.notetaker`;
     
     element.click();
 }
@@ -224,19 +236,28 @@ function uploadReturnTrue() {
     var filereader = new FileReader();
     filereader.addEventListener("load", () => {
         try {
-            var uploaddata = filereader.result;
+            const rawdata = filereader.result
+            
+            // Backwards compatability: Base64 data encode checker.
+            const base64regex = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
+            const base64check = base64regex.test(rawdata)
+            if (base64check == true) {
+                var uploaddata = new TextDecoder().decode(base64ToBytes(rawdata));
+            } if (base64check == false) {
+                var uploaddata = filereader.result;
+            }
 
             triggerUnloadSave = false
             
             localStorage.setItem("notetaker-notesData", uploaddata);
-            location.reload()
+            location.href = "/notetaker/"
         } catch (error) {
             return popupOK(
                 "Unable to save data.", 
                 `Please upload a valid file ended with a <b>.notetaker</b> extension.<br><br>If you're already uploading a <b>.notetaker</b> file, your file might be damaged or corrupted.<br><br>Please try again.<br><br><span class='popup-description'>Error:</span><br>${error}`
             )
         }
-    });
+    })
     filereader.readAsText(uploadnotesdata)
 }
 

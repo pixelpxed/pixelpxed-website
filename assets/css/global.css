@@ -362,14 +362,6 @@ th, td {
     border-bottom: 1px solid var(--color-gray-4);
 }
 
-tr:nth-child(odd) {
-    background: transparent;
-}
-
-tr:nth-child(even) {
-    background: var(--color-gray-5);
-}
-
 kbd {
     display: inline-flex;
     justify-content: center;

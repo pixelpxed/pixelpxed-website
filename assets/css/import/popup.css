@@ -114,6 +114,12 @@
     background: transparent;
 }
 
+.popup-button-transparent:hover {
+    background: var(--color-gray-6);
+    filter: brightness(0.9);
+
+}
+
 .popup-button-full {
     width: 100%;
 }

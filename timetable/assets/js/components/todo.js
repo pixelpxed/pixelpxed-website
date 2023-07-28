@@ -1,4 +1,4 @@
-todolist_datahandleversion = "0.1.6"
+todolist_datahandleversion = "0.1.7"
 
 function openToDo() {
     if (document.querySelector(".contentbox-assignments")) {
