@@ -54,7 +54,7 @@ window.addEventListener("load", () => {
     }
 })
 
-window.addEventListener("unload", () => {
+window.addEventListener("pagehide", () => {
     if (triggerUnloadSave == true) {
         saveNote()
     }
