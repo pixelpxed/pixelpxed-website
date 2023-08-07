@@ -1,5 +1,5 @@
 // Basic Timetable information.
-var timetableversion = "3.11.0"
+var timetableversion = "3.11.0a"
 
 // Timetable class fetch folder
 // Timetable will require a <classno>.json file in the folder
@@ -148,15 +148,15 @@ var bookmarks = {
                 "urlAfter": "",
             },
             "3": {
-                "title": "Twitter",
+                "title": "𝕏 (Twitter)",
                 "gaiRequired": false,
                 "url": "https://twitter.com/",
                 "urlAfter": "",
             },
             "4": {
-                "title": "AnimeKimi",
+                "title": "Reddit",
                 "gaiRequired": false,
-                "url": "https://animekimi.com/",
+                "url": "https://www.reddit.com/",
                 "urlAfter": "",
             },
         }
