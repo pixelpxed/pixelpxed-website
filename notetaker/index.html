@@ -33,7 +33,9 @@
     <script defer src="/notetaker/assets/js/notetaker.js"></script>
 
     <!-- Components -->
+    <script defer src="/notetaker/assets/js/components/settings.js"></script>
     <script defer src="/notetaker/assets/js/components/tools.js"></script>
+    <!-- <script defer src="/notetaker/assets/js/components/view.js"></script> -->
 
     <!-- Library Files -->
     <script defer src="/_vercel/insights/script.js"></script>
@@ -100,46 +102,47 @@
                     <div class="tools-wrapper">
                         <div class="tools-content-wrapper">
                             <div class="tools-wrapper-category">
-                                <a class="material-symbols-outlined tools" title="Undo" onclick="toolsExec('undo')">undo</a>
-                                <a class="material-symbols-outlined tools" title="Redo" onclick="toolsExec('redo')">redo</a>
-                                <a class="material-symbols-outlined tools" title="Print" onclick="toolsExec('print')">print</a>
+                                <a class="material-symbols-outlined tools" title="Undo" onmousedown="toolsExec('undo')">undo</a>
+                                <a class="material-symbols-outlined tools" title="Redo" onmousedown="toolsExec('redo')">redo</a>
+                                <a class="material-symbols-outlined tools" title="Print" onmousedown="toolsExec('print')">print</a>
+                                <!-- <a class="material-symbols-outlined tools" title="Read Mode" onmousedown="setNoteView('read')">visibility</a> -->
                             </div>
                             <div class="tools-wrapper-category">
-                                <a class="material-symbols-outlined tools" title="Bold" onclick="toolsExec('bold')">format_bold</a>
-                                <a class="material-symbols-outlined tools" title="Italic" onclick="toolsExec('italic')">format_italic</a>
-                                <a class="material-symbols-outlined tools" title="Underline" onclick="toolsExec('underline')">format_underlined</a>
-                                <a class="material-symbols-outlined tools" title="Strikethrough" onclick="toolsExec('strikeThrough')">strikethrough_s</a>
-                                <a class="material-symbols-outlined tools" title="Clear Format" onclick="toolsExec('removeFormat')">format_clear</a>
+                                <a class="material-symbols-outlined tools" title="Bold" onmousedown="toolsExec('bold')">format_bold</a>
+                                <a class="material-symbols-outlined tools" title="Italic" onmousedown="toolsExec('italic')">format_italic</a>
+                                <a class="material-symbols-outlined tools" title="Underline" onmousedown="toolsExec('underline')">format_underlined</a>
+                                <a class="material-symbols-outlined tools" title="Strikethrough" onmousedown="toolsExec('strikeThrough')">strikethrough_s</a>
+                                <a class="material-symbols-outlined tools" title="Clear Format" onmousedown="toolsExec('removeFormat')">format_clear</a>
                             </div>
                             <div class="tools-wrapper-category">
                                 <input type="color" class="tools-selected-color">
-                                <a class="material-symbols-outlined tools" title="Apply Font Color" onclick="toolsTextColor()">format_color_text</a>
-                                <a class="material-symbols-outlined tools" title="Apply Highlight Color" onclick="toolsHiliteColor()">format_ink_highlighter</a>
+                                <a class="material-symbols-outlined tools" title="Apply Font Color" onmousedown="toolsTextColor()">format_color_text</a>
+                                <a class="material-symbols-outlined tools" title="Apply Highlight Color" onmousedown="toolsHiliteColor()">format_ink_highlighter</a>
                             </div>
                             <div class="tools-wrapper-category">
-                                <a class="material-symbols-outlined tools" title="Superscript" onclick="toolsExec('superscript')">superscript</a>
-                                <a class="material-symbols-outlined tools" title="Subscript" onclick="toolsExec('subscript')">subscript</a>
+                                <a class="material-symbols-outlined tools" title="Superscript" onmousedown="toolsExec('superscript')">superscript</a>
+                                <a class="material-symbols-outlined tools" title="Subscript" onmousedown="toolsExec('subscript')">subscript</a>
                             </div>
                             <div class="tools-wrapper-category">
-                                <a class="material-symbols-outlined tools" title="Left Align" onclick="toolsExec('justifyLeft')">format_align_left</a>
-                                <a class="material-symbols-outlined tools" title="Center Align" onclick="toolsExec('justifyCenter')">format_align_center</a>
-                                <a class="material-symbols-outlined tools" title="Right Align" onclick="toolsExec('justifyRight')">format_align_right</a>
-                                <a class="material-symbols-outlined tools" title="Justify" onclick="toolsExec('justifyFull')">format_align_justify</a>
+                                <a class="material-symbols-outlined tools" title="Left Align" onmousedown="toolsExec('justifyLeft')">format_align_left</a>
+                                <a class="material-symbols-outlined tools" title="Center Align" onmousedown="toolsExec('justifyCenter')">format_align_center</a>
+                                <a class="material-symbols-outlined tools" title="Right Align" onmousedown="toolsExec('justifyRight')">format_align_right</a>
+                                <a class="material-symbols-outlined tools" title="Justify" onmousedown="toolsExec('justifyFull')">format_align_justify</a>
                             </div>
                             <div class="tools-wrapper-category">
-                                <a class="material-symbols-outlined tools" title="Bulleted List" onclick="toolsExec('insertUnorderedList')">format_list_bulleted</a>
-                                <a class="material-symbols-outlined tools" title="Numbered List" onclick="toolsExec('insertOrderedList')">format_list_numbered</a>
+                                <a class="material-symbols-outlined tools" title="Bulleted List" onmousedown="toolsExec('insertUnorderedList')">format_list_bulleted</a>
+                                <a class="material-symbols-outlined tools" title="Numbered List" onmousedown="toolsExec('insertOrderedList')">format_list_numbered</a>
                             </div>
                             <div class="tools-wrapper-category">
-                                <a class="material-symbols-outlined tools" title="Subscript" onclick="toolsExec('indent')">format_indent_increase</a>
-                                <a class="material-symbols-outlined tools" title="Subscript" onclick="toolsExec('outdent')">format_indent_decrease</a>
+                                <a class="material-symbols-outlined tools" title="Subscript" onmousedown="toolsExec('indent')">format_indent_increase</a>
+                                <a class="material-symbols-outlined tools" title="Subscript" onmousedown="toolsExec('outdent')">format_indent_decrease</a>
                             </div>
                             <div class="tools-wrapper-category">
-                                <a class="material-symbols-outlined tools" title="Add Link" onclick="toolsCreateLink()">link</a>
-                                <a class="material-symbols-outlined tools" title="Remove Link" onclick="toolsRemoveLink()">link_off</a>
+                                <a class="material-symbols-outlined tools" title="Add Link" onmousedown="toolsCreateLink()">link</a>
+                                <a class="material-symbols-outlined tools" title="Remove Link" onmousedown="toolsRemoveLink()">link_off</a>
                             </div>
                             <div class="tools-wrapper-category">
-                                <a class="material-symbols-outlined tools" title="Add Image" onclick="toolsAddImage()">image</a>
+                                <a class="material-symbols-outlined tools" title="Add Image" onmousedown="toolsAddImage()">image</a>
                             </div>
                         </div>
                     </div>

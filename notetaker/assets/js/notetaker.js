@@ -213,21 +213,20 @@ function loadNote() {
         }
 
         for (let i = 0; i < notesData.length; i++) {
+            var activecheck = ""
             if (i == currentNoteId) {
-                document.querySelector(".notes-panel").insertAdjacentHTML("beforeend", `
-                    <li class="notes-list notes-list-active" noteid="${i}">
-                        <a class="notes-list-${i}">${notesData[i].title}</a>
-                        <a class="material-symbols-outlined note-panel-delete" onclick="deleteNote(${i})">delete</a>
-                    </li>
-                `)
-            } if (i != currentNoteId) {
-                document.querySelector(".notes-panel").insertAdjacentHTML("beforeend", `
-                    <li class="notes-list" noteid="${i}" onclick="location.href='?noteid=${i}${uistyle}'">
-                        <a class="notes-list-${i}">${notesData[i].title}</a>
-                        <a class="material-symbols-outlined note-panel-delete" onclick="deleteNote(${i})">delete</a>
-                    </li>
-                `)
+                activecheck = " notes-list-active"
             }
+
+            // <li class="notes-list${activecheck}" noteid="${i}" draggable="true">
+            document.querySelector(".notes-panel").insertAdjacentHTML("beforeend", `
+                <li class="notes-list${activecheck}" noteid="${i}">
+                    <a class="notes-list-${i} note-panel-title" onclick="location.href='?noteid=${i}${uistyle}'">${notesData[i].title}</a>
+                    <div class="notes-list-tools">
+                        <a class="material-symbols-outlined note-panel-delete" title="Delete" onclick="uiDeleteNote(${i})">delete</a>
+                    </div>
+                </li>
+            `)
         }
     }
 
@@ -251,27 +250,22 @@ function loadNote() {
         insertNotesData()
     }
 
-    wordCount()
+    toolsWordCount()
 }
 
-// Adapted from: https://www.mediacollege.com/internet/javascript/text/count-words.html
-function wordCount() {
-    var contentInside = elementContent.innerHTML
-    
-    contentInside = contentInside.replace(/(^\s*)|(\s*$)/gi,"");
-    contentInside = contentInside.replace(/[ ]{2,}/gi," ");
-    contentInside = contentInside.replace(/\n /,"\n");
-    var wordCount = contentInside.split(' ').filter(function(str){return str!="";}).length;
-
-    document.querySelector(".word-count-text").textContent = wordCount
-}
+// Prevent line breaks on titles.
+elementTitle.addEventListener("keydown", (event) => {
+    if (event.keyCode === 13) {
+        event.preventDefault()
+    }
+});
 
 // If user stop typing in editor for 5 seconds, save the note.
 // But also saves note every 60 seconds (prevents data lost from crashes.)
 elementTitle.addEventListener("keyup", typingTimeoutSave);
 elementContent.addEventListener("keyup", typingTimeoutSave);
 function typingTimeoutSave() {
-    wordCount()
+    toolsWordCount()
 
     // Do not display save indicator whe typing.
     saveIndicator.style.display = "none"
@@ -314,191 +308,33 @@ function newNote() {
     location.href = `?noteid=${notesData.length - 1}`
 }
 
+var uiDeleteNoteId = undefined;
+function uiDeleteNote(id) {
+    uiDeleteNoteId = id
+    popupConfirm(
+        `Delete note?`,
+        `Are you sure you want to delete<br>'<b>${notesData[id].title}</b>'?<br>This action can't be undone!`,
+        `deleteNote`,
+        `returnNothing`
+    )
+}
+
 // Delete a note.
-function deleteNote(id) {
+function deleteNote() {
     // Delete note, save new note data, then remove the note deleted from sidebar list.
-    notesData.splice(id, 1)
+    notesData.splice(uiDeleteNoteId, 1)
 
     saveNoteToLocalStorage()
 
-    document.querySelector(`li[noteid="${id}"]`).remove()
+    document.querySelector(`li[noteid="${uiDeleteNoteId}"]`).remove()
 
     // If user deletes the current note, redirects to the first note.
-    if (currentNoteId == id) {
+    if (currentNoteId == uiDeleteNoteId) {
         return location.href = `?noteid=0`
     }
     // If user's current note id is higher than the deleted note, 
     // redirects to the id for the current note.
-    if (currentNoteId > id) {
+    if (currentNoteId > uiDeleteNoteId) {
         return location.href = `?noteid=${currentNoteId - 1}`
     }
-}
-
-function applyFontSettings() {
-    var fontstyle = localStorage.getItem("notetaker-font")
-
-    document.querySelector(".main-edit-title").classList = `main-edit-title main-edit-${fontstyle}`
-    document.querySelector(".main-edit-content").classList = `main-edit-content main-edit-${fontstyle}`
-    
-    if (fontstyle === "custom") {
-        return setCustomFont()
-    }
-}
-
-function applySettings() {
-    // Theme
-    if (!localStorage.getItem("theme")) {
-        localStorage.setItem("theme", "sync-os");
-    } document.querySelector("html").setAttribute("theme", localStorage.getItem("theme"));
-
-    if (localStorage.getItem("notetaker-monospace")) {
-        localStorage.removeItem("notetaker-monospace")
-    }
-
-    // Monospace Font
-    if (!localStorage.getItem("notetaker-font")) {
-        localStorage.setItem("notetaker-font", "sansserif")
-    } applyFontSettings()
-
-    // Word Count
-    if (localStorage.getItem("notetaker-wordcount") != "true") {
-        document.querySelector(".word-count").style.display = "none"
-    }
-
-    // Monospace Font
-    if (localStorage.getItem("notetaker-noContentMargins") == "true") {
-        document.querySelector(".editor-wrapper").classList = "editor-wrapper editor-wrapper-fullwidth"
-    }
-}
-
-function openSettings() {
-    toggleFetchPopup('#settings-wrapper', 'settings')
-    
-    function waitForSettingsFetchDone() {
-        if (document.querySelector('#settings-wrapper')) {
-            return settings()
-        } if (!document.querySelector('#settings-wrapper')) {
-            setTimeout(() => {
-                waitForSettingsFetchDone()
-            }, 1);
-        }
-    }
-
-    waitForSettingsFetchDone()
-}
-
-function saveCustomFont() {
-    localStorage.setItem("notetaker-customFont", document.querySelector(".textfield-customfont").value)
-    setCustomFont()
-    applyFontSettings()
-}
-
-function setCustomFont() {
-    var customfont = localStorage.getItem("notetaker-customFont", customfont)
-    
-    document.querySelector(".main-edit-title").style.fontFamily = `"${customfont}", "Outfit", "Sarabun", sans-serif`
-    document.querySelector(".main-edit-content").style.fontFamily = `"${customfont}", "Outfit", "Sarabun", sans-serif`
-}
-
-// Settings
-function settings() {
-    // Theme
-    document.querySelectorAll("input[name='settings-theme']").forEach((element) => {
-        if (element.value == localStorage.getItem("theme")) {
-            element.setAttribute("checked", "checked")
-        }
-
-        element.addEventListener("change", function (event) {
-            document.querySelector("html").setAttribute("theme", event.target.value);
-            localStorage.setItem("theme", event.target.value)
-        })
-    })
-
-    // Font
-    document.querySelectorAll("input[name='settings-font']").forEach((element) => {
-        if (element.value == localStorage.getItem("notetaker-font")) {
-            element.setAttribute("checked", "checked")
-        }
-    })
-
-    document.querySelectorAll("input[name='settings-font']").forEach((element) => {
-        element.addEventListener("change", function (event) {
-            localStorage.setItem("notetaker-font", event.target.value)
-            applyFontSettings()
-        })
-    })
-
-    if (localStorage.getItem("notetaker-font") === "custom" || (localStorage.getItem("notetaker-customFont") !== null)) {
-        document.querySelector(".textfield-customfont").value = localStorage.getItem("notetaker-customFont")
-        applyFontSettings()
-    }
-    
-    // Word Count
-    if (localStorage.getItem("notetaker-noContentMargins") == "true") {
-        document.querySelector(".settings-nocontentmargins").setAttribute("checked", "checked")
-    }
-
-    document.querySelectorAll(".settings-nocontentmargins").forEach((element) => {
-        element.addEventListener("click", function (event) {
-            if (event.target.name === "settings-nocontentmargins") {
-                if (event.target.checked) {
-                    localStorage.setItem("notetaker-noContentMargins", true)
-                    
-                    document.querySelector(".editor-wrapper").classList = "editor-wrapper editor-wrapper-fullwidth"
-                }
-                if (!event.target.checked) {
-                    localStorage.setItem("notetaker-noContentMargins", false)
-
-                    document.querySelector(".editor-wrapper").classList = "editor-wrapper"
-                }
-            }
-        })
-    })
-    
-    // Word Count
-    if (localStorage.getItem("notetaker-wordcount") == "true") {
-        document.querySelector(".settings-wordcount").setAttribute("checked", "checked")
-    }
-
-    document.querySelectorAll(".settings-wordcount").forEach((element) => {
-        element.addEventListener("click", function (event) {
-            if (event.target.name === "settings-wordcount") {
-                if (event.target.checked) {
-                    localStorage.setItem("notetaker-wordcount", true)
-                    
-                    document.querySelector(".word-count").style.display = "inline-flex"
-                }
-                if (!event.target.checked) {
-                    localStorage.setItem("notetaker-wordcount", false)
-
-                    document.querySelector(".word-count").style.display = "none"
-                }
-            }
-        })
-    })
-}
-
-function resetNotetakerSettings() {
-    return popupConfirm("Reset Notetaker?", "Are you sure you want to reset Notetaker, your notes data will also be deleted. This action can't be undone!", "resetNotetaker", "returnNothing")
-}
-
-function resetNotetaker() {
-    var listToDelete = [
-        "notetaker-font",
-        "notetaker-customFont",
-        "notetaker-firstRun",
-        "notetaker-notesData",
-        "notetaker-wordcount",
-        "notetaker-noContentMargins"
-    ]
-
-    for (i = 0; i < listToDelete.length; i++) {
-        localStorage.removeItem(listToDelete[i])
-    }
-
-    return location.href = `?noteid=0`
-}
-
-function reloadNotetaker() {
-    location.reload()
 }

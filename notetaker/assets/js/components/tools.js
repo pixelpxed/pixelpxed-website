@@ -60,6 +60,12 @@ window.addEventListener("load", () => {
     })
 })
 
+// document.querySelectorAll(".tools").forEach((element) => {
+//     element.addEventListener("touchend", (event) => {
+//         event.preventDefault()
+//     })
+// })
+
 function addInCaret(content) {
     document.execCommand("insertHTML", false, content)
 }
@@ -272,4 +278,16 @@ function toolsUploadConfirm() {
 
 function toolsUploadDragOverHandle(event) {
     event.preventDefault()
+}
+
+// Adapted from: https://www.mediacollege.com/internet/javascript/text/count-words.html
+function toolsWordCount() {
+    var contentInside = elementContent.innerHTML
+    
+    contentInside = contentInside.replace(/(^\s*)|(\s*$)/gi,"");
+    contentInside = contentInside.replace(/[ ]{2,}/gi," ");
+    contentInside = contentInside.replace(/\n /,"\n");
+    var wordCount = contentInside.split(' ').filter(function(str){return str!="";}).length;
+
+    document.querySelector(".word-count-text").textContent = wordCount
 }
