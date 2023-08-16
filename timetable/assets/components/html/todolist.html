@@ -1,53 +1,82 @@
 <div class="contentbox-wrapper contentbox-assignments">
-    <div class="popup-content assignments-wrapper">
-        <p class="popup-title">Reminders</p>
-        <table style="width: 100%; margin: 0.5rem 0 1rem 0;">
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody class="table-todo-reminder"></tbody>
-        </table>
-
-        <p class="popup-title">Homeworks</p>
-        <table style="width: 100%; margin: 0.5rem 0 1rem 0;">
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody class="table-todo-homework"></tbody>
-        </table>
-
-        <p class="popup-title">Exams</p>
-        <table style="width: 100%; margin: 0.5rem 0 1rem 0;">
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody class="table-todo-exam"></tbody>
-        </table>
-
-        <p class="popup-description" style="text-align: center;">
-            Last Update: <span class="todo-lastupdate">--:--:-- @ --:--</span> / Data Version: v<span class="todo-dataver">-.-.-</span>
+    <div class="popup-content assignments-wrapper" style="scroll-behavior: auto; padding: 0.5rem;">
+        <div class="todotable-selctor-wrapper">
+            <a onclick="changeToDoView('current')" class="todo-current active">Upcoming Works</a>
+            <a onclick="changeToDoView('passed')" class="todo-passed">Passed Works</a>
+        </div>
+        <div class="todotable-wrapper">
+            <div class="todotable-current" style="display: block;">
+                <table style="width: 100%; margin: 0 0 0.5rem 0;">
+                    <thead>
+                        <tr>
+                            <th style="width: 75%;">Reminders</th>
+                            <th style="width: 25%; text-align: center;">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-todo-reminder"></tbody>
+                </table>
+        
+                <table style="width: 100%; margin: 0.5rem 0 0.5rem 0;">
+                    <thead>
+                        <tr>
+                            <th style="width: 75%;">Homeworks</th>
+                            <th style="width: 25%; text-align: center;">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-todo-homework"></tbody>
+                </table>
+        
+                <table style="width: 100%; margin: 0.5rem 0 0 0;">
+                    <thead>
+                        <tr>
+                            <th style="width: 75%;">Exams</th>
+                            <th style="width: 25%; text-align: center;">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-todo-exam"></tbody>
+                </table>
+            </div>
+            <div class="todotable-passed" style="display: none;">                  
+                <table style="width: 100%; margin: 0 0 0.5rem 0;">
+                    <thead>
+                        <tr>
+                            <th style="width: 75%;">Reminders</th>
+                            <th style="width: 25%; text-align: center;">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-pasttodo-reminder"></tbody>
+                </table>
+        
+                <table style="width: 100%; margin: 0.5rem 0 0.5rem 0;">
+                    <thead>
+                        <tr>
+                            <th style="width: 75%;">Homeworks</th>
+                            <th style="width: 25%; text-align: center;">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-pasttodo-homework"></tbody>
+                </table>
+        
+                <table style="width: 100%; margin: 0.5rem 0 0 0;">
+                    <thead>
+                        <tr>
+                            <th style="width: 75%;">Exams</th>
+                            <th style="width: 25%; text-align: center;">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-pasttodo-exam"></tbody>
+                </table>
+            </div>
+        </div>
+        <p class="popup-description" style="text-align: center; padding-bottom: 0.5rem;">
+            To-do is made possible with <a href="https://pawin.tk/to-do/" target="_blank">pawin.tk</a> API<br>
+            Last Update: <span class="todo-lastupdate">--:--:-- @ --:--</span> / v<span class="todo-dataver">-.-.-</span>
         </p>
     </div>
     <div class="popup-buttons-box">
-        <div class="popup-buttons-wrapper" style="display: grid; grid-template-columns: 1fr max-content; align-items: center; margin: 0; width: 100%;">
-            <p class="popup-description">
-                To-do is made possible with <a href="https://pawin.tk/to-do/" target="_blank">pawin.tk</a> API.
-            </p>
-            <div style="display: flex; gap: 0.5rem;">
-                <a class="popup-button" onclick="toggleFetchPopup('.addtodolist-wrapper', 'addtodolist')">
-                    Add Work
-                </a>
-                <a class="popup-button" onclick="closeToDo()">Done</a>
-            </div>
+        <div class="popup-buttons-wrapper">
+            <a class="popup-button" onclick="toggleFetchPopup('.addtodolist-wrapper', 'addtodolist')">Add Work</a>
+            <a class="popup-button" onclick="closeToDo()">Done</a>
         </div>
     </div>
 </div>

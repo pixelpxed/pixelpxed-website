@@ -348,18 +348,31 @@ ul, ol {
 
 table {
     border-collapse: collapse;
+
+    outline: 1px solid var(--color-gray-4);
+    border-radius: 0.3rem;
+    overflow: hidden;
 }
 
 th {
     text-align: left;
 
-    border-bottom: 1px solid var(--color-gray-4);
+    background: var(--color-gray-5);
 }
 
 th, td {
     padding: 0.5rem;
 
-    border-bottom: 1px solid var(--color-gray-4);
+    border-right: 1px solid var(--color-gray-4);
+}
+
+th:last-child,
+td:last-child {
+    border-right: none;
+}
+
+tbody tr {
+    border-top: 1px solid var(--color-gray-4);
 }
 
 kbd {

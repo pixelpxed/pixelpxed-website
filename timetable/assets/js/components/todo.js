@@ -105,40 +105,64 @@ function getToDo() {
     var exam = cache_todolist.content.exam
 
     for (let i = 0; i < homework.length; i++) {
-        if (homework[i].status != "Active") {
-            continue
+        if (homework[i].status == "Active") {
+            insertToDo(
+                ".table-todo-homework",
+                homework[i].subject,
+                homework[i].item,
+                homework[i].classroom,
+                homework[i].duedate
+            )
         }
-        insertToDo(
-            ".table-todo-homework",
-            homework[i].subject,
-            homework[i].item,
-            homework[i].classroom,
-            homework[i].duedate
-        )
+        if (homework[i].status == "DuedatePassed") {
+            insertToDo(
+                ".table-pasttodo-homework",
+                homework[i].subject,
+                homework[i].item,
+                homework[i].classroom,
+                homework[i].duedate
+            )
+        }
     }
     for (let i = 0; i < reminder.length; i++) {
-        if (reminder[i].status != "Active") {
-            continue
+        if (reminder[i].status == "Active") {
+            insertToDo(
+                ".table-todo-reminder",
+                reminder[i].subject,
+                reminder[i].item,
+                reminder[i].classroom,
+                reminder[i].duedate
+            )
         }
-        insertToDo(
-            ".table-todo-reminder",
-            reminder[i].subject,
-            reminder[i].item,
-            reminder[i].classroom,
-            reminder[i].duedate
-        )
+        if (reminder[i].status == "DuedatePassed") {
+            insertToDo(
+                ".table-pasttodo-reminder",
+                reminder[i].subject,
+                reminder[i].item,
+                reminder[i].classroom,
+                reminder[i].duedate
+            )
+        }
     }
     for (let i = 0; i < exam.length; i++) {
-        if (exam[i].status != "Active") {
-            continue
+        if (exam[i].status == "Active") {
+            insertToDo(
+                ".table-todo-exam",
+                exam[i].subject,
+                exam[i].item,
+                exam[i].classroom,
+                exam[i].duedate
+            )
         }
-        insertToDo(
-            ".table-todo-exam",
-            exam[i].subject,
-            exam[i].item,
-            exam[i].classroom,
-            exam[i].duedate
-        )
+        if (exam[i].status == "DuedatePassed") {
+            insertToDo(
+                ".table-pasttodo-exam",
+                exam[i].subject,
+                exam[i].item,
+                exam[i].classroom,
+                exam[i].duedate
+            )
+        }
     }
     document.querySelector(".todo-lastupdate").innerHTML = cache_todolist.about.lastupdate
     document.querySelector(".todo-dataver").innerHTML = cache_todolist.about.dataversion 
@@ -185,4 +209,30 @@ function insertToDo(location, title, desc, url, due) {
             </td>
         </tr>
     `)
+}
+
+function changeToDoView(type) {
+    const currentTable = document.querySelector(".todotable-current")
+    const pastTable = document.querySelector(".todotable-passed")
+
+    const currentBtn = document.querySelector(".todo-current")
+    const passedBtn = document.querySelector(".todo-passed")
+
+    if (type == "passed") {
+        currentTable.style.display = "none"
+        pastTable.style.display = "block"
+
+        currentBtn.classList.remove("active")
+        passedBtn.classList.add("active")
+
+        return document.querySelector(".assignments-wrapper").scrollTo(0, 0)
+    } if (type == "current") {
+        pastTable.style.display = "none"
+        currentTable.style.display = "block"
+
+        currentBtn.classList.add("active")
+        passedBtn.classList.remove("active")
+
+        return document.querySelector(".assignments-wrapper").scrollTo(0, 0)
+    }
 }

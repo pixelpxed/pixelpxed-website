@@ -401,20 +401,6 @@
     margin: 0;
 }
 
-.todocontentbox-ribbon {
-    display: flex; 
-    gap: 0.5rem; 
-    align-items: center; 
-    
-    padding: 0.5rem; 
-    margin-bottom: 1rem; 
-    
-    background: var(--color-gray-5); 
-    
-    border-radius: 0.3rem; 
-    border: 1px solid var(--color-gray-4);
-}
-
 .todo-item-title {
     display: flex;
     gap: 0.25rem;
@@ -445,4 +431,54 @@
     .title-description {
         display: none;
     }
+}
+
+.todotable-wrapper {
+    padding: 0.5rem; 
+    margin-bottom: 1rem;
+
+    background: var(--background-html);
+    
+    border: 1px solid var(--color-gray-4);
+    border-top: none;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.todotable-wrapper td {
+    background: var(--color-gray-6);
+}
+
+.todotable-selctor-wrapper {
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+}
+
+.todotable-selctor-wrapper a {
+    color: var(--color-main-text);
+
+    text-align: center;
+
+    padding: 0.5rem;
+
+    background: var(--color-gray-5);
+
+    border: 1px solid var(--color-gray-4);
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.todotable-selctor-wrapper a.active {
+    background: var(--background-html);
+
+    border-bottom: none;
+
+    font-weight: var(--font-weight-bold);
+}
+
+
+.tablestatus.current .todotable-current {
+    display: block !important;
+}
+
+.tablestatus.passed .todotable-passed {
+    display: block !important;
 }
