@@ -51,7 +51,7 @@
         <div class="full-page-overlay"></div>
     </div>
     <div class="application-root">
-        <nav class="navigation-bar">
+        <nav class="navigation-bar navigation-bar-fixed">
             <div>
                 <a href="/">Home</a>
                 <a href="/timetable/">Timetable</a>
@@ -74,7 +74,7 @@
                     </p>
                 </div>
                 <div class="notes-panel-wrapper">
-                    <div class="notes-panel-title justify-content-between-center">
+                    <div class="notes-panel-title justify-content-center">
                         <div>
                             <p><b>Notes</b></p>
                         </div>
@@ -98,14 +98,13 @@
                         <a class="material-symbols-outlined" title="Settings" onclick="openSettings()">settings</a>
                     </div>
                 </div>
-                <div class="navigation-bar statusbar-wrapper">
+                <div class="navigation-bar toolsbar-wrapper">
                     <div class="tools-wrapper">
                         <div class="tools-content-wrapper">
                             <div class="tools-wrapper-category">
                                 <a class="material-symbols-outlined tools" title="Undo" onmousedown="toolsExec('undo')">undo</a>
                                 <a class="material-symbols-outlined tools" title="Redo" onmousedown="toolsExec('redo')">redo</a>
                                 <a class="material-symbols-outlined tools" title="Print" onmousedown="toolsExec('print')">print</a>
-                                <!-- <a class="material-symbols-outlined tools" title="Read Mode" onmousedown="setNoteView('read')">visibility</a> -->
                             </div>
                             <div class="tools-wrapper-category">
                                 <a class="material-symbols-outlined tools" title="Bold" onmousedown="toolsExec('bold')">format_bold</a>
@@ -115,7 +114,7 @@
                                 <a class="material-symbols-outlined tools" title="Clear Format" onmousedown="toolsExec('removeFormat')">format_clear</a>
                             </div>
                             <div class="tools-wrapper-category">
-                                <input type="color" class="tools-selected-color">
+                                <input type="color" class="tools-selected-color" title="Select Applied Color">
                                 <a class="material-symbols-outlined tools" title="Apply Font Color" onmousedown="toolsTextColor()">format_color_text</a>
                                 <a class="material-symbols-outlined tools" title="Apply Highlight Color" onmousedown="toolsHiliteColor()">format_ink_highlighter</a>
                             </div>
@@ -143,6 +142,7 @@
                             </div>
                             <div class="tools-wrapper-category">
                                 <a class="material-symbols-outlined tools" title="Add Image" onmousedown="toolsAddImage()">image</a>
+                                <a class="material-symbols-outlined tools" title="Add Horizontal Rule" onmousedown="toolsExec('insertHorizontalRule')">horizontal_rule</a>
                             </div>
                         </div>
                     </div>

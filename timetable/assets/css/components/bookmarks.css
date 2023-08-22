@@ -1,0 +1,52 @@
+.bookmarks-wrapper {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5em;
+
+    width: 100%;
+    max-width: 1000px;
+
+    padding: 1em;
+    margin: auto;
+}
+
+.bookmarks-box {
+    text-align: center;
+}
+
+.bookmarks-links {
+    padding: 0.25em;
+}
+
+.bookmarks-links a {
+    display: block;
+
+    width: max-content;
+
+    margin: auto;
+    padding: 0.125rem;
+}
+
+.bookmarks-search {
+    padding: 1em;
+}
+
+.bookmarks-search input,
+.bookmarks-search button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 90%;
+    height: 2em;
+
+    margin: 0.5em auto;
+}
+
+@media (max-width: 500px) {
+    .bookmarks-wrapper {
+        grid-template-columns: 1fr;
+    }
+}

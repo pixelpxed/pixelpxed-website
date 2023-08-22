@@ -1,0 +1,41 @@
+.file-path-bar {
+    display: flex;
+
+    padding: 0;
+
+    z-index: 1 !important;
+}
+
+.save-indicator {
+    display: none;
+
+    box-shadow: -1rem 0 1rem 1px var(--color-gray-6);
+
+    transition: 0.2s box-shadow;
+
+    user-select: none;
+}
+
+.word-count {
+    padding-right: 0.5rem;
+
+    border-left: 1px solid var(--color-gray-4);
+}
+
+.file-path-bar-menu {
+    border-right: 1px solid var(--color-gray-4);
+}
+
+.file-path-bar-menu:hover {
+    background: var(--color-gray-5);
+}
+
+.copyrightyear {
+    padding: 0 1rem 1rem 1rem;
+}
+
+.editor-wrapper {
+    max-width: 45rem;
+
+    margin: auto;
+}

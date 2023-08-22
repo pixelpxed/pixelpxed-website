@@ -1,0 +1,8 @@
+.timeremaining {
+    text-align: center;
+}
+
+.timeremaining span {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: var(--font-weight-bold);
+}

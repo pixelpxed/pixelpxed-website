@@ -218,9 +218,9 @@ function loadNote() {
                 activecheck = " notes-list-active"
             }
 
-            // <li class="notes-list${activecheck}" noteid="${i}" draggable="true">
+            // <li class="notes-list${activecheck}" noteid="${i}">
             document.querySelector(".notes-panel").insertAdjacentHTML("beforeend", `
-                <li class="notes-list${activecheck}" noteid="${i}">
+                <li class="notes-list${activecheck}" noteid="${i}" draggable="true">
                     <a class="notes-list-${i} note-panel-title" onclick="location.href='?noteid=${i}${uistyle}'">${notesData[i].title}</a>
                     <div class="notes-list-tools">
                         <a class="material-symbols-outlined note-panel-delete" title="Delete" onclick="uiDeleteNote(${i})">delete</a>

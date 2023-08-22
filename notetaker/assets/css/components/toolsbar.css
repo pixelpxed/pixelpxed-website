@@ -1,0 +1,64 @@
+.toolsbar-wrapper {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+
+    width: 100%;
+
+    padding: 0;
+
+    background: var(--color-gray-6);
+
+    overflow: hidden;
+}
+
+.tools:hover {
+    background: var(--color-gray-5);
+}
+
+.tools-wrapper {
+    width: calc(100% + 1px);
+
+    overflow: auto;
+}
+
+.tools-wrapper-category {
+    border-right: 1px solid var(--color-gray-4);
+}
+
+.format_active {
+    color: var(--color-blue) !important;
+}
+
+.file-dropzone {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 6rem;
+
+    padding: 1rem;
+    margin: 1rem 0 0 0;
+
+    text-align: center;
+
+    font-size: 0.8rem;
+
+    color: var(--color-gray-1);
+    border: 1px dashed var(--color-gray-4);
+
+    border-radius: 0.3rem;
+
+    cursor: pointer;
+
+    transition: 0.2s border;
+}
+
+.file-dropzone:hover {
+    border: 1px solid var(--color-gray-1);
+}
+
+.tools-selected-color {
+    margin: 0.5rem;
+}

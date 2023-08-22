@@ -1,0 +1,25 @@
+@media screen and (display-mode: standalone) {
+    .navigation-bar {
+        border-top: 1px solid var(--color-gray-4);
+    }
+
+    .nav-pwa-hide {
+        display: none !important;
+    }
+
+    .nav-pwa-timetable {
+        font-weight: var(--font-weight-bold);
+    }
+
+    .title-wrapper {
+        margin: 1rem 1rem 0.5rem 1rem;
+    }
+
+    .clock-wrapper {
+        margin: 0.5rem 1rem 1rem 1rem;
+    }
+
+    .title-description {
+        display: none;
+    }
+}

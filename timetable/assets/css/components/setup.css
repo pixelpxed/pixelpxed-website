@@ -1,0 +1,26 @@
+.setup-img {
+    display: none;
+
+    width: 100%;
+
+    border: 1px solid var(--color-gray-4);
+
+    border-radius: 0.3em;
+}
+
+.setup-img-block {
+    display: block;
+}
+
+.setup-custom-json-wrapper {
+    display: none;
+}
+
+.custom-json {
+    width: 100%;
+    height: 16em;
+
+    resize: vertical;
+
+    font-family: 'Roboto Mono', 'Sarabun', monospace;
+}

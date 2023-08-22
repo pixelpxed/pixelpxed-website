@@ -1,0 +1,27 @@
+.about-content div {
+    margin: 1em 1em 0 1em;
+}
+
+.about-content p {
+    font-weight: var(--font-weight-bold);
+}
+
+.animation-rotate-inf {
+    display: block;
+
+    width: max-content;
+
+    margin: 0.5em auto 0 auto;
+
+    animation: rotate-360 1s linear infinite;
+}
+
+@keyframes rotate-360 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
