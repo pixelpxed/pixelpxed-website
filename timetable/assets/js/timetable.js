@@ -169,7 +169,7 @@ function fillClasses() {
     }
 
     // Fill class names and styling.
-    for (let i = 0; i <= Math.floor(classes.length); i++) {
+    for (let i = 0; i <= Math.floor(classes.length - 1); i++) {
         var gridBefore = document.getElementById(i)
         var grid = document.getElementById(i + 1)
 
