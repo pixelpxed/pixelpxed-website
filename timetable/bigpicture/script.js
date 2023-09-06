@@ -197,7 +197,7 @@ var classes = {
             "classroom": "NTE5ODE5MjM0MTA1"
         },
         "Comm. Eng": {
-            "subjname": "Communicational in English",
+            "subjname": "Communication in English",
             "subjcode": "อ31251",
             "teacher": "Ramces M. Dili",
             "classcode": "votutta",
