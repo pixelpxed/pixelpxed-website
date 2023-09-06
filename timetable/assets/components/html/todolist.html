@@ -1,5 +1,5 @@
 <div class="contentbox-wrapper contentbox-assignments">
-    <div class="popup-content assignments-wrapper" style="scroll-behavior: auto; padding: 0.5rem;">
+    <div class="popup-content assignments-wrapper" style="scroll-behavior: auto; padding: 0.5rem;">        
         <div class="todotable-selctor-wrapper">
             <a onclick="changeToDoView('current')" class="todo-current active">Upcoming Works</a>
             <a onclick="changeToDoView('passed')" class="todo-passed">Passed Works</a>
@@ -9,8 +9,8 @@
                 <table style="width: 100%; margin: 0 0 0.5rem 0;">
                     <thead>
                         <tr>
-                            <th style="width: 75%;">Reminders</th>
-                            <th style="width: 25%; text-align: center;">Date</th>
+                            <th style="">Reminders</th>
+                            <th style="text-align: center;">Date</th>
                         </tr>
                     </thead>
                     <tbody class="table-todo-reminder"></tbody>
@@ -19,8 +19,8 @@
                 <table style="width: 100%; margin: 0.5rem 0 0.5rem 0;">
                     <thead>
                         <tr>
-                            <th style="width: 75%;">Homeworks</th>
-                            <th style="width: 25%; text-align: center;">Date</th>
+                            <th style="">Homeworks</th>
+                            <th style="text-align: center;">Date</th>
                         </tr>
                     </thead>
                     <tbody class="table-todo-homework"></tbody>
@@ -29,8 +29,8 @@
                 <table style="width: 100%; margin: 0.5rem 0 0 0;">
                     <thead>
                         <tr>
-                            <th style="width: 75%;">Exams</th>
-                            <th style="width: 25%; text-align: center;">Date</th>
+                            <th style="">Exams</th>
+                            <th style="text-align: center;">Date</th>
                         </tr>
                     </thead>
                     <tbody class="table-todo-exam"></tbody>
@@ -40,8 +40,8 @@
                 <table style="width: 100%; margin: 0 0 0.5rem 0;">
                     <thead>
                         <tr>
-                            <th style="width: 75%;">Reminders</th>
-                            <th style="width: 25%; text-align: center;">Date</th>
+                            <th style="">Reminders</th>
+                            <th style="text-align: center;">Date</th>
                         </tr>
                     </thead>
                     <tbody class="table-pasttodo-reminder"></tbody>
@@ -50,8 +50,8 @@
                 <table style="width: 100%; margin: 0.5rem 0 0.5rem 0;">
                     <thead>
                         <tr>
-                            <th style="width: 75%;">Homeworks</th>
-                            <th style="width: 25%; text-align: center;">Date</th>
+                            <th style="">Homeworks</th>
+                            <th style="text-align: center;">Date</th>
                         </tr>
                     </thead>
                     <tbody class="table-pasttodo-homework"></tbody>
@@ -60,14 +60,17 @@
                 <table style="width: 100%; margin: 0.5rem 0 0 0;">
                     <thead>
                         <tr>
-                            <th style="width: 75%;">Exams</th>
-                            <th style="width: 25%; text-align: center;">Date</th>
+                            <th style="">Exams</th>
+                            <th style="text-align: center;">Date</th>
                         </tr>
                     </thead>
                     <tbody class="table-pasttodo-exam"></tbody>
                 </table>
             </div>
         </div>
+
+        <a class="material-symbols-outlined icon-button" title="Back to Top" onclick="document.querySelector('.assignments-wrapper').scrollTo(0, 0)" style="margin: 0.5rem auto; background: var(--background-html);">arrow_upward</a>
+
         <p class="popup-description" style="text-align: center; padding-bottom: 0.5rem;">
             To-do is made possible with <a href="https://pawin.tk/to-do/" target="_blank">pawin.tk</a> API<br>
             Last Update: <span class="todo-lastupdate">--:--:-- @ --:--</span> / v<span class="todo-dataver">-.-.-</span>

@@ -13,7 +13,7 @@
         "",
     
         "Homeroom",
-        "E.S.",
+        "Earth Space",
         "DClass",
         "Chemistry",
         "F. Biology",
@@ -25,7 +25,7 @@
         "EP Meeting",
     
         "Homeroom",
-        "E.S.",
+        "Earth Space",
         "F. Math",
         "DClass",
         "A. Math",
@@ -57,7 +57,6 @@
         "A. Math",
         "DClass",
         "Thai",
-        "",
         ""
     ],
     "links": {
@@ -117,7 +116,7 @@
             "videocall": "",
             "classroom": ""
         },
-        "E.S.": {
+        "Earth Space": {
             "subjname": "Earth and Space",
             "subjcode": "ว30165",
             "teacher": "ณัฐริกา รอดสถิตย์",

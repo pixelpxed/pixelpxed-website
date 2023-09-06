@@ -2,9 +2,9 @@
     position: absolute; 
     display: block;
 
-    top: -1px;
-    left: -1px;
-    transform: translate(50%, 0%);
+    top: 0;
+    left: 0;
+    transform: translate(55%, 0%);
 
     width: 15rem;
     height: max-content;
@@ -27,7 +27,7 @@
 }
 
 .table-double > .subjcard {
-    transform: translate(100%, 0%) !important;
+    transform: translate(110%, 0%) !important;
 }
 
 .subjcard:hover {

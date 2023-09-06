@@ -1,3 +1,28 @@
+.table {
+    position: relative;
+    display: grid;
+
+    grid-template-columns: repeat(12, minmax(7.5em, 1fr));
+    gap: 0.5em;
+
+    width: calc(100% - 2em);
+    max-width: 100em;
+
+    padding: 0.5em;
+    margin: 1em auto;
+
+    background: var(--color-gray-6);
+    backdrop-filter: blur(0.2em);
+    border: 1px solid var(--color-gray-4);
+
+    border-radius: 0.5em;
+
+    transition: 0.2s background-color, 0.2s border, 0.2s opacity;
+
+    overflow-x: auto;
+    overflow-y: visible;
+}
+
 .table-grid {
     position: relative;
     display: block;
@@ -9,8 +34,6 @@
 
     text-align: center;
     text-overflow: ellipsis;
-    white-space: nowrap;
-    /* overflow: hidden; */
 
     border: 1px solid var(--color-gray-4);
 
@@ -48,6 +71,7 @@
 
     align-items: center;
     justify-content: center;
+    gap: 0.25rem;
 
     white-space: nowrap;
 
@@ -61,4 +85,17 @@
     border-radius: 0.3em;
 
     transition: 0.2s background-color, 0.3s border;
+}
+
+.table-grid-time-divider {
+    font-weight: var(--font-weight-normal);
+    
+    color: var(--color-gray-2);
+}
+
+.table-grid-time-content {
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-normal);
+    
+    /* color: var(--color-gray-1); */
 }

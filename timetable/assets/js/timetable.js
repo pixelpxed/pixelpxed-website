@@ -152,12 +152,14 @@ function fillClasses() {
         event.preventDefault();
     })
 
-    for (let i = 0; i <= 10; i++) {
+    for (let i = 0; i <= Math.floor(classes.length / 5); i++) {
+        document.getElementById(`period${i}`).innerHTML = `${i}`
+
         if (classTimetable !== "custom") {
             if (localStorage.getItem("timetable-overrideTimeList") === "auto") {
-                document.getElementById(`time${i + 1}`).innerHTML = classtimes[classtime_type]["list"][i]
+                document.getElementById(`time${i}`).innerHTML = classtimes[classtime_type]["list"][i]
             } if (localStorage.getItem("timetable-overrideTimeList") !== "auto") {
-                document.getElementById(`time${i + 1}`).innerHTML = classtimes[overrideTimeList]["list"][i]
+                document.getElementById(`time${i}`).innerHTML = classtimes[overrideTimeList]["list"][i]
             }
         }
         if (classTimetable === "custom") {
@@ -167,7 +169,7 @@ function fillClasses() {
     }
 
     // Fill class names and styling.
-    for (let i = 0; i <= 54; i++) {
+    for (let i = 0; i <= Math.floor(classes.length); i++) {
         var gridBefore = document.getElementById(i)
         var grid = document.getElementById(i + 1)
 
