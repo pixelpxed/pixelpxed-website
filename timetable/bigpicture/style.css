@@ -59,8 +59,6 @@ body {
     width: max-content;
 
     padding: 1rem;
-
-    transform: scale(2);
 }
 
 hr {
@@ -86,5 +84,11 @@ hr {
 .quotes-wrapper {
     position: fixed;
 
-    bottom: 2rem;
+    bottom: 0;
+
+    padding: 2rem;
+
+    font-size: 0.8rem;
+
+    /* max-width: 40rem; */
 }

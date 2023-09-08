@@ -202,19 +202,18 @@ setInterval(() => {
         .then((res) => res.json())
         .then((data) => {
             var quote = data
-            console.log(quote);
 
             document.querySelector(".quote").innerHTML = quote[0].content
             document.querySelector(".author").innerHTML = quote[0].author
         })
-}, 15000);
+}, 10000);
 
 // ----------------------------------
 
-// var backgrounds = [
-//     "./video/alive.mp4",
-//     "./video/neon.mp4",
-//     "./video/dna.mp4"
-// ]
-// var videosrc = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-// document.querySelector(".background-video").src = videosrc
+var backgrounds = [
+    "/timetable/bigpicture/video/alive.mp4",
+    "/timetable/bigpicture/video/neon.mp4",
+    "/timetable/bigpicture/video/dna.mp4"
+]
+var videosrc = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+document.querySelector(".background-video").src = videosrc
