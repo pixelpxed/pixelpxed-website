@@ -7,29 +7,30 @@
 
     <link rel="shortcut icon" href="/timetable/assets/etc/favicon.ico" type="image/png">
 
-    <link rel="stylesheet" href="/assets/css/global.css">
     <link rel="stylesheet" href="/timetable/bigpicture/style.css">
 
     <script defer src="/timetable/assets/js/components/clock.js"></script>
     <script defer src="/timetable/bigpicture/script.js"></script>
 </head>
 <body>
-    <video muted autoplay loop class="background-video" src="/timetable/bigpicture/video/Alive_4K_Motion_Background_Loop.mp4"></video>
+    <video muted autoplay loop class="background-video" src=""></video>
     <div class="background-dim"></div>
     <div class="content-wrapper">
         <div class="clock-wrapper">
             <h1 class="clock" id="clock">--:--:--</h1>
             <p class="date" id="date">------, -- ----- ----</p>
         </div>
-
         <hr>
-
         <div class="periodinfo">
-            <!-- <b>Period: </b><span id="period">0</span><br> -->
-            <b>Subject: </b><br><span id="subjname">--------</span>
+            <b>Current Subject: </b><br><span id="subjname">--------</span>
             <div style="display: block; width: 100%; height: 0.5rem;"></div>
-            <b>Time Remaining for: </b><br><span id="timeremaining-refreshcontent">--:--</span>
+            <b>Time Remaining: </b><br><span id="timeremaining-refreshcontent">--:--</span>
         </div>
+    </div>
+
+    <div class="quotes-wrapper">
+        <i>"<span class="quote">Lorem Ipsum</span>"</i><br>
+        - <span class="author">John Doe</span>
     </div>
 </body>
 </html>

@@ -1,5 +1,8 @@
 * {
-    font-family: "Roboto Mono", monospace;
+    padding: 0;
+    margin: 0;
+
+    font-family: "SF Mono", "Cascadia Code", "Ubuntu Mono", monospace;
 }
 
 body {
@@ -7,12 +10,16 @@ body {
 
     min-height: 100dvh;
 
+    color: white;
+
     align-items: center;
     justify-content: center;
 
     overflow: hidden;
 
     text-align: center;
+
+    font-weight: 300;
 }
 
 .clock-wrapper {
@@ -20,13 +27,16 @@ body {
 }
 
 .background-video {
-    top: 0;
-    left: 0;
+    min-width: 100%; 
+    min-height: 100%; 
+
+    width: auto;
+    height: auto;
 
     position: fixed;
-
-    aspect-ratio: 16/9;
-    height: 100dvh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 
     z-index: -100;
 }
@@ -40,7 +50,7 @@ body {
     width: 100dvw;
     height: 100dvh;
 
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
 
     z-index: -99;
 }
@@ -61,7 +71,7 @@ hr {
 
     border: none;
 
-    background: var(--color-white);
+    background: white;
 }
 
 .periodinfo {
@@ -71,4 +81,10 @@ hr {
     background: var(--color-gray-6); 
     
     border-radius: 0.5rem;  */
+}
+
+.quotes-wrapper {
+    position: fixed;
+
+    bottom: 2rem;
 }
