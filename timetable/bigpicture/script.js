@@ -133,15 +133,14 @@ var classtimes = {
 var timeleftinterval = undefined
 var bellChimes = new Audio("/timetable/assets/sound/bellChimes.mp3")
 
-// Set variables.
-var periodTimeLeft = classtimes[classtime_type]["timeremaining"];
-var periodperday = periodTimeLeft["periodperday"];
-var periodlength = periodTimeLeft["periodlength"];
-var starthour = periodTimeLeft["starthour"];
-var startmin = periodTimeLeft["startmin"];
-
 // Calculated every 1 second.
 timeleftinterval = setInterval(() => {
+    var periodTimeLeft = classtimes[classtime_type]["timeremaining"];
+    var periodperday = periodTimeLeft["periodperday"];
+    var periodlength = periodTimeLeft["periodlength"];
+    var starthour = periodTimeLeft["starthour"];
+    var startmin = periodTimeLeft["startmin"];
+
     var curtimeM = (hour * 60) + minute;
     var curtimeS = (curtimeM * 60) + second;
 
@@ -229,3 +228,16 @@ var backgrounds = [
 ]
 var videosrc = backgrounds[Math.floor(Math.random() * backgrounds.length)];
 document.querySelector(".background-video").src = videosrc
+
+window.addEventListener("keyup", (event) => {
+    console.log(event.key);
+    if (event.key == "a") {
+        classtime_type = "Regular"
+    }
+    if (event.key == "s") {
+        classtime_type = "Special"
+    }
+    if (event.key == "d") {
+        classtime_type = "Online"
+    }
+})
