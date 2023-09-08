@@ -194,17 +194,30 @@ fetch("https://api.quotable.io/quotes/random")
         var quote = data
         console.log(quote);
 
-        document.querySelector(".quote").innerHTML = quote[0].content
-        document.querySelector(".author").innerHTML = quote[0].author
+        document.querySelector(".quotes-wrapper").style.opacity = "1"
+
+        document.querySelector(".quote").innerHTML = `"${quote[0].content}"`
+        document.querySelector(".author").innerHTML = `- ${quote[0].author}`
+
+        setTimeout(() => {
+            document.querySelector(".quotes-wrapper").style.opacity = "0"
+        }, 14000);
     })
 setInterval(() => {
     fetch("https://api.quotable.io/quotes/random")
         .then((res) => res.json())
         .then((data) => {
             var quote = data
-
-            document.querySelector(".quote").innerHTML = quote[0].content
-            document.querySelector(".author").innerHTML = quote[0].author
+            console.log(quote);
+    
+            document.querySelector(".quotes-wrapper").style.opacity = "1"
+    
+            document.querySelector(".quote").innerHTML = `"${quote[0].content}"`
+            document.querySelector(".author").innerHTML = `- ${quote[0].author}`
+    
+            setTimeout(() => {
+                document.querySelector(".quotes-wrapper").style.opacity = "0"
+            }, 14000);
         })
 }, 15000);
 
@@ -212,7 +225,6 @@ setInterval(() => {
 
 var backgrounds = [
     "/timetable/bigpicture/video/alive.mp4",
-    "/timetable/bigpicture/video/neon.mp4",
     "/timetable/bigpicture/video/dna.mp4"
 ]
 var videosrc = backgrounds[Math.floor(Math.random() * backgrounds.length)];
