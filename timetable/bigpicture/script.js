@@ -1,283 +1,63 @@
-var classes = {
-    "class": [
-        "Homeroom",
-        "M4 Meeting",
-        "M.I.A.",
-        "Thai",
-        "Art",
-        "Lunch",
-        "F. English",
-        "DClass",
-        "Chemistry",
-        "DClass",
-        "",
-    
-        "Homeroom",
-        "Earth Space",
-        "DClass",
-        "Chemistry",
-        "F. Biology",
-        "Lunch",
-        "Physics",
-        "S.I.A.",
-        "Social",
-        "Badminton",
-        "EP Meeting",
-    
-        "Homeroom",
-        "Earth Space",
-        "F. Math",
-        "DClass",
-        "A. Math",
-        "Lunch",
-        "I. Study",
-        "Comm. Eng",
-        "Physics",
-        "DClass",
-        "",
-    
-        "Homeroom",
-        "Chinese",
-        "F. Biology",
-        "DClass",
-        "Lunch",
-        "Counselling Activities",
-        "DClass",
-        "",
-        "",
-        "",
-        "",
-    
-        "Homeroom",
-        "E.I.A.",
-        "DClass",
-        "Social",
-        "Health",
-        "Lunch",
-        "A. Math",
-        "DClass",
-        "Thai",
-        ""
-    ],
-    "links": {
-        "Homeroom": {
-            "subjname": "Homeroom",
-            "subjcode": "",
-            "teacher": "ชุติมา สุขเอี่ยม",
-            "classcode": "",
-            "videocall": "",
-            "classroom": ""
-        },
-        "M4 Meeting": {
-            "subjname": "M4 Meeting",
-            "subjcode": "",
-            "teacher": "ระดับชั้น ม.4",
-            "classcode": "",
-            "videocall": "",
-            "classroom": ""
-        },
-        "M.I.A.": {
-            "subjname": "Math for International Achievement",
-            "subjcode": "ค31253",
-            "teacher": "กฤชพล บุญพูลมี",
-            "classcode": "6izduw2",
-            "videocall": "",
-            "classroom": "NjA5NTc2MjM2MTU3"
-        },
-        "Thai": {
-            "subjname": "Thai",
-            "subjcode": "ท31101",
-            "teacher": "สุภาภรณ์ ขวัญสุวรรณ",
-            "classcode": "np5leqz",
-            "videocall": "",
-            "classroom": "NjA5NTkwNDgyMTgz"
-        },
-        "Art": {
-            "subjname": "Art",
-            "subjcode": "ศ31101",
-            "teacher": "รัชนู พิมพิทักษ์",
-            "classcode": "",
-            "videocall": "",
-            "classroom": ""
-        },
-        "F. English": {
-            "subjname": "Fundamental English",
-            "subjcode": "อ31151",
-            "teacher": "Ramces M. Dili",
-            "classcode": "udnafon",
-            "videocall": "",
-            "classroom": "NjA5NTM3NjY0NTM0"
-        },
-        "Chemistry": {
-            "subjname": "Chemistry",
-            "subjcode": "ว31125",
-            "teacher": "ธันฐภัทร บุญช่วย",
-            "classcode": "",
-            "videocall": "",
-            "classroom": ""
-        },
-        "Earth Space": {
-            "subjname": "Earth and Space",
-            "subjcode": "ว30165",
-            "teacher": "ณัฐริกา รอดสถิตย์",
-            "classcode": "ymfvwts",
-            "videocall": "",
-            "classroom": "NjA5NTE3NDI4NTE4"
-        },
-        "F. Biology": {
-            "subjname": "Fundamental Biology",
-            "subjcode": "ว31145",
-            "teacher": "ธนกร อรรจนาวัฒน์",
-            "classcode": "",
-            "videocall": "",
-            "classroom": ""
-        },
-        "Physics": {
-            "subjname": "Physics",
-            "subjcode": "ว31105",
-            "teacher": "นิรุทธ์ พรมบุตร",
-            "classcode": "5mpkvxs",
-            "videocall": "",
-            "classroom": "NjA5NTE2NDA1MDM2"
-        },
-        "S.I.A.": {
-            "subjname": "Science for International Achievement",
-            "subjcode": "ว31273",
-            "teacher": "นิรุทธ์ พรมบุตร",
-            "classcode": "5mpkvxs",
-            "videocall": "",
-            "classroom": "NjA5NTE2NDA1MDM2"
-        },
-        "Social": {
-            "subjname": "Social",
-            "subjcode": "ส31151",
-            "teacher": "มาร์ช อุกฤษณ์ / นิว ธราดล",
-            "classcode": "fclrxsv",
-            "videocall": "efv-igth-qip",
-            "classroom": "NTIwMDMzMTQyMjMx"
-        },
-        "Badminton": {
-            "subjname": "Badminton",
-            "subjcode": "พ30233",
-            "teacher": "ทวีศักดิ์ พรหมแก้ว",
-            "classcode": "2tld3ml",
-            "videocall": "",
-            "classroom": ""
-        },
-        "EP Meeting": {
-            "subjname": "EP Meeting",
-            "subjcode": "",
-            "teacher": "",
-            "classcode": "",
-            "videocall": "",
-            "classroom": ""
-        },
-        "F. Math": {
-            "subjname": "Fundamental Math",
-            "subjcode": "ค31151",
-            "teacher": "กฤชพล บุญพูลมี",
-            "classcode": "liwxlwd",
-            "videocall": "",
-            "classroom": "NjA5NTc2MTEzNTcx"
-        },
-        "A. Math": {
-            "subjname": "Additional Math",
-            "subjcode": "ค31251",
-            "teacher": "กฤษฎา อัศวสกุลเกียรติ",
-            "classcode": "deki6v5 (Gmail)",
-            "videocall": "",
-            "classroom": "NTIzMTUxNDM5MzI0"
-        },
-        "I. Study": {
-            "subjname": "Independent Study",
-            "subjcode": "I31251",
-            "teacher": "เอกราช สุขเสริม",
-            "classcode": "omazijx",
-            "videocall": "hcp-dtmt-tmr",
-            "classroom": "NTE5ODE5MjM0MTA1"
-        },
-        "Comm. Eng": {
-            "subjname": "Communication in English",
-            "subjcode": "อ31251",
-            "teacher": "Ramces M. Dili",
-            "classcode": "votutta",
-            "videocall": "",
-            "classroom": "NTIwMDQyNzkxNDY2"
-        },
-        "Chinese": {
-            "subjname": "Chinese",
-            "subjcode": "จ31251",
-            "teacher": "ธัญญภัสร์ เจริญพร",
-            "classcode": "",
-            "videocall": "",
-            "classroom": ""
-        },
-        "Japanese": {
-            "subjname": "Japanese",
-            "subjcode": "ญ31251",
-            "teacher": "ดรัณภพ กัญญาศักดิ์",
-            "classcode": "6uulgjc",
-            "videocall": "",
-            "classroom": "NTIyNTcxNDU2MzQ2"
-        },
-        "Counselling Activities": {
-            "subjname": "Counselling Activities",
-            "subjcode": "ก31903",
-            "teacher": "วรางคณา มุ่งมาตร์มิตร",
-            "classcode": "trmwn77",
-            "videocall": "afw-jjes-jcf",
-            "classroom": "NTIwMDQwNzIxMzQ5"
-        },
-        "E.I.A.": {
-            "subjname": "English for International Achievement",
-            "subjcode": "อ31253",
-            "teacher": "โชกศรัณต์​ เศรษฐาศุภวัฒน์",
-            "classcode": "en7acxt",
-            "videocall": "",
-            "classroom": "NTE5ODE5MTM1NTAy"
-        },
-        "Health": {
-            "subjname": "Health",
-            "subjcode": "พ31101",
-            "teacher": "รุสมัน มะนอ",
-            "classcode": "fvqujrp",
-            "videocall": "",
-            "classroom": "NTIwMDYyNjkxMTAy"
-        },
-        "Lunch": {
-            "subjname": "Lunch",
-            "subjcode": "",
-            "teacher": "",
-            "classcode": "",
-            "videocall": "",
-            "classroom": ""
-        },
-        "Break": {
-            "subjname": "Break",
-            "subjcode": "",
-            "teacher": "",
-            "classcode": "",
-            "videocall": "",
-            "classroom": ""
-        },
-        "DClass": {
-            "subjname": "DClass",
-            "subjcode": "",
-            "teacher": "",
-            "classcode": "",
-            "videocall": "",
-            "classroom": ""
-        },
-        "": {
-            "subjname": "",
-            "subjcode": "",
-            "teacher": "",
-            "classcode": "",
-            "videocall": "",
-            "classroom": ""
-        }
-    }
-}
+var classes = [
+    "Homeroom",
+    "M4 Meeting",
+    "Math for International Achievement",
+    "Thai",
+    "Art",
+    "Lunch",
+    "Fundamental English",
+    "Fundamental English",
+    "Chemistry",
+    "Chemistry",
+    "-",
+
+    "Homeroom",
+    "Earth and Space",
+    "Earth and Space",
+    "Chemistry",
+    "Fundamental Biology",
+    "Lunch",
+    "Physics",
+    "Science for International Achievement",
+    "Social",
+    "Badminton",
+    "EP Meeting",
+
+    "Homeroom",
+    "Earth and Space",
+    "Fundamental Math",
+    "Fundamental Math",
+    "Additional Math",
+    "Lunch",
+    "Independent Study",
+    "Communication in English",
+    "Physics",
+    "Physics",
+    "-",
+
+    "Homeroom",
+    "Chinese",
+    "Fundamental Biology",
+    "Fundamental Biology",
+    "Lunch",
+    "Counselling Activities",
+    "Counselling Activities",
+    "-",
+    "-",
+    "-",
+    "-",
+
+    "Homeroom",
+    "English for International Achievement",
+    "English for International Achievement",
+    "Social",
+    "Health",
+    "Lunch",
+    "Additional Math",
+    "Additional Math",
+    "Thai",
+    "-"
+]
 
 var classtime_type = "Regular"
 var classtimes = {
@@ -379,10 +159,10 @@ timeleftinterval = setInterval(() => {
     var rminutes = Math.floor(timediff / 60);
 
     if (periodno >= 0 && periodno <= periodperday) {
-        var classtofetch = classes.links[classes.class[((today.getDay() - 1) * 11) + (periodno)]].subjname
+        var classtofetch = classes[((today.getDay() - 1) * 11) + (periodno)]
 
         if (classtofetch == "DClass") {
-            classtofetch = classes.links[classes.class[(((today.getDay() - 1) * 11)) + (periodno)]].subjname
+            classtofetch = classes[(((today.getDay() - 1) * 11)) + (periodno)]
         }
 
         document.getElementById("subjname").innerHTML = classtofetch
