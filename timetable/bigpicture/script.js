@@ -206,7 +206,7 @@ setInterval(() => {
             document.querySelector(".quote").innerHTML = quote[0].content
             document.querySelector(".author").innerHTML = quote[0].author
         })
-}, 10000);
+}, 15000);
 
 // ----------------------------------
 
