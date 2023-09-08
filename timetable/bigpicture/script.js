@@ -193,7 +193,7 @@ fetch("https://api.quotable.io/quotes/random")
     .then((data) => {
         var quote = data
         console.log(quote);
-        
+
         document.querySelector(".quote").innerHTML = quote[0].content
         document.querySelector(".author").innerHTML = quote[0].author
     })
@@ -207,7 +207,7 @@ setInterval(() => {
             document.querySelector(".quote").innerHTML = quote[0].content
             document.querySelector(".author").innerHTML = quote[0].author
         })
-}, 30000);
+}, 15000);
 
 // ----------------------------------
 
