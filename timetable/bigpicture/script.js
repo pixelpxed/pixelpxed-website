@@ -188,7 +188,16 @@ timeleftinterval = setInterval(() => {
     }
 }, 1000);
 
-// setInterval(() => {
+fetch("https://api.quotable.io/quotes/random")
+    .then((res) => res.json())
+    .then((data) => {
+        var quote = data
+        console.log(quote);
+        
+        document.querySelector(".quote").innerHTML = quote[0].content
+        document.querySelector(".author").innerHTML = quote[0].author
+    })
+setInterval(() => {
     fetch("https://api.quotable.io/quotes/random")
         .then((res) => res.json())
         .then((data) => {
@@ -198,14 +207,14 @@ timeleftinterval = setInterval(() => {
             document.querySelector(".quote").innerHTML = quote[0].content
             document.querySelector(".author").innerHTML = quote[0].author
         })
-// }, 30000);
+}, 30000);
 
 // ----------------------------------
 
-var backgrounds = [
-    "./video/alive.mp4",
-    "./video/neon.mp4",
-    "./video/dna.mp4"
-]
-var videosrc = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-document.querySelector(".background-video").src = videosrc
+// var backgrounds = [
+//     "./video/alive.mp4",
+//     "./video/neon.mp4",
+//     "./video/dna.mp4"
+// ]
+// var videosrc = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+// document.querySelector(".background-video").src = videosrc
