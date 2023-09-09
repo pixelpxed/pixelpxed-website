@@ -164,6 +164,10 @@ timeleftinterval = setInterval(() => {
             classtofetch = classes[(((today.getDay() - 1) * 11)) + (periodno)]
         }
 
+        if (day == "Sunday" || day == "Saturday") {
+            classtofetch = "-"
+        }
+
         document.getElementById("subjname").innerHTML = classtofetch
 
         // ------------------------------------------------------------------
@@ -179,11 +183,15 @@ timeleftinterval = setInterval(() => {
             }
         } 
     }
-    if (periodno <= 0) {
-        document.getElementById("timeremaining-refreshcontent").innerHTML = `Day Start`;
-    }
-    if (periodno > periodperday) {
-        document.getElementById("timeremaining-refreshcontent").innerHTML = `Day End`;
+    if (day !== "Sunday" && day !== "Saturday") {
+        if (periodno <= 0) {
+            document.getElementById("timeremaining-refreshcontent").innerHTML = `Day Start`;
+        }
+        if (periodno > periodperday) {
+            document.getElementById("timeremaining-refreshcontent").innerHTML = `Day End`;
+        }
+    } if (day == "Sunday" || day == "Saturday") {
+        document.getElementById("timeremaining-refreshcontent").innerHTML = `Weekend`;
     }
 }, 1000);
 
