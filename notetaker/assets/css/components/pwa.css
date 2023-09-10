@@ -1,7 +1,5 @@
 .pwa-navsettings {
     display: none !important;
-
-    border-left: 1px solid var(--color-gray-4);
 }
 
 @media screen and (display-mode: standalone) {
