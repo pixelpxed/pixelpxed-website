@@ -311,6 +311,7 @@ function newNote() {
 var uiDeleteNoteId = undefined;
 function uiDeleteNote(id) {
     uiDeleteNoteId = id
+
     popupConfirm(
         `Delete note?`,
         `Are you sure you want to delete<br>'<b>${notesData[id].title}</b>'?<br>This action can't be undone!`,

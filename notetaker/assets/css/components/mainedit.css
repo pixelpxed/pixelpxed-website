@@ -4,6 +4,7 @@
     overflow: auto;
 
     caret-color: var(--color-blue);
+    background: var(--background-html);
 }
 
 .main-edit h1, h2, h3, h4, h5, h6, p:focus {

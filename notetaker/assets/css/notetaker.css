@@ -6,6 +6,8 @@
 @import url("/notetaker/assets/css/components/pwa.css");
 @import url("/notetaker/assets/css/components/sidebar.css");
 @import url("/notetaker/assets/css/components/toolsbar.css");
+@import url("/notetaker/assets/css/components/activekey.css");
+@import url("/notetaker/assets/css/components/view.css");
 
 body {
     overflow: hidden;
@@ -40,7 +42,7 @@ body {
     display: grid;
     
     grid-template-columns: 1fr;
-    grid-template-rows: 41px calc(100vh - 41px);
+    grid-template-rows: 41px calc(100dvh - 41px);
     
     height: 100dvh;
     max-height: -webkit-fill-available;
@@ -118,53 +120,26 @@ body {
         color-scheme: light;
     }
 
-    body {
-        width: auto !important;
-        height: max-content !important;
-        overflow: auto;
-    }
-
     .navigation-bar {
-        display: none;
-    }
-
-    .side-bar {
-        display: none;
-    }
-
-    .application-root {
-        overflow: unset;
-    }
-
-    .application-content {
-        display: block;
-    }
-
-    .editor-wrapper {
-        width: 100% !important;
-        max-width: none !important;
-        margin: auto !important;
-
-        padding: 0 !important;
-        border: none !important;
-
-        border-radius: 0 !important;
+        display: none !important;
     }
 
     .main-content {
-        display: block;
-        height: max-content;
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 100dvw;
+        height: 100dvh;
+    }
+
+    .side-bar-open-overlay {
+        display: none;
     }
 
     .main-edit {
+        max-width: none;
         padding: 0;
-    }
-
-    .main-edit-content {
-        padding: 0;
-    }
-    
-    .statusbar-wrapper {
-        display: none !important;
     }
 }
