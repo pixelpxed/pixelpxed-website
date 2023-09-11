@@ -102,7 +102,7 @@
                 </div>
                 <div class="navigation-bar toolsbar-wrapper">
                     <div class="tools-wrapper">
-                        <div class="tools-content-wrapper">
+                        <div class="tools-content-wrapper" style="margin: auto;">
 
                             <!-- 
                                 Use 'onmousedown' when the tools used needed to be click 
@@ -150,8 +150,9 @@
                                 <a class="material-symbols-outlined tools" title="Add Link" onmousedown="toolsCreateLink()">link</a>
                                 <a class="material-symbols-outlined tools" title="Remove Link" onmousedown="toolsRemoveLink()">link_off</a>
                             </div>
-                            <div class="tools-wrapper-category">
+                            <div class="tools-wrapper-category" style="border-right: none;">
                                 <a class="material-symbols-outlined tools" title="Add Image" onclick="toolsAddImage()">image</a>
+                                <a class="material-symbols-outlined tools" title="Add Check Box" onmousedown="toolsAddCheckbox()">check_box</a>
                                 <a class="material-symbols-outlined tools" title="Add Horizontal Rule" onmousedown="toolsExec('insertHorizontalRule')">horizontal_rule</a>
                             </div>
                         </div>
@@ -162,13 +163,12 @@
                     <div class="editor-wrapper">
                         <h1 class="main-edit-title" contenteditable>Notetaker is loading...</h1>
                         <hr>
-                        <p class="main-edit-content" contenteditable>We'll get ready in no time!</p>
+                        <div class="main-edit-content" contenteditable>We'll get ready in no time!</div>
                     </div>
 
                     <div class="exit-read-view">
-                        <span class="landscape-only-view popup-description">Read Mode</span>
-                        <!-- <a class="material-symbols-outlined icon-button read-fullscreen-button" title="Toggle Full Screen" onclick="setView('read-fullscreen')">fullscreen</a> -->
-                        <a class="material-symbols-outlined icon-button read-view-button" title="Exit Read View" onclick="setView('read')">visibility_off</a>
+                        <a class="material-symbols-outlined icon-button read-fullscreen-button" title="Toggle Full Screen" onclick="setView('read-fullscreen')">fullscreen</a>
+                        <a class="material-symbols-outlined icon-button icon-button-danger read-view-button" title="Exit Read View" onclick="setView('read')">visibility_off</a>
                     </div>
                 </div>
             </div>

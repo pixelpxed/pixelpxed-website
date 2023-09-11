@@ -155,8 +155,6 @@
 
     -webkit-appearance: none;
 
-    accent-color: var(--color-main-text);
-
     overflow-wrap: anywhere;
 }
 

@@ -1,6 +1,6 @@
 .main-edit {
     padding: 2rem;
-    
+
     overflow: auto;
 
     caret-color: var(--color-blue);
@@ -67,6 +67,8 @@
     flex-grow: 1;
 
     padding-bottom: 50vh;
+
+    outline: none;
 }
 
 .main-edit-content img {
@@ -77,6 +79,13 @@
 
     margin: 0.5rem 0;
     border: 1px solid var(--color-gray-4);
+}
+
+.main-edit-content input[type="checkbox"] {
+    display: inline-block;
+    align-items: center;
+    
+    transform: translateY(0.1rem);
 }
 
 .main-edit-filepath {

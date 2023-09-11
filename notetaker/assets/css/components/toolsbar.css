@@ -16,8 +16,6 @@
 }
 
 .tools-wrapper {
-    width: calc(100% + 1px);
-
     overflow: auto;
 }
 

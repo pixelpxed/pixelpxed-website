@@ -17,7 +17,7 @@
     }
 
     .main-content {
-        grid-template-rows: max-content max-content calc(100dvh - 36.5px) !important;
+        grid-template-rows: max-content max-content calc(100dvh - 41px) !important;
     }
 
     .pwa-navsettings {

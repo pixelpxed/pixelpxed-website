@@ -49,21 +49,7 @@
 .read-view .exit-read-view {
     display: flex;
 
+    flex-direction: column;
+
     animation: exit-read-view-slidein 0.3s;
-}
-
-@media (min-width: 64rem) {
-    .exit-read-view .landscape-only-view {
-        display: block;
-    }
-
-    .exit-read-view {
-        padding: 0.5rem;
-
-        border: 1px solid var(--color-gray-4);
-        border-radius: 0.5rem;
-
-        backdrop-filter: blur(1rem);
-        -webkit-backdrop-filter: blur(1rem);
-    }
 }

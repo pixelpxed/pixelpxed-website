@@ -1,5 +1,7 @@
 window.addEventListener("load", () => {
     addEventLink()
+    insertCheckboxState()
+    addCheckboxState()
 
     elementContent.addEventListener("keydown", (event) => {
         const ctrlcmd = (event.ctrlKey || event.metaKey)
@@ -118,22 +120,60 @@ function toolsAddNumberList() {
     addInCaret(`<ol><li>Ordered List</li></ol>`)
 }
 
-function addEventLink() {
+function insertEventLink() {
     document.querySelectorAll(".main-edit-content a").forEach((element) => {
-        element.removeEventListener("click", () => {
-            popupOK(
-                "Open Link",
-                `<a href="${element.href}" style="line-break: anywhere;" target="_blank">${element.href}</a>`
-            )
-        })
-
-        element.addEventListener("click", () => {
-            popupOK(
-                "Open Link",
-                `<a href="${element.href}" style="line-break: anywhere;" target="_blank">${element.href}</a>`
-            )
+        element.addEventListener("click", (event) => {
+            event.preventDefault()
+            if (document.querySelector(".main-content").classList.contains("read-view")) {
+                window.open(element.href)
+            }
         })
     })
+}
+function removeEventLink() {
+    document.querySelectorAll(".main-edit-content a").forEach((element) => {
+        element.removeEventListener("click", (event) => {
+            event.preventDefault()
+            if (document.querySelector(".main-content").classList.contains("read-view")) {
+                window.open(element.href)
+            }
+        })
+    })
+}
+
+function addEventLink() {
+    removeEventLink()
+    insertEventLink()
+}
+
+function insertCheckboxState() {
+    document.querySelectorAll(".main-edit-content input[type='checkbox']").forEach((element) => {
+        element.addEventListener("click", () => {
+            if (element.checked == true) {
+                element.setAttribute("checked", "true")
+            }
+            if (element.checked != true) {
+                element.removeAttribute("checked")
+            }
+        })
+    })
+}
+function removeCheckboxState() {
+    document.querySelectorAll(".main-edit-content input[type='checkbox']").forEach((element) => {
+        element.removeEventListener("click", () => {
+            if (element.checked == true) {
+                element.setAttribute("checked", "true")
+            }
+            if (element.checked != true) {
+                element.removeAttribute("checked")
+            }
+        })
+    })
+}
+
+function addCheckboxState() {
+    removeCheckboxState()
+    insertCheckboxState()
 }
 
 // Tools: Create link
@@ -164,6 +204,11 @@ function toolsExec(cmd) {
 
 function toolsPrint() {
     window.print()
+}
+
+function toolsAddCheckbox() {
+    addInCaret(`<input type="checkbox">`)
+    addCheckboxState()
 }
 
 function base64ToBytes(base64) {
