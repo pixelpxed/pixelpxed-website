@@ -119,26 +119,37 @@ body {
         color-scheme: light;
     }
 
-    .navigation-bar {
-        display: none !important;
+    body {
+        width: auto !important;
+        height: max-content !important;
+        overflow: auto;
     }
 
-    .main-content {
-        position: fixed;
-
-        top: 0;
-        left: 0;
-
-        width: 100dvw;
-        height: 100dvh;
-    }
-
-    .side-bar-open-overlay {
+    .navigation-bar, 
+    .side-bar {
         display: none;
     }
 
-    .main-edit {
-        max-width: none;
+    .application-root {
+        overflow: initial;
+    }
+
+    .application-content {
+        display: block;
+    }
+
+    .main-content {
+        display: block;
+
+        height: max-content;
+    }
+
+    .editor-wrapper {
+        max-width: none !important;
+    }
+
+    .main-edit,
+    .main-edit-content {
         padding: 0;
     }
 }

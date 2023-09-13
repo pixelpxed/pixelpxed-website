@@ -36,7 +36,7 @@
 }
 
 .icon-button-danger {
-    color: var(--color-white);
+    color: var(--color-white) !important;
     background: var(--color-red);
 
     border: 1px solid var(--color-alt-transparent);
