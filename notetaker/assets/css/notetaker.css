@@ -126,6 +126,10 @@ body {
         overflow: auto;
     }
 
+    div {
+        width: initial !important;
+    }
+
     .navigation-bar, 
     .side-bar {
         display: none;
