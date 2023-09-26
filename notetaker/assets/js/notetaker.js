@@ -1,5 +1,7 @@
 var notesData
 
+const untitledNoteString = "<span style='opacity: 0.3; color: var(--color-main-text);'>[Untitled Note]</span>"
+
 let typingTimeout
 const saveIndicator = document.querySelector(".save-indicator")
 
@@ -205,6 +207,10 @@ function loadNote() {
         elementTitle.innerHTML = notesData[currentNoteId].title
         elementContent.innerHTML = notesData[currentNoteId].content
 
+        if (notesData[currentNoteId].title == "") {
+            elementFilePath.innerHTML = untitledNoteString
+        }
+
         document.title = `${notesData[currentNoteId].title}`
 
         var uistyle = ""
@@ -218,10 +224,15 @@ function loadNote() {
                 activecheck = " notes-list-active"
             }
 
+            var noteTitle = notesData[i].title
+            if (noteTitle == "") {
+                noteTitle = untitledNoteString
+            }
+
             // <li class="notes-list${activecheck}" noteid="${i}">
             document.querySelector(".notes-panel").insertAdjacentHTML("beforeend", `
-                <li class="notes-list${activecheck}" noteid="${i}" draggable="true">
-                    <a class="notes-list-${i} note-panel-title" onclick="location.href='?noteid=${i}${uistyle}'">${notesData[i].title}</a>
+                <li class="notes-list${activecheck}" noteid="${i}">
+                    <a class="notes-list-${i} note-panel-title" onclick="location.href='?noteid=${i}${uistyle}'">${noteTitle}</a>
                     <div class="notes-list-tools">
                         <a class="material-symbols-outlined note-panel-delete" title="Delete" onclick="uiDeleteNote(${i})">delete</a>
                     </div>
@@ -276,28 +287,36 @@ function typingTimeoutSave() {
 }
 
 function saveNote() {
-    // Indicate note has been saved.
-    saveIndicator.style.display = "inline-flex"
+    var saveTitle = elementTitle.innerHTML
+    var saveContent = elementContent.innerHTML
 
     // Saves the new content to notesData list.
-    notesData[currentNoteId].title = elementTitle.innerHTML
-    notesData[currentNoteId].content = elementContent.innerHTML
+    notesData[currentNoteId].title = saveTitle
+    notesData[currentNoteId].content = saveContent
 
     // Change UI note title in notes list, window title and file path bar.
-    document.querySelector(`.notes-list-${currentNoteId}`).innerHTML = elementTitle.innerHTML
-    document.title = elementTitle.innerHTML
-    elementFilePath.innerHTML = elementTitle.innerHTML
+    document.querySelector(`.notes-list-${currentNoteId}`).innerHTML = saveTitle
+    document.title = saveTitle
+    elementFilePath.innerHTML = saveTitle
+
+    if (saveTitle == "") {
+        document.querySelector(`.notes-list-${currentNoteId}`).innerHTML = untitledNoteString
+        elementFilePath.innerHTML = untitledNoteString
+    }
 
     // Saves note to localStorage
     saveNoteToLocalStorage()
+
+    // Indicate note has been saved.
+    saveIndicator.style.display = "inline-flex"
 }
 
 function newNote() {
     // Add new a new note template to notesData list
     notesData.push(
         {
-            "title": "New Note",
-            "content": "Click here to start editing your new note."
+            "title": "",
+            "content": ""
         }
     )
 
@@ -312,9 +331,14 @@ var uiDeleteNoteId = undefined;
 function uiDeleteNote(id) {
     uiDeleteNoteId = id
 
+    var deleteTitle = notesData[id].title
+    if (deleteTitle == "") {
+        deleteTitle = untitledNoteString
+    }
+
     popupConfirm(
         `Delete note?`,
-        `Are you sure you want to delete<br>'<b>${notesData[id].title}</b>'?<br>This action can't be undone!`,
+        `Are you sure you want to delete<br>'<b>${deleteTitle}</b>'?<br>This action can't be undone!`,
         `deleteNote`,
         `returnNothing`
     )

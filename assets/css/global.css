@@ -177,6 +177,13 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 
+hr {
+    margin: 1rem 0;
+
+    border: none;
+    border-top: 1px solid var(--color-gray-4);
+}
+
 h1,
 h2,
 h3,
@@ -369,8 +376,16 @@ td:last-child {
     border-right: none;
 }
 
+thead th {
+    border-bottom: 1px solid var(--color-gray-4);
+}
+
 tbody tr {
-    border-top: 1px solid var(--color-gray-4);
+    border-bottom: 1px dashed var(--color-gray-4);
+}
+
+tbody tr:last-child {
+    border: none;
 }
 
 kbd {

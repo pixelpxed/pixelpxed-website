@@ -1,0 +1,110 @@
+.file-dropzone {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 6rem;
+
+    padding: 1rem;
+    margin: 1rem 0 0 0;
+
+    text-align: center;
+
+    font-size: 0.8rem;
+
+    color: var(--color-gray-1);
+    border: 1px dashed var(--color-gray-4);
+
+    border-radius: 0.3rem;
+
+    cursor: pointer;
+
+    transition: 0.2s border;
+}
+
+.file-dropzone:hover {
+    border: 1px solid var(--color-gray-1);
+}
+
+.tools-selected-color {
+    margin: 0.5rem;
+}
+
+.manage-notes-wrapper {
+    margin: 1rem 0 0 0;
+
+    border: 1px solid var(--color-gray-4);
+    border-radius: 0.3rem;
+
+    overflow: hidden;
+}
+
+.manage-notes-item {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    gap: 0.5rem;
+    
+    align-items: center;
+    
+    padding: 0.5rem;
+}
+
+.manage-notes-item:not(:last-child) {
+    border-bottom: 1px dashed var(--color-gray-4);
+}
+
+.manage-notes-item div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    height: 100%;
+}
+
+.manage-notes-item p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.manage-notes-item a {
+    color: var(--color-blue);
+}
+
+.manage-notes-item .drag-icon {
+    color: var(--color-gray-1);
+}
+
+.filename-input-wrapper {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    gap: 0.25rem;
+    
+    align-items: center;
+}
+
+.notes-smallview .manage-notes-item {
+    display: none;
+}
+
+.notes-smallview .manage-notes-item:nth-child(5) {
+    border: none;
+}
+
+.notes-smallview .manage-notes-item:nth-child(-n + 5) {
+    display: grid;
+}
+
+.show-all-notes {
+    display: grid; 
+    justify-content: center; 
+    grid-column: span 3; 
+    
+    background: var(--color-gray-5); 
+    border-top: 1px solid var(--color-gray-4);
+
+    text-align: center; 
+    padding: 0.5rem;
+}

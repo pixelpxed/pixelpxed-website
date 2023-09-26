@@ -62,11 +62,11 @@ window.addEventListener("load", () => {
     })
 })
 
-// document.querySelectorAll(".tools").forEach((element) => {
-//     element.addEventListener("touchend", (event) => {
-//         event.preventDefault()
-//     })
-// })
+document.querySelectorAll(".tools").forEach((element) => {
+    element.addEventListener("mousedown", (event) => {
+        saveNote()
+    })
+})
 
 function addInCaret(content) {
     document.execCommand("insertHTML", false, content)
@@ -209,120 +209,6 @@ function toolsPrint() {
 function toolsAddCheckbox() {
     addInCaret(`<input type="checkbox">`)
     addCheckboxState()
-}
-
-function base64ToBytes(base64) {
-    const binString = atob(base64);
-    return Uint8Array.from(binString, (m) => m.codePointAt(0));
-}
-  
-function bytesToBase64(bytes) {
-    const binString = Array.from(bytes, (x) => String.fromCodePoint(x)).join("");
-    return btoa(binString);
-}
-
-function toolsDownload() {
-    const encodedString = bytesToBase64(new TextEncoder().encode(JSON.stringify(notesData, null)))
-
-    const element = document.createElement('a');
-    const blob = new Blob([encodedString], {'type': 'text/json', 'lastModified': new Date().getTime()});
-
-    const curtime = new Date()
-
-    const date = curtime.getDate()
-    const month = curtime.getMonth() + 1
-    const year = curtime.getFullYear()
-
-    const hour = curtime.getHours()
-    const minute = curtime.getMinutes()
-    const second = curtime.getSeconds()
-
-    element.href = window.URL.createObjectURL(blob);
-    element.download = `${date > 9 ? date : "0" + date}-${month > 9 ? month : "0" + month}-${year}_${hour > 9 ? hour : "0" + hour}-${minute >= 10 ? minute : "0" + minute}-${second >= 10 ? second : "0" + second}_v2.notetaker`;
-    
-    element.click();
-}
-
-var uploadnotesdata;
-
-function toolsUploadBrowseHandle() {
-    document.querySelector(".drop-handle-browse").click()
-}
-
-function toolsUploadBrowse() {
-    uploadnotesdata = document.querySelector(".drop-handle-browse").files[0]
-    toolsUploadConfirm()
-
-}
-
-function toolsUploadDropHandle(event) {
-    event.preventDefault()
-    
-    if (event.dataTransfer.items) {
-        [...event.dataTransfer.items].forEach((item, i) => {
-            if (item.kind === "file") {
-                const file = item.getAsFile();
-                document.querySelector(".uploading-file").innerHTML = file.name
-
-                var fileextension = file.name.split('.').pop()
-                if (fileextension !== "notetaker") {
-                    return popupOK(
-                        "Invalid file.",
-                        `The file you uploaded ended with '.${fileextension}' which is not valid. Notetaker only accepts files with '.notetaker' file extension only.<br><br>Please try again with a different file.`
-                    )
-                }
-
-                uploadnotesdata = file
-                toolsUploadConfirm()
-            }
-        })
-    } else {
-        [...dataTransfer.files].forEach((file) => {
-            document.querySelector(".file-dropzone").innerHTML = file.name
-        })
-    }
-}
-
-function uploadReturnTrue() {
-    var filereader = new FileReader();
-    filereader.addEventListener("load", () => {
-        try {
-            const rawdata = filereader.result
-            
-            // Backwards compatability: Base64 data encode checker.
-            const base64regex = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
-            const base64check = base64regex.test(rawdata)
-            if (base64check == true) {
-                var uploaddata = new TextDecoder().decode(base64ToBytes(rawdata));
-            } if (base64check == false) {
-                var uploaddata = filereader.result;
-            }
-
-            triggerUnloadSave = false
-            
-            localStorage.setItem("notetaker-notesData", uploaddata);
-            location.href = "/notetaker/"
-        } catch (error) {
-            return popupOK(
-                "Unable to save data.", 
-                `Please upload a valid file ended with a <b>.notetaker</b> extension.<br><br>If you're already uploading a <b>.notetaker</b> file, your file might be damaged or corrupted.<br><br>Please try again.<br><br><span class='popup-description'>Error:</span><br>${error}`
-            )
-        }
-    })
-    filereader.readAsText(uploadnotesdata)
-}
-
-function toolsUploadConfirm() {
-    popupConfirm(
-        "Important information.",
-        "By pressing 'Yes', you acknowledge that the current notes data present the editor will be lost, and replaced with the new data. <u>This action can't be undone!</u>",
-        "uploadReturnTrue",
-        "returnNothing"
-    )
-}
-
-function toolsUploadDragOverHandle(event) {
-    event.preventDefault()
 }
 
 // Adapted from: https://www.mediacollege.com/internet/javascript/text/count-words.html

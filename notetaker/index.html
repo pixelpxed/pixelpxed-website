@@ -36,6 +36,7 @@
     <script defer src="/notetaker/assets/js/components/settings.js"></script>
     <script defer src="/notetaker/assets/js/components/tools.js"></script>
     <script defer src="/notetaker/assets/js/components/view.js"></script>
+    <script defer src="/notetaker/assets/js/components/sharing.js"></script>
 
     <!-- Library Files -->
     <script defer src="/_vercel/insights/script.js"></script>
@@ -81,7 +82,7 @@
                             </p>
                         </div>
                         <div>
-                            <a class="material-symbols-outlined" title="Export/Import Notes" onclick="toggleFetchPopup('#sharing-wrapper', 'sharing')">export_notes</a>
+                            <a class="material-symbols-outlined" title="Export/Import Notes" onclick="openSharing()">export_notes</a>
                             <a class="material-symbols-outlined" title="New Note" onclick="newNote()">add</a>
                             <a class="material-symbols-outlined" title="Toggle Sidebar" onclick="toggleSidebar()">menu_open</a>
                         </div>
@@ -113,6 +114,9 @@
                             <div class="tools-wrapper-category">
                                 <a class="material-symbols-outlined tools" title="Undo" onmousedown="toolsExec('undo')">undo</a>
                                 <a class="material-symbols-outlined tools" title="Redo" onmousedown="toolsExec('redo')">redo</a>
+                            </div>
+                            <div class="tools-wrapper-category">
+                                <a class="material-symbols-outlined tools" title="Save" onclick="saveNote()">save</a>
                                 <a class="material-symbols-outlined tools" title="Print" onclick="toolsExec('print')">print</a>
                                 <a class="material-symbols-outlined tools" title="Enter Read View" onclick="setView('read')">visibility</a>
                             </div>
@@ -161,9 +165,9 @@
                 </div>
                 <div class="main-edit">
                     <div class="editor-wrapper">
-                        <h1 class="main-edit-title" contenteditable>Notetaker is loading...</h1>
+                        <h1 class="main-edit-title" placeholder="Untitled Note" contenteditable>&nbsp;</h1>
                         <hr>
-                        <div class="main-edit-content" contenteditable>We'll get ready in no time!</div>
+                        <div class="main-edit-content" placeholder="Lorem ipsum si dolor." contenteditable>&nbsp;</div>
                     </div>
 
                     <div class="exit-read-view">

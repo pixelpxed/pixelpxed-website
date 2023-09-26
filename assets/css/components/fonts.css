@@ -56,6 +56,194 @@
     font-display: block;
 }
 
+/* Tlwg Mono */
+
+/* Normal */
+
+@font-face {
+    font-family: "Tlwg Mono";
+    src: url("/assets/fonts/TlwgMono/TlwgMono.ttf");
+
+    font-weight: 300;
+    font-style: normal;
+
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Tlwg Mono";
+    src: url("/assets/fonts/TlwgMono/TlwgMono-Bold.ttf");
+
+    font-weight: 700;
+    font-style: normal;
+
+    font-display: block;
+}
+
+/* Italic */
+@font-face {
+    font-family: "Tlwg Mono";
+    src: url("/assets/fonts/TlwgMono/TlwgMono-Oblique.ttf");
+
+    font-weight: 300;
+    font-style: italic;
+
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Tlwg Mono";
+    src: url("/assets/fonts/TlwgMono/TlwgMono-BoldOblique.ttf");
+
+    font-weight: 700;
+    font-style: italic;
+
+    font-display: block;
+}
+
+
+
+/* Tlwg Typewriter */
+
+/* Normal */
+
+@font-face {
+    font-family: "Tlwg Typewriter";
+    src: url("/assets/fonts/TlwgTypewriter/TlwgTypewriter.ttf");
+
+    font-weight: 300;
+    font-style: normal;
+
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Tlwg Typewriter";
+    src: url("/assets/fonts/TlwgTypewriter/TlwgTypewriter-Bold.ttf");
+
+    font-weight: 700;
+    font-style: normal;
+
+    font-display: block;
+}
+
+/* Italic */
+@font-face {
+    font-family: "Tlwg Typewriter";
+    src: url("/assets/fonts/TlwgTypewriter/TlwgTypewriter-Oblique.ttf");
+
+    font-weight: 300;
+    font-style: italic;
+
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Tlwg Typewriter";
+    src: url("/assets/fonts/TlwgTypewriter/TlwgTypewriter-BoldOblique.ttf");
+
+    font-weight: 700;
+    font-style: italic;
+
+    font-display: block;
+}
+
+
+
+/* Tlwg Typist */
+
+/* Normal */
+
+@font-face {
+    font-family: "Tlwg Typist";
+    src: url("/assets/fonts/TlwgTypist/TlwgTypist.ttf");
+
+    font-weight: 300;
+    font-style: normal;
+
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Tlwg Typist";
+    src: url("/assets/fonts/TlwgTypist/TlwgTypist-Bold.ttf");
+
+    font-weight: 700;
+    font-style: normal;
+
+    font-display: block;
+}
+
+/* Italic */
+@font-face {
+    font-family: "Tlwg Typist";
+    src: url("/assets/fonts/TlwgTypist/TlwgTypist-Oblique.ttf");
+
+    font-weight: 300;
+    font-style: italic;
+
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Tlwg Typist";
+    src: url("/assets/fonts/TlwgTypist/TlwgTypist-BoldOblique.ttf");
+
+    font-weight: 700;
+    font-style: italic;
+
+    font-display: block;
+}
+
+
+
+/* Tlwg Typo */
+
+/* Normal */
+
+@font-face {
+    font-family: "Tlwg Typo";
+    src: url("/assets/fonts/TlwgTypo/TlwgTypo.ttf");
+
+    font-weight: 300;
+    font-style: normal;
+
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Tlwg Typo";
+    src: url("/assets/fonts/TlwgTypo/TlwgTypo-Bold.ttf");
+
+    font-weight: 700;
+    font-style: normal;
+
+    font-display: block;
+}
+
+/* Italic */
+@font-face {
+    font-family: "Tlwg Typo";
+    src: url("/assets/fonts/TlwgTypo/TlwgTypo-Oblique.ttf");
+
+    font-weight: 300;
+    font-style: italic;
+
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Tlwg Typo";
+    src: url("/assets/fonts/TlwgTypo/TlwgTypo-BoldOblique.ttf");
+
+    font-weight: 700;
+    font-style: italic;
+
+    font-display: block;
+}
+
+
+
 /* Sarabun */
 
 /* Normal */

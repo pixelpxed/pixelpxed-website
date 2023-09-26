@@ -7,6 +7,7 @@
 @import url("/notetaker/assets/css/components/sidebar.css");
 @import url("/notetaker/assets/css/components/toolsbar.css");
 @import url("/notetaker/assets/css/components/view.css");
+@import url("/notetaker/assets/css/components/sharing.css");
 
 body {
     overflow: hidden;

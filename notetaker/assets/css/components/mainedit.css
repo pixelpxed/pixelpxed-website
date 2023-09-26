@@ -13,16 +13,6 @@
     outline: none;
 }
 
-.main-edit hr {
-    display: block;
-
-    width: 100%;
-
-    margin: 1rem 0;
-
-    border: 0.5px solid var(--color-gray-4);
-}
-
 .main-edit-title *,
 .main-edit-content * {
     font-family: inherit !important;
@@ -31,7 +21,7 @@
 }
 
 .main-edit-title {
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-bold);
 }
 
 .main-edit-content a {
@@ -55,7 +45,7 @@
 
 .main-edit-thaimonospace,
 .main-edit-thaimonospace * {
-    font-family: "Monomon", monospace !important;
+    font-family: "Tlwg Typewriter", monospace !important;
 }
 
 .main-edit-system,
@@ -69,6 +59,15 @@
     padding-bottom: 50vh;
 
     outline: none;
+}
+
+.main-edit-title:empty::before,
+.main-edit-content:empty::before {
+    content: attr(placeholder);
+
+    color: var(--color-gray-6);
+
+    cursor: text;
 }
 
 .main-edit-content img {
