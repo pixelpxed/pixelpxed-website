@@ -21,7 +21,7 @@
         "Physics",
         "DClass",
         "Social",
-        "Biology",
+        "F. Biology",
         "EP Meeting",
     
         "Homeroom",
@@ -36,10 +36,7 @@
         "DClass",
         "",
     
-        "Homeroom",
-        "Chinese",
-        "Thai",
-        "Health",
+        "<span class='popup-description'>07:30 — 15:30</span>&ensp;<span class='table-grid-time-divider'>|</span>&ensp;Ror-Dor",
         "",
         "",
         "",
@@ -47,6 +44,9 @@
         "",
         "",
         "",
+        "",
+        "",
+        "AllDay",
     
         "Homeroom",
         "E.I.A.",
@@ -56,12 +56,12 @@
         "Lunch",
         "A. Math",
         "DClass",
-        "Biology",
+        "F. Biology",
         "DClass"
     ],
     "links": {
         "Homeroom": {
-            "subjname": "Homeroom",
+            "subjname": "",
             "subjcode": "",
             "teacher": "ชุติมา สุขเอี่ยม",
             "classcode": "",
@@ -160,7 +160,7 @@
             "subjname": "",
             "subjcode": "พ30232",
             "teacher": "คณะครู ม.4",
-            "classcode": "2tld3ml",
+            "classcode": "",
             "videocall": "",
             "classroom": ""
         },
@@ -184,7 +184,7 @@
             "subjname": "Additional Math",
             "subjcode": "ค31252",
             "teacher": "กฤษฎา อัศวสกุลเกียรติ",
-            "classcode": "deki6v5 (Gmail)",
+            "classcode": "deki6v5",
             "videocall": "",
             "classroom": "NTIzMTUxNDM5MzI0"
         },

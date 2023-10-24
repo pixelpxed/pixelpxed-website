@@ -201,6 +201,19 @@ function fillClasses() {
             grid.classList.remove("class-joinable")
             grid.classList.add("class-not-joinable")
         }
+
+        if (classes[i] == "AllDay") {
+            if (i == 0) {
+                console.error(`Setting a double class in the first grid is not possible, Timetable is ignoring the 'DClass' declairation for the grid.`)
+                addNotification("Setting a double class in the first grid is not possible, Timetable is ignoring the 'DClass' declairation for the grid.", `error`)
+            }
+            if (i != 0) {
+                for (let n = 0; n < 10; n++) {
+                    document.getElementById(i - 9).classList.add("table-allday")
+                    document.getElementById(i - (n - 1)).style.display = "none"
+                }
+            }
+        }
     }
 
     if ((localStorage.getItem("timetable-electiveClass") === elective_secondary) && (classTimetable !== "custom")) {

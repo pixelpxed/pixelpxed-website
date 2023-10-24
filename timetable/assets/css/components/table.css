@@ -66,6 +66,12 @@
     grid-column: span 2;
 }
 
+.table-allday {
+    grid-column: span 11;
+
+    padding: 1rem;
+}
+
 .table-grid-time {
     display: flex;
 
