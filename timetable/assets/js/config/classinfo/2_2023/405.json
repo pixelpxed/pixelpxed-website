@@ -10,7 +10,7 @@
         "DClass",
         "Chemistry",
         "DClass",
-        "",
+        "Chinese",
     
         "Homeroom",
         "Earth Space",
@@ -34,9 +34,9 @@
         "Comm. Eng",
         "Physics",
         "DClass",
-        "",
+        "Thai",
     
-        "<span class='popup-description'>07:30 — 15:30</span>&ensp;<span class='table-grid-time-divider'>|</span>&ensp;Ror-Dor",
+        "Ror-Dor",
         "",
         "",
         "",
@@ -57,7 +57,8 @@
         "A. Math",
         "DClass",
         "F. Biology",
-        "DClass"
+        "DClass",
+        "Health"
     ],
     "links": {
         "Homeroom": {
@@ -127,7 +128,7 @@
         "F. Biology": {
             "subjname": "Fundamental Biology",
             "subjcode": "ว31245",
-            "teacher": "ขวัญจิรา (นามสกุล)",
+            "teacher": "ขวัญจิรา",
             "classcode": "",
             "videocall": "",
             "classroom": ""
@@ -206,7 +207,7 @@
         },
         "Chinese": {
             "subjname": "",
-            "subjcode": "จ31252 (รอยืนยัน)",
+            "subjcode": "จ31252 (คาด)",
             "teacher": "ธัญญภัสร์ เจริญพร",
             "classcode": "",
             "videocall": "",
@@ -214,7 +215,7 @@
         },
         "Japanese": {
             "subjname": "",
-            "subjcode": "ญ31252 (รอยืนยัน)",
+            "subjcode": "ญ31252 (คาด)",
             "teacher": "ดรัณภพ กัญญาศักดิ์",
             "classcode": "6uulgjc",
             "videocall": "",
@@ -231,10 +232,18 @@
         "Health": {
             "subjname": "",
             "subjcode": "พ31102",
-            "teacher": "ณิชากร (นามสกุล)",
+            "teacher": "ณิชากร",
             "classcode": "fvqujrp",
             "videocall": "",
             "classroom": "NTIwMDYyNjkxMTAy"
+        },
+        "Ror-Dor": {
+            "subjname": "Territorial Defense (Millitary)",
+            "subjcode": "",
+            "teacher": "ครูฝึก รด.",
+            "classcode": "",
+            "videocall": "",
+            "classroom": ""
         },
         "Lunch": {
             "subjname": "",
