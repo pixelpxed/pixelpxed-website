@@ -1,4 +1,32 @@
 {
+    "override": {
+        "state": true,
+        "class": [
+            "Cheer Practice", "-extend", "-extend", "-extend", "-extend", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "Chinese",
+            "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "Social", "F. Biology", "EP Meeting",
+            "Cheer Practice", "-extend", "-extend", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
+            "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
+            "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "Cheer Practice", "-extend", "-extend", "-extend", "Health"
+        ],
+        "links": {
+            "Ror-Dor": {
+                "subjname": "Territorial Defense (Ror-Dor)",
+                "subjcode": "",
+                "teacher": "ครูฝึก รด.",
+                "classcode": "",
+                "videocall": "",
+                "classroom": ""
+            },
+            "Cheer Practice": {
+                "subjname": "Jaturamitr Cheer Practice",
+                "subjcode": "ก31924",
+                "teacher": "รุ่นพี่ ม.5",
+                "classcode": "",
+                "videocall": "",
+                "classroom": ""
+            }
+        }
+    },
     "class": [
         "Homeroom",
         "M4 Meeting",
@@ -7,19 +35,19 @@
         "Music",
         "Lunch",
         "F. English",
-        "DClass",
+        "-extend",
         "Chemistry",
-        "DClass",
-        "Chinese",
+        "-extend",
+        "",
     
         "Homeroom",
         "Earth Space",
-        "DClass",
+        "-extend",
         "Chemistry",
         "S.I.A.",
         "Lunch",
         "Physics",
-        "DClass",
+        "-extend",
         "Social",
         "F. Biology",
         "EP Meeting",
@@ -27,16 +55,19 @@
         "Homeroom",
         "Earth Space",
         "F. Math",
-        "DClass",
+        "-extend",
         "A. Math",
         "Lunch",
         "I. Study",
         "Comm. Eng",
         "Physics",
-        "DClass",
-        "Thai",
+        "-extend",
+        "",
     
-        "Ror-Dor",
+        "Homeroom",
+        "Chinese",
+        "Thai",
+        "Health",
         "",
         "",
         "",
@@ -44,21 +75,18 @@
         "",
         "",
         "",
-        "",
-        "",
-        "AllDay",
     
         "Homeroom",
         "E.I.A.",
-        "DClass",
+        "-extend",
         "Social",
         "Swimming",
         "Lunch",
         "A. Math",
-        "DClass",
+        "-extend",
         "F. Biology",
-        "DClass",
-        "Health"
+        "-extend",
+        ""
     ],
     "links": {
         "Homeroom": {
@@ -237,14 +265,6 @@
             "videocall": "",
             "classroom": "NTIwMDYyNjkxMTAy"
         },
-        "Ror-Dor": {
-            "subjname": "Territorial Defense (Millitary)",
-            "subjcode": "",
-            "teacher": "ครูฝึก รด.",
-            "classcode": "",
-            "videocall": "",
-            "classroom": ""
-        },
         "Lunch": {
             "subjname": "",
             "subjcode": "",
@@ -261,7 +281,7 @@
             "videocall": "",
             "classroom": ""
         },
-        "DClass": {
+        "-extend": {
             "subjname": "",
             "subjcode": "",
             "teacher": "",

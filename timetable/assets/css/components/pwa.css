@@ -8,17 +8,15 @@
     }
 
     .nav-pwa-timetable {
-        font-weight: var(--font-weight-bold);
+        font-size: 0.8rem;
+        font-family: "Roboto Mono", monospace;
     }
 
-    .title-wrapper {
-        margin: 1rem 1rem 0.5rem 1rem;
+    .timeremaining {
+        margin: 0.5rem 1rem 1rem 1rem !important;
     }
 
-    .clock-wrapper {
-        margin: 0.5rem 1rem 1rem 1rem;
-    }
-
+    .clock-wrapper,
     .title-description {
         display: none;
     }
