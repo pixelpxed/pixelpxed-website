@@ -1,4 +1,32 @@
 {
+    "override": {
+        "state": true,
+        "class": [
+            "Cheer Practice", "-extend", "-extend", "-extend", "-extend", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "Chinese",
+            "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "Social", "F. Biology", "EP Meeting",
+            "Cheer Practice", "-extend", "-extend", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
+            "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
+            "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "Cheer Practice", "-extend", "-extend", "-extend", "Health"
+        ],
+        "links": {
+            "Ror-Dor": {
+                "subjname": "Territorial Defense (Ror-Dor)",
+                "subjcode": "",
+                "teacher": "ครูฝึก รด.",
+                "classcode": "",
+                "videocall": "",
+                "classroom": ""
+            },
+            "Cheer Practice": {
+                "subjname": "Jaturamitr Cheer Practice",
+                "subjcode": "ก31924",
+                "teacher": "รุ่นพี่ ม.5",
+                "classcode": "",
+                "videocall": "",
+                "classroom": ""
+            }
+        }
+    },
     "class": [
         "Homeroom",
         "M4 Meeting",
@@ -7,19 +35,19 @@
         "Music",
         "Lunch",
         "F. English",
-        "DClass",
+        "-extend",
         "Chemistry",
-        "DClass",
+        "-extend",
         "",
     
         "Homeroom",
         "Earth Space",
-        "DClass",
+        "-extend",
         "Chemistry",
         "S.I.A.",
         "Lunch",
         "Physics",
-        "DClass",
+        "-extend",
         "Social",
         "F. Biology",
         "EP Meeting",
@@ -27,16 +55,19 @@
         "Homeroom",
         "Earth Space",
         "F. Math",
-        "DClass",
+        "-extend",
         "A. Math",
         "Lunch",
         "I. Study",
         "Comm. Eng",
         "Physics",
-        "DClass",
+        "-extend",
         "",
     
-        "<span class='popup-description'>07:30 — 15:30</span>&ensp;<span class='table-grid-time-divider'>|</span>&ensp;Ror-Dor",
+        "Homeroom",
+        "Chinese",
+        "Thai",
+        "Health",
         "",
         "",
         "",
@@ -44,20 +75,18 @@
         "",
         "",
         "",
-        "",
-        "",
-        "AllDay",
     
         "Homeroom",
         "E.I.A.",
-        "DClass",
+        "-extend",
         "Social",
         "Swimming",
         "Lunch",
         "A. Math",
-        "DClass",
+        "-extend",
         "F. Biology",
-        "DClass"
+        "-extend",
+        ""
     ],
     "links": {
         "Homeroom": {
@@ -127,7 +156,7 @@
         "F. Biology": {
             "subjname": "Fundamental Biology",
             "subjcode": "ว31245",
-            "teacher": "ขวัญจิรา (นามสกุล)",
+            "teacher": "ขวัญจิรา",
             "classcode": "",
             "videocall": "",
             "classroom": ""
@@ -206,7 +235,7 @@
         },
         "Chinese": {
             "subjname": "",
-            "subjcode": "จ31252 (รอยืนยัน)",
+            "subjcode": "จ31252 (คาด)",
             "teacher": "ธัญญภัสร์ เจริญพร",
             "classcode": "",
             "videocall": "",
@@ -214,7 +243,7 @@
         },
         "Japanese": {
             "subjname": "",
-            "subjcode": "ญ31252 (รอยืนยัน)",
+            "subjcode": "ญ31252 (คาด)",
             "teacher": "ดรัณภพ กัญญาศักดิ์",
             "classcode": "6uulgjc",
             "videocall": "",
@@ -231,7 +260,7 @@
         "Health": {
             "subjname": "",
             "subjcode": "พ31102",
-            "teacher": "ณิชากร (นามสกุล)",
+            "teacher": "ณิชากร",
             "classcode": "fvqujrp",
             "videocall": "",
             "classroom": "NTIwMDYyNjkxMTAy"
@@ -252,7 +281,7 @@
             "videocall": "",
             "classroom": ""
         },
-        "DClass": {
+        "-extend": {
             "subjname": "",
             "subjcode": "",
             "teacher": "",

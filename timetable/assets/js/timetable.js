@@ -1,6 +1,7 @@
-var customclasses = undefined
-var classes = undefined
-var overrideTimeList = "Regular"
+var customclasses = undefined;
+var classes = undefined;
+var regularClasses = undefined
+var overrideTimeList = "Regular";
 
 const classTimetable = localStorage.getItem("timetable-classTimetable")
 const parameters = new URLSearchParams(window.location.search);
@@ -112,9 +113,16 @@ function setClassVariables() {
     if (classTimetable === "405") {
         fetch(`${classdatafetchpath}/${classTimetable}.json`)
             .then((res) => res.json())
-            .then((data) => {
-                classes = data.class
+            .then((data) => { 
+                regularClasses = data.class               
                 subj = data.links
+                
+                if (data.override.state != true) {
+                    classes = data.class
+                } if (data.override.state == true) {
+                    classes = data.override.class
+                    subj = Object.assign(subj, data.override.links)
+                }
 
                 fillClasses()
                 classJoiningSystem()
@@ -147,18 +155,27 @@ function setClassVariables() {
 var electiveGrid = undefined
 
 function fillClasses() {
+    // Function used within
+    function gridFlagError(content = "No information provided.") {
+        console.error(content)
+        addNotification(content, `error`)
+    
+        grid.classList.add("class-error")
+        grid.classList.remove("class-joinable")
+    }
+
     // Disables the context menu in the table
     document.querySelector("div.table").addEventListener('contextmenu', event => {
         event.preventDefault();
     })
 
-    for (let i = 0; i <= Math.floor(classes.length / 5); i++) {
+    for (let i = 0; i < Math.ceil(classes.length / 5); i++) {
         document.getElementById(`period${i}`).innerHTML = `${i}`
 
         if (classTimetable !== "custom") {
             if (localStorage.getItem("timetable-overrideTimeList") === "auto") {
                 document.getElementById(`time${i}`).innerHTML = classtimes[classtime_type]["list"][i]
-            } if (localStorage.getItem("timetable-overrideTimeList") !== "auto") {
+            } if (localStorage.getItem("timetable-Tap") !== "auto") {
                 document.getElementById(`time${i}`).innerHTML = classtimes[overrideTimeList]["list"][i]
             }
         }
@@ -169,16 +186,16 @@ function fillClasses() {
     }
 
     // Fill class names and styling.
-    for (let i = 0; i <= Math.floor(classes.length - 1); i++) {
+    for (let i = 0; i < classes.length; i++) {
         var gridBefore = document.getElementById(i)
         var grid = document.getElementById(i + 1)
 
         grid.className = "table-grid"
 
-
         grid.innerHTML = classes[i]
         grid.classList.add("class-joinable")
 
+        // Check for elective classes and display toggle when conditions met, and set elective grid id to variable.
         if ((elective_toggle == true) && (classTimetable !== "custom")) {
             document.querySelector(".elective-swapper").style.display = "inline-flex"
             if (classes[i] == elective_primary) {
@@ -186,33 +203,33 @@ function fillClasses() {
             }
         }
 
-        if (classes[i] == "DClass") {
-            if (i == 0) {
-                console.error(`Setting a double class in the first grid is not possible, Timetable is ignoring the 'DClass' declairation for the grid.`)
-                addNotification("Setting a double class in the first grid is not possible, Timetable is ignoring the 'DClass' declairation for the grid.", `error`)
-            }
-            if (i != 0) {
-                gridBefore.classList.add("table-double")
-                grid.style.display = "none"
-            }
-        }
-        if (classes[i] == "" || classes[i] == "Break" || classes[i] == "Lunch") {
-            grid.classList.add("table-grid-dark")
-            grid.classList.remove("class-joinable")
-            grid.classList.add("class-not-joinable")
+        // Check for override classes and apply style.
+        if (classes[i] != regularClasses[i]) {
+            grid.classList.add("class-override")
         }
 
-        if (classes[i] == "AllDay") {
-            if (i == 0) {
-                console.error(`Setting a double class in the first grid is not possible, Timetable is ignoring the 'DClass' declairation for the grid.`)
-                addNotification("Setting a double class in the first grid is not possible, Timetable is ignoring the 'DClass' declairation for the grid.", `error`)
+        // Check for break classes and apply style.
+        if (classes[i] == "" || classes[i] == "Break" || classes[i] == "Lunch") {
+            grid.classList.remove("class-joinable")
+            grid.classList.add("class-not-joinable")
+            grid.classList.add("table-grid-dark")
+        }
+        
+        // Check for extending classes and apply style.
+        if (classes[i] == "-extend") {
+            // Error detection
+            if ((i % 11) == 0) {
+                gridFlagError(`<b>Grid ${i} Flag Ignored:</b><br>'-double' must be put in period 1 or later in the day.`)
+                continue
             }
-            if (i != 0) {
-                for (let n = 0; n < 10; n++) {
-                    document.getElementById(i - 9).classList.add("table-allday")
-                    document.getElementById(i - (n - 1)).style.display = "none"
-                }
+
+            n = 0
+            while (classes[i + n] == "-extend") {
+                document.getElementById(i + n + 1).style.display = "none"
+                n = n + 1
             }
+            document.getElementById(i).style.gridColumn = `span ${n + 1}`
+            i = i + (n - 1)
         }
     }
 
@@ -242,7 +259,7 @@ function classJoiningSystem() {
     var gaiNumber = localStorage.getItem("timetable-gaiTimetable")
 
     if (localStorage.getItem("timetable-popupMode") === "true") {
-        document.querySelector(".title-description").innerHTML = `<p>Tap - Show Options<br>Select Your Action</p>`
+        // document.querySelector(".title-description").innerHTML = `<p>Tap - Show Options<br>Select Your Action</p>`
         document.querySelectorAll(".class-joinable").forEach(grid => {
             var subjText = grid.innerHTML
 
@@ -303,7 +320,7 @@ function classJoiningSystem() {
         })
     }
     if (localStorage.getItem("timetable-popupMode") !== "true") {
-        document.querySelector(".title-description").innerHTML = `<p>Left Click - Video Call<br>Right Click - Classroom</p>`
+        // document.querySelector(".title-description").innerHTML = `<p>Left Click - Video Call<br>Right Click - Classroom</p>`
         document.querySelectorAll(".class-joinable").forEach(grid => {
             var subjText = grid.innerHTML;
             grid.addEventListener("click", () => {

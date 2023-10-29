@@ -3,6 +3,8 @@
     display: grid;
 
     grid-template-columns: repeat(12, minmax(7.5em, 1fr));
+    grid-template-rows: max-content;
+    grid-auto-rows: 1fr;
     gap: 0.5em;
 
     width: calc(100% - 2em);
@@ -25,12 +27,13 @@
 
 .table-grid {
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
 
     align-items: center;
     justify-content: center;
 
-    padding: 1em 0.5em;
+    padding: 1em;
 
     text-align: center;
     text-overflow: ellipsis;
@@ -57,19 +60,20 @@
 }
 
 .table-days {
+    align-items: start;
+
     font-weight: var(--font-weight-semibold);
 
     color: var(--color-days);
 }
 
-.table-double {
-    grid-column: span 2;
+.class-override {
+    border: 1px solid var(--color-gray-2);
 }
 
-.table-allday {
-    grid-column: span 11;
-
-    padding: 1rem;
+.class-error {
+    background: transparent;
+    border: 1px solid var(--color-red) !important;
 }
 
 .table-grid-time {
