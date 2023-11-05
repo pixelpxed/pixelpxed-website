@@ -98,18 +98,20 @@ function setMainClock() {
     }
 }
 
-var curtime = new Date()
+var onloadDate = new Date()
 var datesInWeek = undefined
+var weekNumber = 1
+
 function calculateDaysInWeek() {
     // Modified from: https://stackoverflow.com/questions/43008354/get-all-days-of-the-week-given-a-day
 
     datesInWeek = new Array(); 
-    curtime.setDate((curtime.getDate() - curtime.getDay()));
+    onloadDate.setDate((onloadDate.getDate() - onloadDate.getDay()));
     for (var i = 0; i < 7; i++) {
         datesInWeek.push(
-            new Date(curtime)
+            new Date(onloadDate)
         ); 
-        curtime.setDate(curtime.getDate() + 1);
+        onloadDate.setDate(onloadDate.getDate() + 1);
     }
 
     // Set the dates into the grid
@@ -123,4 +125,12 @@ function calculateDaysInWeek() {
 
         document.getElementById(`date${i}`).innerHTML = `${weekMonth} ${weekDate > 9 ? weekDate : "0" + weekDate}, ${weekYear}`
     }
+}
+
+function calculateWeekNumber() {
+    startDate = new Date(onloadDate.getFullYear(), 0, 1);
+    var days = Math.floor((onloadDate - startDate) / (24 * 60 * 60 * 1000));
+    
+    weekNumber = Math.ceil(days / 7);
+    return weekNumber
 }
