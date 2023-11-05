@@ -120,8 +120,14 @@ function setClassVariables() {
                 if (data.override.state != true) {
                     classes = data.class
                 } if (data.override.state == true) {
-                    classes = data.override.class
-                    subj = Object.assign(subj, data.override.links)
+                    var weekNum = calculateWeekNumber()
+
+                    if (data.override.class[weekNum]) {
+                        classes = data.override.class[weekNum]
+                        subj = Object.assign(subj, data.override.links)
+                    } if (!data.override.class[weekNum]) {
+                        classes = data.class
+                    }
                 }
 
                 fillClasses()
