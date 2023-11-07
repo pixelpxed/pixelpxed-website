@@ -4,35 +4,35 @@
         "class": {
             "45": [
                 "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "Cheer Practice", "-extend", "-extend", "-extend", "Chinese",
-                "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "Social", "F. Biology", "EP Meeting",
+                "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
                 "Cheer Practice", "-extend", "-extend", "-extend", "-extend", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
                 "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
                 "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "Health"
             ],
             "46": [
                 "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Jaturamitr Match", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "Social", "F. Biology", "EP Meeting",
+                "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
                 "Homeroom", "Earth Space", "F. Math", "-extend", "A. Math", "Jaturamitr Match", "-extend", "-extend", "-extend", "-extend", "-extend",
                 "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
                 "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", ""
             ],
             "47": [
                 "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "Chinese",
-                "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "Social", "F. Biology", "EP Meeting",
+                "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
                 "Homeroom", "Earth Space", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
                 "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
                 "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "Health"
             ],
             "48": [
                 "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "Chinese",
-                "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "Social", "F. Biology", "EP Meeting",
+                "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
                 "Homeroom", "Earth Space", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
                 "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
                 "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "Health"
             ],
             "49": [
                 "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "Chinese",
-                "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "Social", "F. Biology", "EP Meeting",
+                "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
                 "Homeroom", "Earth Space", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
                 "Homeroom", "Chinese", "Thai", "Health", "", "", "", "", "", "", "",
                 "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "Health"
@@ -67,7 +67,7 @@
     },
     "class": [
         "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "",
-        "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "Social", "F. Biology", "EP Meeting",
+        "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
         "Homeroom", "Earth Space", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
         "Homeroom", "Chinese", "Thai", "Health", "", "", "", "", "", "", "",
         "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", ""
@@ -141,7 +141,7 @@
             "subjname": "Fundamental Biology",
             "subjcode": "ว31245",
             "teacher": "ขวัญจิรา",
-            "classcode": "",
+            "classcode": "65oo4fw",
             "videocall": "",
             "classroom": ""
         },
