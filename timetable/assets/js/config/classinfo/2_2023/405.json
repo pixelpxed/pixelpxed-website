@@ -7,7 +7,7 @@
                 "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
                 "Cheer Practice", "-extend", "-extend", "-extend", "-extend", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
                 "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "Health"
+                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "Heatstroke Protection", "-extend", "F. Biology", "Health"
             ],
             "46": [
                 "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Jaturamitr Match", "-extend", "-extend", "-extend", "-extend", "-extend",
@@ -55,10 +55,18 @@
                 "videocall": "",
                 "classroom": ""
             },
+            "Heatstroke Protection": {
+                "subjname": "Protection From Heatstroke",
+                "subjcode": "",
+                "teacher": "แพทย์พิเศษ",
+                "classcode": "",
+                "videocall": "",
+                "classroom": ""
+            },
             "Jaturamitr Match": {
                 "subjname": "",
-                "subjcode": "Not Mandetory",
-                "teacher": "Special Time",
+                "subjcode": "Special Time",
+                "teacher": "Not Mandetory",
                 "classcode": "",
                 "videocall": "",
                 "classroom": ""
