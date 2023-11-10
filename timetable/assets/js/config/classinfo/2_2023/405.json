@@ -7,7 +7,7 @@
                 "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
                 "Cheer Practice", "-extend", "-extend", "-extend", "-extend", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
                 "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "Heatstroke Protection", "-extend", "F. Biology", "Health"
+                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "Heatstroke Protection", "-extend", "Boom Suan", "Health"
             ],
             "46": [
                 "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Jaturamitr Match", "-extend", "-extend", "-extend", "-extend", "-extend",
@@ -51,6 +51,14 @@
                 "subjname": "Jaturamitr Cheer Practice",
                 "subjcode": "ก31924",
                 "teacher": "รุ่นพี่ ม.5",
+                "classcode": "",
+                "videocall": "",
+                "classroom": ""
+            },
+            "Boom Suan": {
+                "subjname": "",
+                "subjcode": "",
+                "teacher": "กิจกรรมโรงเรียน",
                 "classcode": "",
                 "videocall": "",
                 "classroom": ""
