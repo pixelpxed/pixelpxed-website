@@ -66,29 +66,20 @@
         </nav>
         <div class="application-content">
             <div class="side-bar">
-                <div style="border-bottom: 1px solid var(--color-gray-4);">
-                    <p><b>Important</b></p>
-                    <p class="popup-description">
-                        Notes are kept on your device unencrypted, while the data isolated from other websites. Please considered carefully when thinking about saving any sensitive data in Notetaker.
-                        <br><br>
-                        © <span id="copyrightyear">----</span> PixelEdition. All rights reserved.
-                    </p>
-                </div>
-                <div class="notes-panel-wrapper">
-                    <div class="notes-panel-title">
-                        <div class="notes-panel-folder">
-                            <p>
-                                <b>All Notes</b>
-                            </p>
-                        </div>
-                        <div>
-                            <a class="material-symbols-outlined" title="Export/Import Notes" onclick="openSharing()">export_notes</a>
-                            <a class="material-symbols-outlined" title="New Note" onclick="newNote()">add</a>
-                            <a class="material-symbols-outlined" title="Toggle Sidebar" onclick="toggleSidebar()">menu_open</a>
-                        </div>
+                <div class="notes-panel-title">
+                    <div class="notes-panel-folder">
+                        <p>
+                            <b>Notes</b>
+                        </p>
                     </div>
-                    <ul class="notes-panel"></ul>
+                    <div class="notes-panel-icons">
+                        <a class="material-symbols-outlined" title="Export/Import Notes" onclick="openSharing()">export_notes</a>
+                        <a class="material-symbols-outlined" title="New Note" onclick="newNote()">add</a>
+                        <a class="material-symbols-outlined" title="Toggle Sidebar" onclick="toggleSidebar()">menu_open</a>
+                    </div>
                 </div>
+                <div class="side-bar-divider"></div>
+                <ul class="notes-panel"></ul>
             </div>
             <div class="main-content">
                 <div class="side-bar-open-overlay" onclick="toggleSidebar()"></div>
@@ -103,7 +94,7 @@
                 </div>
                 <div class="navigation-bar toolsbar-wrapper">
                     <div class="tools-wrapper">
-                        <div class="tools-content-wrapper" style="margin: auto;">
+                        <div class="tools-content-wrapper">
 
                             <!-- 
                                 Use 'onmousedown' when the tools used needed to be click 
@@ -115,11 +106,13 @@
                                 <a class="material-symbols-outlined tools" title="Undo" onmousedown="toolsExec('undo')">undo</a>
                                 <a class="material-symbols-outlined tools" title="Redo" onmousedown="toolsExec('redo')">redo</a>
                             </div>
+                            <div class="tools-section-divider"></div>
                             <div class="tools-wrapper-category">
                                 <a class="material-symbols-outlined tools" title="Save" onclick="saveNote()">save</a>
                                 <a class="material-symbols-outlined tools" title="Print" onclick="toolsExec('print')">print</a>
                                 <a class="material-symbols-outlined tools" title="Enter Read View" onclick="setView('read')">visibility</a>
                             </div>
+                            <div class="tools-section-divider"></div>
                             <div class="tools-wrapper-category">
                                 <a class="material-symbols-outlined tools" title="Bold" onmousedown="toolsExec('bold')">format_bold</a>
                                 <a class="material-symbols-outlined tools" title="Italic" onmousedown="toolsExec('italic')">format_italic</a>
@@ -127,41 +120,50 @@
                                 <a class="material-symbols-outlined tools" title="Strikethrough" onmousedown="toolsExec('strikeThrough')">strikethrough_s</a>
                                 <a class="material-symbols-outlined tools" title="Clear Format" onmousedown="toolsExec('removeFormat')">format_clear</a>
                             </div>
+                            <div class="tools-section-divider"></div>
                             <div class="tools-wrapper-category">
                                 <input type="color" class="tools-selected-color" title="Select Applied Color">
                                 <a class="material-symbols-outlined tools" title="Apply Font Color" onmousedown="toolsTextColor()">format_color_text</a>
                                 <a class="material-symbols-outlined tools" title="Apply Highlight Color" onmousedown="toolsHiliteColor()">format_ink_highlighter</a>
                             </div>
+                            <div class="tools-section-divider"></div>
                             <div class="tools-wrapper-category">
                                 <a class="material-symbols-outlined tools" title="Superscript" onmousedown="toolsExec('superscript')">superscript</a>
                                 <a class="material-symbols-outlined tools" title="Subscript" onmousedown="toolsExec('subscript')">subscript</a>
                             </div>
+                            <div class="tools-section-divider"></div>
                             <div class="tools-wrapper-category">
                                 <a class="material-symbols-outlined tools" title="Left Align" onmousedown="toolsExec('justifyLeft')">format_align_left</a>
                                 <a class="material-symbols-outlined tools" title="Center Align" onmousedown="toolsExec('justifyCenter')">format_align_center</a>
                                 <a class="material-symbols-outlined tools" title="Right Align" onmousedown="toolsExec('justifyRight')">format_align_right</a>
                                 <a class="material-symbols-outlined tools" title="Justify" onmousedown="toolsExec('justifyFull')">format_align_justify</a>
                             </div>
+                            <div class="tools-section-divider"></div>
                             <div class="tools-wrapper-category">
                                 <a class="material-symbols-outlined tools" title="Bulleted List" onmousedown="toolsExec('insertUnorderedList')">format_list_bulleted</a>
                                 <a class="material-symbols-outlined tools" title="Numbered List" onmousedown="toolsExec('insertOrderedList')">format_list_numbered</a>
                             </div>
+                            <div class="tools-section-divider"></div>
                             <div class="tools-wrapper-category">
                                 <a class="material-symbols-outlined tools" title="Subscript" onmousedown="toolsExec('indent')">format_indent_increase</a>
                                 <a class="material-symbols-outlined tools" title="Subscript" onmousedown="toolsExec('outdent')">format_indent_decrease</a>
                             </div>
+                            <div class="tools-section-divider"></div>
                             <div class="tools-wrapper-category">
                                 <a class="material-symbols-outlined tools" title="Add Link" onmousedown="toolsCreateLink()">link</a>
                                 <a class="material-symbols-outlined tools" title="Remove Link" onmousedown="toolsRemoveLink()">link_off</a>
                             </div>
-                            <div class="tools-wrapper-category" style="border-right: none;">
-                                <a class="material-symbols-outlined tools" title="Add Image" onclick="toolsAddImage()">image</a>
+                            <div class="tools-section-divider"></div>
+                            <div class="tools-wrapper-category">
+                                <a class="material-symbols-outlined tools" title="Add Image" onmousedown="toolsAddImage()">image</a>
                                 <a class="material-symbols-outlined tools" title="Add Check Box" onmousedown="toolsAddCheckbox()">check_box</a>
                                 <a class="material-symbols-outlined tools" title="Add Horizontal Rule" onmousedown="toolsExec('insertHorizontalRule')">horizontal_rule</a>
                             </div>
                         </div>
                     </div>
-                    <p class="word-count"><span class="word-count-text">0</span> word(s)</p>
+                    <p class="word-count">
+                        <span class="word-count-text" style="font-family: 'Tlwg Typewriter', monospace;">0</span> word(s)
+                    </p>
                 </div>
                 <div class="main-edit">
                     <div class="editor-wrapper">

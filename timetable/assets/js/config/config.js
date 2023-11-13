@@ -1,5 +1,5 @@
 // Basic Timetable information.
-var timetableversion = "3.16.0f"
+var timetableversion = "3.17.0-beta"
 
 // Timetable class fetch folder
 // Timetable will require a <classno>.json file in the folder
@@ -169,11 +169,13 @@ var card_left_alterlist = [
     20, 21, 22,
     31, 32, 33,
     42, 43, 44,
-    53, 54, 55
+    53, 54, 55,
+    64, 65, 66,
+    75, 76, 77
 ]
 
 // For subject cards to appear on the bottom instead of the top side. (Hard-coded)
 var card_bottom_alterlist = [
-    34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44,
-    45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55
+    56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66,
+    67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77
 ]

@@ -35,6 +35,10 @@
     height: 100dvh;
 }
 
+.read-view .main-edit-content a {
+    cursor: pointer !important;
+}
+
 @keyframes exit-read-view-slidein {
     0% {
         opacity: 0;

@@ -38,7 +38,7 @@
     text-align: center;
     text-overflow: ellipsis;
 
-    border: 1px solid var(--color-gray-4);
+    border: 1px solid var(--color-gray-5);
 
     border-radius: 0.3em;
 
@@ -47,6 +47,7 @@
 
 .class-joinable {
     background: var(--color-gray-5);
+    border: 1px solid var(--color-gray-4);
 }
 
 .class-joinable:hover {
@@ -65,6 +66,12 @@
     font-weight: var(--font-weight-semibold);
 
     color: var(--color-days);
+
+    padding: 0.75rem 1rem;
+}
+
+.table-faded {
+    opacity: 0.5 !important;
 }
 
 .class-override {

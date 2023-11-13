@@ -3,7 +3,7 @@
 
     overflow: auto;
 
-    caret-color: var(--color-blue);
+    caret-color: var(--color-accent);
     background: var(--background-html);
 }
 
@@ -25,13 +25,13 @@
 }
 
 .main-edit-content a {
-    cursor: pointer !important;
+    cursor: text !important;
 }
 
-.main-edit-sansserif,
+/* .main-edit-sansserif,
 .main-edit-sansserif * {
     font-family: "Outfit", "Sarabun", sans-serif !important;
-}
+} */
 
 .main-edit-serif,
 .main-edit-serif * {
@@ -40,11 +40,6 @@
 
 .main-edit-monospace,
 .main-edit-monospace * {
-    font-family: "Roboto Mono", "Sarabun", monospace !important;
-}
-
-.main-edit-thaimonospace,
-.main-edit-thaimonospace * {
     font-family: "Tlwg Typewriter", monospace !important;
 }
 
@@ -75,9 +70,12 @@
 
     width: max-content;
     max-width: 100%;
+    height: max-content;
+    max-height: 30vh;
 
-    margin: 0.5rem 0;
-    border: 1px solid var(--color-gray-4);
+    object-fit: contain;
+
+    margin: 0.5rem auto;
 }
 
 .main-edit-content input[type="checkbox"] {

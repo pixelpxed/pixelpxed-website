@@ -1,7 +1,9 @@
 window.onload = function () {
-    console.log("%cWarning!%c\n\nConsole is a very powerful tool.\n\nRunning codes you don't understand can steal your personal data.\n\nNever paste and run any code you don't understand.",
+    console.log(
+        "\n%cWarning%c\n\nConsole is a very powerful tool.\n\nRunning codes you don't understand can break your Timetable, or worse, steal your personal data.\n\nNever paste and run any code you don't understand.\n",
         "font-family: sans-serif; font-weight: bold; font-size: 1.5em; color: var(--color-red);",
-        "font-family: sans-serif;")
+        "font-family: sans-serif;"
+    )
         
 
     fetch("/assets/json/common.json")
@@ -26,7 +28,7 @@ function toggleThemeMenu() {
 
 function addTitleNavigationIcon() {
     document.querySelectorAll("a.projects-title[href]:not([value='']").forEach(title => {
-        title.innerHTML += `<span style="color: var(--color-blue);" class="material-symbols-outlined">navigate_next</span>`
+        title.innerHTML += `<span style="color: var(--color-accent);" class="material-symbols-outlined">navigate_next</span>`
     })
 }
 

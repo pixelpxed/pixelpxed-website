@@ -1,22 +1,15 @@
-.notes-panel-wrapper {
-    flex-grow: 1;
-
-    padding: 0 !important;
-    
-    overflow: auto;
-}
-
 .notes-panel-title {
     display: grid;
     align-items: center;
 
     grid-template-columns: 1fr max-content;
 
-    padding: 1rem 1rem 0.25rem 1rem;
+    padding: 1rem 1rem 0.5rem 1rem !important;
 }
 
 .notes-panel-folder {
     width: 100%;
+
     white-space: nowrap;
     overflow: hidden;
 
@@ -28,7 +21,14 @@
 }
 
 .notes-panel {
+    /* flex-grow: 1; */
+    
+    padding: 0.5rem 0 50vh 0 !important;
     margin: 0 0 10rem 0;
+
+    height: 100%;
+    
+    overflow: auto;
 }
 
 .notes-list {
@@ -38,7 +38,7 @@
     
     align-items: center;
 
-    gap: 0.25rem;
+    column-gap: 0.25rem;
 
     width: 100%;
     max-width: 20rem;
@@ -57,7 +57,7 @@
 
 .notes-list:not(.notes-list-active):hover {
     background: var(--color-gray-5);
-    border-left: 3px solid var(--color-blue);
+    border-left: 3px solid var(--color-accent);
     
     cursor: pointer;
 
@@ -97,7 +97,7 @@
 
 .notes-list-active {
     background: var(--color-selection);
-    border-left: 3px solid var(--color-blue);
+    border-left: 3px solid var(--color-accent);
 
     opacity: 1;
 
@@ -106,8 +106,6 @@
 
 .notes-list-active a {    
     color: var(--color-main-text) !important;
-
-    font-weight: var(--font-weight-semibold);
 }
 
 .note-panel-delete {

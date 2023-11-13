@@ -68,7 +68,8 @@ document.querySelectorAll(".tools").forEach((element) => {
     })
 })
 
-function addInCaret(content) {
+function addInCaret(content, caretposition = 0) {
+    elementContent.focus()
     document.execCommand("insertHTML", false, content)
 }
 
@@ -78,6 +79,7 @@ function addInBottom(content) {
 
 // Tools: Add image
 function toolsAddImage() {
+
     document.querySelector(".popup-center").insertAdjacentHTML("beforeend", `
         <div id="popup-id-${popupid}" class="popup">
             <div class="popup-wrapper">
@@ -100,7 +102,7 @@ function toolsAddImage() {
     popupOpen()
 }
 
-function addImageTrue() {
+function addImageTrue(caretposition) {
     var imageToAdd = document.querySelector(".data-toolsimage").value
     if (imageToAdd === "") {
         popupDone(popupid - 1);

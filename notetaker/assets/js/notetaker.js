@@ -133,12 +133,6 @@ function onInstanceCheckPass() {
             </div>
         `)
     }
-
-    fetch("/assets/json/common.json")
-        .then((res) => res.json())
-        .then((json) => {
-            document.getElementById("copyrightyear").innerHTML = json.copyrightyear
-        })
 };
 
 // Multiuse code.
@@ -229,7 +223,6 @@ function loadNote() {
                 noteTitle = untitledNoteString
             }
 
-            // <li class="notes-list${activecheck}" noteid="${i}">
             document.querySelector(".notes-panel").insertAdjacentHTML("beforeend", `
                 <li class="notes-list${activecheck}" noteid="${i}">
                     <a class="notes-list-${i} note-panel-title" onclick="location.href='?noteid=${i}${uistyle}'">${noteTitle}</a>
@@ -277,6 +270,8 @@ elementTitle.addEventListener("keyup", typingTimeoutSave);
 elementContent.addEventListener("keyup", typingTimeoutSave);
 function typingTimeoutSave() {
     toolsWordCount()
+
+    console.log(elementContent.selectionStart);
 
     // Do not display save indicator whe typing.
     saveIndicator.style.display = "none"

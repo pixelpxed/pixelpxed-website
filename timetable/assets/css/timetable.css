@@ -8,12 +8,24 @@
 @import url("/timetable/assets/css/components/timeremaining.css");
 @import url("/timetable/assets/css/components/todo.css");
 
+/* :root {
+    --color-sunday: rgb(255, 105, 105);
+    --color-monday: rgb(249, 215, 62);
+    --color-tuesday: rgb(213, 133, 183);
+    --color-wednesday: rgb(145, 227, 174);
+    --color-thursday: rgb(248, 167, 109);
+    --color-friday: rgb(119, 167, 218);
+    --color-saturday: rgb(190, 173, 250);
+} */
+
 :root {
-    --color-monday: #f9d73d;
-    --color-tuesday: #d686b7;
-    --color-wednesday: #92e4af;
-    --color-thursday: #f8a66c;
-    --color-friday: #78a7da;
+    --color-sunday: #FF6F69;
+    --color-monday: #FFCC5C;
+    --color-tuesday: #FF8DA1;
+    --color-wednesday: #96CEB4;
+    --color-thursday: #F4A460;
+    --color-friday: #B3CDE0;
+    --color-saturday: #D1B2E0;
 }
 
 .elective-swapper {

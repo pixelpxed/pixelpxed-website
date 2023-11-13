@@ -101,11 +101,11 @@ function toolsDownload(type = "all", id = 0) {
         filename = `${filenameinput}.ntkr`
     }
 
-    var encodedString = bytesToBase64(new TextEncoder().encode(JSON.stringify(data, null)))
+    // var encodedString = bytesToBase64(new TextEncoder().encode(JSON.stringify(data, null)))
     var encodedString = data
-    if (type = "single") {
-        encodedString = encodedString.slice(1, -1)
-    }
+    // if (type = "single") {
+    //     encodedString = encodedString.slice(1, -1)
+    // }
 
     console.log(data);
     console.log(encodedString);

@@ -70,7 +70,7 @@
 }
 
 .manage-notes-item a {
-    color: var(--color-blue);
+    color: var(--color-accent);
 }
 
 .manage-notes-item .drag-icon {
