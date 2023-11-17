@@ -293,7 +293,7 @@ function classJoiningSystem() {
 
                 var subjClassCode = subjContent.classcode
                 if (subjContent.classcode === "") {
-                    subjClassCode = "<i style='opacity: 0.25;'>ไม่มีข้อมูล</i>"
+                    subjClassCode = "<i style='opacity: 0.5;'>ไม่มีข้อมูล</i>"
                 }
 
                 document.querySelector(".popup-center").insertAdjacentHTML("beforeend", `
