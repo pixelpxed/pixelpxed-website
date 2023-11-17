@@ -271,26 +271,28 @@ function classJoiningSystem() {
             var subjText = grid.innerHTML
 
             grid.addEventListener("click", () => {
-                var subjVdo = subj[subjText].videocall
-                var subjCls = subj[subjText].classroom
+                var subjContent = subj[subjText]
 
-                var subjTitle = subj[subjText].subjname;
+                var subjVdo = subjContent.videocall
+                var subjCls = subjContent.classroom
+                var subjTitle = subjContent.subjname;
+                
                 if (subjTitle === "") {
                     subjTitle = subjText
-                }   var subjContent = subj[subjText]
+                } 
 
                 var subjTeacher = `<a title="Lookup in MySK" target="_blank" href="https://www.mysk.school/lookup/teachers/results?full_name=${subjContent.teacher}">${subjContent.teacher}</a>`
-                if (subjTeacher === "") {
+                if (subjContent.teacher === "") {
                     subjTeacher = "<i style='opacity: 0.5;'>ไม่มีข้อมูลคุณครู</i>"
                 }
 
                 var subjCode = subjContent.subjcode
-                if (subjCode === "") {
+                if (subjContent.subjcode === "") {
                     subjCode = "<i style='opacity: 0.5;'>ไม่มีข้อมูลรหัสวิชา</i>"
                 }
 
                 var subjClassCode = subjContent.classcode
-                if (subjClassCode === "") {
+                if (subjContent.classcode === "") {
                     subjClassCode = "<i style='opacity: 0.25;'>ไม่มีข้อมูล</i>"
                 }
 
