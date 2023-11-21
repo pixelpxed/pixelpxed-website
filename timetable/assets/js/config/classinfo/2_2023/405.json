@@ -2,31 +2,13 @@
     "override": {
         "state": true,
         "class": {
-            "45": [
-                "", "", "", "", "", "", "", "", "", "", "", 
-                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "Cheer Practice", "-extend", "-extend", "-extend", "Chinese",
-                "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
-                "Cheer Practice", "-extend", "-extend", "-extend", "-extend", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
-                "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "Heatstroke Protection", "-extend", "Boom Suan", "Health",
-                "", "", "", "", "", "", "", "", "", "", ""
-            ],
-            "46": [
-                "", "", "", "", "", "", "", "", "", "", "", 
-                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Jaturamitr Match", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
-                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Jaturamitr Match", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "",
-                "Jaturamitr Card Stunt", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend"
-            ],
             "47": [
                 "", "", "", "", "", "", "", "", "", "", "", 
-                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "Chinese",
+                "", "", "", "", "", "", "", "", "", "", "",
                 "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
                 "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
                 "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "Health",
+                "Volunteer Activity", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
                 "", "", "", "", "", "", "", "", "", "", ""
             ],
             "48": [
@@ -51,54 +33,18 @@
         "links": {
             "Ror-Dor": {
                 "subjname": "Territorial Defense (Ror-Dor)",
-                "subjdescription": "07:30 - 15:30",
+                "subjdescription": "07:30 — 15:30",
                 "subjcode": "",
                 "teacher": "ครูฝึก รด.",
                 "classcode": "",
                 "videocall": "",
                 "classroom": ""
             },
-            "Cheer Practice": {
-                "subjname": "Jaturamitr Cheer Practice",
-                "subjdescription": "",
-                "subjcode": "ก31924",
-                "teacher": "รุ่นพี่ ม.5",
-                "classcode": "",
-                "videocall": "",
-                "classroom": ""
-            },
-            "Boom Suan": {
+            "Volunteer Activity": {
                 "subjname": "",
-                "subjdescription": "",
+                "subjdescription": "กิจกรรมระดับ",
                 "subjcode": "",
-                "teacher": "กิจกรรมโรงเรียน",
-                "classcode": "",
-                "videocall": "",
-                "classroom": ""
-            },
-            "Heatstroke Protection": {
-                "subjname": "Protection From Heatstroke",
-                "subjdescription": "",
-                "subjcode": "",
-                "teacher": "แพทย์พิเศษ",
-                "classcode": "",
-                "videocall": "",
-                "classroom": ""
-            },
-            "Jaturamitr Match": {
-                "subjname": "",
-                "subjdescription": "Not Mandetory - Special Time",
-                "subjcode": "",
-                "teacher": "",
-                "classcode": "",
-                "videocall": "",
-                "classroom": ""
-            },
-            "Jaturamitr Card Stunt": {
-                "subjname": "",
-                "subjdescription": "06:00 - 21:30",
-                "subjcode": "",
-                "teacher": "",
+                "teacher": "ระดับ ม.4",
                 "classcode": "",
                 "videocall": "",
                 "classroom": ""
@@ -191,7 +137,7 @@
             "subjname": "Fundamental Biology",
             "subjdescription": "",
             "subjcode": "ว31245",
-            "teacher": "ขวัญจิรา",
+            "teacher": "ขวัญจิรา แก้วแฝง",
             "classcode": "65oo4fw",
             "videocall": "",
             "classroom": "NjM3MDkxNzIzNzY1"
@@ -200,19 +146,19 @@
             "subjname": "",
             "subjdescription": "",
             "subjcode": "ว31205",
-            "teacher": "นิรุทธ์ พรมบุตร",
-            "classcode": "5mpkvxs",
+            "teacher": "เอกราช สุขเสริม",
+            "classcode": "",
             "videocall": "",
-            "classroom": "NjA5NTE2NDA1MDM2"
+            "classroom": ""
         },
         "S.I.A.": {
             "subjname": "Science for International Achievement",
             "subjdescription": "",
             "subjcode": "ว31274",
-            "teacher": "นิรุทธ์ พรมบุตร",
-            "classcode": "5mpkvxs",
+            "teacher": "เอกราช สุขเสริม",
+            "classcode": "olvtkot",
             "videocall": "",
-            "classroom": "NjA5NTE2NDA1MDM2"
+            "classroom": "NjQxNzY5MDg2MjI1"
         },
         "Social": {
             "subjname": "",
@@ -263,7 +209,7 @@
             "subjname": "Independent Study",
             "subjdescription": "",
             "subjcode": "I31252",
-            "teacher": "เอกราช สุขเสริม",
+            "teacher": "โชกศรัณต์​ เศรษฐาศุภวัฒน์",
             "classcode": "omazijx",
             "videocall": "hcp-dtmt-tmr",
             "classroom": "NTE5ODE5MjM0MTA1"
