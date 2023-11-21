@@ -2,6 +2,22 @@ window.addEventListener('load', () => {
     clock()
     setMainClock()
     calculateDaysInWeek()
+
+    setTimeout(() => {
+        console.log(
+            `
+%cAnalytics%c
+
+Week: ${calculateWeekNumber()}
+Load: ${hour > 9 ? hour : "0" + hour}:${minute >= 10 ? minute : "0" + minute}:${second >= 10 ? second : "0" + second} *
+
+* When clock is avalible, minus 1 second for execution time.
+            `,
+
+            "font-family: sans-serif; font-weight: bold; font-size: 1.5em;",
+            "font-family: sans-serif;"
+        )
+    }, 1000);
 });
 
 var daylist = [
@@ -116,8 +132,8 @@ function calculateDaysInWeek() {
 
     // Set the dates into the grid
 
-    for (let i = 0; i < 5; i++) {
-        var weekNow = datesInWeek[i + 1];
+    for (let i = 0; i < 7; i++) {
+        var weekNow = datesInWeek[i];
 
         var weekMonth = shortmonthlist[weekNow.getMonth()];
         var weekDate = weekNow.getDate();

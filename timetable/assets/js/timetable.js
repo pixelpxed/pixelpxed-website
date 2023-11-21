@@ -97,8 +97,8 @@ function setTimetableSystemInformation() {
             overrideTimeList = "Special"
             classtime_type = "Special"
         } if (localStorage.getItem("timetable-overrideTimeList") === "online") {
-            overrideTimeList = "Special"
-            classtime_type = "Special"
+            overrideTimeList = "Online"
+            classtime_type = "Online"
         } document.querySelector(".about-timelist").innerHTML += ` / <b>Override:</b> ${overrideTimeList}`
     }
 
@@ -174,10 +174,11 @@ function fillClasses() {
     document.querySelector("div.table").addEventListener('contextmenu', event => {
         event.preventDefault();
     })
-
-    for (let i = 0; i < Math.ceil(classes.length / 5); i++) {
+    
+    document.querySelector(".table-grid-time-type").innerHTML = classtime_type
+    for (let i = 0; i < Math.ceil(classes.length / 7); i++) {
         document.getElementById(`period${i}`).innerHTML = `${i}`
-
+        
         if (classTimetable !== "custom") {
             if (localStorage.getItem("timetable-overrideTimeList") === "auto") {
                 document.getElementById(`time${i}`).innerHTML = classtimes[classtime_type]["list"][i]
@@ -270,38 +271,55 @@ function classJoiningSystem() {
             var subjText = grid.innerHTML
 
             grid.addEventListener("click", () => {
-                var subjVdo = subj[subjText].videocall
-                var subjCls = subj[subjText].classroom
+                var subjContent = subj[subjText]
 
-                var subjTitle = subj[subjText].subjname;
+                var subjVdo = subjContent.videocall
+                var subjCls = subjContent.classroom
+                var subjTitle = subjContent.subjname;
+                
                 if (subjTitle === "") {
                     subjTitle = subjText
-                }   var subjContent = subj[subjText]
+                } 
 
-                var subjTeacher = subjContent.teacher
-                if (subjTeacher === "") {
+                var subjTeacher = `<a title="Lookup in MySK" target="_blank" href="https://www.mysk.school/lookup/teachers/results?full_name=${subjContent.teacher}">${subjContent.teacher}</a>`
+                if (subjContent.teacher === "") {
                     subjTeacher = "<i style='opacity: 0.5;'>ไม่มีข้อมูลคุณครู</i>"
                 }
 
                 var subjCode = subjContent.subjcode
-                if (subjCode === "") {
+                if (subjContent.subjcode === "") {
                     subjCode = "<i style='opacity: 0.5;'>ไม่มีข้อมูลรหัสวิชา</i>"
                 }
 
                 var subjClassCode = subjContent.classcode
-                if (subjClassCode === "") {
-                    subjClassCode = "<i style='opacity: 0.25;'>ไม่มีข้อมูล</i>"
+                if (subjContent.classcode === "") {
+                    subjClassCode = "<i style='opacity: 0.5;'>ไม่มีข้อมูล</i>"
                 }
 
                 document.querySelector(".popup-center").insertAdjacentHTML("beforeend", `
                     <div id="popup-id-${popupid}" class="class-popupmode popup">
                         <div class="popup-wrapper">
                             <div class="popup-content">
-                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.5rem;>">
-                                    <span class="popup-title">${subjTitle}</span>
-                                    <span class="info-chipbox">Class Code: <span style="font-family: 'Roboto Mono', 'Sarabun', sans-serif;">${subjClassCode}</span></span>
+                                <div>
+                                    <p class="popup-title">${subjTitle}</p>
+                                    <hr>
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                                        <div style="grid-column: span 2;">
+                                            <p class="popup-description">ครูผู้สอน</p>
+                                            <p style="display: flex; align-items: center; gap: 0.5rem;">
+                                                ${subjTeacher}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="popup-description">รหัสวิชา</p>
+                                            <p>${subjCode}</p>
+                                        </div>
+                                        <div>
+                                            <p class="popup-description">รหัส Classroom</p>
+                                            <p style="font-family: 'Tlwg Typewriter', monospace;">${subjClassCode}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <span class="popup-description">${subjTeacher} · ${subjCode}<br></span>
                             </div>
                             <div class="popup-buttons-box">
                                 <div class="popup-buttons-wrapper popup-buttons-wrapper-${popupid}">
@@ -502,7 +520,7 @@ function subjectCard() {
                         <p class="popup-description" style="margin-bottom: 0.5rem;">${subjTeacher} · ${subjCode}</p>
                         <div class="info-chipbox-wrapper">
                             <div class="info-chipbox">
-                            <b>Class Code:</b> <span style="font-family: 'Roboto Mono', 'Sarabun', sans-serif;">${subjClassCode}</span>
+                            <b>Class Code:</b> <span style="font-family: 'Tlwg Typewriter', 'Sarabun', sans-serif;">${subjClassCode}</span>
                             </div><br>
                             ${subjClassroomIcon}
                             ${subjVideoIcon}

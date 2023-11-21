@@ -16,12 +16,6 @@
     user-select: none;
 }
 
-.word-count {
-    padding-right: 0.5rem;
-
-    border-left: 1px solid var(--color-gray-4);
-}
-
 .file-path-bar-menu {
     border-right: 1px solid var(--color-gray-4);
 }

@@ -93,7 +93,7 @@
     text-align: center;
 
     color: var(--color-white);
-    background: var(--color-blue);
+    background: var(--color-accent);
 
     border-radius: 0.3em;
 
@@ -110,7 +110,7 @@
 }
 
 .popup-button-transparent {
-    color: var(--color-blue);
+    color: var(--color-accent);
     background: transparent;
 }
 

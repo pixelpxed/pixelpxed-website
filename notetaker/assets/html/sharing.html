@@ -1,13 +1,8 @@
 <div class="contentbox-wrapper" id="sharing-wrapper">
     <div class="popup-content">
         <div>
-            <p class="popup-title">Export All Notes</p>
-            <p>Export a .notetaker file to backup or share with other devices.</p>
-            <a class="popup-button popup-button-full" onclick="toolsDownload()" style="margin: 1rem 0;">Download All Notes</a>
-        </div>
-        <div>
-            <p class="popup-title">Import All Notes</p>
-            <p>Upload a .notetaker file and replaces the current data with the uploaded one.</p>
+            <p class="popup-title">Upload</p>
+            <p>Upload a .ntkr and overwrites the current data.</p>
             <div 
                 class="file-dropzone"
                 ondrop="toolsUploadDropHandle(event);"
@@ -15,16 +10,46 @@
                 onclick="toolsUploadBrowseHandle();"   
             >
                 <div>
-                    <p class="uploading-file">Click here to browse files, or drag a .notetaker file here.</p>
-
-                    <input type="file" accept=".notetaker" onchange="toolsUploadBrowse()" class="drop-handle-browse" style="display: none;">
+                    <p class="uploading-file">Click here to browse files, or drag a .ntkr, .sntkr file here.</p>
+                    <input type="file" accept=".notetaker,.ntkr" onchange="toolsUploadBrowse()" class="drop-handle-browse" style="display: none;">
                 </div>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <p class="popup-title">Download</p>
+            <p>Download a .ntkr to backup or share with other devices.</p>
+            <div class="manage-notes-wrapper">
+                <div class="manage-notes-list notes-smallview">
+                    <p 
+                        class="popup-description" 
+                        style="
+                            grid-column: span 3; 
+                            text-align: center;
+                        "
+                    >
+                        Couldn't load notes.
+                    </p>
+                </div>
+                <a class="show-all-notes" onclick="toggleShareNotesView()">
+                    Display All Notes
+                </a>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 0.5rem;">
+                <div style="grid-column: span 2;">
+                    <div class="filename-input-wrapper">
+                        <input type="text" class="filename-input" name="" id="" placeholder="filename">
+                        <p>.ntkr</p>
+                    </div>
+                </div>
+                <a class="popup-button popup-button-full" onclick="toolsDownload('all')">Download Selected Notes</a>
+                <a class="popup-button popup-button-full" onclick="toolsDownload('all')">Download All Notes</a>
             </div>
         </div>
     </div>
     <div class="popup-buttons-box">
         <div class="popup-buttons-wrapper">
-            <a class="popup-button" onclick="toggleFetchPopup('#sharing-wrapper')">Save</a>
+            <a class="popup-button" onclick="toggleFetchPopup('#sharing-wrapper')">Done</a>
         </div>
     </div>
 </div>

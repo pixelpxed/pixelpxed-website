@@ -96,7 +96,7 @@ h6 {
 a {
     text-decoration: none;
 
-    color: var(--color-blue);
+    color: var(--color-accent);
 
     cursor: pointer;
 }
@@ -156,7 +156,7 @@ abbr {
     font-size: 1em;
     line-height: 1.4;
 
-    color: var(--color-blue);
+    color: var(--color-accent);
 }
 
 .calendar-wrapper {
@@ -238,7 +238,7 @@ abbr {
 }
 
 .weekend {
-    color: var(--color-blue);
+    color: var(--color-accent);
 }
 
 .day {

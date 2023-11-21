@@ -10,13 +10,11 @@
 :root.sync-os,
 :root[theme="sync-os"] {
     --font-family: "Outfit", "Sarabun", sans-serif;
+    --font-family: "Outfit", "Noto Sans Thai Looped", sans-serif;
 
     --color-black: #000000;
     --color-white: #ffffff;
 
-    /* --font-weight-normal: 100;
-    --font-weight-semibold: 200;
-    --font-weight-bold: 300; */
     --font-weight-normal: 300;
     --font-weight-semibold: 500;
     --font-weight-bold: 700;
@@ -27,6 +25,8 @@
     --color-alt-transparent-light: rgba(255, 255, 255, 0.2);
 
     --color-days: rgba(0, 0, 0, 0.8);
+
+    --color-accent: var(--color-blue);
 }
 
 :root,
@@ -58,7 +58,7 @@
     --color-gray-5: rgb(44, 44, 46);
     --color-gray-6: rgb(28, 28, 30);
 
-    --color-selection: rgba(10, 133, 255, 0.4);
+    --color-selection: rgba(10, 132 , 255, 0.4);
 
     --icon-url-select: url("/assets/img/symbols/dark/keyboard_arrow_down.svg");
     --icon-url-input-date: url("/assets/img/symbols/dark/calendar_month.svg");
@@ -177,6 +177,13 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 
+hr {
+    margin: 1rem 0;
+
+    border: none;
+    border-top: 1px solid var(--color-gray-4);
+}
+
 h1,
 h2,
 h3,
@@ -190,7 +197,7 @@ b {
 a {
     text-decoration: none;
 
-    color: var(--color-blue);
+    color: var(--color-accent);
 
     cursor: pointer;
 }
@@ -291,7 +298,7 @@ button {
     font-weight: var(--font-weight-normal);
 
     color: var(--color-white);
-    background: var(--color-blue);
+    background: var(--color-accent);
 
     border-radius: 0.3em;
 
@@ -369,8 +376,16 @@ td:last-child {
     border-right: none;
 }
 
+thead th {
+    border-bottom: 1px solid var(--color-gray-4);
+}
+
 tbody tr {
-    border-top: 1px solid var(--color-gray-4);
+    border-bottom: 1px dashed var(--color-gray-4);
+}
+
+tbody tr:last-child {
+    border: none;
 }
 
 kbd {

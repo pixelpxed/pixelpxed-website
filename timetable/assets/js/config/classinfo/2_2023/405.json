@@ -2,79 +2,49 @@
     "override": {
         "state": true,
         "class": {
-            "45": [
-                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "Cheer Practice", "-extend", "-extend", "-extend", "Chinese",
-                "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
-                "Cheer Practice", "-extend", "-extend", "-extend", "-extend", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
-                "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "Heatstroke Protection", "-extend", "Boom Suan", "Health"
-            ],
-            "46": [
-                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Jaturamitr Match", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
-                "Homeroom", "Earth Space", "F. Math", "-extend", "A. Math", "Jaturamitr Match", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", ""
-            ],
             "47": [
-                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "Chinese",
-                "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
-                "Homeroom", "Earth Space", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
+                "", "", "", "", "", "", "", "", "", "", "", 
+                "", "", "", "", "", "", "", "", "", "", "",
+                "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
+                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
                 "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "Health"
+                "Volunteer Activity", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
+                "", "", "", "", "", "", "", "", "", "", ""
             ],
             "48": [
+                "", "", "", "", "", "", "", "", "", "", "", 
                 "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "Chinese",
-                "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
-                "Homeroom", "Earth Space", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
+                "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
+                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
                 "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "Health"
+                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "Health", 
+                "", "", "", "", "", "", "", "", "", "", ""
             ],
             "49": [
+                "", "", "", "", "", "", "", "", "", "", "", 
                 "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "Chinese",
-                "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
-                "Homeroom", "Earth Space", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
+                "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
+                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
                 "Homeroom", "Chinese", "Thai", "Health", "", "", "", "", "", "", "",
-                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "Health"
+                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "Health",
+                "", "", "", "", "", "", "", "", "", "", ""
             ]
         },
         "links": {
             "Ror-Dor": {
                 "subjname": "Territorial Defense (Ror-Dor)",
+                "subjdescription": "07:30 — 15:30",
                 "subjcode": "",
                 "teacher": "ครูฝึก รด.",
                 "classcode": "",
                 "videocall": "",
                 "classroom": ""
             },
-            "Cheer Practice": {
-                "subjname": "Jaturamitr Cheer Practice",
-                "subjcode": "ก31924",
-                "teacher": "รุ่นพี่ ม.5",
-                "classcode": "",
-                "videocall": "",
-                "classroom": ""
-            },
-            "Boom Suan": {
+            "Volunteer Activity": {
                 "subjname": "",
+                "subjdescription": "กิจกรรมระดับ",
                 "subjcode": "",
-                "teacher": "กิจกรรมโรงเรียน",
-                "classcode": "",
-                "videocall": "",
-                "classroom": ""
-            },
-            "Heatstroke Protection": {
-                "subjname": "Protection From Heatstroke",
-                "subjcode": "",
-                "teacher": "แพทย์พิเศษ",
-                "classcode": "",
-                "videocall": "",
-                "classroom": ""
-            },
-            "Jaturamitr Match": {
-                "subjname": "",
-                "subjcode": "Special Time",
-                "teacher": "Not Mandetory",
+                "teacher": "ระดับ ม.4",
                 "classcode": "",
                 "videocall": "",
                 "classroom": ""
@@ -82,15 +52,18 @@
         }
     },
     "class": [
+        "", "", "", "", "", "", "", "", "", "", "", 
         "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "",
-        "Homeroom", "Earth Space", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
-        "Homeroom", "Earth Space", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
+        "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
+        "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
         "Homeroom", "Chinese", "Thai", "Health", "", "", "", "", "", "", "",
-        "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", ""
+        "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "",
+        "", "", "", "", "", "", "", "", "", "", ""
     ],
     "links": {
         "Homeroom": {
             "subjname": "",
+            "subjdescription": "",
             "subjcode": "",
             "teacher": "ชุติมา สุขเอี่ยม",
             "classcode": "",
@@ -99,6 +72,7 @@
         },
         "M4 Meeting": {
             "subjname": "",
+            "subjdescription": "",
             "subjcode": "",
             "teacher": "คณะครู ม.4",
             "classcode": "",
@@ -107,6 +81,7 @@
         },
         "M.I.A.": {
             "subjname": "Math for International Achievement",
+            "subjdescription": "",
             "subjcode": "ค31254",
             "teacher": "กฤชพล บุญพูลมี",
             "classcode": "6abfed2",
@@ -115,6 +90,7 @@
         },
         "Thai": {
             "subjname": "",
+            "subjdescription": "",
             "subjcode": "ท31102",
             "teacher": "สุภาภรณ์ ขวัญสุวรรณ",
             "classcode": "np5leqz",
@@ -123,6 +99,7 @@
         },
         "Music": {
             "subjname": "",
+            "subjdescription": "",
             "subjcode": "ศ31102",
             "teacher": "นพดล เกิดโภคา",
             "classcode": "",
@@ -131,6 +108,7 @@
         },
         "F. English": {
             "subjname": "Fundamental English",
+            "subjdescription": "",
             "subjcode": "อ31152",
             "teacher": "Ramces M. Dili",
             "classcode": "udnafon",
@@ -139,14 +117,16 @@
         },
         "Chemistry": {
             "subjname": "",
+            "subjdescription": "",
             "subjcode": "ว31225",
             "teacher": "ธันฐภัทร บุญช่วย",
             "classcode": "",
             "videocall": "",
             "classroom": ""
         },
-        "Earth Space": {
+        "E.S.": {
             "subjname": "Earth and Space",
+            "subjdescription": "",
             "subjcode": "ว31265",
             "teacher": "ณัฐริกา รอดสถิตย์",
             "classcode": "ymfvwts",
@@ -155,30 +135,34 @@
         },
         "F. Biology": {
             "subjname": "Fundamental Biology",
+            "subjdescription": "",
             "subjcode": "ว31245",
-            "teacher": "ขวัญจิรา",
+            "teacher": "ขวัญจิรา แก้วแฝง",
             "classcode": "65oo4fw",
             "videocall": "",
             "classroom": "NjM3MDkxNzIzNzY1"
         },
         "Physics": {
             "subjname": "",
+            "subjdescription": "",
             "subjcode": "ว31205",
-            "teacher": "นิรุทธ์ พรมบุตร",
-            "classcode": "5mpkvxs",
+            "teacher": "เอกราช สุขเสริม",
+            "classcode": "",
             "videocall": "",
-            "classroom": "NjA5NTE2NDA1MDM2"
+            "classroom": ""
         },
         "S.I.A.": {
             "subjname": "Science for International Achievement",
+            "subjdescription": "",
             "subjcode": "ว31274",
-            "teacher": "นิรุทธ์ พรมบุตร",
-            "classcode": "5mpkvxs",
+            "teacher": "เอกราช สุขเสริม",
+            "classcode": "olvtkot",
             "videocall": "",
-            "classroom": "NjA5NTE2NDA1MDM2"
+            "classroom": "NjQxNzY5MDg2MjI1"
         },
         "Social": {
             "subjname": "",
+            "subjdescription": "",
             "subjcode": "ส31152",
             "teacher": "มาร์ช อุกฤษณ์ / นิว ธราดล",
             "classcode": "fclrxsv",
@@ -187,6 +171,7 @@
         },
         "Swimming": {
             "subjname": "",
+            "subjdescription": "",
             "subjcode": "พ30232",
             "teacher": "คณะครู ม.4",
             "classcode": "",
@@ -195,6 +180,7 @@
         },
         "EP Meeting": {
             "subjname": "",
+            "subjdescription": "",
             "subjcode": "",
             "teacher": "",
             "classcode": "",
@@ -203,6 +189,7 @@
         },
         "F. Math": {
             "subjname": "Fundamental Math",
+            "subjdescription": "",
             "subjcode": "ค31152",
             "teacher": "กฤชพล บุญพูลมี",
             "classcode": "f63ugu7",
@@ -211,6 +198,7 @@
         },
         "A. Math": {
             "subjname": "Additional Math",
+            "subjdescription": "",
             "subjcode": "ค31252",
             "teacher": "กฤษฎา อัศวสกุลเกียรติ",
             "classcode": "deki6v5",
@@ -219,14 +207,16 @@
         },
         "I. Study": {
             "subjname": "Independent Study",
+            "subjdescription": "",
             "subjcode": "I31252",
-            "teacher": "เอกราช สุขเสริม",
+            "teacher": "โชกศรัณต์​ เศรษฐาศุภวัฒน์",
             "classcode": "omazijx",
             "videocall": "hcp-dtmt-tmr",
             "classroom": "NTE5ODE5MjM0MTA1"
         },
         "Comm. Eng": {
             "subjname": "Communicational in English",
+            "subjdescription": "",
             "subjcode": "อ31252",
             "teacher": "Ramces M. Dili",
             "classcode": "votutta",
@@ -235,6 +225,7 @@
         },
         "Chinese": {
             "subjname": "",
+            "subjdescription": "",
             "subjcode": "จ31252 (คาด)",
             "teacher": "ธัญญภัสร์ เจริญพร",
             "classcode": "",
@@ -243,6 +234,7 @@
         },
         "Japanese": {
             "subjname": "",
+            "subjdescription": "",
             "subjcode": "ญ31252 (คาด)",
             "teacher": "ดรัณภพ กัญญาศักดิ์",
             "classcode": "6uulgjc",
@@ -251,6 +243,7 @@
         },
         "E.I.A.": {
             "subjname": "English for International Achievement",
+            "subjdescription": "",
             "subjcode": "อ31254",
             "teacher": "โชกศรัณต์​ เศรษฐาศุภวัฒน์",
             "classcode": "en7acxt",
@@ -259,6 +252,7 @@
         },
         "Health": {
             "subjname": "",
+            "subjdescription": "",
             "subjcode": "พ31102",
             "teacher": "ณิชากร",
             "classcode": "fvqujrp",
@@ -267,6 +261,7 @@
         },
         "Lunch": {
             "subjname": "",
+            "subjdescription": "",
             "subjcode": "",
             "teacher": "",
             "classcode": "",
@@ -275,6 +270,7 @@
         },
         "Break": {
             "subjname": "",
+            "subjdescription": "",
             "subjcode": "",
             "teacher": "",
             "classcode": "",
@@ -283,6 +279,7 @@
         },
         "-extend": {
             "subjname": "",
+            "subjdescription": "",
             "subjcode": "",
             "teacher": "",
             "classcode": "",
@@ -291,6 +288,7 @@
         },
         "": {
             "subjname": "",
+            "subjdescription": "",
             "subjcode": "",
             "teacher": "",
             "classcode": "",
