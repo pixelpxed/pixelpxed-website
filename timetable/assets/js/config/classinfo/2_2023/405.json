@@ -13,7 +13,7 @@
             ],
             "48": [
                 "", "", "", "", "", "", "", "", "", "", "", 
-                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "Chinese",
+                "Volunteer Activity", "-extend", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "Chinese",
                 "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
                 "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
                 "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
@@ -33,7 +33,7 @@
         "links": {
             "Ror-Dor": {
                 "subjname": "Territorial Defense (Ror-Dor)",
-                "subjdescription": "07:30 — 15:30",
+                "subjdescription": "07:30 — 15:30 / <a href='https://maps.app.goo.gl/RobJocqQ6UhJyuPp8?g_st=ic' target='_blank'>Location</a>",
                 "subjcode": "",
                 "teacher": "ครูฝึก รด.",
                 "classcode": "",
@@ -42,7 +42,7 @@
             },
             "Volunteer Activity": {
                 "subjname": "",
-                "subjdescription": "กิจกรรมระดับ",
+                "subjdescription": "06:30 — 18:00 / <a href='https://cdn.discordapp.com/attachments/1072863379888283688/1177070675308056816/IMG_0388.jpg?ex=65712b7d&is=655eb67d&hm=a88d6264117af21bd069a8488bbb969a1121f7d6f7129cda092d4bd2d5e29961&' target='_blank'>Schedule</a>",
                 "subjcode": "",
                 "teacher": "ระดับ ม.4",
                 "classcode": "",
@@ -137,7 +137,7 @@
             "subjname": "Fundamental Biology",
             "subjdescription": "",
             "subjcode": "ว31245",
-            "teacher": "ขวัญจิรา แก้วแฝง",
+            "teacher": "ขวัญจิรา แก้วแฝก",
             "classcode": "65oo4fw",
             "videocall": "",
             "classroom": "NjM3MDkxNzIzNzY1"
@@ -164,7 +164,7 @@
             "subjname": "",
             "subjdescription": "",
             "subjcode": "ส31152",
-            "teacher": "มาร์ช อุกฤษณ์ / นิว ธราดล",
+            "teacher": "อุกฤษณ์ มากมี",
             "classcode": "fclrxsv",
             "videocall": "efv-igth-qip",
             "classroom": "NTIwMDMzMTQyMjMx"
@@ -226,7 +226,7 @@
         "Chinese": {
             "subjname": "",
             "subjdescription": "",
-            "subjcode": "จ31252 (คาด)",
+            "subjcode": "จ31252",
             "teacher": "ธัญญภัสร์ เจริญพร",
             "classcode": "",
             "videocall": "",
@@ -235,7 +235,7 @@
         "Japanese": {
             "subjname": "",
             "subjdescription": "",
-            "subjcode": "ญ31252 (คาด)",
+            "subjcode": "ญ31252",
             "teacher": "ดรัณภพ กัญญาศักดิ์",
             "classcode": "6uulgjc",
             "videocall": "",

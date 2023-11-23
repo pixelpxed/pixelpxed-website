@@ -296,26 +296,32 @@ function classJoiningSystem() {
                     subjClassCode = "<i style='opacity: 0.5;'>ไม่มีข้อมูล</i>"
                 }
 
+                var subjDescription = subjContent.subjdescription
+                // if (subjContent.subjdescription === "") {
+                //     subjDescription = ""
+                // }
+
                 document.querySelector(".popup-center").insertAdjacentHTML("beforeend", `
                     <div id="popup-id-${popupid}" class="class-popupmode popup">
                         <div class="popup-wrapper">
                             <div class="popup-content">
                                 <div>
                                     <p class="popup-title">${subjTitle}</p>
+                                    <p class="popup-description">${subjDescription}</p>
                                     <hr>
                                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
                                         <div style="grid-column: span 2;">
-                                            <p class="popup-description">ครูผู้สอน</p>
+                                            <p class="popup-description">Teacher</p>
                                             <p style="display: flex; align-items: center; gap: 0.5rem;">
                                                 ${subjTeacher}
                                             </p>
                                         </div>
                                         <div>
-                                            <p class="popup-description">รหัสวิชา</p>
+                                            <p class="popup-description">Class Code</p>
                                             <p>${subjCode}</p>
                                         </div>
                                         <div>
-                                            <p class="popup-description">รหัส Classroom</p>
+                                            <p class="popup-description">Classroom Code</p>
                                             <p style="font-family: 'Tlwg Typewriter', monospace;">${subjClassCode}</p>
                                         </div>
                                     </div>
