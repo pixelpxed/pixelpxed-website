@@ -51,7 +51,7 @@
 .main-edit-content {
     flex-grow: 1;
 
-    padding-bottom: 50vh;
+    padding-bottom: 100dvh;
 
     outline: none;
 }

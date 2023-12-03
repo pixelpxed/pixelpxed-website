@@ -4,11 +4,27 @@
 
     grid-template-columns: 1fr max-content;
 
-    padding: 1rem 1rem 0.5rem 1rem !important;
+    border-bottom: 1px solid var(--color-gray-4);
+
+    padding: 0 0 0 0.5rem;
+}
+
+.notes-panel-icons {
+    display: flex;
+}
+
+.notes-panel-icons a {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
 }
 
 .notes-panel-folder {
     width: 100%;
+
+    padding: 0.5rem;
 
     white-space: nowrap;
     overflow: hidden;
@@ -21,9 +37,7 @@
 }
 
 .notes-panel {
-    /* flex-grow: 1; */
-    
-    padding: 0.5rem 0 50vh 0 !important;
+    padding: 0 0 50vh 0 !important;
     margin: 0 0 10rem 0;
 
     height: 100%;
@@ -42,6 +56,9 @@
 
     width: 100%;
     max-width: 20rem;
+    height: 2.25rem;
+
+    line-height: 1;
 
     padding: 0 0.5rem 0 calc(1rem - 3px);
 

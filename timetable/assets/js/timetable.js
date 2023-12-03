@@ -175,7 +175,7 @@ function fillClasses() {
         event.preventDefault();
     })
     
-    document.querySelector(".table-grid-time-type").innerHTML = classtime_type
+    document.querySelector(".table-grid-time-type").innerHTML = `Week ${calculateWeekNumber()}`
     for (let i = 0; i < Math.ceil(classes.length / 7); i++) {
         document.getElementById(`period${i}`).innerHTML = `${i}`
         
@@ -283,12 +283,12 @@ function classJoiningSystem() {
 
                 var subjTeacher = `<a title="Lookup in MySK" target="_blank" href="https://www.mysk.school/lookup/teachers/results?full_name=${subjContent.teacher}">${subjContent.teacher}</a>`
                 if (subjContent.teacher === "") {
-                    subjTeacher = "<i style='opacity: 0.5;'>ไม่มีข้อมูลคุณครู</i>"
+                    subjTeacher = "<i style='opacity: 0.5;'>ไม่มีข้อมูล</i>"
                 }
 
                 var subjCode = subjContent.subjcode
                 if (subjContent.subjcode === "") {
-                    subjCode = "<i style='opacity: 0.5;'>ไม่มีข้อมูลรหัสวิชา</i>"
+                    subjCode = "<i style='opacity: 0.5;'>ไม่มีข้อมูล</i>"
                 }
 
                 var subjClassCode = subjContent.classcode
@@ -307,7 +307,7 @@ function classJoiningSystem() {
                             <div class="popup-content">
                                 <div>
                                     <p class="popup-title">${subjTitle}</p>
-                                    <p class="popup-description">${subjDescription}</p>
+                                    <p class="popup-description" style="opacity: 1;">${subjDescription}</p>
                                     <hr>
                                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
                                         <div style="grid-column: span 2;">
@@ -318,7 +318,7 @@ function classJoiningSystem() {
                                         </div>
                                         <div>
                                             <p class="popup-description">Class Code</p>
-                                            <p>${subjCode}</p>
+                                            <p style="font-family: 'Tlwg Typewriter', monospace;">${subjCode}</p>
                                         </div>
                                         <div>
                                             <p class="popup-description">Classroom Code</p>
@@ -490,17 +490,17 @@ function subjectCard() {
 
                 var subjTeacher = subjContent.teacher
                 if (subjTeacher === "") {
-                    subjTeacher = "<i style='opacity: 0.5;'>ไม่มีข้อมูลคุณครู</i>"
+                    subjTeacher = "<i style='color: var(--color-gray-1);'>ไม่มีข้อมูล=</i>"
                 }
 
                 var subjCode = subjContent.subjcode
                 if (subjCode === "") {
-                    subjCode = "<i style='opacity: 0.5;'>ไม่มีข้อมูลรหัสวิชา</i>"
+                    subjCode = "<i style='color: var(--color-gray-1);'>ไม่มีข้อมูล</i>"
                 }
 
                 var subjClassCode = subjContent.classcode
                 if (subjClassCode === "") {
-                    subjClassCode = "<i style='opacity: 0.25;'>ไม่มีข้อมูล</i>"
+                    subjClassCode = "<i style='color: var(--color-gray-1);'>ไม่มีข้อมูล</i>"
                 }
 
                 var subjClassroomIcon = ""
@@ -520,10 +520,11 @@ function subjectCard() {
                         </div>
                     `
                 }
+
                 grid.insertAdjacentHTML("beforeend", `
                     <div class="subjcard">
                         <p class="popup-title">${subjTitle}</p>
-                        <p class="popup-description" style="margin-bottom: 0.5rem;">${subjTeacher} · ${subjCode}</p>
+                        <p style="color: var(--color-gray-1); font-size: 0.8rem; margin-bottom: 0.5rem;">${subjTeacher} · ${subjCode}</p>
                         <div class="info-chipbox-wrapper">
                             <div class="info-chipbox">
                             <b>Class Code:</b> <span style="font-family: 'Tlwg Typewriter', 'Sarabun', sans-serif;">${subjClassCode}</span>

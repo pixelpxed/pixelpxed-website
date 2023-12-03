@@ -73,12 +73,11 @@
                         </p>
                     </div>
                     <div class="notes-panel-icons">
-                        <a class="material-symbols-outlined" title="Export/Import Notes" onclick="openSharing()">export_notes</a>
-                        <a class="material-symbols-outlined" title="New Note" onclick="newNote()">add</a>
-                        <a class="material-symbols-outlined" title="Toggle Sidebar" onclick="toggleSidebar()">menu_open</a>
+                        <a class="material-symbols-outlined tools" title="Export/Import Notes" onclick="openSharing()">export_notes</a>
+                        <a class="material-symbols-outlined tools" title="New Note" onclick="newNote()">add</a>
+                        <a class="material-symbols-outlined tools" title="Toggle Sidebar" onclick="toggleSidebar()">menu_open</a>
                     </div>
                 </div>
-                <div class="side-bar-divider"></div>
                 <ul class="notes-panel"></ul>
             </div>
             <div class="main-content">
@@ -122,14 +121,8 @@
                             </div>
                             <div class="tools-section-divider"></div>
                             <div class="tools-wrapper-category">
-                                <input type="color" class="tools-selected-color" title="Select Applied Color">
-                                <a class="material-symbols-outlined tools" title="Apply Font Color" onmousedown="toolsTextColor()">format_color_text</a>
-                                <a class="material-symbols-outlined tools" title="Apply Highlight Color" onmousedown="toolsHiliteColor()">format_ink_highlighter</a>
-                            </div>
-                            <div class="tools-section-divider"></div>
-                            <div class="tools-wrapper-category">
-                                <a class="material-symbols-outlined tools" title="Superscript" onmousedown="toolsExec('superscript')">superscript</a>
-                                <a class="material-symbols-outlined tools" title="Subscript" onmousedown="toolsExec('subscript')">subscript</a>
+                                <a class="material-symbols-outlined tools" title="Bulleted List" onmousedown="toolsExec('insertUnorderedList')">format_list_bulleted</a>
+                                <a class="material-symbols-outlined tools" title="Numbered List" onmousedown="toolsExec('insertOrderedList')">format_list_numbered</a>
                             </div>
                             <div class="tools-section-divider"></div>
                             <div class="tools-wrapper-category">
@@ -140,13 +133,13 @@
                             </div>
                             <div class="tools-section-divider"></div>
                             <div class="tools-wrapper-category">
-                                <a class="material-symbols-outlined tools" title="Bulleted List" onmousedown="toolsExec('insertUnorderedList')">format_list_bulleted</a>
-                                <a class="material-symbols-outlined tools" title="Numbered List" onmousedown="toolsExec('insertOrderedList')">format_list_numbered</a>
+                                <a class="material-symbols-outlined tools" title="Subscript" onmousedown="toolsExec('indent')">format_indent_increase</a>
+                                <a class="material-symbols-outlined tools" title="Subscript" onmousedown="toolsExec('outdent')">format_indent_decrease</a>
                             </div>
                             <div class="tools-section-divider"></div>
                             <div class="tools-wrapper-category">
-                                <a class="material-symbols-outlined tools" title="Subscript" onmousedown="toolsExec('indent')">format_indent_increase</a>
-                                <a class="material-symbols-outlined tools" title="Subscript" onmousedown="toolsExec('outdent')">format_indent_decrease</a>
+                                <a class="material-symbols-outlined tools" title="Superscript" onmousedown="toolsExec('superscript')">superscript</a>
+                                <a class="material-symbols-outlined tools" title="Subscript" onmousedown="toolsExec('subscript')">subscript</a>
                             </div>
                             <div class="tools-section-divider"></div>
                             <div class="tools-wrapper-category">
@@ -158,6 +151,12 @@
                                 <a class="material-symbols-outlined tools" title="Add Image" onmousedown="toolsAddImage()">image</a>
                                 <a class="material-symbols-outlined tools" title="Add Check Box" onmousedown="toolsAddCheckbox()">check_box</a>
                                 <a class="material-symbols-outlined tools" title="Add Horizontal Rule" onmousedown="toolsExec('insertHorizontalRule')">horizontal_rule</a>
+                            </div>
+                            <div class="tools-section-divider"></div>
+                            <div class="tools-wrapper-category">
+                                <input type="color" class="tools-selected-color" title="Select Applied Color">
+                                <a class="material-symbols-outlined tools" title="Apply Font Color" onmousedown="toolsTextColor()">format_color_text</a>
+                                <a class="material-symbols-outlined tools" title="Apply Highlight Color" onmousedown="toolsHiliteColor()">format_ink_highlighter</a>
                             </div>
                         </div>
                     </div>

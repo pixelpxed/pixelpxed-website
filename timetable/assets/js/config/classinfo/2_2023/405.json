@@ -2,27 +2,9 @@
     "override": {
         "state": true,
         "class": {
-            "47": [
-                "", "", "", "", "", "", "", "", "", "", "", 
-                "", "", "", "", "", "", "", "", "", "", "",
-                "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
-                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
-                "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "Volunteer Activity", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "", "", "", "", "", "", "", "", "", "", ""
-            ],
-            "48": [
-                "", "", "", "", "", "", "", "", "", "", "", 
-                "Volunteer Activity", "-extend", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "Chinese",
-                "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
-                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
-                "Ror-Dor", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "Health", 
-                "", "", "", "", "", "", "", "", "", "", ""
-            ],
             "49": [
                 "", "", "", "", "", "", "", "", "", "", "", 
-                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "Chinese",
+                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Physics", "-extend", "Chinese",
                 "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
                 "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
                 "Homeroom", "Chinese", "Thai", "Health", "", "", "", "", "", "", "",
@@ -254,7 +236,7 @@
             "subjname": "",
             "subjdescription": "",
             "subjcode": "พ31102",
-            "teacher": "ณิชากร",
+            "teacher": "ณิชากร แสงอินทร์",
             "classcode": "fvqujrp",
             "videocall": "",
             "classroom": "NTIwMDYyNjkxMTAy"
