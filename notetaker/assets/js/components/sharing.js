@@ -88,7 +88,7 @@ function toolsDownload(type = "all", id = 0) {
         filename = `${date > 9 ? date : "0" + date}-${month > 9 ? month : "0" + month}-${year} ${hour > 9 ? hour : "0" + hour}-${minute >= 10 ? minute : "0" + minute}-${second >= 10 ? second : "0" + second}.ntkr`
     }
     if (type == "single") {
-        data = `[${JSON.stringify(notesData[id])}]`
+        data = [JSON.stringify(notesData[id])]
 
         filename = `${notesData[id].title}.ntkr`
         if (notesData[id].title == "") {
