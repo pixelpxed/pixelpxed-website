@@ -6,6 +6,24 @@ window.addEventListener('load', () => {
     )
 });
 
+// window.addEventListener('resize', () => {
+//     var screenWidth = window.innerWidth
+//     var screenHeight = window.innerHeight
+
+//     document.querySelector(".application-root").style.width = `${screenWidth}px`
+//     document.querySelector(".application-root").style.height = `${screenHeight}px`
+//     document.querySelector(".application-root").scrollBy(0, 0)
+    
+//     document.querySelector("body").style.width = `${screenWidth}px`
+//     document.querySelector("body").style.height = `${screenHeight}px`
+
+//     document.querySelector("html").style.width = `${screenWidth}px`
+//     document.querySelector("html").style.height = `${screenHeight}px`
+
+//     window.scrollBy(0, 0)
+//     document.body.scrollTop = 0;
+// })
+
 function addNotification(content = "No information provided.", type = "normal") {
     if (type != "error") {
         var notificationType = "notification-normal"

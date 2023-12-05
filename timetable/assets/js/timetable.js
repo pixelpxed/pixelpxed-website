@@ -187,7 +187,7 @@ function fillClasses() {
             }
         }
         if (classTimetable === "custom") {
-            document.getElementById(`time${i + 1}`).innerHTML = (customClassJSON.customtimes)[i]
+            document.getElementById(`time${i}`).innerHTML = (customClassJSON.customtimes)[i]
             classtime_type = "Custom"
         }
     }
@@ -211,8 +211,10 @@ function fillClasses() {
         }
 
         // Check for override classes and apply style.
-        if (classes[i] != regularClasses[i]) {
-            grid.classList.add("class-override")
+        if (classTimetable !== "custom") {
+            if (classes[i] != regularClasses[i]) {
+                grid.classList.add("class-override")
+            }
         }
 
         // Check for break classes and apply style.
@@ -490,7 +492,7 @@ function subjectCard() {
 
                 var subjTeacher = subjContent.teacher
                 if (subjTeacher === "") {
-                    subjTeacher = "<i style='color: var(--color-gray-1);'>ไม่มีข้อมูล=</i>"
+                    subjTeacher = "<i style='color: var(--color-gray-1);'>ไม่มีข้อมูล</i>"
                 }
 
                 var subjCode = subjContent.subjcode
@@ -524,7 +526,7 @@ function subjectCard() {
                 grid.insertAdjacentHTML("beforeend", `
                     <div class="subjcard">
                         <p class="popup-title">${subjTitle}</p>
-                        <p style="color: var(--color-gray-1); font-size: 0.8rem; margin-bottom: 0.5rem;">${subjTeacher} · ${subjCode}</p>
+                        <p style="color: var(--color-gray-1); font-size: 0.8rem; margin-bottom: 0.5rem;">${subjTeacher} – ${subjCode}</p>
                         <div class="info-chipbox-wrapper">
                             <div class="info-chipbox">
                             <b>Class Code:</b> <span style="font-family: 'Tlwg Typewriter', 'Sarabun', sans-serif;">${subjClassCode}</span>

@@ -23,8 +23,9 @@ function sharing() {
 
     const hour = curtime.getHours()
     const minute = curtime.getMinutes()
+    const second = curtime.getSeconds()
 
-    document.querySelector(".filename-input").innerHTML = `${date > 9 ? date : "0" + date}-${month > 9 ? month : "0" + month}-${year}_${hour > 9 ? hour : "0" + hour}-${minute >= 10 ? minute : "0" + minute}.ntkr`
+    document.querySelector(".filename-input").value = `${date > 9 ? date : "0" + date}-${month > 9 ? month : "0" + month}-${year} ${hour > 9 ? hour : "0" + hour}-${minute >= 10 ? minute : "0" + minute}-${second >= 10 ? second : "0" + second}`
 
     document.querySelector(".manage-notes-list").innerHTML = ""
     for (let i = 0; i < notesData.length; i++) {
@@ -33,6 +34,8 @@ function sharing() {
             title = untitledNoteString
         }
 
+        
+        // <a class="material-symbols-outlined" title="Download This Note" onclick="toolsDownload('single', ${i})">download</a>
         document.querySelector(".manage-notes-list").insertAdjacentHTML("beforeend", `
             <div class="manage-notes-item" draggable="true" noteid="${i}">
                 <div>
@@ -40,7 +43,6 @@ function sharing() {
                 </div>
                 <p>${title}</p>
                 <div>
-                    <a class="material-symbols-outlined" title="Download This Note" onclick="toolsDownload('single', ${i})">download</a>
                     <a class="material-symbols-outlined" title="Delete" onclick="uiDeleteNote(${i})">delete</a>
                 </div>
             </div>
@@ -106,9 +108,6 @@ function toolsDownload(type = "all", id = 0) {
     // if (type = "single") {
     //     encodedString = encodedString.slice(1, -1)
     // }
-
-    console.log(data);
-    console.log(encodedString);
 
     const element = document.createElement('a');
     const blob = new Blob([JSON.stringify(encodedString)], {'type': 'text/json', 'lastModified': new Date().getTime()});

@@ -14,6 +14,30 @@
     ],
     "customclass": [
         "Example",
+        "Extend Flag",
+        "-extend",
+        "Extend Flag",
+        "-extend",
+        "-extend",
+        "",
+        "",
+        "",
+        "",
+        "",
+
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+
+        "",
         "",
         "",
         "",
@@ -75,10 +99,56 @@
     ],
     "customlinks": {
         "Example": {
+            "subjname": "Example, but with full name.",
+            "subjdescription": "You can put special description for each subject here.",
+            "subjcode": "ก12345",
+            "teacher": "สมชาย ฬจดี",
+            "classcode": "abcdefg",
             "videocall": "fuh-gtys-rmj",
             "classroom": "NDg1MTY3MzU0NTEw"
         },
+        "Extend Flag": {
+            "subjname": "Extending class with '-extend' flag.",
+            "subjdescription": "Using -extend will extend the previous cell further by one grid.",
+            "subjcode": "",
+            "teacher": "",
+            "classcode": "",
+            "videocall": "",
+            "classroom": ""
+        },
+        "Lunch": {
+            "subjname": "",
+            "subjdescription": "",
+            "subjcode": "",
+            "teacher": "",
+            "classcode": "",
+            "videocall": "",
+            "classroom": ""
+        },
+        "Break": {
+            "subjname": "",
+            "subjdescription": "",
+            "subjcode": "",
+            "teacher": "",
+            "classcode": "",
+            "videocall": "",
+            "classroom": ""
+        },
+        "-extend": {
+            "subjname": "",
+            "subjdescription": "",
+            "subjcode": "",
+            "teacher": "",
+            "classcode": "",
+            "videocall": "",
+            "classroom": ""
+        },
         "": {
+            "subjname": "",
+            "subjdescription": "",
+            "subjcode": "",
+            "teacher": "",
+            "classcode": "",
             "videocall": "",
             "classroom": ""
         }

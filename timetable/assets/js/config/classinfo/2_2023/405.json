@@ -6,32 +6,39 @@
                 "", "", "", "", "", "", "", "", "", "", "", 
                 "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Physics", "-extend", "Chinese",
                 "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
-                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "Thai",
-                "Homeroom", "Chinese", "Thai", "Health", "", "", "", "", "", "", "",
+                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
+                "", "", "", "", "", "", "", "", "", "", "", 
                 "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "Health",
+                "", "", "", "", "", "", "", "", "", "", ""
+            ],
+            "50": [
+                "", "", "", "", "", "", "", "", "", "", "", 
+                "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
+                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
+                "Homeroom", "Chinese", "Thai", "Health", "", "", "", "", "", "", "",
+                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "",
+                "", "", "", "", "", "", "", "", "", "", ""
+            ],
+            "52": [
+                "", "", "", "", "", "", "", "", "", "", "", 
+                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "",
+                "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
+                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
+                "", "", "", "", "", "", "", "", "", "", "", 
+                "", "", "", "", "", "", "", "", "", "", "", 
+                "", "", "", "", "", "", "", "", "", "", ""
+            ],
+            "1": [
+                "", "", "", "", "", "", "", "", "", "", "", 
+                "", "", "", "", "", "", "", "", "", "", "", 
+                "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
+                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
+                "Homeroom", "Chinese", "Thai", "Health", "", "", "", "", "", "", "",
+                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "",
                 "", "", "", "", "", "", "", "", "", "", ""
             ]
         },
-        "links": {
-            "Ror-Dor": {
-                "subjname": "Territorial Defense (Ror-Dor)",
-                "subjdescription": "07:30 — 15:30 / <a href='https://maps.app.goo.gl/RobJocqQ6UhJyuPp8?g_st=ic' target='_blank'>Location</a>",
-                "subjcode": "",
-                "teacher": "ครูฝึก รด.",
-                "classcode": "",
-                "videocall": "",
-                "classroom": ""
-            },
-            "Volunteer Activity": {
-                "subjname": "",
-                "subjdescription": "06:30 — 18:00 / <a href='https://cdn.discordapp.com/attachments/1072863379888283688/1177070675308056816/IMG_0388.jpg?ex=65712b7d&is=655eb67d&hm=a88d6264117af21bd069a8488bbb969a1121f7d6f7129cda092d4bd2d5e29961&' target='_blank'>Schedule</a>",
-                "subjcode": "",
-                "teacher": "ระดับ ม.4",
-                "classcode": "",
-                "videocall": "",
-                "classroom": ""
-            }
-        }
+        "links": {}
     },
     "class": [
         "", "", "", "", "", "", "", "", "", "", "", 
