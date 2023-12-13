@@ -7,7 +7,7 @@
                 "", "", "", "", "", "", "", "", "", "", "", 
                 "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
                 "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Chemistry", "-extend", "",
-                "Homeroom", "Chinese", "Thai", "Health", "", "", "Physics", "-extend", "A. Math", "-extend", "",
+                "Homeroom", "Chinese", "Thai", "Health", "Lunch", "-extend", "Physics", "-extend", "A. Math", "-extend", "",
                 "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "",
                 "", "", "", "", "", "", "", "", "", "", ""
             ],
@@ -16,7 +16,7 @@
                 "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "",
                 "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
                 "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
-                "Homeroom", "Chinese", "Thai", "Health", "", "", "Biology", "-extend", "F. English", "-extend", "",
+                "Homeroom", "Chinese", "Thai", "Health", "Lunch", "-extend", "Biology", "-extend", "F. English", "-extend", "",
                 "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "",
                 "", "", "", "", "", "", "", "", "", "", ""
             ],
