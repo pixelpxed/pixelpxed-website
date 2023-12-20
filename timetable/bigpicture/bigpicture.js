@@ -139,7 +139,7 @@ function bigPictureScript() {
         }
     }, 1000);
     
-    fetch("http://api.quotable.io/quotes/random")
+    fetch("https://api.quotable.io/quotes/random")
         .then((res) => res.json())
         .then((data) => {
             var quote = data
@@ -154,7 +154,7 @@ function bigPictureScript() {
             }, 29000);
         })
     setInterval(() => {
-        fetch("http://api.quotable.io/quotes/random")
+        fetch("https://api.quotable.io/quotes/random")
             .then((res) => res.json())
             .then((data) => {
                 var quote = data
