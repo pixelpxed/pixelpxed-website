@@ -146,8 +146,10 @@ function setClassVariables() {
         document.querySelectorAll(".icon-todo").forEach((item) => {
             item.remove()
         })
-
         document.querySelectorAll(".elective-swapper").forEach((item) => {
+            item.remove()
+        })
+        document.querySelectorAll(".icon-bigpicture").forEach((item) => {
             item.remove()
         })
         

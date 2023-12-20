@@ -124,41 +124,29 @@ body {
         color-scheme: light;
     }
 
-    body {
-        width: auto !important;
-        height: max-content !important;
-        overflow: auto;
-    }
-
-    div {
-        width: initial !important;
-    }
-
-    .navigation-bar, 
+    .navigation-bar,
     .side-bar {
         display: none;
     }
 
-    .application-root {
-        overflow: initial;
+    .editor-wrapper {
+        max-width: none;
     }
 
-    .application-content {
-        display: block;
+    .main-edit {
+        padding: 0;
+
+        pointer-events: none;
     }
 
     .main-content {
-        display: block;
-
-        height: max-content;
+        width: 100dvw;
     }
 
-    .editor-wrapper {
-        max-width: none !important;
-    }
-
-    .main-edit,
-    .main-edit-content {
-        padding: 0;
+    * {
+        height: max-content !important;
+        min-height: none !important;
+        max-height: none !important;
+        overflow: initial !important;
     }
 }
