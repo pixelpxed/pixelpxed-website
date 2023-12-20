@@ -7,10 +7,11 @@
 
     <link rel="shortcut icon" href="/timetable/assets/etc/favicon.ico" type="image/png">
 
-    <link rel="stylesheet" href="/timetable/bigpicture/style.css">
+    <link rel="stylesheet" href="/timetable/bigpicture/bigpicture.css">    
 
+    <script defer src="/timetable/bigpicture/bigpicture.js"></script>
     <script defer src="/timetable/assets/js/components/clock.js"></script>
-    <script defer src="/timetable/bigpicture/script.js"></script>
+    <script defer src="/timetable/assets/js/config/config.js"></script>
 </head>
 <body>
     <video muted autoplay loop class="background-video" src=""></video>
@@ -26,6 +27,13 @@
             <div style="display: block; width: 100%; height: 0.5rem;"></div>
             <b>Time Remaining: </b><br><span id="timeremaining-refreshcontent">--:--</span>
         </div>
+    </div>
+
+    <div style="position: fixed; top: 1rem; left: 1rem;">
+        <a href="/timetable/" class="icon-button icon-button-inline material-symbols-outlined" title="Back to Timetable">magnification_small</a>
+    </div>
+    <div style="position: fixed; top: 1rem; right: 1rem;">
+        <a onclick="toggleFullScreen(document.querySelector('body'))" class="icon-fullscreen icon-button icon-button-inline material-symbols-outlined" title="Toggle Fullscreen">fullscreen</a>
     </div>
 
     <p class="quotes-wrapper">

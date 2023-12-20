@@ -1,9 +1,4 @@
-* {
-    padding: 0;
-    margin: 0;
-
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
+@import url("/assets/css/global.css");
 
 body {
     display: flex;
@@ -39,7 +34,7 @@ body {
 
 .clock,
 #timeremaining-refreshcontent {
-    font-family: "SF Mono", "Cascadia Code", "Ubuntu Mono", monospace;
+    font-family: "Tlwg Typewriter", monospace;
 }
 
 .clock-wrapper {
