@@ -22,10 +22,10 @@
             ],
             "52": [
                 "", "", "", "", "", "", "", "", "", "", "", 
-                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "",
-                "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
-                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
                 "", "", "", "", "", "", "", "", "", "", "", 
+                "M4–M6 Midterm Test", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
+                "", "", "", "", "", "", "", "", "", "", "", 
+                "M4–M6 Midterm Test", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
                 "", "", "", "", "", "", "", "", "", "", "", 
                 "", "", "", "", "", "", "", "", "", "", ""
             ],
@@ -39,7 +39,17 @@
                 "", "", "", "", "", "", "", "", "", "", ""
             ]
         },
-        "links": {}
+        "links": {
+            "M4–M6 Midterm Test": {
+                "subjname": "",
+                "subjdescription": "<a href='https://media.discordapp.net/attachments/1072863379888283688/1188041606624985109/image0.jpg' target='_blank'>Midterm Schedule</a>",
+                "subjcode": "",
+                "teacher": "",
+                "classcode": "",
+                "videocall": "",
+                "classroom": ""
+            }
+        }
     },
     "class": [
         "", "", "", "", "", "", "", "", "", "", "", 
