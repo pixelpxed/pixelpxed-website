@@ -1,5 +1,5 @@
 // Basic Timetable information.
-var timetableversion = "3.18.2a"
+var timetableversion = "3.18.2b"
 
 // Timetable class fetch folder
 // Timetable will require a <classno>.json file in the folder
