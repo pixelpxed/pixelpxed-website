@@ -2,47 +2,20 @@
     "override": {
         "state": true,
         "class": {
-            "50": [
-                "", "", "", "", "", "", "", "", "", "", "", 
-                "", "", "", "", "", "", "", "", "", "", "", 
-                "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
-                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Chemistry", "-extend", "",
-                "Homeroom", "Chinese", "Thai", "Health", "Lunch", "-extend", "A. Math", "-extend", "Physics", "-extend", "",
-                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "",
-                "", "", "", "", "", "", "", "", "", "", ""
-            ],
-            "51": [
-                "", "", "", "", "", "", "", "", "", "", "", 
-                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "",
-                "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
-                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
-                "Homeroom", "Chinese", "Thai", "Health", "Lunch", "-extend", "Biology", "-extend", "F. English", "-extend", "",
-                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "",
-                "", "", "", "", "", "", "", "", "", "", ""
-            ],
-            "52": [
-                "", "", "", "", "", "", "", "", "", "", "", 
-                "", "", "", "", "", "", "", "", "", "", "", 
-                "M4–M6 Midterm Test", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "", "", "", "", "", "", "", "", "", "", "", 
-                "M4–M6 Midterm Test", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "", "", "", "", "", "", "", "", "", "", "", 
-                "", "", "", "", "", "", "", "", "", "", ""
-            ],
             "1": [
                 "", "", "", "", "", "", "", "", "", "", "", 
                 "", "", "", "", "", "", "", "", "", "", "", 
                 "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
                 "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
-                "Homeroom", "Chinese", "Thai", "Health", "", "", "", "", "", "", "",
+                "Homeroom", "Chinese", "Thai", "Health", "Kornor Debate", "-extend", "", "", "", "", "",
                 "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "",
                 "", "", "", "", "", "", "", "", "", "", ""
             ]
         },
         "links": {
-            "M4–M6 Midterm Test": {
+            "Kornor Debate": {
                 "subjname": "",
-                "subjdescription": "<a href='https://media.discordapp.net/attachments/1072863379888283688/1188041606624985109/image0.jpg' target='_blank'>Midterm Schedule</a>",
+                "subjdescription": "Suankularb Ramluk Meeting Room (6501)",
                 "subjcode": "",
                 "teacher": "",
                 "classcode": "",
@@ -130,7 +103,7 @@
             "subjcode": "ว31265",
             "teacher": "ณัฐริกา รอดสถิตย์",
             "classcode": "ymfvwts",
-            "videocall": "",
+            "videocall": "zzc-dixw-yjg",
             "classroom": "NjA5NTE3NDI4NTE4"
         },
         "F. Biology": {
@@ -148,7 +121,7 @@
             "subjcode": "ว31205",
             "teacher": "เอกราช สุขเสริม",
             "classcode": "olvtkot",
-            "videocall": "",
+            "videocall": "woc-nfrx-jqu",
             "classroom": "NjQxNzY5MDg2MjI1"
         },
         "S.I.A.": {
@@ -157,7 +130,7 @@
             "subjcode": "ว31274",
             "teacher": "เอกราช สุขเสริม",
             "classcode": "olvtkot",
-            "videocall": "",
+            "videocall": "woc-nfrx-jqu",
             "classroom": "NjQxNzY5MDg2MjI1"
         },
         "Social": {
