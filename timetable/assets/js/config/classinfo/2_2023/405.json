@@ -2,26 +2,17 @@
     "override": {
         "state": true,
         "class": {
-            "1": [
+            "2": [
                 "", "", "", "", "", "", "", "", "", "", "", 
-                "", "", "", "", "", "", "", "", "", "", "", 
+                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "",
                 "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
-                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
-                "Homeroom", "Chinese", "Thai", "Health", "Kornor Debate", "-extend", "", "", "", "", "",
+                "Homeroom", "Chemistry", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
+                "Homeroom", "Chinese", "Thai", "Health", "", "", "", "", "", "", "",
                 "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "",
                 "", "", "", "", "", "", "", "", "", "", ""
             ]
         },
         "links": {
-            "Kornor Debate": {
-                "subjname": "",
-                "subjdescription": "Suankularb Ramluk Meeting Room (6501)",
-                "subjcode": "",
-                "teacher": "",
-                "classcode": "",
-                "videocall": "",
-                "classroom": ""
-            }
         }
     },
     "class": [
