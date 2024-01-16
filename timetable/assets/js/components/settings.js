@@ -32,7 +32,12 @@ function openSettings() {
     }
 }
 
+var requiresReload = false
 function closeSettings() {
+    if (requiresReload == true) {
+        location.reload()
+    }
+
     enableScrollbar()
     document.querySelector('.settings-wrapper').style.display = "none"
 
@@ -40,8 +45,6 @@ function closeSettings() {
     if (popupid === 0) {
         document.querySelector(".full-page-overlay").style.display = "none"
     }
-
-    location.reload()
 }
 
 function setDefaultSettingsValue() {
@@ -80,12 +83,18 @@ function setDefaultSettingsValue() {
     if (localStorage.getItem("timetable-popupMode") == "true") {
         document.querySelector("input[name='popupmode']").setAttribute("checked", "checked")
     }
+    
     // Time Remaining
     if (localStorage.getItem("timetable-enableTimeRemaining") == "true") {
         document.querySelector("input[name='timeremaining']").setAttribute("checked", "checked")
     }
     if (localStorage.getItem("timetable-enableTimeRemainingSound") == "true") {
         document.querySelector("input[name='timeremaining-sound']").setAttribute("checked", "checked")
+    }
+
+    // Current Class Highlight
+    if (localStorage.getItem("timetable-currentClassHighlight") == "true") {
+        document.querySelector("input[name='curclass-highlight']").setAttribute("checked", "checked")
     }
 
     // Subject Cards
@@ -106,6 +115,8 @@ function setListenersSettingsChange() {
     // Google User Index
     document.querySelector("input[name='gaiindex']").addEventListener("click", () => {
         localStorage.setItem("timetable-gaiTimetable", document.querySelector("input[name='gaiindex']").value)
+        
+        requiresReload = true
     })
 
     // Class
@@ -113,10 +124,14 @@ function setListenersSettingsChange() {
         element.addEventListener("change", function (event) {
             if (event.target.value == "custom") {
                 document.querySelector(".settings-class-custom-wrapper").style.display = "block"
+                
+                requiresReload = true
             }
             if (event.target.value != "custom") {
                 document.querySelector(".settings-class-custom-wrapper").style.display = "none"
                 localStorage.setItem("timetable-classTimetable", event.target.value)
+                
+                requiresReload = true
             }
         })
     })
@@ -125,6 +140,26 @@ function setListenersSettingsChange() {
     document.querySelectorAll("input[name='settings-timelistoverride']").forEach((element) => {
         element.addEventListener("change", function (event) {
             localStorage.setItem("timetable-overrideTimeList", event.target.value)
+            
+            requiresReload = true
+        })
+    })
+
+    // Pop-up Mode
+    document.querySelectorAll(".settings-popupmode").forEach((element) => {
+        element.addEventListener("click", function (event) {
+            if (event.target.name === "popupmode") {
+                if (event.target.checked) {
+                    localStorage.setItem("timetable-popupMode", true)
+                    
+                    requiresReload = true
+                }
+                if (!event.target.checked) {
+                    localStorage.setItem("timetable-popupMode", false)
+                    
+                    requiresReload = true
+                }
+            }
         })
     })
 
@@ -152,15 +187,19 @@ function setListenersSettingsChange() {
         })
     })
 
-    // Pop-up Mode
-    document.querySelectorAll(".settings-popupmode").forEach((element) => {
+    // Highlight Current Class
+    document.querySelectorAll(".settings-highlightcurclass").forEach((element) => {
         element.addEventListener("click", function (event) {
-            if (event.target.name === "popupmode") {
+            if (event.target.name === "curclass-highlight") {
                 if (event.target.checked) {
-                    localStorage.setItem("timetable-popupMode", true)
+                    localStorage.setItem("timetable-currentClassHighlight", true)
                 }
                 if (!event.target.checked) {
-                    localStorage.setItem("timetable-popupMode", false)
+                    localStorage.setItem("timetable-currentClassHighlight", false)
+
+                    for (let i = 0; i < classes.length; i++) {
+                        document.getElementById(i + 1).classList.remove("class-current")
+                    }
                 }
             }
         })
@@ -172,9 +211,13 @@ function setListenersSettingsChange() {
             if (event.target.name === "subjectcard") {
                 if (event.target.checked) {
                     localStorage.setItem("timetable-subjectCard", true)
+                    
+                    requiresReload = true
                 }
                 if (!event.target.checked) {
                     localStorage.setItem("timetable-subjectCard", false)
+                    
+                    requiresReload = true
                 }
             }
         })

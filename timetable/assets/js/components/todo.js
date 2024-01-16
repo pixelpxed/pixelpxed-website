@@ -20,9 +20,9 @@ function openToDo() {
 var cache_todolist;
 var fetchpath = "https://pawin.tk/to-do/tasks.json";
 function fetchToDo() {
-    if (localStorage.getItem("timetable-devMode") == "true") {
-        fetchpath = "https://dev.pawin.tk/to-do/tasks.json"
-    }
+    // if (localStorage.getItem("timetable-devMode") == "true") {
+    //     fetchpath = "https://dev.pawin.tk/to-do/tasks.json"
+    // }
 
     fetch(fetchpath)
     // fetch("/timetable/templates/homework.json")
@@ -83,18 +83,6 @@ function getToDo() {
                 <div class="todocontentbox-ribbon">
                     <span class="material-symbols-outlined">info</span>
                     <span>This data version recieved from Pawin's server seemed to be newer than what we're supporting, results displayed might be inaccurate.</span>
-                </div>
-            `
-        )
-    }
-
-    if (localStorage.getItem("timetable-devMode") == "true") {
-        document.querySelector(".assignments-wrapper").insertAdjacentHTML(
-            "afterbegin",
-            `
-                <div class="todocontentbox-ribbon">
-                    <span class="material-symbols-outlined">info</span>
-                    <span>Developer mode is turned on, data source: <a href="https://dev.pawin.tk/to-do/tasks.json" target="_blank">dev.pawin.tk</a></span>
                 </div>
             `
         )

@@ -13,7 +13,6 @@ Load: ${hour > 9 ? hour : "0" + hour}:${minute >= 10 ? minute : "0" + minute}:${
 
 * When clock is avalible, minus 1 second for execution time.
             `,
-
             "font-family: sans-serif; font-weight: bold; font-size: 1.5em;",
             "font-family: sans-serif;"
         )

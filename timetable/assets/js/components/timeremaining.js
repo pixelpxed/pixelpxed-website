@@ -52,6 +52,24 @@ function timeRemaining() {
                     bellChimes.play();
                 }
             }
+
+            if (localStorage.getItem("timetable-currentClassHighlight") === "true") {
+                var activeGridId = (today.getDay() * 11) + periodno + 1
+                if (classes[activeGridId - 1] == "-extend") {
+                    for (let i = 1; classes[activeGridId - i] == "-extend"; i++) {
+                        activeGridId = activeGridId - 1
+                    }
+                    activeGridId = activeGridId - 1
+                }
+
+                if (activeGridId > 0) {
+                    document.getElementById(activeGridId - 1).classList.remove("class-current")
+                }
+                document.getElementById(activeGridId).classList.add("class-current")
+
+                console.log(activeGridId);
+            }
+
         }
         if (periodno <= 0) {
             document.getElementById("timeremaining-refreshcontent").innerHTML = `School isn't started yet`;

@@ -9,6 +9,7 @@ window.addEventListener('load', () => {
 function fillSetup() {
     if (localStorage.getItem("timetable-setupComplete") != "true") {
         disableScrollbar()
+        popupOpen()
 
         fetch('./assets/components/html/setup.html')
             .then((response) => response.text())
@@ -16,10 +17,14 @@ function fillSetup() {
             .then(() => {
                 setupEventListener()
             })
-
     }
     if (localStorage.getItem("timetable-setupComplete") == "true") {
         document.getElementById("full-page-overlay").style.display = "none"
+
+        if (localStorage.getItem("timetable-oobeNotificationDisplayed") == "false") {
+            addNotification("<b>👋 Hi, and welcome to the world of dynamic timetables!</b><br>Timetable have set the default settings for your device.<br><br>To adjust and turn certain features on or off, please visit the settings page at the top of the navigation bar.")
+            localStorage.setItem("timetable-oobeNotificationDisplayed", "true")
+        }
     }
 }
 
@@ -39,15 +44,6 @@ function setupEventListener() {
         })
     })
 
-    document.querySelector("input[name='setup-popupmode']").addEventListener("click", function (event) {
-        if (event.target.checked) {
-            localStorage.setItem("timetable-popupMode", true)
-        }
-        if (!event.target.checked) {
-            localStorage.setItem("timetable-popupMode", false)
-        }
-    })
-
     document.querySelector("input[name='gaiindex']").addEventListener("click", () => {
         localStorage.setItem("timetable-gaiTimetable", document.querySelector("input[name='gaiindex']").value)
     })
@@ -65,9 +61,20 @@ function completeSetup() {
     localStorage.setItem('timetable-setupComplete', true);
     localStorage.setItem('timetable-localStorageDataVersion', 2)
     localStorage.setItem("timetable-overrideTimeList", "auto")
-    
+
+    localStorage.setItem('timetable-popupMode', true);
+    localStorage.setItem('timetable-subjectCard', true);
+    localStorage.setItem('timetable-enableTimeRemaining', true);
+    localStorage.setItem('timetable-currentClassHighlight', true);
+
+    localStorage.setItem('timetable-devMode', false);
+
+    localStorage.setItem('timetable-oobeNotificationDisplayed', false);
+
     location.reload();
 }
+
+// ===================================================
 
 function resetTimetable() {
     popupConfirm("Reset Timetable?",
@@ -99,7 +106,7 @@ function migrateOldTimetableData() {
     }
 
     localStorage.setItem('timetable-localStorageDataVersion', 2)
-    location.reload()
+    return location.reload()
 }
 
 function resetTimetableTrue() {
@@ -112,7 +119,10 @@ function resetTimetableTrue() {
         "timetable-enableTimeRemainingSound",
         "timetable-overrideTimeList",
         "timetable-customClassJSON",
-        "timetable-electiveClass"
+        "timetable-electiveClass",
+        "timetable-currentClassHighlight",
+        "timetable-oobeNotificationDisplayed",
+        "timetable-devMode"
     ]
 
     for (i = 0; i < listToDelete.length; i++) {

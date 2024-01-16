@@ -224,7 +224,8 @@
                     </span>
                 </label>
                 <label class="settings-option-label">
-                    <input class="settings-popupmode" type="checkbox" name="popupmode" value="enable-popupmode">
+                    <input class="settings-popupmode" type="checkbox" name="popupmode" 
+                        value="enable-popupmode">
                     <span class="material-symbols-outlined">
                         open_in_new
                     </span>
@@ -261,6 +262,19 @@
                         </span>
                     </span>
                 </label>
+                <label class="settings-option-label">
+                    <input class="settings-highlightcurclass" type="checkbox" name="curclass-highlight"
+                        value="enable-timeremaining">
+                    <span class="material-symbols-outlined">
+                        star
+                    </span>
+                    <span>
+                        Star current class<br>
+                        <span class="popup-description">
+                            Highlight the current class grid.
+                        </span>
+                    </span>
+                </label>
             </div>
         </div>
 
@@ -278,7 +292,8 @@
                     </span>
                 </span>
             </p>
-            <div style="margin-left: 2em;">
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-left: 2em;">
+                <a class="popup-button popup-button-full" onclick="toggleDevMode()">Toggle Developer Mode</a>
                 <a class="popup-button popup-button-danger popup-button-full" onclick="resetTimetable()">Reset Timetable</a>
             </div>
         </div>

@@ -1,7 +1,7 @@
 .notification-wrapper {
     position: fixed;
 
-    bottom: 0.5em;
+    bottom: 1em;
     right: 1em;
 
     width: calc(100% - 2em);
@@ -22,14 +22,30 @@
     width: 100%;
 
     padding: 0.5em;
-    margin: 0.5em 0;
+    /* margin: 0.5em 0; */
 
     background: var(--color-gray-6);
-    border: 1px solid var(--color-gray-4);
 
-    border-radius: 0.3em;
+    border: 1px solid var(--color-gray-4);
+    border-top: none;
 
     animation: notification-fly-in 0.2s;
+}
+
+.notification-box:first-child {
+    border: 1px solid var(--color-gray-4);
+
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.notification-box:last-child {
+    border-bottom: 1px solid var(--color-gray-4);
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.notification-box:only-child {
+    border-bottom: 1px solid var(--color-gray-4);
+    border-radius: 0.5rem;
 }
 
 .notification-box-out {
@@ -65,23 +81,23 @@
 @keyframes notification-fly-in {
     0% {
         opacity: 0;
-        transform: translateX(calc(1em));
+        transform: translateY(calc(1em));
     }
 
     100% {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
 @keyframes notification-fly-out {
     0% {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
 
     100% {
         opacity: 0;
-        transform: translateX(calc(1em));
+        transform: translateY(calc(1em));
     }
 }
