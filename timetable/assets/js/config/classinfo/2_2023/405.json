@@ -9,7 +9,7 @@
                 "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
                 "Homeroom", "Chinese", "Thai", "Health", "", "", "", "", "", "", "",
                 "", "", "", "", "", "", "", "", "", "", "", 
-                "", "", "", "", "", "", "", "", "", "", ""
+                "Midterm Scores Release", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend"
             ],
             "4": [
                 "", "", "", "", "", "", "", "", "", "", "", 
@@ -26,7 +26,16 @@
                 "subjname": "Basketball Cheer",
                 "subjdescription": "",
                 "subjcode": "",
-                "teacher": "",
+                "teacher": "ชุติมา สุขเอี่ยม",
+                "classcode": "",
+                "videocall": "",
+                "classroom": ""
+            },
+            "Midterm Scores Release": {
+                "subjname": "Midterm Grades Release",
+                "subjdescription": "Meet at classroom, parents required to recieve the grades.",
+                "subjcode": "",
+                "teacher": "ชุติมา สุขเอี่ยม",
                 "classcode": "",
                 "videocall": "",
                 "classroom": ""
