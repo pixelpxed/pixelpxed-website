@@ -1,10 +1,20 @@
 .timeremaining {
-    margin: 1rem;
+    padding: 0.5rem;
+    margin: 1rem auto;
+
+    width: calc(100vw - 2rem);
+    max-width: max-content;
 
     text-align: center;
+    
+    background: var(--color-gray-6);
+    border: 1px solid var(--color-gray-4);
+    border-radius: 0.5rem;
+
+    animation: notification-fly-in 0.2s;
 }
 
-.timeremaining span {
+#timeremaining-refreshcontent {
     font-family: 'Tlwg Typewriter', monospace;
     font-weight: var(--font-weight-bold);
 }

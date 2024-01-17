@@ -23,7 +23,7 @@
         },
         "links": {
             "Basketball Cheer": {
-                "subjname": "",
+                "subjname": "Basketball Cheer",
                 "subjdescription": "",
                 "subjcode": "",
                 "teacher": "",
@@ -44,7 +44,7 @@
     ],
     "links": {
         "Homeroom": {
-            "subjname": "",
+            "subjname": "Homeroom",
             "subjdescription": "",
             "subjcode": "",
             "teacher": "ชุติมา สุขเอี่ยม",
@@ -53,7 +53,7 @@
             "classroom": ""
         },
         "M4 Meeting": {
-            "subjname": "",
+            "subjname": "M4 Meeting",
             "subjdescription": "",
             "subjcode": "",
             "teacher": "คณะครู ม.4",
@@ -71,7 +71,7 @@
             "classroom": "NjM5ODY3NDU0MTIw"
         },
         "Thai": {
-            "subjname": "",
+            "subjname": "Thai",
             "subjdescription": "",
             "subjcode": "ท31102",
             "teacher": "สุภาภรณ์ ขวัญสุวรรณ",
@@ -80,7 +80,7 @@
             "classroom": "NjA5NTkwNDgyMTgz"
         },
         "Music": {
-            "subjname": "",
+            "subjname": "Music",
             "subjdescription": "",
             "subjcode": "ศ31102",
             "teacher": "นพดล เกิดโภคา",
@@ -98,7 +98,7 @@
             "classroom": "NjA5NTM3NjY0NTM0"
         },
         "Chemistry": {
-            "subjname": "",
+            "subjname": "Chemistry",
             "subjdescription": "",
             "subjcode": "ว31225",
             "teacher": "ธันฐภัทร บุญช่วย",
@@ -125,7 +125,7 @@
             "classroom": "NjM3MDkxNzIzNzY1"
         },
         "Physics": {
-            "subjname": "",
+            "subjname": "Physics",
             "subjdescription": "",
             "subjcode": "ว31205",
             "teacher": "เอกราช สุขเสริม",
@@ -143,7 +143,7 @@
             "classroom": "NjQxNzY5MDg2MjI1"
         },
         "Social": {
-            "subjname": "",
+            "subjname": "Social",
             "subjdescription": "",
             "subjcode": "ส31152",
             "teacher": "อุกฤษณ์ มากมี",
@@ -152,7 +152,7 @@
             "classroom": "NTIwMDMzMTQyMjMx"
         },
         "Swimming": {
-            "subjname": "",
+            "subjname": "Swimming",
             "subjdescription": "",
             "subjcode": "พ30232",
             "teacher": "คณะครู ม.4",
@@ -161,7 +161,7 @@
             "classroom": ""
         },
         "EP Meeting": {
-            "subjname": "",
+            "subjname": "EP Meeting",
             "subjdescription": "",
             "subjcode": "",
             "teacher": "",
@@ -206,7 +206,7 @@
             "classroom": "NTIwMDQyNzkxNDY2"
         },
         "Chinese": {
-            "subjname": "",
+            "subjname": "Chinese",
             "subjdescription": "",
             "subjcode": "จ32251",
             "teacher": "ธัญญภัสร์ เจริญพร",
@@ -215,7 +215,7 @@
             "classroom": "NTIwMDM4MTA0OTk5"
         },
         "Japanese": {
-            "subjname": "",
+            "subjname": "Japanese",
             "subjdescription": "",
             "subjcode": "ญ32251",
             "teacher": "ดรัณภพ กัญญาศักดิ์",
@@ -233,7 +233,7 @@
             "classroom": "NTE5ODE5MTM1NTAy"
         },
         "Health": {
-            "subjname": "",
+            "subjname": "Health",
             "subjdescription": "",
             "subjcode": "พ31102",
             "teacher": "ณิชากร แสงอินทร์",
@@ -242,7 +242,7 @@
             "classroom": "NTIwMDYyNjkxMTAy"
         },
         "Lunch": {
-            "subjname": "",
+            "subjname": "Lunch",
             "subjdescription": "",
             "subjcode": "",
             "teacher": "",
@@ -251,7 +251,7 @@
             "classroom": ""
         },
         "Break": {
-            "subjname": "",
+            "subjname": "Break",
             "subjdescription": "",
             "subjcode": "",
             "teacher": "",
@@ -260,7 +260,7 @@
             "classroom": ""
         },
         "-extend": {
-            "subjname": "",
+            "subjname": "Extended Class",
             "subjdescription": "",
             "subjcode": "",
             "teacher": "",
@@ -269,7 +269,7 @@
             "classroom": ""
         },
         "": {
-            "subjname": "",
+            "subjname": "Free Period",
             "subjdescription": "",
             "subjcode": "",
             "teacher": "",

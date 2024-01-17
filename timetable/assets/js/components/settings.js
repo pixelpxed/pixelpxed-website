@@ -196,10 +196,7 @@ function setListenersSettingsChange() {
                 }
                 if (!event.target.checked) {
                     localStorage.setItem("timetable-currentClassHighlight", false)
-
-                    for (let i = 0; i < classes.length; i++) {
-                        document.getElementById(i + 1).classList.remove("class-current")
-                    }
+                    clearActiveClass()
                 }
             }
         })

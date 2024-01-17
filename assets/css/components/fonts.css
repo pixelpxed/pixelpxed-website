@@ -308,6 +308,40 @@
     font-display: block;
 }
 
+/* Noto Sans Thai Looped */
+
+@font-face {
+    font-family: "Noto Sans Thai Looped";
+    src: url("/assets/fonts/Noto_Sans_Thai_Looped/NotoSansThaiLooped-Light.ttf");
+
+    font-weight: 300;
+    font-style: normal;
+
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Noto Sans Thai Looped";
+    src: url("/assets/fonts/Noto_Sans_Thai_Looped/NotoSansThaiLooped-Regular.ttf");
+
+    font-weight: 500;
+    font-style: normal;
+
+    font-display: block;
+}
+
+@font-face {
+    font-family: "Noto Sans Thai Looped";
+    src: url("/assets/fonts/Noto_Sans_Thai_Looped/NotoSansThaiLooped-Bold.ttf");
+
+    font-weight: 700;
+    font-style: normal;
+
+    font-display: block;
+}
+
+/* -------------- */
+
 @font-face {
     font-family: "Noto Serif Thai";
     src: url("/assets/fonts/Noto_Serif_Thai/NotoSerifThai-VariableFont.ttf");
