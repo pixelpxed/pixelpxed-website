@@ -103,9 +103,11 @@ function setTimetableSystemInformation() {
     }
 
     // Check localStorage for setting Time Remaining
-    if (localStorage.getItem("timetable-enableTimeRemaining") === "true") {
-        timeRemaining()
-    }
+    setTimeout(() => {
+        if (localStorage.getItem("timetable-enableTimeRemaining") === "true") {
+            timeRemaining()
+        }
+    }, 1000);
 }
 
 var customClassJSON

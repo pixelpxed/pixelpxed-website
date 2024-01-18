@@ -13,8 +13,3 @@
 
     animation: notification-fly-in 0.2s;
 }
-
-#timeremaining-refreshcontent {
-    font-family: 'Tlwg Typewriter', monospace;
-    font-weight: var(--font-weight-bold);
-}

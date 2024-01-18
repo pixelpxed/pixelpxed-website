@@ -10,15 +10,6 @@
                 "Homeroom", "Chinese", "Thai", "Health", "", "", "", "", "", "", "",
                 "", "", "", "", "", "", "", "", "", "", "", 
                 "Midterm Scores Release", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend"
-            ],
-            "4": [
-                "", "", "", "", "", "", "", "", "", "", "", 
-                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "",
-                "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
-                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
-                "Homeroom", "Chinese", "Thai", "Health", "", "", "", "", "", "", "",
-                "Basketball Cheer", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", 
-                "", "", "", "", "", "", "", "", "", "", ""
             ]
         },
         "links": {

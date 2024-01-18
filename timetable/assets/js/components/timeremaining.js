@@ -10,9 +10,7 @@ function timeRemaining() {
     setTimeout(() => {
         // Inserts the HTML code for time remaining after clock.
         document.querySelector(".clock-wrapper").insertAdjacentHTML("afterend", `
-            <p class="timeremaining">
-                <b style='font-weight: var(--font-weight-semibold);'><span class="timeremaining-subj">-------</span></b>, <span id="timeremaining-refreshcontent">--:--</span>&nbsp;remaining
-            </p>
+            <p class="timeremaining"><b style='font-weight: var(--font-weight-semibold);'><span class="timeremaining-subj"><span style="font-weight: var(--font-weight-normal);">Calculating Picoseconds...</span></span></b><span id="timeremaining-refreshcontent"></span></p>
         `)
         
         // Set variables.
@@ -78,15 +76,15 @@ function timeRemaining() {
                     console.log(activeGridId);
                 }
                 
-                document.getElementById("timeremaining-refreshcontent").innerHTML = `${rminutes >= 10 ? rminutes : "0" + rminutes}:${rseconds >= 10 ? rseconds : "0" + rseconds}`;
+                document.getElementById("timeremaining-refreshcontent").innerHTML = `, <b><span style="font-family: 'Tlwg Typewriter', monospace;">${rminutes >= 10 ? rminutes : "0" + rminutes}:${rseconds >= 10 ? rseconds : "0" + rseconds}</span></b>&nbsp;remaining`;
             }
             if (periodno <= 0) {
                 document.querySelector(".timeremaining-subj").innerHTML = `School isn't started yet`
-                document.getElementById("timeremaining-refreshcontent").innerHTML = `--:--`;
+                document.getElementById("timeremaining-refreshcontent").innerHTML = ``;
             }
             if (periodno > periodperday) {
                 document.querySelector(".timeremaining-subj").innerHTML = `School has ended`
-                document.getElementById("timeremaining-refreshcontent").innerHTML = `--:--`;
+                document.getElementById("timeremaining-refreshcontent").innerHTML = ``;
             }
         }, 1000);
     }, 1000);
