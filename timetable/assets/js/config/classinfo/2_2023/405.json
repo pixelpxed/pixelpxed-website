@@ -2,29 +2,20 @@
     "override": {
         "state": true,
         "class": {
-            "3": [
+            "5": [
                 "", "", "", "", "", "", "", "", "", "", "", 
-                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "", "", "",
+                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "",
+                "Homeroom", "E.S.", "-extend", "Chemistry", "Honored Certificates Day", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
                 "", "", "", "", "", "", "", "", "", "", "", 
-                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
                 "Homeroom", "Chinese", "Thai", "Health", "", "", "", "", "", "", "",
-                "", "", "", "", "", "", "", "", "", "", "", 
-                "Midterm Scores Release", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend"
+                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "",
+                "", "", "", "", "", "", "", "", "", "", ""
             ]
         },
         "links": {
-            "Basketball Cheer": {
-                "subjname": "Basketball Cheer",
-                "subjdescription": "",
-                "subjcode": "",
-                "teacher": "ชุติมา สุขเอี่ยม",
-                "classcode": "",
-                "videocall": "",
-                "classroom": ""
-            },
-            "Midterm Scores Release": {
-                "subjname": "Midterm Grades Release",
-                "subjdescription": "Meet at classroom, parents required to recieve the grades.",
+            "Honored Certificates Day": {
+                "subjname": "Honored Certificates Day",
+                "subjdescription": "Registeration starts around 11:00, check <a target='_blank' href='https://www.mysk.school/account/certificates'>MySK</a> for your seat info.",
                 "subjcode": "",
                 "teacher": "ชุติมา สุขเอี่ยม",
                 "classcode": "",

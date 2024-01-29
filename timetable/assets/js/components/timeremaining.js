@@ -72,8 +72,6 @@ function timeRemaining() {
                     }
                     document.getElementById(activeGridId + 1).classList.add("class-current")   
                     document.querySelector(".timeremaining-subj").innerHTML = `${subj[document.getElementById(activeGridId + 1).innerHTML].subjname}`
-        
-                    console.log(activeGridId);
                 }
                 
                 document.getElementById("timeremaining-refreshcontent").innerHTML = `, <b><span style="font-family: 'Tlwg Typewriter', monospace;">${rminutes >= 10 ? rminutes : "0" + rminutes}:${rseconds >= 10 ? rseconds : "0" + rseconds}</span></b>&nbsp;remaining`;
