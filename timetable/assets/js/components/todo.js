@@ -18,10 +18,10 @@ function openToDo() {
 }
 
 var cache_todolist;
-var fetchpath = "https://pawin.tk/to-do/tasks.json";
+var fetchpath = "https://pawin.me/to-do/tasks.json";
 function fetchToDo() {
     // if (localStorage.getItem("timetable-devMode") == "true") {
-    //     fetchpath = "https://dev.pawin.tk/to-do/tasks.json"
+    //     fetchpath = "https://dev.pawin.me/to-do/tasks.json"
     // }
 
     fetch(fetchpath)
@@ -36,9 +36,9 @@ function fetchToDo() {
             getToDo()
         })
         .catch((error) => {
-            console.warn("Failed to fetch pawin.tk API, opening to-do failed.");
+            console.warn("Failed to fetch pawin.me API, opening to-do failed.");
             return popupOK(
-                `Can't connect to 'pawin.tk' API.`, 
+                `Can't connect to 'pawin.me' API.`, 
                 `Timetable couldn't get an reponse from the server required for to-do to display information.<br><br>
 
                 If you're connected to the internet, this problem is <abbr style="color: var(--color-gray-1); text-decoration: underline;" title="likely Pawin's server loose Ethernet cable.">likely on our end</abbr>. Meanwhile please try again later.<br><br>
