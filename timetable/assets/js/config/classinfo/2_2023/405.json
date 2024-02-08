@@ -2,12 +2,12 @@
     "override": {
         "state": true,
         "class": {
-            "5": [
+            "6": [
                 "", "", "", "", "", "", "", "", "", "", "", 
                 "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "",
-                "Homeroom", "E.S.", "-extend", "Chemistry", "Honored Certificates Day", "-extend", "-extend", "-extend", "-extend", "-extend", "-extend",
-                "", "", "", "", "", "", "", "", "", "", "", 
-                "Homeroom", "Chinese", "Thai", "Health", "", "", "", "", "", "", "",
+                "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
+                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
+                "Homeroom", "Chinese", "Thai", "Health", "", "", "A. Math", "-extend", "Physics", "-extend", "",
                 "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "",
                 "", "", "", "", "", "", "", "", "", "", ""
             ]
