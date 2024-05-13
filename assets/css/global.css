@@ -9,7 +9,6 @@
 :root,
 :root.sync-os,
 :root[theme="sync-os"] {
-    --font-family: "Outfit", "Sarabun", sans-serif;
     --font-family: "Outfit", "Noto Sans Thai Looped", sans-serif;
 
     --color-black: #000000;
@@ -27,6 +26,7 @@
     --color-days: rgba(0, 0, 0, 0.8);
 
     --color-accent: var(--color-blue);
+    accent-color: var(--color-accent);
 }
 
 :root,

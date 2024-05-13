@@ -84,7 +84,10 @@
 }
 
 .popup-button {
-    display: inline-block;
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
 
     min-width: 4em;
 
@@ -107,6 +110,12 @@
 .popup-button:active {
     transform: scale(0.95);
     filter: brightness(0.9);
+}
+
+.popup-button-outlined {
+    color: var(--color-main-text);
+    background: transparent;
+    border: 1px solid var(--color-accent);
 }
 
 .popup-button-transparent {

@@ -112,7 +112,7 @@ function setTimetableSystemInformation() {
 
 var customClassJSON
 function setClassVariables() {
-    if (classTimetable === "405") {
+    if (classTimetable === "505") {
         fetch(`${classdatafetchpath}/${classTimetable}.json`)
             .then((res) => res.json())
             .then((data) => { 
@@ -232,12 +232,18 @@ function fillClasses() {
         if (classes[i] == "-extend") {
             // Error detection
             if ((i % 11) == 0) {
-                gridFlagError(`<b>Grid ${i} Flag Ignored:</b><br>'-double' must be put in period 1 or later in the day.`)
+                gridFlagError(`<b>Grid ${i} Flag Ignored:</b><br>'-extend' must be put in period 1 or later in the day.`)
                 continue
             }
 
             n = 0
             while (classes[i + n] == "-extend") {
+                if ((i % 11) == 0) {
+                    gridFlagError(`<b>Grid ${i} Flag Ignored:</b><br>'-extend' must be put in period 1 or later in the day.`)
+                    n = 0
+                    continue
+                }
+
                 document.getElementById(i + n + 1).style.display = "none"
                 n = n + 1
             }
@@ -281,40 +287,38 @@ function classJoiningSystem() {
 
                 var subjVdo = subjContent.videocall
                 var subjCls = subjContent.classroom
+
                 var subjTitle = subjContent.subjname;
-                
                 if (subjTitle === "") {
                     subjTitle = subjText
                 } 
 
                 var subjTeacher = `<a title="Lookup in MySK" target="_blank" href="https://www.mysk.school/lookup/teachers/results?full_name=${subjContent.teacher}">${subjContent.teacher}</a>`
                 if (subjContent.teacher === "") {
-                    subjTeacher = "<i style='opacity: 0.5;'>ไม่มีข้อมูล</i>"
+                    subjTeacher = "<i style='opacity: 0.5;'>No Information</i>"
                 }
 
                 var subjCode = subjContent.subjcode
                 if (subjContent.subjcode === "") {
-                    subjCode = "<i style='opacity: 0.5;'>ไม่มีข้อมูล</i>"
+                    subjCode = "<i style='opacity: 0.5;'>No Information</i>"
                 }
 
                 var subjClassCode = subjContent.classcode
                 if (subjContent.classcode === "") {
-                    subjClassCode = "<i style='opacity: 0.5;'>ไม่มีข้อมูล</i>"
+                    subjClassCode = "<i style='opacity: 0.5;'>No Information</i>"
                 }
 
                 var subjDescription = subjContent.subjdescription
-                // if (subjContent.subjdescription === "") {
-                //     subjDescription = ""
-                // }
+                if (subjContent.subjdescription === "") {
+                    subjDescription = "<i style='opacity: 0.5;' >No Information</i>"
+                }
 
                 document.querySelector(".popup-center").insertAdjacentHTML("beforeend", `
-                    <div id="popup-id-${popupid}" class="class-popupmode popup">
+                    <div id="popup-id-${popupid}" class="class-popupmode contentbox-wrapper" style="display: block;">
                         <div class="popup-wrapper">
                             <div class="popup-content">
                                 <div>
                                     <p class="popup-title">${subjTitle}</p>
-                                    <p class="popup-description" style="opacity: 1;">${subjDescription}</p>
-                                    <hr>
                                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
                                         <div style="grid-column: span 2;">
                                             <p class="popup-description">Teacher</p>
@@ -331,6 +335,17 @@ function classJoiningSystem() {
                                             <p style="font-family: 'Tlwg Typewriter', monospace;">${subjClassCode}</p>
                                         </div>
                                     </div>
+                                    <div class="course-syllabus" style="display: none">
+                                        <hr>
+                                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                            <p class="popup-title">About This Period</p>
+                                            <p>${subjDescription}</p>
+                                            <a href="/timetable/assets/pdf/1-2024_CourseSyllabus.pdf" target="_blank" class="popup-button popup-button-outlined" style="margin: 0 0 0 auto; display: flex; align-items: center; justify-content: center; gap: 0.25rem; width: 100%; max-width: max-content;">
+                                                <span class="material-symbols-outlined">book</span>
+                                                <span class="text-align: left;">View EPLUS+ Course Syllabus</span>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="popup-buttons-box">
@@ -343,6 +358,10 @@ function classJoiningSystem() {
                 `)
 
                 const popupelement = document.querySelector(`.popup-buttons-wrapper-${popupid}`)
+
+                if (classTimetable != "custom") {
+                    document.querySelector(".course-syllabus").style.display = "block"
+                }
 
                 if (subjCls != "") {
                     popupelement.insertAdjacentHTML("afterbegin", `<a target="_blank" class="popup-button" onclick="popupDone(${popupid})" href="https://classroom.google.com/u/${gaiNumber}/c/${subjCls}">Classroom</a>`)
@@ -486,7 +505,7 @@ function subjectCard() {
 
         // Wait 2 seconds after hover on the grid element, if the cursor doesn't move or exit, add a subject card.
         grid.addEventListener("mouseover", (event) => {
-            // timerIn = setTimeout(() => {
+            timerIn = setTimeout(() => {
                 clearTimeout(timerOut);
 
                 var subjTitle = subj[subjText].subjname;
@@ -496,24 +515,24 @@ function subjectCard() {
 
                 var subjTeacher = subjContent.teacher
                 if (subjTeacher === "") {
-                    subjTeacher = "<i style='color: var(--color-gray-1);'>ไม่มีข้อมูล</i>"
+                    subjTeacher = "<i style='color: var(--color-gray-1);'>No Information</i>"
                 }
 
                 var subjCode = subjContent.subjcode
                 if (subjCode === "") {
-                    subjCode = "<i style='color: var(--color-gray-1);'>ไม่มีข้อมูล</i>"
+                    subjCode = "<i style='color: var(--color-gray-1);'>No Information</i>"
                 }
 
                 var subjClassCode = subjContent.classcode
                 if (subjClassCode === "") {
-                    subjClassCode = "<i style='color: var(--color-gray-1);'>ไม่มีข้อมูล</i>"
+                    subjClassCode = "<i style='color: var(--color-gray-1);'>No Information</i>"
                 }
 
                 var subjClassroomIcon = ""
                 if (subj[subjText].classroom !== "") {
                     subjClassroomIcon = `
                         <div class="info-chipbox"x>
-                            Classroom
+                            Google Classroom
                         </div>
                     `
                 }
@@ -522,31 +541,41 @@ function subjectCard() {
                 if (subj[subjText].videocall !== "") {
                     subjVideoIcon = `
                         <div class="info-chipbox"x>
-                            Video Call
+                            Google Meet
                         </div>
                     `
                 }
 
                 grid.insertAdjacentHTML("beforeend", `
                     <div class="subjcard">
-                        <p class="popup-title">${subjTitle}</p>
-                        <p style="color: var(--color-gray-1); font-size: 0.8rem; margin-bottom: 0.5rem;">${subjTeacher} – ${subjCode}</p>
-                        <div class="info-chipbox-wrapper">
-                            <div class="info-chipbox">
-                            <b>Class Code:</b> <span style="font-family: 'Tlwg Typewriter', 'Sarabun', sans-serif;">${subjClassCode}</span>
-                            </div><br>
-                            ${subjClassroomIcon}
-                            ${subjVideoIcon}
+                        <p class="popup-title" style="margin-bottom: 0.5rem;">${subjTitle}</p>
+                        <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                            <div style="font-size: 0.8rem;">
+                                <b>Teacher:</b>
+                                <p>${subjTeacher}</p>
+                            </div>
+                            <div style="font-size: 0.8rem;">
+                                <b>Class Code:</b>
+                                <p style="font-family: 'Tlwg Typewriter', monospace">${subjCode}</p>
+                            </div>
+                            <div style="font-size: 0.8rem;">
+                                <b>Classroom Code:</b>
+                                <p style="font-family: 'Tlwg Typewriter', monospace">${subjClassCode}</p>
+                            </div>
+                            <div>
+                                ${subjClassroomIcon}
+                                ${subjVideoIcon}
+                            </div>
                         </div>
                     </div>
                 `)
 
                 
-            // }, 2000);
+            }, 500);
         })
         // Clear the timeout wait when the cursor moves or exited the element.
         grid.addEventListener("mouseout", (event) => {
-            // clearTimeout(timerIn);
+            clearTimeout(timerIn);
             document.querySelector(".subjcard").remove()
         })
     });

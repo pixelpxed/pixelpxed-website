@@ -35,7 +35,7 @@ var subj = {}
 var customClassJSON
 const classTimetable = localStorage.getItem("timetable-classTimetable")
 function setClassVariables() {
-    if (classTimetable === "405") {
+    if (classTimetable === "505") {
         fetch(`${classdatafetchpath}/${classTimetable}.json`)
             .then((res) => res.json())
             .then((data) => { 

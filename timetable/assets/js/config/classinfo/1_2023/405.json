@@ -1,67 +1,42 @@
 {
+    "override": {
+        "state": true,
+        "class": {
+            "6": [
+                "", "", "", "", "", "", "", "", "", "", "", 
+                "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "",
+                "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
+                "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
+                "Homeroom", "Chinese", "Thai", "Health", "", "", "A. Math", "-extend", "Physics", "-extend", "",
+                "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "",
+                "", "", "", "", "", "", "", "", "", "", ""
+            ]
+        },
+        "links": {
+            "Honored Certificates Day": {
+                "subjname": "Honored Certificates Day",
+                "subjdescription": "Registeration starts around 11:00, check <a target='_blank' href='https://www.mysk.school/account/certificates'>MySK</a> for your seat info.",
+                "subjcode": "",
+                "teacher": "ชุติมา สุขเอี่ยม",
+                "classcode": "",
+                "videocall": "",
+                "classroom": ""
+            }
+        }
+    },
     "class": [
-        "Homeroom",
-        "M4 Meeting",
-        "M.I.A.",
-        "Thai",
-        "Art",
-        "Lunch",
-        "F. English",
-        "DClass",
-        "Chemistry",
-        "DClass",
-        "",
-    
-        "Homeroom",
-        "Earth Space",
-        "DClass",
-        "Chemistry",
-        "F. Biology",
-        "Lunch",
-        "Physics",
-        "S.I.A.",
-        "Social",
-        "Badminton",
-        "EP Meeting",
-    
-        "Homeroom",
-        "Earth Space",
-        "F. Math",
-        "DClass",
-        "A. Math",
-        "Lunch",
-        "I. Study",
-        "Comm. Eng",
-        "Physics",
-        "DClass",
-        "",
-    
-        "Homeroom",
-        "Chinese",
-        "F. Biology",
-        "DClass",
-        "Lunch",
-        "Counselling Activities",
-        "DClass",
-        "",
-        "",
-        "",
-        "",
-    
-        "Homeroom",
-        "E.I.A.",
-        "DClass",
-        "Social",
-        "Health",
-        "Lunch",
-        "A. Math",
-        "DClass",
-        "Thai",
-        ""
+        "", "", "", "", "", "", "", "", "", "", "", 
+        "Homeroom", "M4 Meeting", "M.I.A.", "Thai", "Music", "Lunch", "F. English", "-extend", "Chemistry", "-extend", "",
+        "Homeroom", "E.S.", "-extend", "Chemistry", "S.I.A.", "Lunch", "Physics", "-extend", "F. Biology", "Social", "EP Meeting",
+        "Homeroom", "E.S.", "F. Math", "-extend", "A. Math", "Lunch", "I. Study", "Comm. Eng", "Physics", "-extend", "",
+        "Homeroom", "Chinese", "Thai", "Health", "", "", "", "", "", "", "",
+        "Homeroom", "E.I.A.", "-extend", "Social", "Swimming", "Lunch", "A. Math", "-extend", "F. Biology", "-extend", "",
+        "", "", "", "", "", "", "", "", "", "", ""
     ],
     "links": {
         "Homeroom": {
             "subjname": "Homeroom",
+            "subjdescription": "",
             "subjcode": "",
             "teacher": "ชุติมา สุขเอี่ยม",
             "classcode": "",
@@ -69,103 +44,116 @@
             "classroom": ""
         },
         "M4 Meeting": {
-            "subjname": "",
+            "subjname": "M4 Meeting",
+            "subjdescription": "",
             "subjcode": "",
-            "teacher": "ระดับชั้น ม.4",
+            "teacher": "คณะครู ม.4",
             "classcode": "",
             "videocall": "",
             "classroom": ""
         },
         "M.I.A.": {
             "subjname": "Math for International Achievement",
-            "subjcode": "ค31253",
+            "subjdescription": "",
+            "subjcode": "ค31254",
             "teacher": "กฤชพล บุญพูลมี",
-            "classcode": "6izduw2",
+            "classcode": "6abfed2",
             "videocall": "",
-            "classroom": "NjA5NTc2MjM2MTU3"
+            "classroom": "NjM5ODY3NDU0MTIw"
         },
         "Thai": {
-            "subjname": "",
-            "subjcode": "ท31101",
+            "subjname": "Thai",
+            "subjdescription": "",
+            "subjcode": "ท31102",
             "teacher": "สุภาภรณ์ ขวัญสุวรรณ",
             "classcode": "np5leqz",
             "videocall": "",
             "classroom": "NjA5NTkwNDgyMTgz"
         },
-        "Art": {
-            "subjname": "",
-            "subjcode": "ศ31101",
-            "teacher": "รัชนู พิมพิทักษ์",
+        "Music": {
+            "subjname": "Music",
+            "subjdescription": "",
+            "subjcode": "ศ31102",
+            "teacher": "นพดล เกิดโภคา",
             "classcode": "",
             "videocall": "",
             "classroom": ""
         },
         "F. English": {
             "subjname": "Fundamental English",
-            "subjcode": "อ31151",
+            "subjdescription": "",
+            "subjcode": "อ31152",
             "teacher": "Ramces M. Dili",
             "classcode": "udnafon",
             "videocall": "",
             "classroom": "NjA5NTM3NjY0NTM0"
         },
         "Chemistry": {
-            "subjname": "",
-            "subjcode": "ว31125",
+            "subjname": "Chemistry",
+            "subjdescription": "",
+            "subjcode": "ว31225",
             "teacher": "ธันฐภัทร บุญช่วย",
             "classcode": "",
             "videocall": "",
             "classroom": ""
         },
-        "Earth Space": {
+        "E.S.": {
             "subjname": "Earth and Space",
-            "subjcode": "ว30165",
+            "subjdescription": "",
+            "subjcode": "ว31265",
             "teacher": "ณัฐริกา รอดสถิตย์",
             "classcode": "ymfvwts",
-            "videocall": "",
+            "videocall": "zzc-dixw-yjg",
             "classroom": "NjA5NTE3NDI4NTE4"
         },
         "F. Biology": {
             "subjname": "Fundamental Biology",
-            "subjcode": "ว31145",
-            "teacher": "ธนกร อรรจนาวัฒน์",
-            "classcode": "",
+            "subjdescription": "",
+            "subjcode": "ว31245",
+            "teacher": "ขวัญจิรา แก้วแฝก",
+            "classcode": "65oo4fw",
             "videocall": "",
-            "classroom": ""
+            "classroom": "NjM3MDkxNzIzNzY1"
         },
         "Physics": {
-            "subjname": "",
-            "subjcode": "ว31105",
-            "teacher": "นิรุทธ์ พรมบุตร",
-            "classcode": "5mpkvxs",
-            "videocall": "",
-            "classroom": "NjA5NTE2NDA1MDM2"
+            "subjname": "Physics",
+            "subjdescription": "",
+            "subjcode": "ว31205",
+            "teacher": "เอกราช สุขเสริม",
+            "classcode": "olvtkot",
+            "videocall": "woc-nfrx-jqu",
+            "classroom": "NjQxNzY5MDg2MjI1"
         },
         "S.I.A.": {
             "subjname": "Science for International Achievement",
-            "subjcode": "ว31273",
-            "teacher": "นิรุทธ์ พรมบุตร",
-            "classcode": "5mpkvxs",
-            "videocall": "",
-            "classroom": "NjA5NTE2NDA1MDM2"
+            "subjdescription": "",
+            "subjcode": "ว31274",
+            "teacher": "เอกราช สุขเสริม",
+            "classcode": "olvtkot",
+            "videocall": "woc-nfrx-jqu",
+            "classroom": "NjQxNzY5MDg2MjI1"
         },
         "Social": {
-            "subjname": "",
-            "subjcode": "ส31151",
-            "teacher": "มาร์ช อุกฤษณ์ / นิว ธราดล",
+            "subjname": "Social",
+            "subjdescription": "",
+            "subjcode": "ส31152",
+            "teacher": "อุกฤษณ์ มากมี",
             "classcode": "fclrxsv",
             "videocall": "efv-igth-qip",
             "classroom": "NTIwMDMzMTQyMjMx"
         },
-        "Badminton": {
-            "subjname": "",
-            "subjcode": "พ30233",
-            "teacher": "ทวีศักดิ์ พรหมแก้ว",
-            "classcode": "2tld3ml",
+        "Swimming": {
+            "subjname": "Swimming",
+            "subjdescription": "",
+            "subjcode": "พ30232",
+            "teacher": "คณะครู ม.4",
+            "classcode": "",
             "videocall": "",
             "classroom": ""
         },
         "EP Meeting": {
-            "subjname": "",
+            "subjname": "EP Meeting",
+            "subjdescription": "",
             "subjcode": "",
             "teacher": "",
             "classcode": "",
@@ -174,78 +162,79 @@
         },
         "F. Math": {
             "subjname": "Fundamental Math",
-            "subjcode": "ค31151",
+            "subjdescription": "",
+            "subjcode": "ค31152",
             "teacher": "กฤชพล บุญพูลมี",
-            "classcode": "liwxlwd",
+            "classcode": "f63ugu7",
             "videocall": "",
-            "classroom": "NjA5NTc2MTEzNTcx"
+            "classroom": "NjM0MjE4MjgxMzMx"
         },
         "A. Math": {
             "subjname": "Additional Math",
-            "subjcode": "ค31251",
+            "subjdescription": "",
+            "subjcode": "ค31252",
             "teacher": "กฤษฎา อัศวสกุลเกียรติ",
-            "classcode": "deki6v5 (Gmail)",
+            "classcode": "deki6v5",
             "videocall": "",
             "classroom": "NTIzMTUxNDM5MzI0"
         },
         "I. Study": {
             "subjname": "Independent Study",
-            "subjcode": "I31251",
-            "teacher": "เอกราช สุขเสริม",
+            "subjdescription": "",
+            "subjcode": "I31252",
+            "teacher": "โชกศรัณต์​ เศรษฐาศุภวัฒน์",
             "classcode": "omazijx",
             "videocall": "hcp-dtmt-tmr",
             "classroom": "NTE5ODE5MjM0MTA1"
         },
         "Comm. Eng": {
-            "subjname": "Communicational in English",
-            "subjcode": "อ31251",
+            "subjname": "Communication in English",
+            "subjdescription": "",
+            "subjcode": "อ31252",
             "teacher": "Ramces M. Dili",
             "classcode": "votutta",
             "videocall": "",
             "classroom": "NTIwMDQyNzkxNDY2"
         },
         "Chinese": {
-            "subjname": "",
-            "subjcode": "จ31251",
+            "subjname": "Chinese",
+            "subjdescription": "",
+            "subjcode": "จ32251",
             "teacher": "ธัญญภัสร์ เจริญพร",
-            "classcode": "",
+            "classcode": "kzxslml",
             "videocall": "",
-            "classroom": ""
+            "classroom": "NTIwMDM4MTA0OTk5"
         },
         "Japanese": {
-            "subjname": "",
-            "subjcode": "ญ31251",
+            "subjname": "Japanese",
+            "subjdescription": "",
+            "subjcode": "ญ32251",
             "teacher": "ดรัณภพ กัญญาศักดิ์",
             "classcode": "6uulgjc",
             "videocall": "",
             "classroom": "NTIyNTcxNDU2MzQ2"
         },
-        "Counselling Activities": {
-            "subjname": "",
-            "subjcode": "ก31903",
-            "teacher": "วรางคณา มุ่งมาตร์มิตร",
-            "classcode": "trmwn77",
-            "videocall": "afw-jjes-jcf",
-            "classroom": "NTIwMDQwNzIxMzQ5"
-        },
         "E.I.A.": {
             "subjname": "English for International Achievement",
-            "subjcode": "อ31253",
+            "subjdescription": "",
+            "subjcode": "อ31254",
             "teacher": "โชกศรัณต์​ เศรษฐาศุภวัฒน์",
             "classcode": "en7acxt",
             "videocall": "",
             "classroom": "NTE5ODE5MTM1NTAy"
         },
         "Health": {
-            "subjname": "",
-            "subjcode": "พ31101",
-            "teacher": "รุสมัน มะนอ",
+            "subjname": "Health",
+            "subjdescription": "",
+            "subjcode": "พ31102",
+            "teacher": "ณิชากร แสงอินทร์",
             "classcode": "fvqujrp",
             "videocall": "",
             "classroom": "NTIwMDYyNjkxMTAy"
         },
         "Lunch": {
-            "subjname": "",
+            "subjname": "Lunch",
+            "subjdescription": "",
             "subjcode": "",
             "teacher": "",
             "classcode": "",
@@ -253,15 +242,17 @@
             "classroom": ""
         },
         "Break": {
-            "subjname": "",
+            "subjname": "Break",
+            "subjdescription": "",
             "subjcode": "",
             "teacher": "",
             "classcode": "",
             "videocall": "",
             "classroom": ""
         },
-        "DClass": {
-            "subjname": "",
+        "-extend": {
+            "subjname": "Extended Class",
+            "subjdescription": "",
             "subjcode": "",
             "teacher": "",
             "classcode": "",
@@ -269,7 +260,8 @@
             "classroom": ""
         },
         "": {
-            "subjname": "",
+            "subjname": "Free Period",
+            "subjdescription": "",
             "subjcode": "",
             "teacher": "",
             "classcode": "",

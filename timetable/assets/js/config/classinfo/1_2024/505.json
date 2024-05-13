@@ -1,0 +1,252 @@
+{
+  "override": {
+    "state": true,
+    "class": {},
+    "links": {}
+  },
+  "class": [
+    "", "", "", "", "", "", "", "", "", "", "",
+    "Homeroom", "Biology", "-extend", "A. Math", "-extend", "", "F. English", "-extend", "Chemistry", "-extend", "",
+    "Homeroom", "M5 Meeting", "Thai", "F. Math", "-extend", "", "Physics", "-extend", "Social", "-extend", "",
+    "Homeroom", "S.I.A.", "A. Math", "E.I.A.", "-extend", "", "Comm. Eng", "Chemistry", "I. Study", "", "",
+    "Homeroom", "Martial Arts", "Chinese", "Life Skill", "", "", "", "", "", "", "",
+    "Homeroom", "Thai", "Health", "Biology", "Arts", "", "Counselling", "M.I.A.", "Physics", "-extend", "",
+    "", "", "", "", "", "", "", "", "", "", ""
+  ],
+  "links": {
+    "Homeroom": {
+        "subjname": "",
+        "subjdescription": "Every morning, students gathered together to do assembly, and listen to teacher's breif for the day.",
+        "subjcode": "–",
+        "teacher": "Warangkhana Mungmatmit",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "M5 Meeting": {
+        "subjname": "",
+        "subjdescription": "Every week, M5 students often gathered together to listen to weekly M5 updates, or do some activities.",
+        "subjcode": "–",
+        "teacher": "Warangkhana Mungmatmit",
+        "classcode": "–",
+        "videocall": "",
+        "classroom": ""
+    },
+    "Physics": {
+        "subjname": "",
+        "subjdescription": "This course covers four main concepts of physics (Simple Harmonic Motion , wave motion, wave interactions light and optics). Simple harmonic motion and its related properties, tension and vibration of mass-spring and pendulum systems, energy in simple harmonic motion systems, damped oscillations, natural frequency and resonance, wave properties, reflection, refraction, and total internal reflection, standing waves, superposition, interference, diffraction, diffraction grating, images formed in curved mirrors and thin lenses, the eye, dispersion, color formation and optics in daily life.",
+        "subjcode": "ว32205",
+        "teacher": "Apiwan Rattanawan",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "Chemistry": {
+        "subjname": "",
+        "subjdescription": "This course covers the study of Gas laws, Chemical kinetic, and Chemical equilibrium. This is related to the following topics: ideal gas law, kinetic molecular theory of matter, rate of chemical reaction, collision theory, factor effect to reaction rate, static & dynamic equilibrium, equilibrium concentration, equilibrium constant, and Le Chatelier's principle.",
+        "subjcode": "อ32151",
+        "teacher": "Sukhum Poommarinvarakul",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "Biology": {
+        "subjname": "",
+        "subjdescription": "The course aims to help students to explore and understand the structures of plants especially on higher plants or angiosperms, which mainly focus on their reproduction, tissues and growth, photosynthesis, nutrients, transportation of food and water, and key plant hormones. Students will experience with interactive experiment to support their understanding.",
+        "subjcode": "ว32245",
+        "teacher": "Paninnat Jarueksoontornsakul",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "S.I.A.": {
+        "subjname": "Science for International Achievement",
+        "subjdescription": "The objectives of this course are to reinforce knowledge and prepare students for the CU-ATS Chemistry subject test, covering topics such as atomic structure, the periodic table, chemical bonds, chemical compounds, and chemical calculations. Additionally, it introduces the CU-ATS exam and provides real-life experience through mock tests.<br><br>The course aims to deepen students' understanding of chemical calculations and the properties of chemical substances in various phases, including mixtures.",
+        "subjcode": "ว32273",
+        "teacher": "Narut Gulprasertrat",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "F. Math": {
+        "subjname": "Fundamental Mathematics",
+        "subjdescription": "In this course, students will delve into three fundamental topics: Firstly, they will explore exponents with rational exponents, understanding the meaning and computation of results arising from exponentiation, including addition, subtraction, multiplication, and division of real numbers in exponential form with rational exponents and real numbers in radical form. They will also learn approximation methods for such quantities. Secondly, Students will gain an understanding of sequences and series, including arithmetic and geometric sequences, as well as the general term for both types of sequences. Additionally, they will learn about the sum of the first n terms in arithmetic and geometric series and how to calculate it using formulas. Lastly, students will grasp the concepts of interest, covering simple interest and compound interest, present and future values. And the practical applications of installment payments in everyday calculation. This course aims to provide students with a solid foundation in these mathematical concepts, enabling them to apply their knowledge in various real-world scenarios.",
+        "subjcode": "ค32151",
+        "teacher": "Ali Thongkamwong",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "M.I.A.": {
+        "subjname": "Mathematics for International Achievement",
+        "subjdescription": "This course is structured to impart the foundational knowledge necessary for success on the SAT Math examination. Students will gain a comprehensive understanding of key mathematical concepts, including algebra, geometry, trigonometry, and data analysis. Through engaging lessons and interactive activities, they will develop proficiency in solving a variety of math problems commonly encountered on the SAT.",
+        "subjcode": "ค32253",
+        "teacher": "Ali Thongkamwong",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "A. Math": {
+        "subjname": "Additional Mathematics",
+        "subjdescription": "This course provides an introduction to basic exponential and logarithm concepts. Students will be able to apply principles of exponent function, logarithmic function, vector in three dimensions, factoring, scalar product and cross-vector.",
+        "subjcode": "ค32251",
+        "teacher": "Krissada Asavaskulkiet",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "F. English": {
+        "subjname": "Fundamental English",
+        "subjdescription": "The aim of this course is to develop core English language communication skills in listening and speaking to a level which will enable students to complete various speaking tasks.",
+        "subjcode": "อ32151",
+        "teacher": "Adrian Wellington",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "Comm. Eng": {
+        "subjname": "Communication in English",
+        "subjdescription": "This performance-based course emphasizes the practical skill of public speaking designed to help students perform effectively in public speaking situations. It will enable participants to draw on their previously acquired communicative resources and strengths to give different types of speeches (persuasive, informative, special occasion and debate skills).",
+        "subjcode": "อ32251",
+        "teacher": "Adrian Wellington",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "E.I.A.": {
+        "subjname": "English for International Achievement",
+        "subjdescription": "This class mainly focuses on fundamental IELTS skills comprising of Reading, and Writing skills. According to the IELTS test specification, the Reading section assesses the test taker’s skill in reading as she/he answers the questions (multiple choice, sentence completion, summary writing, matching information, short- answers etc.) Regarding to IELTS Academic Writing: Academically describe a graph, table, chart or diagram and summaries or explain the information in your own words, describe the stages of a process, and how something works or describe an object or event.",
+        "subjcode": "อ32253",
+        "teacher": "Choksarun Setthasuppawat",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "I. Study": {
+        "subjname": "Independent Study",
+        "subjdescription": "This independent study 3 course is designed to provide students with a comprehensive understanding of fundamental concepts of statistical research and research design.",
+        "subjcode": "อ32255",
+        "teacher": "Sukhum Poommarinvarakul",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "Social": {
+        "subjname": "",
+        "subjdescription": "This course aims to Understanding of the physical characteristics of the earth and the inter-relationship of various things in the natural system that affect one another; the utilization of maps and geographical instruments for searching, analyzing, drawing conclusions, and efficient utilization of geo-data and information. Understanding the interrelationship between man and the physical environment leads to cultural creativity.",
+        "subjcode": "ส32151",
+        "teacher": "Nutthapong Chandanasiri",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "Thai": {
+        "subjname": "",
+        "subjdescription": "",
+        "subjcode": "ท32101",
+        "teacher": "Supawut Jomsree",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "Martial Arts": {
+        "subjname": "",
+        "subjdescription": "",
+        "subjcode": "พ30234",
+        "teacher": "Kuekrit Sittirit",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "Chinese": {
+        "subjname": "",
+        "subjdescription": "",
+        "subjcode": "จ32251",
+        "teacher": "Thanyapat Charoenporn",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "Japanese": {
+        "subjname": "",
+        "subjdescription": "",
+        "subjcode": "ญ32251",
+        "teacher": "Daranpob Kanyasak",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "Life Skill": {
+        "subjname": "",
+        "subjdescription": "",
+        "subjcode": "ง30111",
+        "teacher": "Chatuporn Pakkeraka",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "Health": {
+        "subjname": "",
+        "subjdescription": "",
+        "subjcode": "พ32101",
+        "teacher": "Suchinun Ngamsomchon",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "Arts": {
+        "subjname": "",
+        "subjdescription": "",
+        "subjcode": "ศ32101",
+        "teacher": "Leelavadee Yourung",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "Counselling": {
+        "subjname": "Counselling Activities",
+        "subjdescription": "",
+        "subjcode": "ก32903",
+        "teacher": "Warangkhana Mungmatmit",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "Lunch": {
+        "subjname": "Lunch",
+        "subjdescription": "Take a break. Go devour your lunch, and take a free time, yippie!",
+        "subjcode": "",
+        "teacher": "",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "Break": {
+        "subjname": "Break",
+        "subjdescription": "Take a break, this period is essentially the same as 'Free Period', yippie!",
+        "subjcode": "",
+        "teacher": "",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "-extend": {
+        "subjname": "Extended Class",
+        "subjdescription": "Feature: Merge this grid into the previous grid, except if the this is placed in period 1.",
+        "subjcode": "",
+        "teacher": "",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    },
+    "": {
+        "subjname": "Free Period",
+        "subjdescription": "Free time, yippie!",
+        "subjcode": "",
+        "teacher": "",
+        "classcode": "",
+        "videocall": "",
+        "classroom": ""
+    }
+  }
+}
