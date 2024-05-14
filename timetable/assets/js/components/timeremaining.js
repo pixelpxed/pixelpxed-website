@@ -71,7 +71,11 @@ function timeRemaining() {
                         document.getElementById(activeGridId).classList.remove("class-current")
                     }
                     document.getElementById(activeGridId + 1).classList.add("class-current")   
+
                     document.querySelector(".timeremaining-subj").innerHTML = `${subj[document.getElementById(activeGridId + 1).innerHTML].subjname}`
+                    if (subj[document.getElementById(activeGridId + 1).innerHTML].subjname == "") {
+                        document.querySelector(".timeremaining-subj").innerHTML = document.getElementById(activeGridId + 1).innerHTML
+                    }
                 }
                 
                 document.getElementById("timeremaining-refreshcontent").innerHTML = `, <b><span style="font-family: 'Tlwg Typewriter', monospace;">${rminutes >= 10 ? rminutes : "0" + rminutes}:${rseconds >= 10 ? rseconds : "0" + rseconds}</span></b>&nbsp;remaining`;
