@@ -335,15 +335,17 @@ function classJoiningSystem() {
                                             <p style="font-family: 'Tlwg Typewriter', monospace;">${subjClassCode}</p>
                                         </div>
                                     </div>
+                                    <hr>
                                     <div class="course-syllabus" style="display: none">
-                                        <hr>
                                         <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                                             <p class="popup-title">About This Period</p>
                                             <p>${subjDescription}</p>
-                                            <a href="/timetable/assets/pdf/1-2024_CourseSyllabus.pdf" target="_blank" class="popup-button popup-button-outlined" style="margin: 0 0 0 auto; display: flex; align-items: center; justify-content: center; gap: 0.25rem; width: 100%; max-width: max-content;">
-                                                <span class="material-symbols-outlined">book</span>
-                                                <span class="text-align: left;">View EPLUS+ Course Syllabus</span>
-                                            </a>
+                                            <div style="display: flex; gap: 0.5rem; width: max-content; max-width: 100%; margin: 0 0 0 auto;">
+                                                <a href="http://96.30.126.41/sk/index.php?mode=con03&group=437&id=1663&date_start=&date_end=" target="_blank" class="popup-button popup-button-outlined" style="gap: 0.25rem;">
+                                                    <span class="text-align: left;">View All Course Syllabus</span>
+                                                    <span class="material-symbols-outlined">open_in_new</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
