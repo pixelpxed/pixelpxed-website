@@ -1,10 +1,10 @@
 // Basic Timetable information.
-var timetableversion = "3.21.0a"
+var timetableversion = "3.21.0b"
 
 // Timetable class fetch folder
 // Timetable will require a <classno>.json file in the folder
 // to be exact, for example 305.json, 306.json
-var classdatafetchpath = `/timetable/assets/js/config/classinfo/1_2024`
+var classdatafetchpath = `/timetable/assets/js/config/classinfo/2_2024`
 
 // Copyright year settings
 var fetchcopyrightyear = true
