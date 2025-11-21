@@ -4,5 +4,4 @@
 This website respiratory is for all things made by me, this website hosts all the web based projects and store every project's information and downloads.
 
 You can visit this website hosting at:  
-**main:** https://www.pixelpxed.me/  
-**dev:** https://dev.pixelpxed.me/ 
+**main:** https://metawat.vercel.app/ 
