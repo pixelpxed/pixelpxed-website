@@ -1,26 +1,99 @@
 @import "tailwindcss";
+@import "./fonts.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --text-title: 1.5rem;
+  --text-body: 0.875rem;
+  --text-subtitle: 0.75rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root,
+:root.light,
+[data-theme="light"] {
+  --color-background: var(--color-white);
+  --color-on-background: var(--color-black);
+  --color-primary: var(--color-black);
+  --color-on-primary: var(--color-white);
+  --color-outline: var(--color-zinc-200);
+  --color-danger: var(--color-red-500);
+  --color-on-danger: var(--color-white);
+}
+
+:root.dark,
+[data-theme="dark"] {
+  --color-background: var(--color-zinc-900);
+  --color-on-background: var(--color-white);
+  --color-primary: var(--color-white);
+  --color-on-primary: var(--color-black);
+  --color-outline: var(--color-zinc-700);
+  --color-danger: var(--color-red-500);
+  --color-on-danger: var(--color-white);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-background: var(--color-zinc-900);
+    --color-on-background: var(--color-white);
+    --color-primary: var(--color-white);
+    --color-on-primary: var(--color-black);
+    --color-outline: var(--color-zinc-700);
+    --color-danger: var(--color-red-500);
+    --color-on-danger: var(--color-white);
   }
 }
 
+@theme default {
+  --text-title: var(--text-title);
+  --text-base: var(--text-body);
+  --text-subtitle: var(--text-subtitle);
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 500;
+
+  --color-background: var(--color-background);
+  --color-on-background: var(--color-on-background);
+  --color-primary: var(--color-primary);
+  --color-on-primary: var(--color-on-primary);
+  --color-outline: var(--color-outline);
+  --color-danger: var(--color-danger);
+  --color-on-danger: var(--color-on-danger);
+}
+
+* {
+  font-family: "Inter Variable", "Inter Thai Loopless", sans-serif;
+  font-feature-settings:
+    "cv05" on,
+    "cv08" on,
+    "cv10" on,
+    "cv11" on,
+    "ss03" on;
+  /* font-family: "Inter Thai Loopless", sans-serif; */
+
+  @apply transition-colors;
+}
+
+.text-tabnum,
+[data-tabnum="true"] {
+  font-feature-settings:
+    "cv05" on,
+    "cv08" on,
+    "cv10" on,
+    "cv11" on,
+    "tnum" on;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply text-on-background bg-background text-base;
+}
+
+h1 {
+  @apply text-title font-bold;
+}
+
+ul {
+  @apply ml-6 list-disc;
+}
+
+b {
+  @apply font-bold;
 }
