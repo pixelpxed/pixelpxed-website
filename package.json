@@ -9,9 +9,19 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.91.0",
+    "lucide-react": "^0.562.0",
+    "material-symbols": "^0.40.2",
+    "motion": "^12.27.5",
     "next": "16.1.1",
+    "prettier-plugin-classnames": "^0.8.6",
+    "prettier-plugin-merge": "^0.8.0",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "radash": "^12.1.1",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-qr-code": "^2.0.18"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
