@@ -10,7 +10,7 @@ const Dialog: StylableFC<{
   return (
     <motion.div
       className="fixed top-0 left-0 grid h-dvh w-dvw place-items-center
-        bg-black/50"
+        bg-black/50 p-3"
       onClick={onClickOutside && onClickOutside}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
