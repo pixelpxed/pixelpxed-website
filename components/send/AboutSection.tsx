@@ -54,7 +54,13 @@ const AboutSection: FC<{
           <Button onClick={() => setOpenEditLobbyDialog(true)}>
             Edit Lobby
           </Button>
-          <Button danger={true} className="w-full" onClick={deleteLobby}>
+          <Button
+            danger={true}
+            busy={""}
+            icon={"check"}
+            className="w-full"
+            onClick={deleteLobby}
+          >
             Delete Lobby
           </Button>
         </div>
@@ -62,13 +68,18 @@ const AboutSection: FC<{
       <AnimatePresence>
         {openEditLobbyDialog && (
           <Dialog onClickOutside={() => setOpenEditLobbyDialog(false)}>
-            <p>Edit Lobby</p>
-            <Button
-              className="w-full"
-              onClick={() => setOpenEditLobbyDialog(false)}
-            >
-              Done
-            </Button>
+            <div className="mb-3 flex flex-col gap-1">
+              <p className="font-bold">Edit Lobby</p>
+              <p>Work in progress give us a moment.</p>
+            </div>
+            <div className="mt-3">
+              <Button
+                className="w-full"
+                onClick={() => setOpenEditLobbyDialog(false)}
+              >
+                Done
+              </Button>
+            </div>
           </Dialog>
         )}
       </AnimatePresence>
