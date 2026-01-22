@@ -37,7 +37,7 @@ const Home = () => {
           </p>
           <p>
             <Link
-              href="https://pixelpxed.vercel.app/"
+              href="https://pxedition.vercel.app/"
               className="text-blue-500"
             >
               Old landing/site (Made with Vanilla):
