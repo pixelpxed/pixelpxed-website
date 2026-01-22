@@ -1,5 +1,6 @@
 import Button from "@/components/Button";
 import AboutHeader from "@/components/send/subcomponents/AboutHeader";
+import TextInput from "@/components/TextInput";
 import { createClient } from "@supabase/supabase-js";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -81,9 +82,7 @@ const PageSendLanding = () => {
           <div>
             <p className="mb-2">Join Lobby</p>
             <div className="flex gap-1">
-              <input
-                type="text"
-                className="border-outline h-8.75 w-full rounded-md border p-2"
+              <TextInput
                 value={shortCodeField}
                 onChange={(e) => setShortCodeField(e.target.value)}
                 placeholder={"000000"}

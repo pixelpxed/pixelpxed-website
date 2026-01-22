@@ -71,9 +71,7 @@ const ContentSection: FC<{
           })}
       </div>
       <div className="flex gap-1 p-3">
-        <input
-          type="text"
-          className="75 border-outline h-8.75 w-full rounded-md border p-2"
+        <TextInput
           value={sendField}
           onChange={(e) => setSendField(e.target.value)}
           placeholder={"https://www.example.com"}
