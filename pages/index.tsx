@@ -44,7 +44,7 @@ const Home = () => {
             </Link>
           </p>
         </div>
-        <iframe src="https://pixelpxed.vercel.app/" className="grow" />
+        <iframe src="https://pxedition.vercel.app/" className="grow" />
       </div>
     </>
   );
