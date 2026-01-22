@@ -56,7 +56,6 @@ const AboutSection: FC<{
           </Button>
           <Button
             danger={true}
-            busy={""}
             icon={"check"}
             className="w-full"
             onClick={deleteLobby}
