@@ -1,6 +1,9 @@
+import Button from "@/components/Button";
+import Dialog from "@/components/Dialog";
 import AboutSection from "@/components/send/AboutSection";
 import ContentSection from "@/components/send/ContentSection";
 import { createClient } from "@supabase/supabase-js";
+import { AnimatePresence } from "motion/react";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -28,6 +31,8 @@ const PageSendRoom = (props: any) => {
       content: string;
     }[]
   >([]);
+
+  const [openDeletedDialog, setOpenDeletedDialog] = useState<boolean>(false);
   const [busyCreatingCode, setBusyCreatingCode] = useState<boolean>(false);
   const [busyDeletingLobby, setBusyDeletingLobby] = useState<boolean>(false);
 
@@ -120,8 +125,9 @@ const PageSendRoom = (props: any) => {
       process.env.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY ?? "",
     );
 
+    // Listens for new content.
     supabase
-      .channel("data:lobby_items")
+      .channel("data:send_lobby_items")
       .on(
         "postgres_changes",
         {
@@ -130,13 +136,30 @@ const PageSendRoom = (props: any) => {
           table: "send_lobby_items",
           filter: `lobby=eq.${router.query.id}`,
         },
-        (payload) => {
-          getLobbyItems();
+        () => getLobbyItems(),
+      )
+      .subscribe();
+
+    // Listens for when lobby is deleted.
+    supabase
+      .channel("data:send_lobby")
+      .on(
+        "postgres_changes",
+        {
+          event: "DELETE",
+          schema: "public",
+          table: "send_lobby",
+          filter: `id=eq.${router.query.id}`,
         },
+        () => setOpenDeletedDialog(true),
       )
       .subscribe();
 
     getLobbyItems();
+
+    return () => {
+      supabase.removeAllChannels();
+    };
   }, [router.query.id]);
 
   return (
@@ -154,6 +177,28 @@ const PageSendRoom = (props: any) => {
         />
         <ContentSection lobbyID={lobby.id} lobbyItems={items} />
       </div>
+      <AnimatePresence>
+        {openDeletedDialog && (
+          <Dialog>
+            <div className="mb-3 flex flex-col gap-1">
+              <p className="font-bold">Lobby Deleted</p>
+              <p>
+                This lobby has been deleted by a user, create a new one to share
+                more content.
+              </p>
+            </div>
+            <div className="mt-3">
+              <Button
+                appearance="filled"
+                onClick={() => router.push("/send")}
+                className="w-full"
+              >
+                Done
+              </Button>
+            </div>
+          </Dialog>
+        )}
+      </AnimatePresence>
     </>
   );
 };
