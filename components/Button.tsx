@@ -4,7 +4,8 @@ import { StylableFC } from "@/utils/types/common";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 type BaseButtonProps = {
-  // selected?: boolean;
+  appearance?: "tonal" | "outlined" | "filled" | "text";
+  selected?: boolean;
   busy?: boolean;
   busyWithText?: boolean;
   disabled?: boolean;
@@ -24,8 +25,10 @@ type TextButtonProps = BaseButtonProps & {
 type ButtonProps = IconButtonProps | TextButtonProps;
 
 const Button: StylableFC<ButtonProps> = ({
+  appearance = "tonal",
   icon,
   disabled = false,
+  selected = false,
   busy = false,
   busyWithText = false,
   danger = false,
@@ -37,13 +40,17 @@ const Button: StylableFC<ButtonProps> = ({
   return (
     <button
       className={cn(
-        `border-outline bg-background flex h-8.75 cursor-pointer items-center
-        justify-center gap-1.5 rounded-md border p-1.5 text-nowrap
-        transition-all! select-none hover:shadow-md hover:brightness-90`,
+        `flex h-8.75 cursor-pointer items-center justify-center gap-1.5
+        rounded-md p-1.5 text-nowrap transition-all! select-none
+        hover:brightness-95`,
+        appearance == "tonal" && "border-outline bg-background border",
+        appearance == "filled" && "bg-primary text-on-primary",
+        appearance == "outlined" && "border-outline border bg-transparent",
+        appearance != "text" && "hover:shadow-md",
         danger && "text-danger",
         icon && !children && "w-8.75",
         ((!busy && icon && children) || (busy && busyWithText)) && "px-2 pl-1",
-        (disabled || busy) && "pointer-events-none opacity-50 brightness-80",
+        (disabled || busy) && "pointer-events-none opacity-50 brightness-90",
         className,
       )}
       style={style}
@@ -56,7 +63,10 @@ const Button: StylableFC<ButtonProps> = ({
       )}
       {(!busy || (busy && busyWithText)) && (
         <>
-          {icon && !busy && (
+          {selected && (
+            <MaterialIcon icon={"check_small"} size={!children ? 24 : 20} />
+          )}
+          {icon && !busy && !selected && (
             <MaterialIcon icon={icon} size={!children ? 24 : 20} />
           )}
           {children}
