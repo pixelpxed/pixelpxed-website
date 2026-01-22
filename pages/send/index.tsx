@@ -22,14 +22,15 @@ const PageSendLanding = () => {
 
     const { data, error } = await supabase
       .from("send_lobby")
-      .insert([{}])
-      .select();
+      .insert({})
+      .select()
+      .single();
 
     if (error) {
       alert(JSON.stringify(error));
       setBusyCreatingLobby(false);
     } else {
-      router.push(`/send/${data[0].id}`);
+      router.push(`/send/${data.id}`);
     }
   };
 
