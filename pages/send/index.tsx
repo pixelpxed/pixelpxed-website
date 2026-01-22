@@ -61,6 +61,7 @@ const PageSendLanding = () => {
     <>
       <Head>
         <title>Send</title>
+        <link rel="shortcut icon" href="/favicons/send.png" type="image/png" />
       </Head>
       <div className="p-3">
         <AboutHeader />

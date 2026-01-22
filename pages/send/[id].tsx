@@ -36,13 +36,6 @@ const PageSendRoom = (props: any) => {
   const [busyCreatingCode, setBusyCreatingCode] = useState<boolean>(false);
   const [busyDeletingLobby, setBusyDeletingLobby] = useState<boolean>(false);
 
-  useEffect(() => {
-    setLobby((prev) => ({
-      ...prev,
-      id: typeof router.query.id == "string" ? router.query.id : "",
-    }));
-  }, [router.query.id]);
-
   const handleCreateCode = async () => {
     setBusyCreatingCode(true);
 
@@ -120,6 +113,11 @@ const PageSendRoom = (props: any) => {
   };
 
   useEffect(() => {
+    setLobby((prev) => ({
+      ...prev,
+      id: typeof router.query.id == "string" ? router.query.id : "",
+    }));
+
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
       process.env.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY ?? "",
@@ -166,6 +164,7 @@ const PageSendRoom = (props: any) => {
     <>
       <Head>
         <title>Send - {lobby.name ? lobby.name : lobby.id}</title>
+        <link rel="shortcut icon" href="/favicons/send.png" type="image/png" />
       </Head>
       <div className={"flex h-dvh w-dvw flex-col sm:flex-row"}>
         <AboutSection
