@@ -2,7 +2,7 @@ import Button from "@/components/Button";
 import Dialog from "@/components/Dialog";
 import InformationDetails from "@/components/send/subcomponents/AboutBoard";
 import InformationHeader from "@/components/send/subcomponents/AboutHeader";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence } from "motion/react";
 import { FC, useState } from "react";
 import QRCode from "react-qr-code";
 
@@ -10,9 +10,19 @@ const AboutSection: FC<{
   lobbyID: string | undefined;
   lobbyName: string | undefined;
   lobbyCode: string | undefined;
-  createLobbyCode: () => void;
+  createCode: () => void;
+  busyCreatingCode: boolean;
   deleteLobby: () => void;
-}> = ({ lobbyID, lobbyName, lobbyCode, createLobbyCode, deleteLobby }) => {
+  busyDeletingLobby: boolean;
+}> = ({
+  lobbyID,
+  lobbyName,
+  lobbyCode,
+  createCode,
+  busyCreatingCode,
+  deleteLobby,
+  busyDeletingLobby,
+}) => {
   const [openEditLobbyDialog, setOpenEditLobbyDialog] =
     useState<boolean>(false);
 
@@ -47,19 +57,18 @@ const AboutSection: FC<{
         </div>
         <div className="grid w-full grid-cols-2 gap-1">
           {!lobbyCode && (
-            <Button className="col-span-2" onClick={createLobbyCode}>
+            <Button
+              className="col-span-2"
+              busy={busyCreatingCode}
+              onClick={createCode}
+            >
               Generate Short Code
             </Button>
           )}
           <Button onClick={() => setOpenEditLobbyDialog(true)}>
             Edit Lobby
           </Button>
-          <Button
-            danger={true}
-            icon={"check"}
-            className="w-full"
-            onClick={deleteLobby}
-          >
+          <Button danger={true} busy={busyDeletingLobby} onClick={deleteLobby}>
             Delete Lobby
           </Button>
         </div>

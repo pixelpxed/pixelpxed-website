@@ -1,5 +1,5 @@
 import Button from "@/components/Button";
-import MaterialIcon from "@/components/MaterialIcon";
+import AboutHeader from "@/components/send/subcomponents/AboutHeader";
 import { createClient } from "@supabase/supabase-js";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -9,8 +9,12 @@ const PageSendLanding = () => {
   const router = useRouter();
 
   const [shortCodeField, setShortCodeField] = useState<string>("");
+  const [busyCreatingLobby, setBusyCreatingLobby] = useState<boolean>(false);
+  const [busyJoiningLobby, setBusyJoiningLobby] = useState<boolean>(false);
 
   const handleNewLobby = async () => {
+    setBusyCreatingLobby(true);
+
     const supabase = await createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
       process.env.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY ?? "",
@@ -23,12 +27,15 @@ const PageSendLanding = () => {
 
     if (error) {
       alert(JSON.stringify(error));
+      setBusyCreatingLobby(false);
     } else {
       router.push(`/send/${data[0].id}`);
     }
   };
 
   const handleSubmitShortCode = async () => {
+    setBusyJoiningLobby(true);
+
     const supabase = await createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
       process.env.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY ?? "",
@@ -42,6 +49,7 @@ const PageSendLanding = () => {
 
     if (error) {
       alert(JSON.stringify(error));
+      setBusyJoiningLobby(false);
     } else {
       router.push(`/send/${data.id}`);
     }
@@ -52,25 +60,42 @@ const PageSendLanding = () => {
       <Head>
         <title>Send</title>
       </Head>
-      <div className="p-2 md:p-4">
-        <p>Send</p>
-        <div className="flex cursor-pointer items-center gap-1">
-          <Button icon="add" onClick={() => handleNewLobby()}>
-            New Lobby
-          </Button>
-        </div>
-        <div className="flex gap-1">
-          <input
-            type="text"
-            className="75 border-outline h-8.75 rounded-md border p-2"
-            value={shortCodeField}
-            onChange={(e) => setShortCodeField(e.target.value)}
-            placeholder={"000000"}
-          />
-          <Button
-            icon={"arrow_right_alt"}
-            onClick={() => handleSubmitShortCode()}
-          />
+      <div className="p-3">
+        <AboutHeader />
+        <div
+          className="m-auto mt-6 flex w-full max-w-xl flex-col gap-3 *:w-full
+            sm:flex-row"
+        >
+          <div>
+            <p className="mb-2">New Lobby</p>
+            <Button
+              icon="add"
+              onClick={() => handleNewLobby()}
+              busy={busyCreatingLobby}
+              className="w-full"
+            >
+              New Lobby
+            </Button>
+          </div>
+          <div>
+            <p className="mb-2">Join Lobby</p>
+            <div className="flex gap-1">
+              <input
+                type="text"
+                className="border-outline h-8.75 w-full rounded-md border p-2"
+                value={shortCodeField}
+                onChange={(e) => setShortCodeField(e.target.value)}
+                placeholder={"000000"}
+                maxLength={6}
+              />
+              <Button
+                icon={"arrow_right_alt"}
+                busy={busyJoiningLobby}
+                disabled={!shortCodeField || shortCodeField.length != 6}
+                onClick={() => handleSubmitShortCode()}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </>

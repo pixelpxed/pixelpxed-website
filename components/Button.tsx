@@ -1,7 +1,7 @@
 import MaterialIcon from "@/components/MaterialIcon";
 import cn from "@/utils/helpers/cn";
 import { StylableFC } from "@/utils/types/common";
-import type { ButtonHTMLAttributes, FC, ReactNode } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 type BaseButtonProps = {
   // selected?: boolean;
@@ -39,11 +39,11 @@ const Button: StylableFC<ButtonProps> = ({
       className={cn(
         `border-outline bg-background flex h-8.75 cursor-pointer items-center
         justify-center gap-1.5 rounded-md border p-1.5 text-nowrap
-        transition-all select-none hover:brightness-90`,
+        transition-all! select-none hover:shadow-md hover:brightness-90`,
         danger && "text-danger",
         icon && !children && "w-8.75",
-        (busy && busyWithText) || (icon && children && "px-2 pl-1"),
-        disabled && "pointer-events-none opacity-50 brightness-90",
+        ((!busy && icon && children) || (busy && busyWithText)) && "px-2 pl-1",
+        (disabled || busy) && "pointer-events-none opacity-50 brightness-80",
         className,
       )}
       style={style}
@@ -56,7 +56,9 @@ const Button: StylableFC<ButtonProps> = ({
       )}
       {(!busy || (busy && busyWithText)) && (
         <>
-          {icon && <MaterialIcon icon={icon} size={!children ? 24 : 20} />}
+          {icon && !busy && (
+            <MaterialIcon icon={icon} size={!children ? 24 : 20} />
+          )}
           {children}
         </>
       )}

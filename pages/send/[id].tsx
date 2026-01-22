@@ -1,10 +1,10 @@
 import AboutSection from "@/components/send/AboutSection";
 import ContentSection from "@/components/send/ContentSection";
+import { createClient } from "@supabase/supabase-js";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
-import { GetServerSideProps } from "next";
 
 const PageSendRoom = (props: any) => {
   const router = useRouter();
@@ -14,6 +14,9 @@ const PageSendRoom = (props: any) => {
   const [lobbyName, setLobbyName] = useState<string>(props.lobby.name);
   const [lobbyID, setLobbyID] = useState<string>();
   const [lobbyCode, setLobbyCode] = useState<string>(props.lobby.short_id);
+
+  const [busyCreatingCode, setBusyCreatingCode] = useState<boolean>(false);
+  const [busyDeletingLobby, setBusyDeletingLobby] = useState<boolean>(false);
 
   const createTime = new Date(props.lobby.created_at);
   const expireTime = new Date(createTime.getTime() + 1000 * 60 * 60);
@@ -26,7 +29,9 @@ const PageSendRoom = (props: any) => {
     );
   }, [router.query.id]);
 
-  const handleCreateLobbyCode = async () => {
+  const handleCreateCode = async () => {
+    setBusyCreatingCode(true);
+
     if (!props.lobby.short_id) {
       const supabase = await createClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
@@ -47,6 +52,7 @@ const PageSendRoom = (props: any) => {
 
       if (error) {
         alert(JSON.stringify(error));
+        setBusyCreatingCode(false);
       } else {
         setLobbyCode(data.short_id);
       }
@@ -54,6 +60,8 @@ const PageSendRoom = (props: any) => {
   };
 
   const handleDeleteLobby = async () => {
+    setBusyDeletingLobby(true);
+
     const supabase = await createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
       process.env.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY ?? "",
@@ -66,6 +74,7 @@ const PageSendRoom = (props: any) => {
 
     if (error) {
       alert(JSON.stringify(error));
+      setBusyDeletingLobby(false);
     } else {
       router.push("/send");
     }
@@ -81,8 +90,10 @@ const PageSendRoom = (props: any) => {
           lobbyID={lobbyID}
           lobbyName={lobbyName}
           lobbyCode={lobbyCode}
-          createLobbyCode={() => handleCreateLobbyCode()}
+          createCode={() => handleCreateCode()}
+          busyCreatingCode={busyCreatingCode}
           deleteLobby={() => handleDeleteLobby()}
+          busyDeletingLobby={busyDeletingLobby}
         />
         <ContentSection lobbyID={lobbyID} lobbyItems={props.items} />
       </div>
