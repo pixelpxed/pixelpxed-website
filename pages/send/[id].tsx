@@ -6,27 +6,36 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
+export type Lobby = {
+  name: string | null;
+  id: string | null;
+  short_id: string | null;
+};
+
 const PageSendRoom = (props: any) => {
   const router = useRouter();
 
-  console.log(props);
-
-  const [lobbyName, setLobbyName] = useState<string>(props.lobby.name);
-  const [lobbyID, setLobbyID] = useState<string>();
-  const [lobbyCode, setLobbyCode] = useState<string>(props.lobby.short_id);
-
+  const [lobby, setLobby] = useState<Lobby>({
+    name: props.lobby.name,
+    id: props.lobby.id,
+    short_id: props.lobby.short_id,
+  });
+  const [items, setItems] = useState<
+    {
+      id: string;
+      created_at: string;
+      lobby: string;
+      content: string;
+    }[]
+  >([]);
   const [busyCreatingCode, setBusyCreatingCode] = useState<boolean>(false);
   const [busyDeletingLobby, setBusyDeletingLobby] = useState<boolean>(false);
 
-  const createTime = new Date(props.lobby.created_at);
-  const expireTime = new Date(createTime.getTime() + 1000 * 60 * 60);
-  console.log("Create:", createTime);
-  console.log("Expire:", expireTime);
-
   useEffect(() => {
-    setLobbyID(
-      typeof router.query.id == "string" ? router.query.id : undefined,
-    );
+    setLobby((prev) => ({
+      ...prev,
+      id: typeof router.query.id == "string" ? router.query.id : "",
+    }));
   }, [router.query.id]);
 
   const handleCreateCode = async () => {
@@ -51,14 +60,22 @@ const PageSendRoom = (props: any) => {
         .single();
 
       if (error) {
-        alert(JSON.stringify(error));
+        if (error.code == "23505") {
+          alert(
+            `Failed to create code; proposed code already exists. Please try again later or contact the developer if this persists repeatedly.`,
+          );
+        } else {
+          alert(JSON.stringify(error));
+        }
         setBusyCreatingCode(false);
       } else {
-        setLobbyCode(data.short_id);
+        setLobby((prev) => ({
+          ...prev,
+          short_id: data.short_id,
+        }));
       }
     }
   };
-
   const handleDeleteLobby = async () => {
     setBusyDeletingLobby(true);
 
@@ -70,7 +87,7 @@ const PageSendRoom = (props: any) => {
     const { error } = await supabase
       .from("send_lobby")
       .delete()
-      .eq("id", lobbyID);
+      .eq("id", lobby.id);
 
     if (error) {
       alert(JSON.stringify(error));
@@ -79,23 +96,63 @@ const PageSendRoom = (props: any) => {
       router.push("/send");
     }
   };
+  const getLobbyItems = async () => {
+    const supabase = await createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
+      process.env.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY ?? "",
+    );
+
+    const { data, error } = await supabase
+      .from("send_lobby_items")
+      .select()
+      .eq("lobby", router.query.id);
+
+    if (error) {
+      alert(JSON.stringify(error));
+    } else {
+      setItems(data);
+    }
+  };
+
+  useEffect(() => {
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
+      process.env.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY ?? "",
+    );
+
+    supabase
+      .channel("data:lobby_items")
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "send_lobby_items",
+          filter: `lobby=eq.${router.query.id}`,
+        },
+        (payload) => {
+          getLobbyItems();
+        },
+      )
+      .subscribe();
+
+    getLobbyItems();
+  }, [router.query.id]);
 
   return (
     <>
       <Head>
-        <title>Send - {lobbyName ? lobbyName : lobbyID}</title>
+        <title>Send - {lobby.name ? lobby.name : lobby.id}</title>
       </Head>
       <div className={"flex h-dvh w-dvw flex-col sm:flex-row"}>
         <AboutSection
-          lobbyID={lobbyID}
-          lobbyName={lobbyName}
-          lobbyCode={lobbyCode}
+          lobby={lobby}
           createCode={() => handleCreateCode()}
           busyCreatingCode={busyCreatingCode}
           deleteLobby={() => handleDeleteLobby()}
           busyDeletingLobby={busyDeletingLobby}
         />
-        <ContentSection lobbyID={lobbyID} lobbyItems={props.items} />
+        <ContentSection lobbyID={lobby.id} lobbyItems={items} />
       </div>
     </>
   );
@@ -115,17 +172,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     .eq("id", id)
     .single();
 
-  const { data: items } = await supabase
-    .from("send_lobby_items")
-    .select()
-    .eq("lobby", id);
-
   if (!lobby || lobby.length === 0) {
     return { notFound: true };
   }
 
   return {
-    props: { lobby, items },
+    props: { lobby },
   };
 };
 

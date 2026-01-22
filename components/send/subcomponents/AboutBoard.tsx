@@ -1,8 +1,8 @@
 import { FC } from "react";
 
 const AboutBoard: FC<{
-  name: string | undefined;
-  lobbyCode: string | undefined;
+  name: string | null;
+  lobbyCode: string | null;
 }> = ({ name, lobbyCode }) => {
   return (
     <div className="grid h-max gap-2 sm:grid-cols-2">

@@ -2,22 +2,20 @@ import Button from "@/components/Button";
 import Dialog from "@/components/Dialog";
 import InformationDetails from "@/components/send/subcomponents/AboutBoard";
 import InformationHeader from "@/components/send/subcomponents/AboutHeader";
+import TextInput from "@/components/TextInput";
+import { Lobby } from "@/pages/send/[id]";
 import { AnimatePresence } from "motion/react";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 
 const AboutSection: FC<{
-  lobbyID: string | undefined;
-  lobbyName: string | undefined;
-  lobbyCode: string | undefined;
+  lobby: Lobby;
   createCode: () => void;
   busyCreatingCode: boolean;
   deleteLobby: () => void;
   busyDeletingLobby: boolean;
 }> = ({
-  lobbyID,
-  lobbyName,
-  lobbyCode,
+  lobby,
   createCode,
   busyCreatingCode,
   deleteLobby,
@@ -25,6 +23,11 @@ const AboutSection: FC<{
 }) => {
   const [openEditLobbyDialog, setOpenEditLobbyDialog] =
     useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <>
@@ -39,11 +42,7 @@ const AboutSection: FC<{
             className="grid grid-cols-[1fr_max-content] gap-2 sm:grid-cols-1
               sm:gap-6"
           >
-            <InformationDetails
-              name={lobbyName ? lobbyName : lobbyID ? lobbyID : "-"}
-              lobbyCode={lobbyCode}
-            />
-            {lobbyID && (
+            {isMounted && lobby.id && (
               <QRCode
                 bgColor="transparent"
                 fgColor="var(--color-on-background)"
@@ -53,10 +52,15 @@ const AboutSection: FC<{
                 className="h-max w-full max-w-40"
               />
             )}
+
+            <InformationDetails
+              name={lobby.name ? lobby.name : lobby.id ? lobby.id : "-"}
+              lobbyCode={lobby.short_id}
+            />
           </div>
         </div>
         <div className="grid w-full grid-cols-2 gap-1">
-          {!lobbyCode && (
+          {!lobby.short_id && (
             <Button
               className="col-span-2"
               busy={busyCreatingCode}
@@ -78,12 +82,20 @@ const AboutSection: FC<{
           <Dialog onClickOutside={() => setOpenEditLobbyDialog(false)}>
             <div className="mb-3 flex flex-col gap-1">
               <p className="font-bold">Edit Lobby</p>
-              <p>Work in progress give us a moment.</p>
+              <div className="flex flex-col gap-1">
+                <p>Lobby Name</p>
+                <TextInput value={lobby.name ?? ""} placeholder="Name" />
+              </div>
+              <div className="flex flex-col gap-1">
+                <p>Expire</p>
+                <Button className="w-full">Change to Never</Button>
+              </div>
             </div>
             <div className="mt-3">
               <Button
-                className="w-full"
+                appearance="filled"
                 onClick={() => setOpenEditLobbyDialog(false)}
+                className="w-full"
               >
                 Done
               </Button>

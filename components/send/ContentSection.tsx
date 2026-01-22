@@ -1,4 +1,5 @@
 import Button from "@/components/Button";
+import TextInput from "@/components/TextInput";
 import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
@@ -7,7 +8,7 @@ const URL_REGEX =
   /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
 
 const ContentSection: FC<{
-  lobbyID: string | undefined;
+  lobbyID: string | null;
   lobbyItems: {
     id: string;
     created_at: string;
@@ -16,14 +17,6 @@ const ContentSection: FC<{
   }[];
 }> = ({ lobbyID, lobbyItems }) => {
   const [sendField, setSendField] = useState<string>("");
-  const [items, setItems] = useState<
-    {
-      id: string;
-      created_at: string;
-      lobby: string;
-      content: string;
-    }[]
-  >(lobbyItems);
 
   const handleSendLobbyItem = async () => {
     const supabase = await createClient(
@@ -41,7 +34,6 @@ const ContentSection: FC<{
     if (error) {
       alert(JSON.stringify(error));
     } else {
-      setItems((items) => [...items, data]);
       setSendField("");
     }
   };
@@ -49,8 +41,8 @@ const ContentSection: FC<{
   return (
     <div className="flex h-full w-full flex-col justify-between">
       <div className="flex grow flex-col gap-1 overflow-auto p-3 pb-0">
-        {items.length > 0 &&
-          items.map((i, idx) => {
+        {lobbyItems.length > 0 &&
+          lobbyItems.map((i, idx) => {
             const createdAt = new Date(i.created_at);
             return (
               <Link
