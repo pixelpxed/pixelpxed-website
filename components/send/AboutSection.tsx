@@ -33,32 +33,28 @@ const AboutSection: FC<{
     <>
       <div
         className="border-outline flex w-full shrink-0 flex-col items-center
-          justify-between gap-2 border-r-0 border-b p-3 sm:h-full sm:max-w-80
+          justify-between gap-6 border-r-0 border-b p-3 sm:h-full sm:max-w-80
           sm:border-r sm:border-b-0"
       >
-        <div className="flex w-full flex-col gap-6">
+        <div className="flex w-full flex-col gap-3">
           <InformationHeader />
-          <div
-            className="grid grid-cols-[1fr_max-content] gap-2 sm:grid-cols-1
-              sm:gap-6"
-          >
-            {isMounted && lobby.id && (
-              <QRCode
-                bgColor="transparent"
-                fgColor="var(--color-on-background)"
-                level="Q"
-                size={192}
-                value={window.location.href}
-                className="h-max w-full max-w-40"
-              />
-            )}
-
+          <div className="flex flex-col gap-6">
             <InformationDetails
               name={lobby.name ? lobby.name : lobby.id ? lobby.id : "-"}
               lobbyCode={lobby.short_id}
             />
           </div>
         </div>
+        {isMounted && lobby.id && (
+          <QRCode
+            bgColor="transparent"
+            fgColor="var(--color-on-background)"
+            level="Q"
+            size={192}
+            value={window.location.href}
+            className="m-auto h-max w-full max-w-40"
+          />
+        )}
         <div className="grid w-full grid-cols-2 gap-1">
           {!lobby.short_id && (
             <Button
@@ -84,11 +80,17 @@ const AboutSection: FC<{
               <p className="font-bold">Edit Lobby</p>
               <div className="flex flex-col gap-1">
                 <p>Lobby Name</p>
-                <TextInput value={lobby.name ?? ""} placeholder="Name" />
+                <TextInput
+                  value={lobby.name ?? ""}
+                  placeholder="Name"
+                  disabled
+                />
               </div>
               <div className="flex flex-col gap-1">
                 <p>Expire</p>
-                <Button className="w-full">Change to Never</Button>
+                <Button className="w-full" disabled>
+                  Change to Never
+                </Button>
               </div>
             </div>
             <div className="mt-3">
