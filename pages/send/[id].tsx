@@ -173,7 +173,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     .single();
 
   if (!lobby || lobby.length === 0) {
-    return { notFound: true };
+    return {
+      redirect: {
+        destination: "/send",
+        permanent: false,
+      },
+    };
   }
 
   return {
