@@ -2,7 +2,6 @@ import Button from "@/components/Button";
 import Dialog from "@/components/Dialog";
 import AboutSection from "@/components/send/AboutSection";
 import ContentSection from "@/components/send/ContentSection";
-import useRefreshProps from "@/utils/helpers/refreshProps";
 import { createClient } from "@supabase/supabase-js";
 import { AnimatePresence } from "motion/react";
 import { GetServerSideProps } from "next";
