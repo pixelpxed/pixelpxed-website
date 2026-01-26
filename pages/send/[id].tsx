@@ -2,6 +2,7 @@ import Button from "@/components/Button";
 import Dialog from "@/components/Dialog";
 import AboutSection from "@/components/send/AboutSection";
 import ContentSection from "@/components/send/ContentSection";
+import useRefreshProps from "@/utils/helpers/refreshProps";
 import { createClient } from "@supabase/supabase-js";
 import { AnimatePresence } from "motion/react";
 import { GetServerSideProps } from "next";
@@ -14,6 +15,11 @@ export type Lobby = {
   id: string | null;
   short_id: string | null;
 };
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY ?? "",
+);
 
 const PageSendRoom = (props: any) => {
   const router = useRouter();
@@ -40,11 +46,6 @@ const PageSendRoom = (props: any) => {
     setBusyCreatingCode(true);
 
     if (!props.lobby.short_id) {
-      const supabase = await createClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
-        process.env.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY ?? "",
-      );
-
       // short_id is possible coliding with existing code.
       const { data, error } = await supabase
         .from("send_lobby")
@@ -65,22 +66,18 @@ const PageSendRoom = (props: any) => {
         } else {
           alert(JSON.stringify(error));
         }
-        setBusyCreatingCode(false);
       } else {
         setLobby((prev) => ({
           ...prev,
           short_id: data.short_id,
         }));
       }
+
+      setBusyCreatingCode(false);
     }
   };
   const handleDeleteLobby = async () => {
     setBusyDeletingLobby(true);
-
-    const supabase = await createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
-      process.env.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY ?? "",
-    );
 
     const { error } = await supabase
       .from("send_lobby")
@@ -89,17 +86,13 @@ const PageSendRoom = (props: any) => {
 
     if (error) {
       alert(JSON.stringify(error));
-      setBusyDeletingLobby(false);
     } else {
       router.push("/send");
     }
+
+    setBusyDeletingLobby(false);
   };
   const getLobbyItems = async () => {
-    const supabase = await createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
-      process.env.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY ?? "",
-    );
-
     const { data, error } = await supabase
       .from("send_lobby_items")
       .select()
@@ -111,17 +104,25 @@ const PageSendRoom = (props: any) => {
       setItems(data);
     }
   };
+  const getLobbyInfo = async () => {
+    const { data, error } = await supabase
+      .from("send_lobby")
+      .select()
+      .eq("id", router.query.id)
+      .single();
+
+    if (error) {
+      alert(JSON.stringify(error));
+    } else {
+      setLobby(data);
+    }
+  };
 
   useEffect(() => {
     setLobby((prev) => ({
       ...prev,
       id: typeof router.query.id == "string" ? router.query.id : "",
     }));
-
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
-      process.env.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY ?? "",
-    );
 
     // Listens for new content.
     supabase
@@ -144,12 +145,19 @@ const PageSendRoom = (props: any) => {
       .on(
         "postgres_changes",
         {
-          event: "DELETE",
+          event: "*",
           schema: "public",
           table: "send_lobby",
           filter: `id=eq.${router.query.id}`,
         },
-        () => setOpenDeletedDialog(true),
+        (data) => {
+          console.log(data);
+          if (data.eventType === "DELETE") {
+            setOpenDeletedDialog(true);
+          } else {
+            getLobbyInfo();
+          }
+        },
       )
       .subscribe();
 
@@ -169,6 +177,7 @@ const PageSendRoom = (props: any) => {
       <div className={"flex h-dvh w-dvw flex-col sm:flex-row"}>
         <AboutSection
           lobby={lobby}
+          setLobby={setLobby}
           createCode={() => handleCreateCode()}
           busyCreatingCode={busyCreatingCode}
           deleteLobby={() => handleDeleteLobby()}
@@ -204,11 +213,6 @@ const PageSendRoom = (props: any) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.params as { id: string };
-
-  const supabase = await createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY ?? "",
-  );
 
   const { data: lobby } = await supabase
     .from("send_lobby")
