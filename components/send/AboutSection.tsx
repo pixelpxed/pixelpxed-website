@@ -4,18 +4,26 @@ import InformationDetails from "@/components/send/subcomponents/AboutBoard";
 import InformationHeader from "@/components/send/subcomponents/AboutHeader";
 import TextInput from "@/components/TextInput";
 import { Lobby } from "@/pages/send/[id]";
+import { createClient } from "@supabase/supabase-js";
 import { AnimatePresence } from "motion/react";
 import { FC, useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY ?? "",
+);
+
 const AboutSection: FC<{
   lobby: Lobby;
+  setLobby: (lobby: Lobby) => void;
   createCode: () => void;
   busyCreatingCode: boolean;
   deleteLobby: () => void;
   busyDeletingLobby: boolean;
 }> = ({
   lobby,
+  setLobby,
   createCode,
   busyCreatingCode,
   deleteLobby,
@@ -24,6 +32,21 @@ const AboutSection: FC<{
   const [openEditLobbyDialog, setOpenEditLobbyDialog] =
     useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
+  const [name, setName] = useState<string | null>(lobby.name);
+
+  const handleUpdateLobby = async () => {
+    const { data, error } = await supabase
+      .from("send_lobby")
+      .update({ name: name })
+      .eq("id", lobby.id)
+      .select()
+      .single();
+    if (error) {
+      alert(JSON.stringify(error));
+    } else {
+      setLobby(data ?? lobby);
+    }
+  };
 
   useEffect(() => {
     setIsMounted(true);
@@ -75,28 +98,49 @@ const AboutSection: FC<{
       </div>
       <AnimatePresence>
         {openEditLobbyDialog && (
-          <Dialog onClickOutside={() => setOpenEditLobbyDialog(false)}>
+          <Dialog
+            onClickOutside={() => {
+              // Cancel changes
+              setName(lobby.name);
+              setOpenEditLobbyDialog(false);
+            }}
+          >
             <div className="mb-3 flex flex-col gap-1">
               <p className="font-bold">Edit Lobby</p>
               <div className="flex flex-col gap-1">
                 <p>Lobby Name</p>
                 <TextInput
-                  value={lobby.name ?? ""}
+                  value={name ?? ""}
+                  onChange={(e) => setName(e.target.value)}
                   placeholder="Name"
-                  disabled
                 />
               </div>
-              <div className="flex flex-col gap-1">
+              {/* <div className="flex flex-col gap-1">
                 <p>Expire</p>
                 <Button className="w-full" disabled>
                   Change to Never
                 </Button>
-              </div>
+              </div> */}
             </div>
-            <div className="mt-3">
+            <div className="mt-3 flex gap-2">
+              <Button
+                onClick={() => {
+                  // Cancel changes
+                  setName(lobby.name);
+                  setOpenEditLobbyDialog(false);
+                }}
+                className="w-full"
+              >
+                Cancel
+              </Button>
               <Button
                 appearance="filled"
-                onClick={() => setOpenEditLobbyDialog(false)}
+                onClick={() => {
+                  if (lobby.id != name) {
+                    handleUpdateLobby();
+                  }
+                  setOpenEditLobbyDialog(false);
+                }}
                 className="w-full"
               >
                 Done
