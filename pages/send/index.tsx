@@ -1,6 +1,6 @@
-import Button from "@/components/Button";
-import AboutHeader from "@/components/send/subcomponents/AboutHeader";
-import TextInput from "@/components/TextInput";
+import Button from "@/components/common/Button";
+import SendLogo from "@/components/send/subcomponents/SendLogo";
+import TextInput from "@/components/common/TextInput";
 import { createClient } from "@supabase/supabase-js";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -64,7 +64,7 @@ const PageSendLanding = () => {
         <link rel="shortcut icon" href="/favicons/send.png" type="image/png" />
       </Head>
       <div className="p-3">
-        <AboutHeader />
+        <SendLogo />
         <div
           className="m-auto mt-6 flex w-full max-w-xl flex-col gap-3 *:w-full
             sm:flex-row"

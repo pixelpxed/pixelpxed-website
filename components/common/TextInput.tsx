@@ -1,4 +1,4 @@
-import MaterialIcon from "@/components/MaterialIcon";
+import MaterialIcon from "@/components/common/MaterialIcon";
 import cn from "@/utils/helpers/cn";
 import type { FC, InputHTMLAttributes } from "react";
 import type { FieldError } from "react-hook-form";

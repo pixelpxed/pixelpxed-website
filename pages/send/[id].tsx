@@ -1,19 +1,14 @@
-import Button from "@/components/Button";
-import Dialog from "@/components/Dialog";
+import Button from "@/components/common/Button";
+import Dialog from "@/components/common/Dialog";
 import AboutSection from "@/components/send/AboutSection";
 import ContentSection from "@/components/send/ContentSection";
+import type { Lobby } from "@/utils/types/send";
 import { createClient } from "@supabase/supabase-js";
 import { AnimatePresence } from "motion/react";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-
-export type Lobby = {
-  name: string | null;
-  id: string | null;
-  short_id: string | null;
-};
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
@@ -38,43 +33,8 @@ const PageSendRoom = (props: any) => {
   >([]);
 
   const [openDeletedDialog, setOpenDeletedDialog] = useState<boolean>(false);
-  const [busyCreatingCode, setBusyCreatingCode] = useState<boolean>(false);
   const [busyDeletingLobby, setBusyDeletingLobby] = useState<boolean>(false);
 
-  const handleCreateCode = async () => {
-    setBusyCreatingCode(true);
-
-    if (!props.lobby.short_id) {
-      // short_id is possible coliding with existing code.
-      const { data, error } = await supabase
-        .from("send_lobby")
-        .update({
-          short_id: Math.floor(Math.random() * 1000000)
-            .toString()
-            .padStart(6, "0"),
-        })
-        .eq("id", router.query.id)
-        .select()
-        .single();
-
-      if (error) {
-        if (error.code == "23505") {
-          alert(
-            `Failed to create code; proposed code already exists. Please try again later or contact the developer if this persists repeatedly.`,
-          );
-        } else {
-          alert(JSON.stringify(error));
-        }
-      } else {
-        setLobby((prev) => ({
-          ...prev,
-          short_id: data.short_id,
-        }));
-      }
-
-      setBusyCreatingCode(false);
-    }
-  };
   const handleDeleteLobby = async () => {
     setBusyDeletingLobby(true);
 
@@ -177,8 +137,6 @@ const PageSendRoom = (props: any) => {
         <AboutSection
           lobby={lobby}
           setLobby={setLobby}
-          createCode={() => handleCreateCode()}
-          busyCreatingCode={busyCreatingCode}
           deleteLobby={() => handleDeleteLobby()}
           busyDeletingLobby={busyDeletingLobby}
         />
