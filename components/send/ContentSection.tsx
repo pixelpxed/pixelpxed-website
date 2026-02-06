@@ -1,5 +1,5 @@
-import Button from "@/components/Button";
-import TextInput from "@/components/TextInput";
+import Button from "@/components/common/Button";
+import TextInput from "@/components/common/TextInput";
 import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";

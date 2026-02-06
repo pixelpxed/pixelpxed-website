@@ -1,5 +1,5 @@
 import { GetServerSideProps } from "next";
-import Button from "@/components/Button";
+import Button from "@/components/common/Button";
 import cn from "@/utils/helpers/cn";
 import Link from "next/link";
 

@@ -1,4 +1,4 @@
-import MaterialIcon from "@/components/MaterialIcon";
+import MaterialIcon from "@/components/common/MaterialIcon";
 import cn from "@/utils/helpers/cn";
 import { StylableFC } from "@/utils/types/common";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
