@@ -88,6 +88,7 @@ const PageSendLanding = () => {
                 onChange={(e) => setShortCodeField(e.target.value)}
                 placeholder={"000000"}
                 maxLength={6}
+                data-tabnum
               />
               <Button
                 icon={"arrow_right_alt"}
