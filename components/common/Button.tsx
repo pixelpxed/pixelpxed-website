@@ -42,8 +42,8 @@ const Button: StylableFC<ButtonProps> = ({
       className={cn(
         `flex h-8.75 cursor-pointer items-center justify-center gap-1.5
         rounded-md p-1.5 text-nowrap transition-all! select-none
-        hover:brightness-95`,
-        appearance == "tonal" && "border-outline bg-background border",
+        hover:brightness-95 overflow-hidden`,
+        appearance == "tonal" && "border-outline bg-surface-primary border",
         appearance == "filled" && "bg-primary text-on-primary",
         appearance == "outlined" && "border-outline border bg-transparent",
         appearance != "text" && "hover:shadow-md",

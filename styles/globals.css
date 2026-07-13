@@ -10,34 +10,40 @@
 :root,
 :root.light,
 [data-theme="light"] {
-  --color-background: var(--color-white);
-  --color-on-background: var(--color-black);
-  --color-primary: var(--color-black);
+  --color-background: hsla(0, 0%, 96%, 1);
+  --color-on-background: hsla(240, 11%, 7%, 1);
+  --color-primary: hsla(218, 35%, 40%, 1);
   --color-on-primary: var(--color-white);
-  --color-outline: var(--color-zinc-200);
+  --color-surface-primary: var(--color-white);
+  --color-on-surface-primary: hsla(240, 11%, 7%, 1);
+  --color-outline: hsla(0, 0%, 0%, 0.1);
   --color-danger: var(--color-red-500);
   --color-on-danger: var(--color-white);
 }
 
 :root.dark,
 [data-theme="dark"] {
-  --color-background: var(--color-zinc-900);
+  --color-background: var(--color-black);
   --color-on-background: var(--color-white);
-  --color-primary: var(--color-white);
+  --color-primary: hsla(218, 35%, 80%, 1);
   --color-on-primary: var(--color-black);
+  --color-surface-primary: var(--color-zinc-900);
+  --color-on-surface-primary: var(--color-white);
   --color-outline: var(--color-zinc-700);
-  --color-danger: var(--color-red-500);
+  --color-danger: var(--color-red-400);
   --color-on-danger: var(--color-white);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: var(--color-zinc-900);
+    --color-background: var(--color-black);
     --color-on-background: var(--color-white);
-    --color-primary: var(--color-white);
+    --color-primary: hsla(218, 35%, 80%, 1);
     --color-on-primary: var(--color-black);
+    --color-surface-primary: var(--color-zinc-900);
+    --color-on-surface-primary: var(--color-white);
     --color-outline: var(--color-zinc-700);
-    --color-danger: var(--color-red-500);
+    --color-danger: var(--color-red-400);
     --color-on-danger: var(--color-white);
   }
 }
@@ -54,6 +60,8 @@
   --color-on-background: var(--color-on-background);
   --color-primary: var(--color-primary);
   --color-on-primary: var(--color-on-primary);
+  --color-surface-primary: var(--color-surface-primary);
+  --color-on-surface-primary: var(--color-on-surface-primary);
   --color-outline: var(--color-outline);
   --color-danger: var(--color-danger);
   --color-on-danger: var(--color-on-danger);
