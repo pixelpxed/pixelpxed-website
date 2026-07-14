@@ -16,7 +16,7 @@ const AboutBoard: FC<{
       </div>
       <div>
         <p className="font-bold">Expire</p>
-        <p>{false ? "20/01/26 @ 13:15" : "Never"}</p>
+        <p>Never</p>
       </div>
     </div>
   );

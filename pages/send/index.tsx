@@ -1,6 +1,6 @@
 import Button from "@/components/common/Button";
-import SendLogo from "@/components/send/subcomponents/SendLogo";
 import TextInput from "@/components/common/TextInput";
+import SendLogo from "@/components/send/subcomponents/SendLogo";
 import { createClient } from "@supabase/supabase-js";
 import Head from "next/head";
 import { useRouter } from "next/router";

@@ -83,7 +83,7 @@ const PageSendRoom = (props: any) => {
       id: typeof router.query.id == "string" ? router.query.id : "",
     }));
 
-    // Listens for new content.
+    // Realtime: Content Items Update
     supabase
       .channel("data:send_lobby_items")
       .on(
@@ -98,7 +98,7 @@ const PageSendRoom = (props: any) => {
       )
       .subscribe();
 
-    // Listens for when lobby is deleted.
+    // Realtime: Deleted Lobby
     supabase
       .channel("data:send_lobby")
       .on(
