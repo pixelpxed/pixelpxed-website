@@ -11,6 +11,8 @@
   "dependencies": {
     "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.91.0",
+    "linkify-react": "^4.3.3",
+    "linkifyjs": "^4.3.3",
     "lucide-react": "^0.562.0",
     "material-symbols": "^0.40.2",
     "motion": "^12.27.5",

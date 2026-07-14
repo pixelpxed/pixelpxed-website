@@ -1,20 +1,20 @@
 import Button from "@/components/common/Button";
 import TextInput from "@/components/common/TextInput";
+import MessageGroup from "@/components/send/subcomponents/MessageGroup";
+import groupLobbyItems from "@/utils/helpers/groupItemsByDate";
 import { createClient } from "@supabase/supabase-js";
-import Link from "next/link";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 
-const URL_REGEX =
-  /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+export type LobbyItem = {
+  id: string;
+  created_at: string;
+  lobby: string;
+  content: string;
+};
 
 const ContentSection: FC<{
   lobbyID: string | null;
-  lobbyItems: {
-    id: string;
-    created_at: string;
-    lobby: string;
-    content: string;
-  }[];
+  lobbyItems: LobbyItem[];
 }> = ({ lobbyID, lobbyItems }) => {
   const [sendField, setSendField] = useState<string>("");
 
@@ -25,7 +25,7 @@ const ContentSection: FC<{
     );
 
     // short_id is possible coliding with existing code.
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("send_lobby_items")
       .insert({ lobby: lobbyID, content: sendField })
       .select()
@@ -39,40 +39,30 @@ const ContentSection: FC<{
   };
 
   return (
-    <div className="flex h-full w-full flex-col justify-between">
-      <div className="flex grow flex-col gap-1 overflow-auto p-3 pb-0">
-        {lobbyItems.length > 0 &&
-          lobbyItems.map((i, idx) => {
-            const createdAt = new Date(i.created_at);
-            return (
-              <Link
-                href={i.content}
-                target="_blank"
-                key={idx}
-                className="border-outline flex flex-row gap-3 rounded-md border
-                  p-3"
-              >
-                <p data-tabnum className="opacity-50">
-                  {createdAt.getHours() < 10 && "0"}
-                  {createdAt.getHours()}:{createdAt.getMinutes() < 10 && "0"}
-                  {createdAt.getMinutes()}
-                </p>
-                <p className="break-all text-blue-500">{i.content}</p>
-              </Link>
-            );
-          })}
+    <div
+      className="border-outline bg-surface-primary flex h-full w-full grow
+        flex-col justify-between rounded-lg border p-3"
+    >
+      <div className="flex grow flex-col gap-1 overflow-auto">
+        {lobbyItems.length > 0 ? (
+          <div>
+            {groupLobbyItems(lobbyItems).map((group, idx) => {
+              return <MessageGroup group={group} key={idx} />;
+            })}
+          </div>
+        ) : (
+          <div className="grid h-full w-full place-items-center">
+            <p className="text-xs opacity-50">There's nothing here... yet.</p>
+          </div>
+        )}
       </div>
-      <div className="flex gap-1 p-3">
+      <div className="flex gap-1 pt-3">
         <TextInput
           value={sendField}
           onChange={(e) => setSendField(e.target.value)}
-          placeholder={"https://www.example.com"}
+          placeholder={"Message"}
         />
-        <Button
-          icon={"send"}
-          disabled={!URL_REGEX.test(sendField)}
-          onClick={() => handleSendLobbyItem()}
-        />
+        <Button icon={"arrow_upward"} onClick={() => handleSendLobbyItem()} />
       </div>
     </div>
   );

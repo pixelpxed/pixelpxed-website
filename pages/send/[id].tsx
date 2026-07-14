@@ -133,7 +133,7 @@ const PageSendRoom = (props: any) => {
         <title>Send - {lobby.name ? lobby.name : lobby.id}</title>
         <link rel="shortcut icon" href="/favicons/send.png" type="image/png" />
       </Head>
-      <div className={"flex h-dvh w-dvw flex-col sm:flex-row"}>
+      <div className={"flex h-dvh w-dvw flex-col gap-1 p-2 sm:flex-row"}>
         <AboutSection
           lobby={lobby}
           setLobby={setLobby}

@@ -1,9 +1,8 @@
 import Button from "@/components/common/Button";
 import Dialog from "@/components/common/Dialog";
-import MaterialIcon from "@/components/common/MaterialIcon";
+import TextInput from "@/components/common/TextInput";
 import InformationDetails from "@/components/send/subcomponents/AboutBoard";
 import SendLogo from "@/components/send/subcomponents/SendLogo";
-import TextInput from "@/components/common/TextInput";
 import type { Lobby } from "@/utils/types/send";
 import { createClient } from "@supabase/supabase-js";
 import { AnimatePresence } from "motion/react";
@@ -24,10 +23,17 @@ const AboutSection: FC<{
 }> = ({ lobby, setLobby, deleteLobby, busyDeletingLobby }) => {
   const router = useRouter();
 
-  const [qrValue, setQrValue] = useState<string | null>(null);
+  const [qrValue, setQrValue] = useState<string>("");
   const [busyCreatingCode, setBusyCreatingCode] = useState<boolean>(false);
   const [openEditLobbyDialog, setOpenEditLobbyDialog] =
     useState<boolean>(false);
+  const [clock, setClock] = useState(new Date());
+
+  const formattedClock = new Intl.DateTimeFormat("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).format(clock);
 
   const handleUpdateLobby = async () => {
     const { data, error } = await supabase
@@ -42,7 +48,6 @@ const AboutSection: FC<{
       setLobby(data ?? lobby);
     }
   };
-
   const handleCreateCode = async () => {
     setBusyCreatingCode(true);
 
@@ -79,30 +84,43 @@ const AboutSection: FC<{
   };
 
   useEffect(() => {
+    // Handles QR code creation.
     if (typeof window !== "undefined") {
       setQrValue(window.location.href);
     }
+
+    // Update clock every second.
+    const timeInterval = window.setInterval(() => {
+      setClock(new Date());
+    }, 1000);
+    return () => {
+      clearInterval(timeInterval);
+    };
   }, []);
 
   return (
     <>
       <div
-        className="border-outline flex w-full shrink-0 flex-col items-center
-          justify-between gap-6 border-r-0 border-b p-3 sm:h-full sm:max-w-80
-          sm:border-r sm:border-b-0"
+        className="border-outline bg-surface-primary flex w-full shrink-0
+          flex-col items-center justify-between gap-3 rounded-lg border p-3
+          sm:h-full sm:max-w-80 sm:gap-6"
       >
-        <div className="flex w-full flex-col gap-6">
-          <div className="flex items-center gap-1">
+        <div className="flex w-full flex-col gap-3 sm:gap-6">
+          <div className="flex items-center justify-between gap-1">
             <SendLogo />
+            <p className="opacity-50" data-tabnum>
+              {formattedClock}
+            </p>
           </div>
-          <div className="hidden w-full sm:block">
+          <div className="w-full">
             <InformationDetails
-              name={lobby.name ? lobby.name : lobby.id ? lobby.id : "-"}
+              name={lobby.name ? lobby.name : lobby.id}
               lobbyCode={lobby.short_id}
             />
           </div>
         </div>
-        {qrValue && lobby.id && (
+
+        {qrValue !== "" && lobby.id && (
           <QRCode
             bgColor="transparent"
             fgColor="var(--color-on-background)"
@@ -112,7 +130,8 @@ const AboutSection: FC<{
             className="m-auto hidden h-max w-full max-w-40 sm:block"
           />
         )}
-        <div className="hidden w-full grid-cols-2 gap-1 sm:grid">
+
+        <div className="grid w-full grid-cols-2 gap-1">
           {!lobby.short_id && (
             <Button
               className="col-span-2"
@@ -130,6 +149,7 @@ const AboutSection: FC<{
           </Button>
         </div>
       </div>
+
       <AnimatePresence>
         {openEditLobbyDialog && (
           <Dialog
