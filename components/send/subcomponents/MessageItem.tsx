@@ -1,4 +1,6 @@
 import { LobbyItem } from "@/components/send/ContentSection";
+import YouTubeEmbed from "@/components/send/subcomponents/YouTubeEmbed";
+import getYouTubeLinks from "@/utils/helpers/send/getYouTubeLinks";
 import Linkify from "linkify-react";
 
 // Normal URLs with protocols, with additional common TLD with non-protocols.
@@ -10,6 +12,8 @@ type MessageItemProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const MessageItem = ({ item, ...props }: MessageItemProps) => {
+  const youtubeEmbedURLs = getYouTubeLinks(item.content);
+
   return (
     <div
       className="border-outline flex flex-row gap-3 rounded-md border p-3"
@@ -22,7 +26,7 @@ const MessageItem = ({ item, ...props }: MessageItemProps) => {
           hour12: false,
         }).format(new Date(item.created_at))}
       </p>
-      <div className="[&>*>a]:text-blue-500 dark:[&>*>a]:text-blue-400">
+      <div className="w-full [&>*>a]:text-blue-500 dark:[&>*>a]:text-blue-400">
         <Linkify
           as={"p"}
           options={{
@@ -35,6 +39,16 @@ const MessageItem = ({ item, ...props }: MessageItemProps) => {
         >
           {item.content}
         </Linkify>
+        {youtubeEmbedURLs.length > 0 && (
+          <div
+            className="mt-2 flex w-full flex-col gap-1 overflow-hidden
+              rounded-md sm:flex-row sm:overflow-auto"
+          >
+            {youtubeEmbedURLs.map((link) => {
+              return <YouTubeEmbed url={link.href} />;
+            })}
+          </div>
+        )}
       </div>
     </div>
   );
