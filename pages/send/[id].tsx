@@ -83,6 +83,15 @@ const PageSendRoom = (props: any) => {
       id: typeof router.query.id == "string" ? router.query.id : "",
     }));
 
+    // Tab: Refresh data when page is focused again.
+    const refreshDataOnTabRefocus = () => {
+      if (document.visibilityState === "visible" && lobby.id) {
+        getLobbyItems();
+        console.warn("[Send] Refreshing staled lobby items data... (Tab Refocus)");
+      }
+    };
+    window.addEventListener("focus", refreshDataOnTabRefocus);
+
     // Realtime: Content Items Update
     supabase
       .channel("data:send_lobby_items")
@@ -123,6 +132,7 @@ const PageSendRoom = (props: any) => {
     getLobbyItems();
 
     return () => {
+      window.removeEventListener("focus", refreshDataOnTabRefocus);
       supabase.removeAllChannels();
     };
   }, [router.query.id]);
