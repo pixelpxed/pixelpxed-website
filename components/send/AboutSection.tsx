@@ -165,6 +165,7 @@ const AboutSection: FC<{
         {openEditLobbyDialog && (
           <Dialog
             onClickOutside={() => {
+              handleUpdateLobby();
               setOpenEditLobbyDialog(false);
             }}
           >
