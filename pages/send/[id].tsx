@@ -87,9 +87,12 @@ const PageSendRoom = (props: any) => {
     const refreshDataOnTabRefocus = () => {
       if (document.visibilityState === "visible" && lobby.id) {
         getLobbyItems();
-        console.warn("[Send] Refreshing staled lobby items data... (Tab Refocus)");
+        console.warn(
+          "[Send] Refreshing staled lobby items data... (Tab Refocus)",
+        );
       }
     };
+    document.addEventListener("visibilitychange", refreshDataOnTabRefocus);
     window.addEventListener("focus", refreshDataOnTabRefocus);
 
     // Realtime: Content Items Update
@@ -132,6 +135,7 @@ const PageSendRoom = (props: any) => {
     getLobbyItems();
 
     return () => {
+      document.removeEventListener("visibilitychange", refreshDataOnTabRefocus);
       window.removeEventListener("focus", refreshDataOnTabRefocus);
       supabase.removeAllChannels();
     };
