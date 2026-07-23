@@ -40,10 +40,10 @@ const ContentSection: FC<{
 
   return (
     <div
-      className="border-outline bg-surface-primary flex h-full w-full grow
-        flex-col justify-between rounded-lg border p-3"
+      className="border-outline bg-surface-primary flex w-full flex-1 min-h-0
+        flex-col rounded-lg border p-3"
     >
-      <div className="flex grow flex-col gap-1 overflow-auto">
+      <div className="flex min-h-0 flex-1 flex-col gap-1 overflow-auto">
         {lobbyItems.length > 0 ? (
           <div>
             {groupLobbyItems(lobbyItems).map((group, idx) => {

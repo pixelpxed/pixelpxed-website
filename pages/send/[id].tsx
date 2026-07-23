@@ -130,7 +130,7 @@ const PageSendRoom = (props: any) => {
   return (
     <>
       <Head>
-        <title>Send - {lobby.name ? lobby.name : lobby.id}</title>
+        <title>Send - {lobby.name ? lobby.name : "Untitled"}</title>
         <link rel="shortcut icon" href="/favicons/send.png" type="image/png" />
       </Head>
       <div className={"flex h-dvh w-dvw flex-col gap-1 p-2 sm:flex-row"}>

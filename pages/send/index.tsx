@@ -1,6 +1,7 @@
 import Button from "@/components/common/Button";
 import TextInput from "@/components/common/TextInput";
 import SendLogo from "@/components/send/subcomponents/SendLogo";
+import { createShortCode } from "@/utils/helpers/send/createShortCode";
 import getLobbyByShortCode from "@/utils/helpers/send/getLobbyByShortCode";
 import { createClient } from "@supabase/supabase-js";
 import Head from "next/head";
@@ -28,7 +29,9 @@ const PageSendLanding = () => {
 
     const { data, error } = await supabase
       .from("send_lobby")
-      .insert({})
+      .insert({
+        short_id: createShortCode(),
+      })
       .select()
       .single();
 
