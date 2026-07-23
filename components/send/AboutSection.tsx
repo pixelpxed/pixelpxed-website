@@ -1,13 +1,15 @@
-import Button from "@/components/Button";
-import Dialog from "@/components/Dialog";
+import Button from "@/components/common/Button";
+import Dialog from "@/components/common/Dialog";
+import TextInput from "@/components/common/TextInput";
 import InformationDetails from "@/components/send/subcomponents/AboutBoard";
-import InformationHeader from "@/components/send/subcomponents/AboutHeader";
-import TextInput from "@/components/TextInput";
-import { Lobby } from "@/pages/send/[id]";
+import JoinQR from "@/components/send/subcomponents/JoinQR";
+import SendLogo from "@/components/send/subcomponents/SendLogo";
+import { createShortCode } from "@/utils/helpers/send/createShortCode";
+import type { Lobby } from "@/utils/types/send";
 import { createClient } from "@supabase/supabase-js";
 import { AnimatePresence } from "motion/react";
+import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
-import QRCode from "react-qr-code";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
@@ -17,27 +19,28 @@ const supabase = createClient(
 const AboutSection: FC<{
   lobby: Lobby;
   setLobby: (lobby: Lobby) => void;
-  createCode: () => void;
-  busyCreatingCode: boolean;
   deleteLobby: () => void;
   busyDeletingLobby: boolean;
-}> = ({
-  lobby,
-  setLobby,
-  createCode,
-  busyCreatingCode,
-  deleteLobby,
-  busyDeletingLobby,
-}) => {
+}> = ({ lobby, setLobby, deleteLobby, busyDeletingLobby }) => {
+  const router = useRouter();
+
+  const [qrValue, setQrValue] = useState<string>("");
+  const [busyCreatingCode, setBusyCreatingCode] = useState<boolean>(false);
   const [openEditLobbyDialog, setOpenEditLobbyDialog] =
     useState<boolean>(false);
-  const [isMounted, setIsMounted] = useState<boolean>(false);
-  const [name, setName] = useState<string | null>(lobby.name);
+  const [openMobileQRDialog, setOpenMobileQRDialog] = useState<boolean>(false);
+  const [clock, setClock] = useState(new Date());
+
+  const formattedClock = new Intl.DateTimeFormat("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).format(clock);
 
   const handleUpdateLobby = async () => {
     const { data, error } = await supabase
       .from("send_lobby")
-      .update({ name: name })
+      .update({ name: lobby.name })
       .eq("id", lobby.id)
       .select()
       .single();
@@ -47,105 +50,146 @@ const AboutSection: FC<{
       setLobby(data ?? lobby);
     }
   };
+  const handleCreateCode = async () => {
+    setBusyCreatingCode(true);
+
+    if (!lobby.short_id) {
+      // short_id is possible coliding with existing code.
+      const { data, error } = await supabase
+        .from("send_lobby")
+        .update({
+          short_id: createShortCode(),
+        })
+        .eq("id", router.query.id)
+        .select()
+        .single();
+
+      if (error) {
+        if (error.code == "23505") {
+          alert(
+            `Failed to create code; proposed code already exists. Please try again later or contact the developer if this persists repeatedly.`,
+          );
+        } else {
+          alert(JSON.stringify(error));
+        }
+      } else {
+        setLobby({
+          ...lobby,
+          short_id: data.short_id,
+        });
+      }
+
+      setBusyCreatingCode(false);
+    }
+  };
 
   useEffect(() => {
-    setIsMounted(true);
+    // Handles QR code creation.
+    if (typeof window !== "undefined") {
+      setQrValue(window.location.href);
+    }
+
+    // Update clock every second.
+    const timeInterval = window.setInterval(() => {
+      setClock(new Date());
+    }, 1000);
+    return () => {
+      clearInterval(timeInterval);
+    };
   }, []);
 
   return (
     <>
       <div
-        className="border-outline flex w-full shrink-0 flex-col items-center
-          justify-between gap-6 border-r-0 border-b p-3 sm:h-full sm:max-w-80
-          sm:border-r sm:border-b-0"
+        className="border-outline bg-surface-primary flex w-full shrink-0
+          flex-col items-center justify-between gap-3 overflow-auto rounded-lg
+          border p-3 sm:h-full sm:max-w-80 sm:gap-6"
       >
-        <div className="flex w-full flex-col gap-3">
-          <InformationHeader />
-          <div className="flex flex-col gap-6">
-            <InformationDetails
-              name={lobby.name ? lobby.name : lobby.id ? lobby.id : "-"}
-              lobbyCode={lobby.short_id}
-            />
+        <div className="flex w-full flex-col gap-3 sm:gap-6">
+          <div className="flex items-center justify-between gap-1">
+            <SendLogo />
+            <p className="opacity-50" data-tabnum>
+              {formattedClock}
+            </p>
+          </div>
+          <div className="w-full">
+            <InformationDetails lobby={lobby} />
           </div>
         </div>
-        {isMounted && lobby.id && (
-          <QRCode
-            bgColor="transparent"
-            fgColor="var(--color-on-background)"
-            level="Q"
-            size={192}
-            value={window.location.href}
-            className="m-auto h-max w-full max-w-40"
-          />
+
+        {qrValue !== "" && lobby.id && (
+          <JoinQR value={qrValue} showURL={true} className="hidden sm:flex" />
         )}
+
         <div className="grid w-full grid-cols-2 gap-1">
           {!lobby.short_id && (
             <Button
               className="col-span-2"
               busy={busyCreatingCode}
-              onClick={createCode}
+              onClick={() => handleCreateCode()}
+              icon={"add"}
             >
-              Generate Short Code
+              Create Join Code
             </Button>
           )}
-          <Button onClick={() => setOpenEditLobbyDialog(true)}>
-            Edit Lobby
+          <Button
+            className="col-span-2 block sm:hidden"
+            onClick={() => setOpenMobileQRDialog(true)}
+            icon={"qr_code_scanner"}
+          >
+            Show QR
           </Button>
+          <Button onClick={() => setOpenEditLobbyDialog(true)}>Edit</Button>
           <Button danger={true} busy={busyDeletingLobby} onClick={deleteLobby}>
-            Delete Lobby
+            Delete
           </Button>
         </div>
       </div>
+
       <AnimatePresence>
+        {openMobileQRDialog && (
+          <Dialog onClickOutside={() => setOpenMobileQRDialog(false)}>
+            <p className="font-bold">Join Lobby</p>
+            {qrValue !== "" && lobby.id && (
+              <JoinQR value={qrValue} showURL={true} />
+            )}
+            <Button
+              appearance="filled"
+              className="w-full"
+              onClick={() => setOpenMobileQRDialog(false)}
+            >
+              Close
+            </Button>
+          </Dialog>
+        )}
         {openEditLobbyDialog && (
           <Dialog
             onClickOutside={() => {
-              // Cancel changes
-              setName(lobby.name);
+              handleUpdateLobby();
               setOpenEditLobbyDialog(false);
             }}
           >
             <div className="mb-3 flex flex-col gap-1">
               <p className="font-bold">Edit Lobby</p>
               <div className="flex flex-col gap-1">
-                <p>Lobby Name</p>
+                <p>Name</p>
                 <TextInput
-                  value={name ?? ""}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Name"
+                  value={lobby.name ?? ""}
+                  onChange={(e) => setLobby({ ...lobby, name: e.target.value })}
+                  placeholder="Untitled"
                 />
               </div>
-              {/* <div className="flex flex-col gap-1">
-                <p>Expire</p>
-                <Button className="w-full" disabled>
-                  Change to Never
-                </Button>
-              </div> */}
             </div>
-            <div className="mt-3 flex gap-2">
-              <Button
-                onClick={() => {
-                  // Cancel changes
-                  setName(lobby.name);
-                  setOpenEditLobbyDialog(false);
-                }}
-                className="w-full"
-              >
-                Cancel
-              </Button>
-              <Button
-                appearance="filled"
-                onClick={() => {
-                  if (lobby.id != name) {
-                    handleUpdateLobby();
-                  }
-                  setOpenEditLobbyDialog(false);
-                }}
-                className="w-full"
-              >
-                Done
-              </Button>
-            </div>
+            <Button
+              appearance="filled"
+              onClick={() => {
+                handleUpdateLobby();
+                setOpenEditLobbyDialog(false);
+              }}
+              className="w-full"
+            >
+              Done
+            </Button>
           </Dialog>
         )}
       </AnimatePresence>

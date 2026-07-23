@@ -1,13 +1,19 @@
-import Button from "@/components/Button";
-import AboutHeader from "@/components/send/subcomponents/AboutHeader";
-import TextInput from "@/components/TextInput";
+import Button from "@/components/common/Button";
+import TextInput from "@/components/common/TextInput";
+import SendLogo from "@/components/send/subcomponents/SendLogo";
+import { createShortCode } from "@/utils/helpers/send/createShortCode";
+import getLobbyByShortCode from "@/utils/helpers/send/getLobbyByShortCode";
 import { createClient } from "@supabase/supabase-js";
 import Head from "next/head";
+import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const LOBBY_CODE_FORMAT_REGEX = /^\d{6}$/;
 
 const PageSendLanding = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const [shortCodeField, setShortCodeField] = useState<string>("");
   const [busyCreatingLobby, setBusyCreatingLobby] = useState<boolean>(false);
@@ -23,7 +29,9 @@ const PageSendLanding = () => {
 
     const { data, error } = await supabase
       .from("send_lobby")
-      .insert({})
+      .insert({
+        short_id: createShortCode(),
+      })
       .select()
       .single();
 
@@ -34,20 +42,15 @@ const PageSendLanding = () => {
       router.push(`/send/${data.id}`);
     }
   };
+  const handleSubmitShortCode = async (code: string) => {
+    // Catches invalid code format before running.
+    if (!LOBBY_CODE_FORMAT_REGEX.test(code)) {
+      return alert("Invalid join code format, please try again!");
+    }
 
-  const handleSubmitShortCode = async () => {
     setBusyJoiningLobby(true);
 
-    const supabase = await createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
-      process.env.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY ?? "",
-    );
-
-    const { data, error } = await supabase
-      .from("send_lobby")
-      .select()
-      .eq("short_id", shortCodeField)
-      .single();
+    const { data, error } = await getLobbyByShortCode(code);
 
     if (error) {
       alert(JSON.stringify(error));
@@ -57,6 +60,27 @@ const PageSendLanding = () => {
     }
   };
 
+  const checkParamActions = () => {
+    if (!searchParams) return;
+
+    // Join Lobby - Checked first because of probability to be used.
+    const joinCode = searchParams.get("join");
+    if (joinCode) {
+      setShortCodeField(joinCode);
+      void handleSubmitShortCode(joinCode);
+      return;
+    }
+
+    // Create Lobby
+    if (searchParams.get("new") != null) {
+      void handleNewLobby();
+    }
+  };
+
+  useEffect(() => {
+    checkParamActions();
+  }, [searchParams]);
+
   return (
     <>
       <Head>
@@ -64,7 +88,7 @@ const PageSendLanding = () => {
         <link rel="shortcut icon" href="/favicons/send.png" type="image/png" />
       </Head>
       <div className="p-3">
-        <AboutHeader />
+        <SendLogo />
         <div
           className="m-auto mt-6 flex w-full max-w-xl flex-col gap-3 *:w-full
             sm:flex-row"
@@ -88,12 +112,13 @@ const PageSendLanding = () => {
                 onChange={(e) => setShortCodeField(e.target.value)}
                 placeholder={"000000"}
                 maxLength={6}
+                data-tabnum
               />
               <Button
                 icon={"arrow_right_alt"}
                 busy={busyJoiningLobby}
                 disabled={!shortCodeField || shortCodeField.length != 6}
-                onClick={() => handleSubmitShortCode()}
+                onClick={() => handleSubmitShortCode(shortCodeField)}
               />
             </div>
           </div>

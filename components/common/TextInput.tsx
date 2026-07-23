@@ -1,4 +1,4 @@
-import MaterialIcon from "@/components/MaterialIcon";
+import MaterialIcon from "@/components/common/MaterialIcon";
 import cn from "@/utils/helpers/cn";
 import type { FC, InputHTMLAttributes } from "react";
 import type { FieldError } from "react-hook-form";
@@ -60,7 +60,7 @@ const TextInput: FC<TextInputProps> = ({
 }) => (
   <div
     className={cn(
-      `border-outline bg-background focus-within:border-primary flex h-8.75
+      `border-outline focus-within:border-primary bg-surface-primary flex h-8.75
       w-full items-center gap-2 rounded-md border p-2 px-2 transition-colors
       focus-within:shadow-md hover:shadow-md`,
       error
