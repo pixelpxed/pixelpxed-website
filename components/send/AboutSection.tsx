@@ -2,13 +2,14 @@ import Button from "@/components/common/Button";
 import Dialog from "@/components/common/Dialog";
 import TextInput from "@/components/common/TextInput";
 import InformationDetails from "@/components/send/subcomponents/AboutBoard";
+import JoinQR from "@/components/send/subcomponents/JoinQR";
 import SendLogo from "@/components/send/subcomponents/SendLogo";
+import { createShortCode } from "@/utils/helpers/send/createShortCode";
 import type { Lobby } from "@/utils/types/send";
 import { createClient } from "@supabase/supabase-js";
 import { AnimatePresence } from "motion/react";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
-import QRCode from "react-qr-code";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
@@ -27,6 +28,7 @@ const AboutSection: FC<{
   const [busyCreatingCode, setBusyCreatingCode] = useState<boolean>(false);
   const [openEditLobbyDialog, setOpenEditLobbyDialog] =
     useState<boolean>(false);
+  const [openMobileQRDialog, setOpenMobileQRDialog] = useState<boolean>(false);
   const [clock, setClock] = useState(new Date());
 
   const formattedClock = new Intl.DateTimeFormat("en-US", {
@@ -56,9 +58,7 @@ const AboutSection: FC<{
       const { data, error } = await supabase
         .from("send_lobby")
         .update({
-          short_id: Math.floor(Math.random() * 1000000)
-            .toString()
-            .padStart(6, "0"),
+          short_id: createShortCode(),
         })
         .eq("id", router.query.id)
         .select()
@@ -102,8 +102,8 @@ const AboutSection: FC<{
     <>
       <div
         className="border-outline bg-surface-primary flex w-full shrink-0
-          flex-col items-center justify-between gap-3 rounded-lg border p-3
-          sm:h-full sm:max-w-80 sm:gap-6"
+          flex-col items-center justify-between gap-3 overflow-auto rounded-lg
+          border p-3 sm:h-full sm:max-w-80 sm:gap-6"
       >
         <div className="flex w-full flex-col gap-3 sm:gap-6">
           <div className="flex items-center justify-between gap-1">
@@ -118,14 +118,7 @@ const AboutSection: FC<{
         </div>
 
         {qrValue !== "" && lobby.id && (
-          <QRCode
-            bgColor="transparent"
-            fgColor="var(--color-on-background)"
-            level="Q"
-            size={192}
-            value={qrValue}
-            className="m-auto hidden h-max w-full max-w-40 sm:block"
-          />
+          <JoinQR value={qrValue} showURL={true} className="hidden sm:flex" />
         )}
 
         <div className="grid w-full grid-cols-2 gap-1">
@@ -134,20 +127,41 @@ const AboutSection: FC<{
               className="col-span-2"
               busy={busyCreatingCode}
               onClick={() => handleCreateCode()}
+              icon={"add"}
             >
-              Generate Short Code
+              Create Join Code
             </Button>
           )}
-          <Button onClick={() => setOpenEditLobbyDialog(true)}>
-            Edit Lobby
+          <Button
+            className="col-span-2 block sm:hidden"
+            onClick={() => setOpenMobileQRDialog(true)}
+            icon={"qr_code_2"}
+          >
+            Show QR
           </Button>
+          <Button onClick={() => setOpenEditLobbyDialog(true)}>Edit</Button>
           <Button danger={true} busy={busyDeletingLobby} onClick={deleteLobby}>
-            Delete Lobby
+            Delete
           </Button>
         </div>
       </div>
 
       <AnimatePresence>
+        {openMobileQRDialog && (
+          <Dialog onClickOutside={() => setOpenMobileQRDialog(false)}>
+            <p className="font-bold">Scan to join this Lobby.</p>
+            {qrValue !== "" && lobby.id && (
+              <JoinQR value={qrValue} showURL={true} />
+            )}
+            <Button
+              appearance="filled"
+              className="w-full"
+              onClick={() => setOpenMobileQRDialog(false)}
+            >
+              Close
+            </Button>
+          </Dialog>
+        )}
         {openEditLobbyDialog && (
           <Dialog
             onClickOutside={() => {
@@ -157,11 +171,11 @@ const AboutSection: FC<{
             <div className="mb-3 flex flex-col gap-1">
               <p className="font-bold">Edit Lobby</p>
               <div className="flex flex-col gap-1">
-                <p>Lobby Name</p>
+                <p>Name</p>
                 <TextInput
                   value={lobby.name ?? ""}
                   onChange={(e) => setLobby({ ...lobby, name: e.target.value })}
-                  placeholder="Name"
+                  placeholder="Untitled"
                 />
               </div>
             </div>
