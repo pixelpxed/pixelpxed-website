@@ -48,7 +48,7 @@ const Button: StylableFC<ButtonProps> = ({
         appearance == "outlined" && "border-outline border bg-transparent",
         appearance != "text" && "hover:shadow-md",
         danger && "text-danger",
-        icon && !children && "w-8.75",
+        icon && !children && "aspect-square flex-none",
         ((!busy && icon && children) || (busy && busyWithText)) && "px-2 pl-1",
         (disabled || busy) && "pointer-events-none opacity-50 brightness-90",
         className,
