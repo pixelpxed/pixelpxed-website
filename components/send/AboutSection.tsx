@@ -113,10 +113,7 @@ const AboutSection: FC<{
             </p>
           </div>
           <div className="w-full">
-            <InformationDetails
-              name={lobby.name ? lobby.name : lobby.id}
-              lobbyCode={lobby.short_id}
-            />
+            <InformationDetails lobby={lobby} />
           </div>
         </div>
 
