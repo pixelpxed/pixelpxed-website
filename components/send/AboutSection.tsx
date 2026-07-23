@@ -135,7 +135,7 @@ const AboutSection: FC<{
           <Button
             className="col-span-2 block sm:hidden"
             onClick={() => setOpenMobileQRDialog(true)}
-            icon={"qr_code_2"}
+            icon={"qr_code_scanner"}
           >
             Show QR
           </Button>
@@ -149,7 +149,7 @@ const AboutSection: FC<{
       <AnimatePresence>
         {openMobileQRDialog && (
           <Dialog onClickOutside={() => setOpenMobileQRDialog(false)}>
-            <p className="font-bold">Scan to join this Lobby.</p>
+            <p className="font-bold">Join Lobby</p>
             {qrValue !== "" && lobby.id && (
               <JoinQR value={qrValue} showURL={true} />
             )}
