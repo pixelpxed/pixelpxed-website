@@ -46,6 +46,7 @@ const Button: StylableFC<ButtonProps> = ({
         appearance == "tonal" && "border-outline bg-surface-primary border",
         appearance == "filled" && "bg-primary text-on-primary",
         appearance == "outlined" && "border-outline border bg-transparent",
+        appearance == "text" && "text-primary",
         appearance != "text" && "hover:shadow-md",
         danger && "text-danger",
         icon && !children && "aspect-square flex-none",
