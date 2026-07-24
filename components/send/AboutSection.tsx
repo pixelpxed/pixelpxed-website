@@ -25,7 +25,10 @@ const AboutSection: FC<{
   const router = useRouter();
 
   const [qrValue, setQrValue] = useState<string>("");
+
   const [busyCreatingCode, setBusyCreatingCode] = useState<boolean>(false);
+  const [busyRefreshingCode, setBusyRefreshingCode] = useState<boolean>(false);
+
   const [openEditLobbyDialog, setOpenEditLobbyDialog] =
     useState<boolean>(false);
   const [openMobileQRDialog, setOpenMobileQRDialog] = useState<boolean>(false);
@@ -44,11 +47,14 @@ const AboutSection: FC<{
       .eq("id", lobby.id)
       .select()
       .single();
+
     if (error) {
       alert(JSON.stringify(error));
     } else {
       setLobby(data ?? lobby);
     }
+
+    return;
   };
   const handleCreateCode = async () => {
     setBusyCreatingCode(true);
@@ -67,7 +73,7 @@ const AboutSection: FC<{
       if (error) {
         if (error.code == "23505") {
           alert(
-            `Failed to create code; proposed code already exists. Please try again later or contact the developer if this persists repeatedly.`,
+            `Failed to create code; code proposal repeatedly hits colision after multiple attempts. Please try again later or contact the developer if this persists repeatedly.`,
           );
         } else {
           alert(JSON.stringify(error));
@@ -79,8 +85,37 @@ const AboutSection: FC<{
         });
       }
 
-      setBusyCreatingCode(false);
+      return setBusyCreatingCode(false);
     }
+  };
+  const handleRefreshCode = async () => {
+    setBusyRefreshingCode(true);
+
+    const { data, error } = await supabase
+      .from("send_lobby")
+      .update({
+        short_id: createShortCode(),
+      })
+      .eq("id", router.query.id)
+      .select()
+      .single();
+
+    if (error) {
+      if (error.code == "23505") {
+        alert(
+          `Failed to create code; code proposal repeatedly hits colision after multiple attempts. Please try again later or contact the developer if this persists repeatedly.`,
+        );
+      } else {
+        alert(JSON.stringify(error));
+      }
+    } else {
+      setLobby({
+        ...lobby,
+        short_id: data.short_id,
+      });
+    }
+
+    return setBusyRefreshingCode(false);
   };
 
   useEffect(() => {
@@ -169,7 +204,7 @@ const AboutSection: FC<{
               setOpenEditLobbyDialog(false);
             }}
           >
-            <div className="mb-3 flex flex-col gap-1">
+            <div className="mb-3 flex flex-col gap-2">
               <p className="font-bold">Edit Lobby</p>
               <div className="flex flex-col gap-1">
                 <p>Name</p>
@@ -178,6 +213,18 @@ const AboutSection: FC<{
                   onChange={(e) => setLobby({ ...lobby, name: e.target.value })}
                   placeholder="Untitled"
                 />
+              </div>
+              <div className="flex flex-col gap-1">
+                <p>Join Code</p>
+                <Button
+                  appearance="tonal"
+                  onClick={() => handleRefreshCode()}
+                  icon={"refresh"}
+                  busy={busyRefreshingCode}
+                  danger={true}
+                >
+                  Refresh Join Code
+                </Button>
               </div>
             </div>
             <Button
