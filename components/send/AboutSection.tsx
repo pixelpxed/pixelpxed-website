@@ -4,12 +4,15 @@ import TextInput from "@/components/common/TextInput";
 import InformationDetails from "@/components/send/subcomponents/AboutBoard";
 import JoinQR from "@/components/send/subcomponents/JoinQR";
 import SendLogo from "@/components/send/subcomponents/SendLogo";
+import cn from "@/utils/helpers/cn";
 import { createShortCode } from "@/utils/helpers/send/createShortCode";
 import type { Lobby } from "@/utils/types/send";
 import { createClient } from "@supabase/supabase-js";
 import { AnimatePresence } from "motion/react";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
+
+const CODE_REFRESH_TIMEOUT_SECONDS = 30;
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
@@ -40,6 +43,10 @@ const AboutSection: FC<{
     hour12: false,
   }).format(clock);
 
+  const timeSinceCodeRefresh: number =
+    new Date().getTime() - new Date(lobby.short_id_refreshed_at).getTime();
+  const disableRefreshCode: boolean =
+    timeSinceCodeRefresh < CODE_REFRESH_TIMEOUT_SECONDS * 1000;
   const handleUpdateLobby = async () => {
     const { data, error } = await supabase
       .from("send_lobby")
@@ -95,6 +102,7 @@ const AboutSection: FC<{
       .from("send_lobby")
       .update({
         short_id: createShortCode(),
+        short_id_refreshed_at: new Date(),
       })
       .eq("id", router.query.id)
       .select()
@@ -112,6 +120,7 @@ const AboutSection: FC<{
       setLobby({
         ...lobby,
         short_id: data.short_id,
+        short_id_refreshed_at: data.short_id_refreshed_at,
       });
     }
 
@@ -221,9 +230,15 @@ const AboutSection: FC<{
                   onClick={() => handleRefreshCode()}
                   icon={"refresh"}
                   busy={busyRefreshingCode}
+                  disabled={disableRefreshCode}
                   danger={true}
+                  data-tabnum
                 >
-                  Refresh Join Code
+                  {cn(
+                    "Refresh Join Code",
+                    disableRefreshCode &&
+                      `(00:${String((Math.floor(timeSinceCodeRefresh / 1000) - CODE_REFRESH_TIMEOUT_SECONDS) * -1).padStart(2, "0")})`,
+                  )}
                 </Button>
               </div>
             </div>

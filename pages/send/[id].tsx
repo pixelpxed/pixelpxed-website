@@ -19,10 +19,13 @@ const PageSendRoom = (props: any) => {
   const router = useRouter();
 
   const [lobby, setLobby] = useState<Lobby>({
-    name: props.lobby.name,
     id: props.lobby.id,
+    created_at: props.lobby.created_at,
+    name: props.lobby.name,
     short_id: props.lobby.short_id,
+    short_id_refreshed_at: props.lobby.short_id_refreshed_at,
   });
+
   const [items, setItems] = useState<
     {
       id: string;
@@ -71,6 +74,9 @@ const PageSendRoom = (props: any) => {
       .single();
 
     if (error) {
+      if (error.code == "PGRST116") {
+        return setOpenDeletedDialog(true);
+      }
       alert(JSON.stringify(error));
     } else {
       setLobby(data);
@@ -86,6 +92,7 @@ const PageSendRoom = (props: any) => {
     // Tab: Refresh data when page is focused again.
     const refreshDataOnTabRefocus = () => {
       if (document.visibilityState === "visible" && lobby.id) {
+        getLobbyInfo();
         getLobbyItems();
         console.warn(
           "[Send] Refreshing staled lobby items data... (Tab Refocus)",
