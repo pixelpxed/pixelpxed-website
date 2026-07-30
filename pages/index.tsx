@@ -157,7 +157,7 @@ const PageLanding = () => {
             </div>
             {userWaveChecked && (
               <Button
-                appearance={userWave ? "outlined" : "filled"}
+                appearance={userWave ? "tonal" : "filled"}
                 icon={userWave ? "check_small" : "waving_hand"}
                 className="w-full max-w-none sm:max-w-max"
                 onClick={() => handleSubmitWave()}
