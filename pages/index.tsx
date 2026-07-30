@@ -90,9 +90,10 @@ const PageLanding = () => {
             <div className="flex flex-col gap-1.5">
               <p className="text-xs opacity-50">Apps</p>
               <div className="flex flex-col gap-1">
-                {APPS_LIST.map((item) => {
+                {APPS_LIST.map((item, idx) => {
                   return (
                     <AppContainer
+                      key={idx}
                       icon={item.icon}
                       title={item.title}
                       description={item.description}
