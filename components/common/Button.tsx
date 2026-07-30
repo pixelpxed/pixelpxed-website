@@ -41,7 +41,7 @@ const Button: StylableFC<ButtonProps> = ({
     <button
       className={cn(
         `flex h-8.75 cursor-pointer items-center justify-center gap-1.5
-        overflow-hidden rounded-md p-1.5 text-nowrap transition-all! select-none
+        overflow-hidden rounded-md p-2.5 text-nowrap transition-all! select-none
         hover:brightness-95`,
         appearance == "tonal" && "border-outline bg-surface-primary border",
         appearance == "filled" && "bg-primary text-on-primary",
@@ -50,7 +50,7 @@ const Button: StylableFC<ButtonProps> = ({
         appearance != "text" && "hover:shadow-md",
         danger && "text-danger",
         icon && !children && "aspect-square flex-none",
-        ((!busy && icon && children) || (busy && busyWithText)) && "px-2 pl-1",
+        ((!busy && icon && children) || (busy && busyWithText)) && "pr-3.5",
         (disabled || busy) && "pointer-events-none opacity-50 brightness-90",
         className,
       )}
