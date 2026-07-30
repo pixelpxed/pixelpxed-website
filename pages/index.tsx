@@ -1,8 +1,12 @@
+import Button from "@/components/common/Button";
 import AppContainer from "@/components/landing/AppContainer";
 import Footer from "@/components/landing/Footer";
+import { createClient } from "@supabase/supabase-js";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import Balancer from "react-wrap-balancer";
 
 const APPS_LIST = [
@@ -29,7 +33,68 @@ const APPS_LIST = [
   },
 ];
 
+const supabase = await createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY ?? "",
+);
+
 const PageLanding = () => {
+  const [userWave, setUserWave] = useState<boolean>(true);
+  const [waveCount, setWaveCount] = useState<number>(0);
+  const [userWaveChecked, setUserWaveChecked] = useState<boolean>(false);
+
+  const getGlobalWavedCount = async () => {
+    const { count, error } = await supabase
+      .from("landing_waves")
+      .select("*", { count: "exact", head: true });
+
+    if (error) {
+      console.error(error);
+    } else {
+      setWaveCount(count ?? 0);
+    }
+
+    return setUserWaveChecked(true);
+  };
+  const getUserWavedStatus = async () => {
+    if (localStorage.getItem("pixelpxed-landing-waveUUID") == "")
+      return setUserWave(false);
+
+    const { error } = await supabase
+      .from("landing_waves")
+      .select()
+      .eq("id", localStorage.getItem("pixelpxed-landing-waveUUID"))
+      .single();
+
+    if (error) {
+      return setUserWave(false);
+    } else {
+      return setUserWave(true);
+    }
+  };
+  const handleWaveSubmit = async () => {
+    const { data, error } = await supabase
+      .from("landing_waves")
+      .insert({})
+      .select()
+      .single();
+
+    if (error) {
+      return alert(JSON.stringify(error));
+    } else {
+      if (typeof window != "undefined") {
+        localStorage.setItem("pixelpxed-landing-waveUUID", data.id);
+      }
+      getUserWavedStatus();
+      return getGlobalWavedCount();
+    }
+  };
+
+  useEffect(() => {
+    getUserWavedStatus();
+    getGlobalWavedCount();
+  }, []);
+
   return (
     <>
       <Head>
@@ -85,6 +150,23 @@ const PageLanding = () => {
                 </Link>
               </p>
             </div>
+            {userWaveChecked && (
+              <Button
+                appearance={userWave ? "outlined" : "filled"}
+                icon={userWave ? "check_small" : "waving_hand"}
+                disabled={userWave}
+                className="w-full max-w-none sm:max-w-max"
+                onClick={() => handleWaveSubmit()}
+              >
+                {waveCount == 0
+                  ? `Wave to Metawat!`
+                  : userWave
+                    ? waveCount == 1
+                      ? `You waved to Metawat!`
+                      : `You and ${waveCount - 1} other${waveCount == 2 ? "" : "s"} waved!`
+                    : `Wave with ${waveCount} other people!`}
+              </Button>
+            )}
           </div>
           <div className="flex flex-col gap-4 sm:row-span-2">
             <div className="flex flex-col gap-1.5">
