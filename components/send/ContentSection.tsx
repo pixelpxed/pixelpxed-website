@@ -56,7 +56,7 @@ const ContentSection: FC<{
           </div>
         )}
       </div>
-      <div className="flex gap-1 pt-3">
+      <div className="flex gap-1 pt-3 print:hidden">
         <TextInput
           value={sendField}
           onChange={(e) => setSendField(e.target.value)}

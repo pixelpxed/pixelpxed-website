@@ -152,7 +152,7 @@ const AboutSection: FC<{
         <div className="flex w-full flex-col gap-3 sm:gap-6">
           <div className="flex items-center justify-between gap-1">
             <SendLogo />
-            <p className="opacity-50" data-tabnum>
+            <p className="opacity-50 print:opacity-0" data-tabnum>
               {formattedClock}
             </p>
           </div>
@@ -165,7 +165,22 @@ const AboutSection: FC<{
           <JoinQR value={qrValue} showURL={true} className="hidden sm:flex" />
         )}
 
-        <div className="grid w-full grid-cols-2 gap-1">
+        {/* Print Timestamp */}
+        <p className="hidden text-center text-xs opacity-50 print:block">
+          As of{" "}
+          {new Intl.DateTimeFormat("en-US", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false,
+          }).format(new Date())}
+        </p>
+
+        <div className="grid w-full grid-cols-2 gap-1 print:hidden">
           {!lobby.short_id && (
             <Button
               className="col-span-2"
