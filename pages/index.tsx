@@ -115,10 +115,7 @@ const PageLanding = () => {
             </div>
           </div>
 
-          <Footer
-            className="m-0 text-center sm:mt-auto sm:text-left
-              [&>div]:justify-center sm:[&>div]:justify-start"
-          />
+          <Footer className="m-0 text-center sm:mt-auto sm:text-left" />
         </div>
       </main>
     </>
