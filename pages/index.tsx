@@ -42,6 +42,7 @@ const PageLanding = () => {
   const [userWave, setUserWave] = useState<boolean>(true);
   const [waveCount, setWaveCount] = useState<number>(0);
   const [userWaveChecked, setUserWaveChecked] = useState<boolean>(false);
+  const [busySubmitWave, setBusySubmitWave] = useState<boolean>(false);
 
   const getGlobalWavedCount = async () => {
     const { count, error } = await supabase
@@ -72,7 +73,9 @@ const PageLanding = () => {
       return setUserWave(true);
     }
   };
-  const handleWaveSubmit = async () => {
+  const handleSubmitWave = async () => {
+    setBusySubmitWave(true);
+
     const { data, error } = await supabase
       .from("landing_waves")
       .insert({})
@@ -80,13 +83,15 @@ const PageLanding = () => {
       .single();
 
     if (error) {
-      return alert(JSON.stringify(error));
+      alert(JSON.stringify(error));
+      return setBusySubmitWave(false);
     } else {
       if (typeof window != "undefined") {
         localStorage.setItem("pixelpxed-landing-waveUUID", data.id);
       }
       getUserWavedStatus();
-      return getGlobalWavedCount();
+      getGlobalWavedCount();
+      return setBusySubmitWave(false);
     }
   };
 
@@ -154,9 +159,11 @@ const PageLanding = () => {
               <Button
                 appearance={userWave ? "outlined" : "filled"}
                 icon={userWave ? "check_small" : "waving_hand"}
-                disabled={userWave}
                 className="w-full max-w-none sm:max-w-max"
-                onClick={() => handleWaveSubmit()}
+                onClick={() => handleSubmitWave()}
+                busy={busySubmitWave}
+                busyWithText={true}
+                disabled={userWave}
               >
                 {waveCount == 0
                   ? `Wave to Metawat!`
