@@ -26,7 +26,7 @@ const MessageItem = ({ item, ...props }: MessageItemProps) => {
           hour12: false,
         }).format(new Date(item.created_at))}
       </p>
-      <div className="w-full [&>*>a]:text-blue-500 dark:[&>*>a]:text-blue-400">
+      <div className="w-full [&>*>a]:text-anchor">
         <Linkify
           as={"p"}
           options={{

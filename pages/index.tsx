@@ -2,7 +2,6 @@ import Button from "@/components/common/Button";
 import AppContainer from "@/components/landing/AppContainer";
 import Footer from "@/components/landing/Footer";
 import { createClient } from "@supabase/supabase-js";
-import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -148,7 +147,7 @@ const PageLanding = () => {
                 <Link
                   href="https://www.chula.ac.th"
                   target="_blank"
-                  className="text-blue-500 dark:text-blue-400"
+                  className="text-anchor"
                 >
                   Chulalongkorn&nbsp;U.
                 </Link>
