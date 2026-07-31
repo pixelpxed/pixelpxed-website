@@ -112,11 +112,10 @@ const PageLanding = () => {
       </Head>
       <main className="bg-background flex h-full min-h-dvh p-0 sm:p-2">
         <div
-          className="sm:bg-surface-primary border-outline m-auto flex h-dvh
-            w-full max-w-none flex-col justify-start gap-6 rounded-none border-0
-            bg-transparent p-3 pt-6 sm:grid sm:h-full sm:grid-cols-2
-            sm:justify-between sm:gap-x-4 sm:rounded-xl sm:border sm:p-6
-            md:max-w-180"
+          className="sm:bg-surface-primary border-outline m-0 flex w-full
+            max-w-180 flex-col justify-start gap-6 rounded-xl border-0
+            bg-transparent p-3 pt-6 sm:m-auto sm:grid sm:grid-cols-2
+            sm:justify-between sm:gap-x-4 sm:border sm:p-6"
         >
           <div
             className="flex flex-col justify-start gap-4 text-center
@@ -204,7 +203,7 @@ const PageLanding = () => {
             </div>
           </div>
 
-          <Footer className="m-0 mb-3 sm:mb-0 text-center sm:mt-auto sm:text-left" />
+          <Footer className="m-0 text-center sm:mt-auto sm:text-left" />
         </div>
       </main>
     </>
