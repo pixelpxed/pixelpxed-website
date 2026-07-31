@@ -204,7 +204,7 @@ const PageLanding = () => {
             </div>
           </div>
 
-          <Footer className="m-0 text-center sm:mt-auto sm:text-left" />
+          <Footer className="m-0 mb-3 sm:mb-0 text-center sm:mt-auto sm:text-left" />
         </div>
       </main>
     </>
