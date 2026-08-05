@@ -19,7 +19,7 @@
   --color-outline: hsla(0, 0%, 0%, 0.1);
   --color-danger: var(--color-red-500);
   --color-on-danger: var(--color-white);
-  --color-anchor: var(--Øcolor-blue-500);
+  --color-anchor: var(--color-blue-500);
 }
 
 :root.dark,

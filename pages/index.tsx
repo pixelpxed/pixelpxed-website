@@ -137,9 +137,9 @@ const PageLanding = () => {
             <div className="gap-1">
               <p>
                 <Balancer>
-                  Self-taught developer interested on things web-related. But
-                  I’m also a minimalist UI/UX designer with the balance on
-                  functionality in mind also.
+                  Self-taught developer interested on things web-related. Also a
+                  minimalist UI/UX designer with the balance on functionality in
+                  mind.
                 </Balancer>
               </p>
               <p>
