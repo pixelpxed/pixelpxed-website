@@ -1,4 +1,5 @@
 import cn from "@/utils/helpers/cn";
+import getCopyrightYear from "@/utils/helpers/getCopyrightYear";
 import { StylableFC } from "@/utils/types/common";
 import Link from "next/link";
 
@@ -14,7 +15,7 @@ const Footer: StylableFC<{ align?: "left" | "center" }> = ({
         className,
       )}
     >
-      <p>© 2026 Metawat R. All rights reserved.</p>
+      <p>© {getCopyrightYear()} Metawat R. All rights reserved.</p>
       <p className="[&>a]:underline">
         <Link href="mailto:metawat.rojn@gmail.com" target="_blank">
           Mail
